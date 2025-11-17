@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Apple (red) -->
+  <circle cx="24" cy="24" r="18" fill="#DC2626"/>
+  <!-- Leaf -->
+  <path d="M 28 12 Q 32 10 34 14 Q 33 18 28 18 Z" fill="#16A34A"/>
+  <!-- Shine -->
+  <circle cx="18" cy="18" r="5" fill="#FCA5A5" opacity="0.6"/>
+</svg>
