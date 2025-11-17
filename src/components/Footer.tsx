@@ -127,7 +127,7 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-3">
             {/* PayPal */}
             <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">PP</span>
+              <span className="text-white font-bold text-xs">🅿️</span>
             </div>
             
             {/* Apple Pay */}
@@ -137,42 +137,22 @@ export default function Footer() {
             
             {/* Venmo */}
             <div className="bg-gradient-to-br from-sky-400 to-blue-500 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">V</span>
+              <span className="text-white font-bold text-xs">💙</span>
             </div>
             
             {/* Cash App */}
             <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">$</span>
+              <span className="text-white font-bold text-xs">💵</span>
             </div>
             
             {/* Zelle */}
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">Z</span>
+              <span className="text-white font-bold text-xs">🏦</span>
             </div>
             
             {/* Crypto */}
             <div className="bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
               <span className="text-white font-bold text-xs">₿</span>
-            </div>
-
-            {/* Visa */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs text-xs">VISA</span>
-            </div>
-
-            {/* Mastercard */}
-            <div className="bg-gradient-to-br from-red-500 to-orange-500 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">MC</span>
-            </div>
-
-            {/* AMEX */}
-            <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">AX</span>
-            </div>
-
-            {/* Google Pay */}
-            <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">GP</span>
             </div>
           </div>
         </div>
