@@ -102,7 +102,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-yellow-300 rounded-3xl opacity-30"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <img
-                src="/hero/fruit-basket.jpg"
+                src="/hero/hero-image.jpg"
                 alt="Fruit basket"
                 className="w-full h-full object-cover object-center rounded-3xl shadow-2xl transform transition-transform duration-700 ease-in-out hover:scale-105"
               />
