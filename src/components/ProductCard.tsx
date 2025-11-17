@@ -27,24 +27,24 @@ export default function ProductCard({product}:{product:Fruit}){
         <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
       </div>
 
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         {/* Product Name & Category */}
-        <h3 className="font-bold text-lg text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">{product.name}</h3>
+        <h3 className="font-bold text-base sm:text-lg text-gray-900 group-hover:text-emerald-700 transition-colors duration-300 line-clamp-2">{product.name}</h3>
         <p className="text-xs text-emerald-600 font-semibold mt-1 uppercase tracking-wider">{product.category}</p>
 
         {/* Rating */}
         <div className="flex items-center gap-1 mt-2">
           <span className="text-amber-400 text-sm">★</span>
-          <span className="text-sm font-semibold text-gray-700">{product.rating}</span>
+          <span className="text-xs sm:text-sm font-semibold text-gray-700">{product.rating}</span>
           <span className="text-xs text-gray-500">({product.reviews})</span>
         </div>
 
         {/* Price Section */}
         <div className="flex items-center justify-between mt-4">
           <div>
-            <span className="font-black text-2xl text-emerald-600">${product.price.toFixed(2)}</span>
+            <span className="font-black text-xl sm:text-2xl text-emerald-600">${product.price.toFixed(2)}</span>
             {product.originalPrice && (
-              <span className="text-sm text-gray-400 line-through ml-2 font-medium">${product.originalPrice.toFixed(2)}</span>
+              <span className="text-xs sm:text-sm text-gray-400 line-through ml-2 font-medium">${product.originalPrice.toFixed(2)}</span>
             )}
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function ProductCard({product}:{product:Fruit}){
         {/* Add Button */}
         <button
           onClick={handleAddClick}
-          className={`w-full mt-4 px-4 py-3 font-bold text-white rounded-lg transition-all duration-300 transform
+          className={`w-full mt-3 sm:mt-4 px-3 sm:px-4 py-2 sm:py-3 font-bold text-white text-sm sm:text-base rounded-lg transition-all duration-300 transform
             ${isClicked 
               ? 'bg-emerald-500 scale-95 shadow-inner' 
               : 'bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 shadow-lg hover:shadow-xl hover:-translate-y-1'

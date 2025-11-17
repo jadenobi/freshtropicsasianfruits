@@ -76,28 +76,28 @@ const FAQS = [
 export default function Home() {
   return (
     <PageLayout>
-      <section className="h-screen bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-screen bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white flex items-center justify-center relative overflow-hidden py-12 md:py-0">
         {/* Decorative emoji removed — replaced by a real hero image */}
 
-        <div className="grid grid-cols-2 gap-12 max-w-6xl mx-auto px-8 items-center relative z-10">
-          <div className="space-y-8 animate-fade-in">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto px-4 md:px-8 items-center relative z-10">
+          <div className="space-y-6 md:space-y-8 animate-fade-in">
             <div className="animate-slide-up" style={{animationDelay: "0.2s"}}>
-                            <h1 className="text-6xl font-bold mb-4 text-yellow-300">Fresh Tropics</h1>
-              <p className="text-2xl text-amber-100 font-semibold mb-2">Asian Fruits</p>
+              <h1 className="text-4xl md:text-6xl font-bold mb-2 md:mb-4 text-yellow-300">Fresh Tropics</h1>
+              <p className="text-lg md:text-2xl text-amber-100 font-semibold mb-2">Asian Fruits</p>
             </div>
 
-            <div className="flex gap-6 animate-slide-up" style={{animationDelay: "0.4s"}}>
-              <Link href="/shop" className="bg-gradient-to-r from-amber-400 to-yellow-300 text-emerald-900 font-bold px-8 py-4 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-block">Shop Now</Link>
-              <Link href="/about" className="border-2 border-yellow-300 text-yellow-300 font-bold px-8 py-4 rounded-lg hover:bg-yellow-300 hover:text-emerald-900 transition-all duration-300 inline-block">Learn More</Link>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-6 animate-slide-up" style={{animationDelay: "0.4s"}}>
+              <Link href="/shop" className="bg-gradient-to-r from-amber-400 to-yellow-300 text-emerald-900 font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-block text-center text-sm md:text-base">Shop Now</Link>
+              <Link href="/about" className="border-2 border-yellow-300 text-yellow-300 font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-yellow-300 hover:text-emerald-900 transition-all duration-300 inline-block text-center text-sm md:text-base">Learn More</Link>
             </div>
 
-            <div className="flex gap-8 pt-4 animate-slide-up" style={{animationDelay: "0.6s"}}>
-              <div className="flex items-center gap-2"><span className="text-2xl">✓</span><span className="text-emerald-100">100% Fresh</span></div>
-              <div className="flex items-center gap-2"><span className="text-2xl">✓</span><span className="text-emerald-100">Fast Delivery</span></div>
+            <div className="flex flex-wrap gap-4 md:gap-8 pt-2 md:pt-4 animate-slide-up" style={{animationDelay: "0.6s"}}>
+              <div className="flex items-center gap-2"><span className="text-lg md:text-2xl">✓</span><span className="text-sm md:text-base text-emerald-100">100% Fresh</span></div>
+              <div className="flex items-center gap-2"><span className="text-lg md:text-2xl">✓</span><span className="text-sm md:text-base text-emerald-100">Fast Delivery</span></div>
             </div>
           </div>
 
-          <div className="relative h-80 md:h-96 animate-scale-in" style={{animationDelay: "0.3s"}}>
+          <div className="relative h-64 sm:h-80 md:h-96 animate-scale-in" style={{animationDelay: "0.3s"}}>
             {/* subtle warm gradient behind the hero image */}
             <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-yellow-300 rounded-3xl opacity-30"></div>
             <div className="absolute inset-0 flex items-center justify-center">
@@ -157,11 +157,11 @@ export default function Home() {
       {/* Our Freshness Guarantee Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-8">
               <div>
-                <h2 className="text-4xl md:text-5xl font-black text-emerald-900 mb-4">Our Freshness Guarantee</h2>
-                <p className="text-xl text-gray-700 font-semibold mb-6">If for ANY reason, your fruit is not fresh, reach out and we'll make it right!</p>
+                <h2 className="text-3xl md:text-5xl font-black text-emerald-900 mb-4">Our Freshness Guarantee</h2>
+                <p className="text-base md:text-xl text-gray-700 font-semibold mb-6">If for ANY reason, your fruit is not fresh, reach out and we'll make it right!</p>
               </div>
               
               <div className="space-y-6">
@@ -191,18 +191,18 @@ export default function Home() {
               <Link href="/refund" className="inline-block bg-emerald-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-emerald-700 transition-colors">Learn More</Link>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-100 to-yellow-100 rounded-2xl p-12 text-center">
-              <div className="text-8xl mb-6">🍍</div>
-              <h3 className="text-3xl font-black text-emerald-900 mb-4">Fresh From Farm</h3>
-              <p className="text-gray-700 font-semibold mb-8">Delivered straight to your doorstep within 7 days of harvest</p>
-              <div className="flex gap-8 justify-center mb-8">
+            <div className="bg-gradient-to-br from-emerald-100 to-yellow-100 rounded-2xl p-6 md:p-12 text-center">
+              <div className="text-6xl md:text-8xl mb-4 md:mb-6">🍍</div>
+              <h3 className="text-2xl md:text-3xl font-black text-emerald-900 mb-3 md:mb-4">Fresh From Farm</h3>
+              <p className="text-sm md:text-base text-gray-700 font-semibold mb-6 md:mb-8">Delivered straight to your doorstep within 7 days of harvest</p>
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center mb-6 md:mb-8">
                 <div className="text-center">
-                  <p className="text-3xl font-black text-emerald-600">206+</p>
-                  <p className="text-sm text-gray-600">Products</p>
+                  <p className="text-2xl md:text-3xl font-black text-emerald-600">206+</p>
+                  <p className="text-xs md:text-sm text-gray-600">Products</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl font-black text-emerald-600">50K+</p>
-                  <p className="text-sm text-gray-600">Happy Customers</p>
+                  <p className="text-2xl md:text-3xl font-black text-emerald-600">50K+</p>
+                  <p className="text-xs md:text-sm text-gray-600">Happy Customers</p>
                 </div>
               </div>
             </div>
@@ -213,10 +213,10 @@ export default function Home() {
       {/* Corporate Gift Orders Section */}
       <section className="py-20 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6">Corporate Gift Orders</h2>
-              <p className="text-xl text-emerald-50 mb-8">Yes, we'll accommodate your special request with fancy and elaborate requirements. Contact our team and let us make it happen for you.</p>
+              <h2 className="text-3xl md:text-5xl font-black mb-4 md:mb-6">Corporate Gift Orders</h2>
+              <p className="text-base md:text-xl text-emerald-50 mb-6 md:mb-8">Yes, we'll accommodate your special request with fancy and elaborate requirements. Contact our team and let us make it happen for you.</p>
               <div className="space-y-4 mb-8">
                 <div className="flex gap-3 items-start">
                   <span className="text-2xl">🎁</span>

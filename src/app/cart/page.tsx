@@ -160,30 +160,30 @@ export default function CartPage() {
       <div className="bg-gradient-to-br from-gray-50 to-white min-h-screen py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-12">
-            <Link href="/shop" className="text-emerald-600 hover:text-emerald-700 font-semibold mb-4 inline-block">← Continue Shopping</Link>
-            <h1 className="text-4xl font-black text-gray-900">Secure Checkout</h1>
+          <div className="mb-8 md:mb-12">
+            <Link href="/shop" className="text-emerald-600 hover:text-emerald-700 font-semibold mb-3 md:mb-4 inline-block text-sm md:text-base">← Continue Shopping</Link>
+            <h1 className="text-3xl md:text-4xl font-black text-gray-900">Secure Checkout</h1>
           </div>
 
           {items.length === 0 ? (
             <div className="text-center py-16">
-              <div className="text-6xl mb-4">🛒</div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
-              <Link href="/shop" className="bg-emerald-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-emerald-700 transition-all inline-block">
+              <div className="text-5xl md:text-6xl mb-4">🛒</div>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
+              <Link href="/shop" className="bg-emerald-600 text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-emerald-700 transition-all inline-block text-sm md:text-base">
                 Start Shopping
               </Link>
             </div>
           ) : (
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
               {/* Main Checkout */}
               <div className="lg:col-span-2">
                 {/* Step Indicators */}
-                <div className="flex gap-2 mb-12 overflow-x-auto pb-4">
+                <div className="flex gap-2 mb-8 md:mb-12 overflow-x-auto pb-4">
                   {["review", "shipping", "payment"].map((step, idx) => (
                     <button 
                       key={step}
                       onClick={() => setCheckoutStep(step)}
-                      className={`px-6 py-3 rounded-lg font-bold whitespace-nowrap transition-all ${
+                      className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold whitespace-nowrap text-sm md:text-base transition-all ${
                         checkoutStep === step 
                           ? "bg-emerald-600 text-white" 
                           : "bg-white text-gray-700 border-2 border-gray-300 hover:border-emerald-600"
