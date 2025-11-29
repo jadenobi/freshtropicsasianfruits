@@ -4,10 +4,11 @@ import PageLayout from '@/components/PageLayout'
 import Image from 'next/image'
 import { FRUITS } from '@/lib/data'
 import { useCart } from '@/context/CartContext'
-import { useState } from 'react'
+import { useState, use } from 'react'
 
-export default function ProductPage({params}:{params:{id:string}}){
-  const product = FRUITS.find(f=> f.id === params.id)
+export default function ProductPage({params}:{params:Promise<{id:string}>}){
+  const {id} = use(params)
+  const product = FRUITS.find(f=> f.id === id)
   const { addToCart } = useCart()
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 
