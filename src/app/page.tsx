@@ -3,6 +3,7 @@ import PageLayout from "@/components/PageLayout"
 import { FRUITS } from "@/lib/data"
 import Link from "next/link"
 import NewsletterSignup from "@/components/NewsletterSignup"
+import PromoBanner from "@/components/PromoBanner"
 
 const FEATURED = FRUITS.slice(0, 4)
 const TOP_RATED = FRUITS.sort((a, b) => b.rating - a.rating).slice(0, 3)
@@ -152,6 +153,13 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Promotional Banner */}
+      <section className="py-16 px-6 sm:px-8 lg:px-10 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <PromoBanner variant="banner" />
         </div>
       </section>
 
