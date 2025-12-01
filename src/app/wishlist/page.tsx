@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import PageLayout from '@/components/PageLayout'
 import ProductCard from '@/components/ProductCard'
-import { products } from '@/lib/data'
+import { FRUITS } from '@/lib/data'
 
 export default function WishlistPage() {
   const [wishlistIds, setWishlistIds] = useState<string[]>([])
@@ -16,7 +16,7 @@ export default function WishlistPage() {
     setWishlistIds(saved)
   }, [])
 
-  const wishlistProducts = products.filter(p => wishlistIds.includes(p.id.toString()))
+  const wishlistProducts = FRUITS.filter(p => wishlistIds.includes(p.id.toString()))
 
   const handleRemove = (productId: string) => {
     const updated = wishlistIds.filter(id => id !== productId)

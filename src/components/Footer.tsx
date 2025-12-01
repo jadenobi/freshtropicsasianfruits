@@ -1,39 +1,9 @@
 ﻿"use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import NewsletterSignup from "./NewsletterSignup"
 
 export default function Footer() {
-  const [email, setEmail] = useState("")
-  const [subscriptionStatus, setSubscriptionStatus] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    if (!email) {
-      setSubscriptionStatus("Please enter an email address")
-      return
-    }
-
-    setIsLoading(true)
-    try {
-      // For now, just show success message
-      // In production, this would send to a backend/email service
-      setSubscriptionStatus("✓ Thank you for subscribing!")
-      setEmail("")
-      
-      // Clear message after 3 seconds
-      setTimeout(() => {
-        setSubscriptionStatus("")
-      }, 3000)
-    } catch (error) {
-      setSubscriptionStatus("Something went wrong. Please try again.")
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
   return (
     <footer className="bg-gradient-to-b from-emerald-950 to-emerald-900 text-gray-100">
       {/* Main Footer Content - 4 Columns */}
@@ -159,36 +129,7 @@ export default function Footer() {
 
         {/* Newsletter Signup */}
         <div className="bg-gradient-to-r from-emerald-800 to-emerald-700 rounded-lg p-8 mb-12 border border-emerald-600">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-xl font-bold text-yellow-300 mb-2">Don't miss out on the latest fruit scoops!</h3>
-              <p className="text-gray-200 text-sm">Sign up to get the latest fruit updates, specials & more!</p>
-            </div>
-            <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email" 
-                  className="flex-1 px-4 py-3 rounded-lg focus:outline-none text-sm"
-                  required
-                />
-                <button 
-                  type="submit"
-                  disabled={isLoading}
-                  className="bg-yellow-400 text-emerald-900 font-bold px-6 py-3 rounded-lg hover:bg-yellow-300 transition-all whitespace-nowrap disabled:opacity-50"
-                >
-                  {isLoading ? "Signing up..." : "Sign up"}
-                </button>
-              </div>
-              {subscriptionStatus && (
-                <p className={`text-sm ${subscriptionStatus.includes("✓") ? "text-emerald-200" : "text-yellow-200"}`}>
-                  {subscriptionStatus}
-                </p>
-              )}
-            </form>
-          </div>
+          <NewsletterSignup variant="footer" />
         </div>
 
         {/* Footer Bottom */}

@@ -2,6 +2,7 @@
 import PageLayout from "@/components/PageLayout"
 import { FRUITS } from "@/lib/data"
 import Link from "next/link"
+import NewsletterSignup from "@/components/NewsletterSignup"
 
 const FEATURED = FRUITS.slice(0, 4)
 const TOP_RATED = FRUITS.sort((a, b) => b.rating - a.rating).slice(0, 3)
@@ -377,6 +378,13 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter Banner */}
+      <section className="py-16 bg-gradient-to-br from-amber-100 to-yellow-100">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
+          <NewsletterSignup variant="banner" />
         </div>
       </section>
 
