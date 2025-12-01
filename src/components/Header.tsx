@@ -70,6 +70,10 @@ export default function Header(){
               📱 App
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-300 to-pink-300 group-hover:w-full transition-all duration-500"></span>
             </Link>
+            <Link href="/videos" className="relative text-transparent bg-gradient-to-r from-pink-300 to-orange-300 bg-clip-text font-black text-sm uppercase tracking-wide hover:from-pink-200 hover:to-orange-200 transition-all duration-300 group">
+              🎬 Videos
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-300 to-orange-300 group-hover:w-full transition-all duration-500"></span>
+            </Link>
             <Link href="/about" className="relative text-amber-50 font-semibold text-sm uppercase tracking-wide hover:text-amber-200 transition-all duration-300 group">
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
@@ -215,6 +219,13 @@ export default function Header(){
             onClick={closeMobileMenu}
           >
             📱 App
+          </Link>
+          <Link 
+            href="/videos" 
+            className="block px-4 py-3 text-transparent bg-gradient-to-r from-pink-300 to-orange-300 bg-clip-text font-black uppercase tracking-wide hover:bg-pink-600/30 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-pink-300"
+            onClick={closeMobileMenu}
+          >
+            🎬 Videos
           </Link>
           <Link 
             href="/email-marketing" 
