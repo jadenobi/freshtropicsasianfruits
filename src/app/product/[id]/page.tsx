@@ -8,6 +8,7 @@ import { useCart } from '@/context/CartContext'
 import ProductRatingForm from '@/components/ProductRatingForm'
 import CustomerReviews from '@/components/CustomerReviews'
 import WishlistButton from '@/components/WishlistButton'
+import InventoryAlert from '@/components/InventoryAlert'
 import { useState, use, useEffect } from 'react'
 
 export default function ProductPage({params}:{params:Promise<{id:string}>}){
@@ -115,6 +116,13 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
                 {product.inStock ? '✓ In Stock' : 'Out of Stock'}
               </p>
             </div>
+
+            {/* Inventory Alert for Out of Stock */}
+            {!product.inStock && (
+              <div className="mb-8">
+                <InventoryAlert productId={id} productName={product.name} />
+              </div>
+            )}
 
             {/* Description */}
             <div className="mb-8 text-gray-700 leading-relaxed">
