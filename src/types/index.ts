@@ -149,6 +149,55 @@ export interface ChatAgent {
   maxChats: number;
 }
 
+// Admin Dashboard Types
+export interface AdminStats {
+  totalOrders: number;
+  totalRevenue: number;
+  totalCustomers: number;
+  averageOrderValue: number;
+  ordersThisMonth: number;
+  revenueThisMonth: number;
+  topProduct: Fruit;
+  topCustomer: Customer;
+}
+
+export interface InventoryAlert {
+  id: string;
+  productId: string;
+  productName: string;
+  currentStock: number;
+  minStock: number;
+  threshold: 'critical' | 'warning' | 'ok';
+  lastRestocked: string;
+}
+
+export interface AdminUser {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'manager' | 'staff';
+  permissions: string[];
+  status: 'active' | 'inactive';
+  lastLogin: string;
+  createdAt: string;
+}
+
+export interface SalesMetric {
+  date: string;
+  orders: number;
+  revenue: number;
+  customers: number;
+  averageOrderValue: number;
+}
+
+export interface CategoryPerformance {
+  category: string;
+  sales: number;
+  revenue: number;
+  growth: number;
+  topProduct: string;
+}
+
 // API Response Types
 export interface ApiResponse<T> {
   success: boolean;

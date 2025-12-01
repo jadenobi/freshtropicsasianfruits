@@ -161,6 +161,13 @@ export default function Header(){
             💬 Live Chat
           </Link>
           <Link 
+            href="/admin" 
+            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            onClick={closeMobileMenu}
+          >
+            📊 Admin
+          </Link>
+          <Link 
             href="/subscribe" 
             className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
             onClick={closeMobileMenu}
