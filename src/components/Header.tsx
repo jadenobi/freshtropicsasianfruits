@@ -53,9 +53,9 @@ export default function Header(){
               📱 Social
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
             </Link>
-            <Link href="/shop?category=pinkglow" className="relative text-pink-200 font-bold text-sm uppercase tracking-wide hover:text-pink-100 transition-all duration-300 group">
-              🌸 Pink Glow Pineapple
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-300 to-pink-100 group-hover:w-full transition-all duration-500"></span>
+            <Link href="/seasonal" className="relative text-amber-50 font-semibold text-sm uppercase tracking-wide hover:text-amber-200 transition-all duration-300 group">
+              🌍 Seasonal
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
             </Link>
             <Link href="/about" className="relative text-amber-50 font-semibold text-sm uppercase tracking-wide hover:text-amber-200 transition-all duration-300 group">
               About
@@ -157,17 +157,38 @@ export default function Header(){
             ℹ️ About
           </Link>
           <Link 
-            href="/contact" 
+            href="/social" 
             className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
             onClick={closeMobileMenu}
           >
-            📧 Contact
+            📱 Social
+          </Link>
+          <Link 
+            href="/subscribe" 
+            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            onClick={closeMobileMenu}
+          >
+            🔄 Subscribe & Save
           </Link>
           
           {/* Mobile Menu Divider */}
           <div className="my-2 h-0.5 bg-gradient-to-r from-amber-500 to-yellow-300 opacity-50"></div>
           
           {/* Additional Mobile Menu Items */}
+          <Link 
+            href="/seasonal" 
+            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            onClick={closeMobileMenu}
+          >
+            🌍 Seasonal
+          </Link>
+          <Link 
+            href="/email-marketing" 
+            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            onClick={closeMobileMenu}
+          >
+            ✉️ Email Marketing
+          </Link>
           <Link 
             href="/rewards" 
             className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
@@ -188,13 +209,6 @@ export default function Header(){
             onClick={closeMobileMenu}
           >
             📊 Admin
-          </Link>
-          <Link 
-            href="/subscribe" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
-            onClick={closeMobileMenu}
-          >
-            🔄 Subscribe & Save
           </Link>
         </nav>
       </div>

@@ -254,6 +254,109 @@ export interface SocialLogin {
   avatar: string;
 }
 
+// Seasonal Collections Types
+export interface SeasonalBundle {
+  id: string;
+  name: string;
+  season: 'spring' | 'summer' | 'fall' | 'winter';
+  description: string;
+  image: string;
+  icon: string;
+  products: Fruit[];
+  bundlePrice: number;
+  originalPrice: number;
+  discount: number;
+  discountPercent: number;
+  inStock: boolean;
+  theme: string;
+  storageNotes: string;
+  recipeTips: string;
+  quantity: number;
+  bestFor: string;
+  createdAt: string;
+}
+
+export interface SeasonalOffer {
+  id: string;
+  title: string;
+  season: 'spring' | 'summer' | 'fall' | 'winter';
+  description: string;
+  discountPercent: number;
+  validFrom: string;
+  validUntil: string;
+  image: string;
+  code?: string;
+  applicableProducts: string[];
+  featured: boolean;
+}
+
+export interface SeasonalCalendar {
+  month: number;
+  season: 'spring' | 'summer' | 'fall' | 'winter';
+  fruitInSeason: Fruit[];
+  storageNotes: { [key: string]: string };
+  recipeHighlights: { [key: string]: string };
+}
+
+// Email Marketing Types
+export interface EmailTemplate {
+  id: string;
+  name: string;
+  subject: string;
+  preheader: string;
+  htmlContent: string;
+  templateType: 'welcome' | 'abandoned-cart' | 'post-purchase' | 'promotional' | 'newsletter' | 'seasonal';
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface EmailCampaign {
+  id: string;
+  name: string;
+  type: 'welcome' | 'abandoned-cart' | 'post-purchase' | 'promotional' | 'newsletter' | 'seasonal';
+  templateId: string;
+  recipientCount: number;
+  sentCount: number;
+  openRate: number;
+  clickRate: number;
+  conversionRate: number;
+  status: 'draft' | 'scheduled' | 'sending' | 'sent' | 'paused';
+  scheduledFor?: string;
+  sentAt?: string;
+  createdAt: string;
+}
+
+export interface EmailSubscriber {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  preferences: {
+    promotions: boolean;
+    newsletter: boolean;
+    seasonal: boolean;
+    productUpdates: boolean;
+  };
+  subscribedAt: string;
+  unsubscribedAt?: string;
+  lastEmailSent?: string;
+  status: 'active' | 'unsubscribed' | 'bounced';
+}
+
+export interface EmailSequence {
+  id: string;
+  name: string;
+  type: 'welcome' | 'abandoned-cart' | 'post-purchase';
+  emails: Array<{
+    templateId: string;
+    delayHours: number;
+    subject: string;
+  }>;
+  enabled: boolean;
+  triggeredCount: number;
+  createdAt: string;
+}
+
 // API Response Types
 export interface ApiResponse<T> {
   success: boolean;
