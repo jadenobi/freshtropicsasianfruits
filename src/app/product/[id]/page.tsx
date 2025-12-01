@@ -9,6 +9,7 @@ import ProductRatingForm from '@/components/ProductRatingForm'
 import CustomerReviews from '@/components/CustomerReviews'
 import WishlistButton from '@/components/WishlistButton'
 import InventoryAlert from '@/components/InventoryAlert'
+import SubscribeAndSave from '@/components/SubscribeAndSave'
 import { useState, use, useEffect } from 'react'
 
 export default function ProductPage({params}:{params:Promise<{id:string}>}){
@@ -130,7 +131,7 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
             </div>
 
             {/* Add to Cart */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 mb-8">
               <div className="flex gap-3">
                 <button 
                   onClick={()=> addToCart(product, 1)} 
@@ -153,6 +154,9 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
                 </Link>
               </div>
             </div>
+
+            {/* Subscribe & Save */}
+            <SubscribeAndSave productId={id} productName={product.name} productPrice={product.price} />
           </div>
         </div>
       </div>
