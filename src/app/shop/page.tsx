@@ -17,6 +17,9 @@ function ShopContent() {
   const [minRating, setMinRating] = useState(0)
   const [sortBy, setSortBy] = useState('featured')
   const [showFilters, setShowFilters] = useState(false)
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [selectedNutrition, setSelectedNutrition] = useState<string[]>([])
+  const [selectedColor, setSelectedColor] = useState<string>('all')
 
   useEffect(() => {
     setSelectedCategory(categoryParam)
@@ -31,6 +34,43 @@ function ShopContent() {
     { id: 'berries', label: 'Berries' },
     { id: 'citrus', label: 'Citrus' }
   ]
+
+  // Tag filters
+  const availableTags = [
+    { id: 'organic', label: '🌿 Organic', color: 'bg-green-100 text-green-800' },
+    { id: 'seasonal', label: '🌞 Seasonal', color: 'bg-amber-100 text-amber-800' },
+    { id: 'premium', label: '👑 Premium', color: 'bg-purple-100 text-purple-800' },
+    { id: 'bestseller', label: '⭐ Bestseller', color: 'bg-blue-100 text-blue-800' }
+  ]
+
+  // Nutrition benefits
+  const nutritionFilters = [
+    { id: 'vitamin-c', label: '🔬 High Vitamin C', benefit: 'Immune Support' },
+    { id: 'antioxidants', label: '⚡ Antioxidants', benefit: 'Anti-aging' },
+    { id: 'fiber', label: '🌾 High Fiber', benefit: 'Digestive Health' },
+    { id: 'potassium', label: '💪 Potassium', benefit: 'Heart Health' }
+  ]
+
+  // Color-based filtering
+  const colorFilters = [
+    { id: 'all', label: 'All Colors', emoji: '🎨' },
+    { id: 'red', label: 'Red/Pink', emoji: '🔴' },
+    { id: 'yellow', label: 'Yellow/Golden', emoji: '🟡' },
+    { id: 'green', label: 'Green', emoji: '🟢' },
+    { id: 'orange', label: 'Orange', emoji: '🟠' },
+    { id: 'purple', label: 'Purple', emoji: '🟣' }
+  ]
+
+  // Product color mapping (example - could be extended in data.ts)
+  const getProductColor = (productName: string): string => {
+    const name = productName.toLowerCase()
+    if (name.includes('dragon') || name.includes('pink') || name.includes('red') || name.includes('pomegr') || name.includes('straw') || name.includes('cherry')) return 'red'
+    if (name.includes('mango') || name.includes('golden') || name.includes('pineapple') || name.includes('banana') || name.includes('yellow')) return 'yellow'
+    if (name.includes('avocado') || name.includes('green') || name.includes('lime') || name.includes('kiwi')) return 'green'
+    if (name.includes('orange') || name.includes('peach') || name.includes('apricot') || name.includes('passion') || name.includes('papaya')) return 'orange'
+    if (name.includes('grape') || name.includes('blueberry') || name.includes('purple') || name.includes('plum') || name.includes('acai')) return 'purple'
+    return 'yellow'
+  }
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
@@ -74,6 +114,39 @@ function ShopContent() {
     // Rating filter
     products = products.filter(p => p.rating >= minRating)
 
+    // Tag filter
+    if (selectedTags.length > 0) {
+      products = products.filter(p => {
+        const pName = p.name.toLowerCase()
+        return selectedTags.some(tag => {
+          if (tag === 'organic') return pName.includes('organic')
+          if (tag === 'seasonal') return pName.includes('seasonal') || p.category === 'seasonal'
+          if (tag === 'premium') return pName.includes('premium') || pName.includes('special')
+          if (tag === 'bestseller') return p.reviews >= 100
+          return false
+        })
+      })
+    }
+
+    // Nutrition filter
+    if (selectedNutrition.length > 0) {
+      products = products.filter(p => {
+        const pName = p.name.toLowerCase()
+        return selectedNutrition.some(nut => {
+          if (nut === 'vitamin-c') return pName.includes('citrus') || pName.includes('berry') || pName.includes('pineapple') || pName.includes('mango')
+          if (nut === 'antioxidants') return pName.includes('berry') || pName.includes('acai') || pName.includes('grape') || pName.includes('pomegr')
+          if (nut === 'fiber') return pName.includes('berry') || pName.includes('pear') || pName.includes('apple') || pName.includes('kiwi')
+          if (nut === 'potassium') return pName.includes('banana') || pName.includes('avocado') || pName.includes('mango')
+          return false
+        })
+      })
+    }
+
+    // Color filter
+    if (selectedColor !== 'all') {
+      products = products.filter(p => getProductColor(p.name) === selectedColor)
+    }
+
     // Sorting
     if (sortBy === 'price-low') {
       products = [...products].sort((a, b) => a.price - b.price)
@@ -86,7 +159,7 @@ function ShopContent() {
     }
 
     return products
-  }, [selectedCategory, searchQuery, priceRange, minRating, sortBy, collectionParam])
+  }, [selectedCategory, searchQuery, priceRange, minRating, sortBy, collectionParam, selectedTags, selectedNutrition, selectedColor])
 
   const maxPrice = Math.max(...FRUITS.map(p => p.price))
 
@@ -178,12 +251,80 @@ function ShopContent() {
               </div>
             </div>
 
+            {/* Color Filter */}
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-3">🎨 Color</label>
+              <div className="space-y-2">
+                {colorFilters.map(color => (
+                  <button
+                    key={color.id}
+                    onClick={() => setSelectedColor(color.id)}
+                    className={`block w-full text-left px-3 py-2 rounded-lg transition-all font-medium text-sm ${
+                      selectedColor === color.id
+                        ? 'bg-emerald-600 text-white'
+                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    }`}
+                  >
+                    {color.emoji} {color.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Tag Filters */}
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-3">✨ Tags</label>
+              <div className="space-y-2">
+                {availableTags.map(tag => (
+                  <button
+                    key={tag.id}
+                    onClick={() => setSelectedTags(prev =>
+                      prev.includes(tag.id) ? prev.filter(t => t !== tag.id) : [...prev, tag.id]
+                    )}
+                    className={`block w-full text-left px-3 py-2 rounded-lg transition-all font-medium text-sm ${
+                      selectedTags.includes(tag.id)
+                        ? `${tag.color} ring-2 ring-offset-2 ring-emerald-600`
+                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    }`}
+                  >
+                    {tag.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Nutrition Filter */}
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-3">💚 Nutrition Benefits</label>
+              <div className="space-y-2">
+                {nutritionFilters.map(nut => (
+                  <button
+                    key={nut.id}
+                    onClick={() => setSelectedNutrition(prev =>
+                      prev.includes(nut.id) ? prev.filter(n => n !== nut.id) : [...prev, nut.id]
+                    )}
+                    className={`block w-full text-left px-3 py-2 rounded-lg transition-all font-medium text-sm ${
+                      selectedNutrition.includes(nut.id)
+                        ? 'bg-green-600 text-white ring-2 ring-offset-2 ring-green-400'
+                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    }`}
+                  >
+                    <div className="font-semibold">{nut.label}</div>
+                    <div className="text-xs opacity-75 font-normal">{nut.benefit}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Clear Filters */}
             <button
               onClick={() => {
                 setSearchQuery('')
                 setPriceRange([0, maxPrice])
                 setMinRating(0)
+                setSelectedTags([])
+                setSelectedNutrition([])
+                setSelectedColor('all')
               }}
               className="w-full px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-all"
             >
