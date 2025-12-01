@@ -4,13 +4,25 @@ import PageLayout from '@/components/PageLayout'
 import Image from 'next/image'
 import { FRUITS } from '@/lib/data'
 import { useCart } from '@/context/CartContext'
-import { useState, use } from 'react'
+import { useState, use, useEffect } from 'react'
 
 export default function ProductPage({params}:{params:Promise<{id:string}>}){
   const {id} = use(params)
   const product = FRUITS.find(f=> f.id === id)
   const { addToCart } = useCart()
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+
+  // Handle ESC key to close lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isLightboxOpen) {
+        setIsLightboxOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isLightboxOpen])
 
   if(!product) return (
     <PageLayout>
@@ -28,17 +40,21 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-2 gap-8">
           {/* Image Gallery Section */}
           <div className="space-y-4">
-            {/* Main Image */}
-            <div className="bg-gray-100 rounded-lg overflow-hidden">
-              <div className="w-full h-96 relative">
+            {/* Main Image - Clickable for Lightbox */}
+            <div className="bg-gray-100 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => setIsLightboxOpen(true)}>
+              <div className="w-full h-96 relative group">
                 <Image 
                   src={currentImage} 
                   alt={product.name} 
                   fill 
-                  className="object-cover" 
+                  className="object-cover group-hover:opacity-90 transition-opacity" 
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all">
+                  <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Click to expand</span>
+                </div>
               </div>
             </div>
 
@@ -117,6 +133,81 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {isLightboxOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex flex-col items-center justify-center p-4">
+          {/* Close Button */}
+          <button
+            onClick={() => setIsLightboxOpen(false)}
+            className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors z-60"
+          >
+            ✕
+          </button>
+
+          {/* Main Lightbox Image */}
+          <div className="w-full max-w-5xl h-[70vh] relative mb-4 flex items-center justify-center">
+            <Image
+              src={galleryImages[selectedImageIndex]}
+              alt={`${product.name} - view ${selectedImageIndex + 1}`}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+          </div>
+
+          {/* Lightbox Controls */}
+          <div className="w-full max-w-5xl flex flex-col gap-4">
+            {/* Navigation Buttons */}
+            {galleryImages.length > 1 && (
+              <div className="flex items-center justify-between gap-4">
+                <button
+                  onClick={() => setSelectedImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
+                  className="text-white text-2xl hover:text-emerald-400 transition-colors p-2"
+                >
+                  ← Previous
+                </button>
+                <span className="text-white text-sm">
+                  {selectedImageIndex + 1} / {galleryImages.length}
+                </span>
+                <button
+                  onClick={() => setSelectedImageIndex((prev) => (prev + 1) % galleryImages.length)}
+                  className="text-white text-2xl hover:text-emerald-400 transition-colors p-2"
+                >
+                  Next →
+                </button>
+              </div>
+            )}
+
+            {/* Thumbnail Grid in Lightbox */}
+            <div className="flex gap-2 justify-center overflow-x-auto">
+              {galleryImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedImageIndex(idx)}
+                  className={`flex-shrink-0 w-24 h-24 rounded border-2 overflow-hidden transition-all ${
+                    selectedImageIndex === idx
+                      ? 'border-emerald-400 shadow-lg shadow-emerald-400'
+                      : 'border-gray-500 hover:border-gray-400'
+                  }`}
+                >
+                  <Image
+                    src={img}
+                    alt={`${product.name} view ${idx + 1}`}
+                    width={96}
+                    height={96}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Close hint */}
+          <div className="text-gray-400 text-sm mt-4">Press ESC or click X to close</div>
+        </div>
+      )}
     </PageLayout>
   )
 }
