@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, Suspense } from 'react'
+import { useState, useEffect, Suspense, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import PageLayout from '@/components/PageLayout'
 import ProductCard from '@/components/ProductCard'
@@ -9,7 +9,14 @@ import { FRUITS } from '@/lib/data'
 function ShopContent() {
   const searchParams = useSearchParams()
   const categoryParam = searchParams?.get('category') || 'all'
+  const collectionParam = searchParams?.get('collection') || null
+  
   const [selectedCategory, setSelectedCategory] = useState(categoryParam)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [priceRange, setPriceRange] = useState([0, 200])
+  const [minRating, setMinRating] = useState(0)
+  const [sortBy, setSortBy] = useState('featured')
+  const [showFilters, setShowFilters] = useState(false)
 
   useEffect(() => {
     setSelectedCategory(categoryParam)
@@ -25,56 +32,228 @@ function ShopContent() {
     { id: 'citrus', label: 'Citrus' }
   ]
 
-  // Filter products
-  const filteredProducts = selectedCategory === 'all' 
-    ? FRUITS 
-    : selectedCategory === 'pinkglow'
-    ? FRUITS.filter(p => p.name.toLowerCase().includes('pinkglow'))
-    : FRUITS.filter(p => p.category === selectedCategory)
+  // Filter and sort products
+  const filteredProducts = useMemo(() => {
+    let products = FRUITS
+
+    // Category filter
+    if (selectedCategory !== 'all') {
+      if (selectedCategory === 'pinkglow') {
+        products = products.filter(p => p.name.toLowerCase().includes('pinkglow'))
+      } else {
+        products = products.filter(p => p.category === selectedCategory)
+      }
+    }
+
+    // Collection filter
+    if (collectionParam) {
+      if (collectionParam === 'bestsellers') {
+        products = products.sort((a, b) => b.reviews - a.reviews).slice(0, 50)
+      } else if (collectionParam === 'new') {
+        products = products.slice(0, 30)
+      } else if (collectionParam === 'sale') {
+        products = products.filter(p => p.originalPrice && p.originalPrice > p.price).slice(0, 50)
+      } else if (collectionParam === 'toprated') {
+        products = products.filter(p => p.rating >= 4.5).slice(0, 50)
+      }
+    }
+
+    // Search filter
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      products = products.filter(p => 
+        p.name.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query) ||
+        p.description.toLowerCase().includes(query)
+      )
+    }
+
+    // Price filter
+    products = products.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1])
+
+    // Rating filter
+    products = products.filter(p => p.rating >= minRating)
+
+    // Sorting
+    if (sortBy === 'price-low') {
+      products = [...products].sort((a, b) => a.price - b.price)
+    } else if (sortBy === 'price-high') {
+      products = [...products].sort((a, b) => b.price - a.price)
+    } else if (sortBy === 'rating') {
+      products = [...products].sort((a, b) => b.rating - a.rating)
+    } else if (sortBy === 'newest') {
+      products = [...products].reverse()
+    }
+
+    return products
+  }, [selectedCategory, searchQuery, priceRange, minRating, sortBy, collectionParam])
+
+  const maxPrice = Math.max(...FRUITS.map(p => p.price))
 
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-3xl font-bold mb-8 text-black">
-          {selectedCategory === 'pinkglow' ? '🌸 Pink Pineapple Pinkglow Collection' : 'Shop Our Fruits'}
-        </h1>
-        
-        {/* Category Tabs */}
-        <div className="mb-8 overflow-x-auto">
-          <div className="flex gap-3 pb-2">
-            {categories.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition-all ${
-                  selectedCategory === cat.id
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <h1 className="text-3xl font-bold mb-2 text-black">
+              {collectionParam === 'bestsellers' ? '🏆 Best Sellers' :
+               collectionParam === 'new' ? '✨ New Arrivals' :
+               collectionParam === 'sale' ? '🔥 On Sale' :
+               collectionParam === 'toprated' ? '⭐ Top Rated' :
+               selectedCategory === 'pinkglow' ? '🌸 Pink Pineapple Collection' : 'Shop Our Fruits'}
+            </h1>
+            <p className="text-gray-600">
+              Showing <span className="font-bold text-emerald-600">{filteredProducts.length}</span> product{filteredProducts.length !== 1 ? 's' : ''}
+            </p>
           </div>
+          
+          {/* Mobile Filter Toggle */}
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="md:hidden px-4 py-2 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700"
+          >
+            ☰ Filters
+          </button>
         </div>
 
-        {/* Results Count */}
-        <p className="text-gray-600 mb-6">
-          Showing <span className="font-bold text-emerald-600">{filteredProducts.length}</span> product{filteredProducts.length !== 1 ? 's' : ''}
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Filters Sidebar */}
+          <div className={`${showFilters ? 'block' : 'hidden'} md:block space-y-6`}>
+            {/* Search */}
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-2">Search Products</label>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search fruits..."
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+              />
+            </div>
 
-        {/* Products Grid */}
-        {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredProducts.map(p => (
-              <ProductCard key={p.id} product={p} />
-            ))}
+            {/* Price Range */}
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-3">Price Range</label>
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs text-gray-600">
+                  <span>${priceRange[0]}</span>
+                  <span>${priceRange[1]}</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max={maxPrice}
+                  value={priceRange[0]}
+                  onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
+                  className="w-full"
+                />
+                <input
+                  type="range"
+                  min="0"
+                  max={maxPrice}
+                  value={priceRange[1]}
+                  onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+                  className="w-full"
+                />
+              </div>
+            </div>
+
+            {/* Minimum Rating */}
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-3">Minimum Rating</label>
+              <div className="space-y-2">
+                {[0, 3, 3.5, 4, 4.5, 5].map(rating => (
+                  <button
+                    key={rating}
+                    onClick={() => setMinRating(rating)}
+                    className={`block w-full text-left px-3 py-2 rounded-lg transition-all ${
+                      minRating === rating
+                        ? 'bg-emerald-600 text-white'
+                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    }`}
+                  >
+                    {rating === 0 ? 'All Ratings' : `${rating}+ ⭐`}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Clear Filters */}
+            <button
+              onClick={() => {
+                setSearchQuery('')
+                setPriceRange([0, maxPrice])
+                setMinRating(0)
+              }}
+              className="w-full px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-all"
+            >
+              Clear All Filters
+            </button>
           </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No products found in this category.</p>
+
+          {/* Products Section */}
+          <div className="md:col-span-3 space-y-6">
+            {/* Category Tabs */}
+            {!collectionParam && (
+              <div className="overflow-x-auto">
+                <div className="flex gap-2 pb-2">
+                  {categories.map(cat => (
+                    <button
+                      key={cat.id}
+                      onClick={() => setSelectedCategory(cat.id)}
+                      className={`px-3 py-2 rounded-lg whitespace-nowrap text-sm font-medium transition-all ${
+                        selectedCategory === cat.id
+                          ? 'bg-emerald-600 text-white shadow-lg'
+                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Sort By */}
+            <div className="flex justify-between items-center">
+              <p className="text-sm text-gray-600"></p>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+              >
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="newest">Newest</option>
+              </select>
+            </div>
+
+            {/* Products Grid */}
+            {filteredProducts.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProducts.map(p => (
+                  <ProductCard key={p.id} product={p} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-gray-500 text-lg">No products found matching your filters.</p>
+                <button
+                  onClick={() => {
+                    setSearchQuery('')
+                    setPriceRange([0, maxPrice])
+                    setMinRating(0)
+                  }}
+                  className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700"
+                >
+                  Reset Filters
+                </button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )

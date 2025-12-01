@@ -154,6 +154,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Collections Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <h2 className="text-4xl font-black text-emerald-900 mb-12 text-center">Shop Collections</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <Link href="/shop?collection=bestsellers" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-orange-400 to-red-500 shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
+              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
+                <p className="text-5xl mb-3">🏆</p>
+                <h3 className="text-3xl font-black mb-2">Best Sellers</h3>
+                <p className="text-sm text-orange-50">Most loved by customers</p>
+              </div>
+            </Link>
+
+            <Link href="/shop?collection=toprated" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-yellow-400 to-yellow-500 shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
+              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
+                <p className="text-5xl mb-3">⭐</p>
+                <h3 className="text-3xl font-black mb-2">Top Rated</h3>
+                <p className="text-sm text-yellow-50">Highest customer ratings</p>
+              </div>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link href="/shop?collection=new" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
+              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
+                <p className="text-5xl mb-3">✨</p>
+                <h3 className="text-3xl font-black mb-2">New Arrivals</h3>
+                <p className="text-sm text-green-50">Fresh additions</p>
+              </div>
+            </Link>
+
+            <Link href="/shop?collection=sale" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-pink-400 to-rose-500 shadow-lg hover:shadow-2xl transition-all">
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
+              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
+                <p className="text-5xl mb-3">🔥</p>
+                <h3 className="text-3xl font-black mb-2">On Sale</h3>
+                <p className="text-sm text-pink-50">Limited time offers</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Our Freshness Guarantee Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
