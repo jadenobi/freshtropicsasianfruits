@@ -114,6 +114,41 @@ export interface PointsTransaction {
   orderId?: string;
 }
 
+// Live Chat Types
+export interface ChatMessage {
+  id: string;
+  conversationId: string;
+  sender: 'user' | 'agent' | 'bot';
+  senderName: string;
+  message: string;
+  timestamp: string;
+  isBot?: boolean;
+  suggestedReplies?: string[];
+}
+
+export interface ChatConversation {
+  id: string;
+  userId: string;
+  userEmail: string;
+  userName: string;
+  messages: ChatMessage[];
+  status: 'active' | 'waiting' | 'closed';
+  assignedAgent?: string;
+  createdAt: string;
+  updatedAt: string;
+  rating?: number;
+  feedback?: string;
+}
+
+export interface ChatAgent {
+  id: string;
+  name: string;
+  avatar: string;
+  status: 'online' | 'busy' | 'away' | 'offline';
+  activeChats: number;
+  maxChats: number;
+}
+
 // API Response Types
 export interface ApiResponse<T> {
   success: boolean;

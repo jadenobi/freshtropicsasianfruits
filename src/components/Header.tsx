@@ -154,6 +154,13 @@ export default function Header(){
             🎁 Rewards Program
           </Link>
           <Link 
+            href="/live-chat" 
+            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            onClick={closeMobileMenu}
+          >
+            💬 Live Chat
+          </Link>
+          <Link 
             href="/subscribe" 
             className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
             onClick={closeMobileMenu}

@@ -1,6 +1,7 @@
 ﻿import './globals.css'
 import type { Metadata } from 'next'
 import { CartProvider } from '@/lib/cart'
+import ChatWidget from '@/components/ChatWidget'
 
 export const metadata: Metadata = {
   title: 'Fresh Tropics Asian Fruits – Premium Fruit Shop',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased bg-gray-50 text-gray-900">
         <CartProvider>
           {children}
+          <ChatWidget />
         </CartProvider>
       </body>
     </html>
