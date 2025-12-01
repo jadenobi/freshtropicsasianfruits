@@ -47,13 +47,19 @@ export default function Header(){
           </nav>
 
           {/* Cart Button */}
-          <Link href="/cart" className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold rounded-full shadow-lg hover:shadow-2xl hover:from-amber-300 hover:via-amber-200 hover:to-yellow-200 transition-all duration-300 group">
-            <svg className="w-5 h-5 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-              <path d="M7 4V3c0-.6.4-1 1-1h8c.6 0 1 .4 1 1v1h4c.6 0 1 .4 1 1v2c0 .3-.1.5-.3.7L19 20c-.2 1.1-1.1 2-2.3 2H7.3c-1.2 0-2.1-.9-2.3-2L2.3 7.7C2.1 7.5 2 7.3 2 7V5c0-.6.4-1 1-1h4zm2 2h6V4H9v2zm8.2 15H6.8l1.5-11h11.4l-1.5 11z"/>
-            </svg>
-            <span className="text-sm font-black">CART</span>
-            <CartCount />
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/wishlist" className="hidden sm:flex items-center gap-2 px-4 py-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold rounded-lg transition-all text-sm hover:shadow-lg">
+              <span className="text-lg">🤍</span>
+              <span className="hidden md:inline">Wishlist</span>
+            </Link>
+            <Link href="/cart" className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold rounded-full shadow-lg hover:shadow-2xl hover:from-amber-300 hover:via-amber-200 hover:to-yellow-200 transition-all duration-300 group">
+              <svg className="w-5 h-5 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                <path d="M7 4V3c0-.6.4-1 1-1h8c.6 0 1 .4 1 1v1h4c.6 0 1 .4 1 1v2c0 .3-.1.5-.3.7L19 20c-.2 1.1-1.1 2-2.3 2H7.3c-1.2 0-2.1-.9-2.3-2L2.3 7.7C2.1 7.5 2 7.3 2 7V5c0-.6.4-1 1-1h4zm2 2h6V4H9v2zm8.2 15H6.8l1.5-11h11.4l-1.5 11z"/>
+              </svg>
+              <span className="text-sm font-black">CART</span>
+              <CartCount />
+            </Link>
+          </div>
         </div>
       </div>
 

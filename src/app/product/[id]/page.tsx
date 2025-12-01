@@ -2,10 +2,12 @@
 
 import PageLayout from '@/components/PageLayout'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FRUITS } from '@/lib/data'
 import { useCart } from '@/context/CartContext'
 import ProductRatingForm from '@/components/ProductRatingForm'
 import CustomerReviews from '@/components/CustomerReviews'
+import WishlistButton from '@/components/WishlistButton'
 import { useState, use, useEffect } from 'react'
 
 export default function ProductPage({params}:{params:Promise<{id:string}>}){
@@ -120,17 +122,28 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
             </div>
 
             {/* Add to Cart */}
-            <div className="flex gap-3">
-              <button 
-                onClick={()=> addToCart(product, 1)} 
-                disabled={!product.inStock}
-                className="flex-1 px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
-              >
-                Add to Cart
-              </button>
-              <button className="flex-1 px-6 py-3 border-2 border-emerald-600 text-emerald-600 font-bold rounded-lg hover:bg-emerald-50 transition-colors">
-                Buy Now
-              </button>
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-3">
+                <button 
+                  onClick={()=> addToCart(product, 1)} 
+                  disabled={!product.inStock}
+                  className="flex-1 px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                >
+                  Add to Cart
+                </button>
+                <button className="flex-1 px-6 py-3 border-2 border-emerald-600 text-emerald-600 font-bold rounded-lg hover:bg-emerald-50 transition-colors">
+                  Buy Now
+                </button>
+              </div>
+              <div className="flex gap-3">
+                <WishlistButton productId={id} productName={product.name} />
+                <Link 
+                  href="/wishlist"
+                  className="flex-1 px-6 py-3 border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-colors text-center"
+                >
+                  View Wishlist
+                </Link>
+              </div>
             </div>
           </div>
         </div>

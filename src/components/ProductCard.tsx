@@ -4,6 +4,7 @@ import { Fruit } from '@/types'
 import { useCart } from '@/lib/cart'
 import { useState } from 'react'
 import Link from 'next/link'
+import WishlistButton from './WishlistButton'
 
 export default function ProductCard({product}:{product:Fruit}){
   const { addToCart } = useCart()
@@ -18,7 +19,7 @@ export default function ProductCard({product}:{product:Fruit}){
 
   return (
     <Link href={`/product/${product.id}`}>
-      <article className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 cursor-pointer">
+      <article className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative">
         {/* Image Container with Overlay */}
         <div className="relative w-full h-56 overflow-hidden bg-emerald-50">
           <img 
@@ -28,6 +29,11 @@ export default function ProductCard({product}:{product:Fruit}){
           />
           {/* Overlay on Hover */}
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+
+          {/* Wishlist Button in Top Right Corner */}
+          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" onClick={(e) => e.preventDefault()}>
+            <WishlistButton productId={product.id.toString()} variant="icon" />
+          </div>
         </div>
 
         <div className="p-4 sm:p-5">
