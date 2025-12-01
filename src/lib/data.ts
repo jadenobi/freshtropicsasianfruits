@@ -129,9 +129,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 39,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_100512.jpg?v=1762459650',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/HappyBirthday_PG2.jpg?v=1762459650',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_105459.jpg?v=1762457858'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648'
     ],
     description: 'Happy Mother’s Day Pinkglow® Pink Pineapple Gift Box\nThis Mother’s Day, celebrate the most special woman in your life with a gift as rare and beautifu',
     rating: 5,
@@ -218,9 +218,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 99,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_111657.jpg?v=1762459671',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636'
     ],
     description: '🐣🌴 The Taste the Tropics: Easter Edition 🌴🐣Celebrate Easter with a fruity surprise that’s way better than candy. This limited-time box is filled w',
     rating: 4.6,
@@ -235,9 +235,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 49,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540'
     ],
     description: 'Get ready to turn up the heat with Desbry Plantain Chips Spicy with Lime! Zesty lime meets fiery spice in a bold flavor explosion that’ll ignite your ',
     rating: 4.7,
@@ -270,9 +270,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 59,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PlumSugar_3lbs-V3.png?v=1762459575',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_111657.jpg?v=1762459671',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PlumSugar_3lbs-V3.png?v=1762459575',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PlumSugar_3lbs-V3.png?v=1762459575',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PlumSugar_3lbs-V3.png?v=1762459575'
     ],
     description: 'Our Plum Sugar aka Prunus Salicina \'Sugar\' fruit is bursting with sweet, juicy flavor, making it perfect for snacking, baking, desserts, and preserves',
     rating: 4.5,
@@ -287,9 +287,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 99,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Jaboticaba_3lbs_v1.png?v=1762459552',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Jaboticaba_3lbs_v1.png?v=1762459552',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Jaboticaba_3lbs_v1.png?v=1762459552',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Jaboticaba_3lbs_v1.png?v=1762459552'
     ],
     description: 'Get ready to tantalize your taste buds with Jaboticaba, also known as Brazilian Grapes! These small, round fruits pack a punch with their sweet and ju',
     rating: 4.6,
@@ -304,9 +304,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 49,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Malanga-Lime-Chips_4ct_V1.jpg?v=1762459536',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Malanga-Lime-Chips_4ct_V1.jpg?v=1762459536',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Malanga-Lime-Chips_4ct_V1.jpg?v=1762459536',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Malanga-Lime-Chips_4ct_V1.jpg?v=1762459536'
     ],
     description: 'Bring a burst of tropical zest to your snacking with Desbry ®  Malanga Lime Chips! Made from premium malanga roots and kissed with a splash of tangy l',
     rating: 4.7,
@@ -337,9 +337,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 49,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_111657.jpg?v=1762459671',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538'
     ],
     description: 'Sometimes, simple is simply the best. GMO-free, gluten-free and Kosher Desbry®  Plantain Chips Lightly Salted are made from perfectly sliced fresh pic',
     rating: 4.9,
@@ -354,9 +354,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 49,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538'
     ],
     description: 'For snackers who crave bold flavors and wholesome nutrition, Desbry ®  Plantain Chips Garlic deliver! Packed with potassium, Vitamin C, and fiber, the',
     rating: 4.7,
@@ -371,9 +371,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 49,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Sweet_Chips_4ct_V1.jpg?v=1762459539',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Sweet_Chips_4ct_V1.jpg?v=1762459539',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Sweet_Chips_4ct_V1.jpg?v=1762459539',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Sweet_Chips_4ct_V1.jpg?v=1762459539'
     ],
     description: 'Satisfy your sweet tooth with a tropical twist! Desbry®  Plantain Chips Sweet are made from perfectly ripe, fresh picked plantains from Ecuador, deliv',
     rating: 4.9,
@@ -388,9 +388,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 49,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Yuca_Chips_4ct_V1.jpg?v=1759439264',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Yuca_Chips_4ct_V1.jpg?v=1759439264',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Yuca_Chips_4ct_V1.jpg?v=1759439264',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Yuca_Chips_4ct_V1.jpg?v=1759439264'
     ],
     description: 'Get ready to take a flavor-filled journey with Desbry® Yuca Chips! Made from the beloved yuca root, these chips are high in Vitamin C and fiber, offer',
     rating: 4.5,
@@ -405,9 +405,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 49,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-mix_Chips_4ct_V1.jpg?v=1762459539',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-mix_Chips_4ct_V1.jpg?v=1762459539',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-mix_Chips_4ct_V1.jpg?v=1762459539',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-mix_Chips_4ct_V1.jpg?v=1762459539'
     ],
     description: 'If you\'re a plantain lover in search of a rainbow of flavors, look no further! Our 4 ct Desbry®  Plantain Chip Sampler box has got you covered with th',
     rating: 4.8,
@@ -474,9 +474,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 39.99,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256'
     ],
     description: 'Looking for a sweet gift for a honey lover? Look no further. Discover the sweet essence of Florida with our exquisite Wildflower Honey BEE MINE gift b',
     rating: 4.8,
@@ -615,9 +615,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 69,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MountainPapaya3.jpg?v=1762459216',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Sweet_Chips_4ct_V1.jpg?v=1762459539'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MountainPapaya3.jpg?v=1762459216',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MountainPapaya3.jpg?v=1762459216',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MountainPapaya3.jpg?v=1762459216'
     ],
     description: 'Meet the mountain papaya, a cool cousin of the regular papaya, but with its own zing! At Tropical Fruit Box, we\'re super excited to bring you this awe',
     rating: 4.5,
@@ -632,9 +632,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 0.25,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/logo_988318eb-5f2b-4d0c-807b-239eac78d408.png?v=1762459216',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/logo_988318eb-5f2b-4d0c-807b-239eac78d408.png?v=1762459216',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/logo_988318eb-5f2b-4d0c-807b-239eac78d408.png?v=1762459216',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/logo_988318eb-5f2b-4d0c-807b-239eac78d408.png?v=1762459216'
     ],
     description: 'Support for groundbreaking carbon removal technologies.',
     rating: 4.5,
@@ -649,9 +649,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 10,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_111657.jpg?v=1762459671',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185'
     ],
     description: 'Discover the sweet essence of Florida with our exquisite Wildflower Honey. Harvested from the lush, vibrant wildflower fields bathed in Florida\'s suns',
     rating: 4.7,
@@ -808,9 +808,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 29,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/classic-dad-hat-black-front-65aee24c51c51.jpg?v=1762459116',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/classic-dad-hat-black-front-65aee24c51c51.jpg?v=1762459116',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/classic-dad-hat-black-front-65aee24c51c51.jpg?v=1762459116',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/classic-dad-hat-black-front-65aee24c51c51.jpg?v=1762459116'
     ],
     description: 'Dad hats aren\'t just for dads. This one\'s got a low profile with an adjustable strap and curved visor.  • 100% chino cotton twill • Green Camo color i',
     rating: 4.5,
@@ -825,9 +825,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee164de243.jpg?v=1762459116',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee164de243.jpg?v=1762459116',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee164de243.jpg?v=1762459116',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee164de243.jpg?v=1762459116'
     ],
     description: 'Introducing the DragonFruity Belt Bag – your new go-to accessory for life\'s vibrant adventures! Perfect for those who love to move with flair, this wa',
     rating: 4.6,
@@ -842,9 +842,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee0e2a3d3b.jpg?v=1762459115',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee0e2a3d3b.jpg?v=1762459115',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee0e2a3d3b.jpg?v=1762459115',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65aee0e2a3d3b.jpg?v=1762459115'
     ],
     description: 'Get ready to add a splash of tropical style to your wardrobe with our TropiAvo Belt Bag! Perfect for those always on the move, this waist bag blends f',
     rating: 4.9,
@@ -877,9 +877,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65784b5b1f4ae.jpg?v=1762459078',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65784b5b1f4ae.jpg?v=1762459078',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65784b5b1f4ae.jpg?v=1762459078',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/all-over-print-fanny-pack-white-lifestyle-1-65784b5b1f4ae.jpg?v=1762459078'
     ],
     description: 'Dive into the world of vibrant style with our TropiFruity Belt Bag, your must-have companion for every adventure! This waist bag is not just an access',
     rating: 4.7,
@@ -912,9 +912,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 29,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Seamoss3bag3.jpg?v=1762459028',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Seamoss3bag3.jpg?v=1762459028',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Seamoss3bag3.jpg?v=1762459028',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Seamoss3bag3.jpg?v=1762459028'
     ],
     description: 'We finally got Sea Moss also known as Irish Moss! We heard you for all these agonizing months with hundreds of phone calls, social media posts, commen',
     rating: 4.6,
@@ -1035,9 +1035,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 89,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PHOTO-2023-03-09-12-49-17.jpg?v=1759439153',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Sweet_Chips_4ct_V1.jpg?v=1762459539'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PHOTO-2023-03-09-12-49-17.jpg?v=1759439153',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PHOTO-2023-03-09-12-49-17.jpg?v=1759439153',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PHOTO-2023-03-09-12-49-17.jpg?v=1759439153'
     ],
     description: 'These deliciously tender young coconuts are quite the luxury, in fact they come to us from a far away tropical land, probably in first class, while be',
     rating: 4.6,
@@ -1088,9 +1088,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 69,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/IMG_8287.jpg?v=1759439153',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/IMG_8287.jpg?v=1759439153',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/IMG_8287.jpg?v=1759439153',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/IMG_8287.jpg?v=1759439153'
     ],
     description: 'You are probably wondering... What are the benefits of drinking Coconut Water? Well, you don\'t have to wait long because here you have them straight f',
     rating: 4.7,
@@ -1155,9 +1155,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 2,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/demo-upload.png?v=1762458531',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/demo-upload.png?v=1762458531',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/demo-upload.png?v=1762458531',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/demo-upload.png?v=1762458531'
     ],
     description: 'Navidium Shipping Protection',
     rating: 5,
@@ -1298,9 +1298,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 79,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/MixedCocos_18lbs_3.jpg?v=1762458366',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/MixedCocos_18lbs_3.jpg?v=1762458366',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/MixedCocos_18lbs_3.jpg?v=1762458366',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/MixedCocos_18lbs_3.jpg?v=1762458366'
     ],
     description: 'Coconut lovers, we hear you loud and clear! Why travel to a far-away island and run the risk of getting stuck, let alone to try to survive on deliciou',
     rating: 4.8,
@@ -1549,9 +1549,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 109,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Cacaochocolate3.jpg?v=1762458333',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Cacaochocolate3.jpg?v=1762458333',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Cacaochocolate3.jpg?v=1762458333',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Cacaochocolate3.jpg?v=1762458333'
     ],
     description: '\n\nNothing gets you more social street cred these days like making chocolate from scratch. Sure, you may have melted cocoa chips and made a sauce here ',
     rating: 4.9,
@@ -1620,9 +1620,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 69,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PineBerry-Diag-5.jpg?v=1759439124',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PineBerry-Diag-5.jpg?v=1759439124',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PineBerry-Diag-5.jpg?v=1759439124',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/PineBerry-Diag-5.jpg?v=1759439124'
     ],
     description: '\nPineberries are like supercharged strawberries. They have a more complex tropical flavor and delicious aroma. When they are fully ripened, they are a',
     rating: 4.6,
@@ -1637,9 +1637,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 69,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/babygreenmangos-diag-3.jpg?v=1759439123',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/1ctWildflower3.jpg?v=1762459185',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/babygreenmangos-diag-3.jpg?v=1759439123',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/babygreenmangos-diag-3.jpg?v=1759439123',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/babygreenmangos-diag-3.jpg?v=1759439123'
     ],
     description: '\nIntroducing our newest addition: Baby Green Mangoes! These immature mangoes are harvested while they\'re still green, and boast a sharp, tart flavor t',
     rating: 4.5,
@@ -1708,9 +1708,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 139,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/RedCherimoya-3-Diag.jpg?v=1762458146',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_111657.jpg?v=1762459671',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Wildflower_3.jpg?v=1759439256'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/RedCherimoya-3-Diag.jpg?v=1762458146',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/RedCherimoya-3-Diag.jpg?v=1762458146',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/RedCherimoya-3-Diag.jpg?v=1762458146'
     ],
     description: 'Big NO, we disagree! The Red Custard Apple is NOT the ugly duckling of the anona family. As a matter of fact, this delicious variety is very special, ',
     rating: 4.9,
@@ -1903,9 +1903,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 99,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/NamDocMai-8-Diag.jpg?v=1762458057',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Sweet_Chips_4ct_V1.jpg?v=1762459539'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/NamDocMai-8-Diag.jpg?v=1762458057',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/NamDocMai-8-Diag.jpg?v=1762458057',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/NamDocMai-8-Diag.jpg?v=1762458057'
     ],
     description: 'The Nam Doc Mai, or Nam Dok Mai according to Wikipedia is the Rockstar, the ultra, the most popular mango variety in Thailand. Also spelled  น้ำดอกไม้',
     rating: 4.9,
@@ -1938,9 +1938,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 0,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/CoffeeSampleFeatured.jpg?v=1762458039',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/CoffeeSampleFeatured.jpg?v=1762458039',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/CoffeeSampleFeatured.jpg?v=1762458039',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/CoffeeSampleFeatured.jpg?v=1762458039'
     ],
     description: 'Have a Free Sample of La Simeona Gourmet Ground Coffee on us with any valid purchase!\nWe love it so much that we want you to try it! The Coffee has be',
     rating: 4.8,
@@ -2027,9 +2027,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 14.99,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/FrshstCffe.jpg?v=1759439108',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/FrshstCffe.jpg?v=1759439108',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/FrshstCffe.jpg?v=1759439108',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/FrshstCffe.jpg?v=1759439108'
     ],
     description: 'What is the #1 most consumed Tropical fruit in the world? No, it’s not pineapples or bananas. It’s actually a trick question. This fruit is coffee. Co',
     rating: 4.8,
@@ -2062,9 +2062,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 79,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/Macadamia-3Pounds-Box.jpg?v=1759439106',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TasteoftheTropics_v69_10lbs_v1.jpg?v=1759179866',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/Macadamia-3Pounds-Box.jpg?v=1759439106',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/Macadamia-3Pounds-Box.jpg?v=1759439106',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/Macadamia-3Pounds-Box.jpg?v=1759439106'
     ],
     description: 'Few things in life are more satisfying than eating Macadamia nuts, yes, we said it! We are Macadamiaoholics. We love them so much that we wanted to br',
     rating: 5,
@@ -2219,9 +2219,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 88,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/ChineseEggplant-8-box.jpg?v=1759439098',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-salted-Chips_4ct_V1.jpg?v=1762459538',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Plantain-Garlic_Chips_4ct_V1.jpg?v=1762459538'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/ChineseEggplant-8-box.jpg?v=1759439098',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/ChineseEggplant-8-box.jpg?v=1759439098',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/ChineseEggplant-8-box.jpg?v=1759439098'
     ],
     description: 'Stir fry lovers, here is your Chinese Eggplant! You have to love the lavender purplish color and their white flesh. Is it a fruit? Is it a vegetable? ',
     rating: 4.8,
@@ -2860,9 +2860,9 @@ export const FRUITS: Fruit[] = [
     originalPrice: 134,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Durian3ct2.jpg?v=1762457593',
     images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste-of-the-Exotics_10lbs_v74_3.jpg?v=1757164847'
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Durian3ct2.jpg?v=1762457593',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Durian3ct2.jpg?v=1762457593',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Durian3ct2.jpg?v=1762457593'
     ],
     description: 'You’ve requested it and we delivered. We have FRESH Durian! These things are huge, spiky, and delicious and have been flown directly, fresh, NEVER fro',
     rating: 4.6,
