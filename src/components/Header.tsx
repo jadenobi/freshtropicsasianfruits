@@ -57,6 +57,15 @@ export default function Header(){
               🌍 Seasonal
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
             </Link>
+            <div className="h-6 w-px bg-amber-300/30"></div>
+            <Link href="/premium" className="relative text-transparent bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text font-black text-sm uppercase tracking-wide hover:from-emerald-200 hover:to-cyan-200 transition-all duration-300 group">
+              ✨ Premium
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-300 to-cyan-300 group-hover:w-full transition-all duration-500"></span>
+            </Link>
+            <Link href="/experience" className="relative text-transparent bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text font-black text-sm uppercase tracking-wide hover:from-cyan-200 hover:to-blue-200 transition-all duration-300 group">
+              🌐 3D Experience
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-300 to-blue-300 group-hover:w-full transition-all duration-500"></span>
+            </Link>
             <Link href="/about" className="relative text-amber-50 font-semibold text-sm uppercase tracking-wide hover:text-amber-200 transition-all duration-300 group">
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
@@ -181,6 +190,20 @@ export default function Header(){
             onClick={closeMobileMenu}
           >
             🌍 Seasonal
+          </Link>
+          <Link 
+            href="/premium" 
+            className="block px-4 py-3 text-transparent bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text font-black uppercase tracking-wide hover:bg-emerald-600/30 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-emerald-300"
+            onClick={closeMobileMenu}
+          >
+            ✨ Premium
+          </Link>
+          <Link 
+            href="/experience" 
+            className="block px-4 py-3 text-transparent bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text font-black uppercase tracking-wide hover:bg-cyan-600/30 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-cyan-300"
+            onClick={closeMobileMenu}
+          >
+            🌐 3D Experience
           </Link>
           <Link 
             href="/email-marketing" 
