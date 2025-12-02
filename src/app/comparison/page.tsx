@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import Image from 'next/image'
 import PageLayout from '@/components/PageLayout'
 import { ComparisonProduct } from '@/types'
 import {
@@ -105,7 +106,18 @@ export default function ComparisonPage() {
                         <th className="text-left py-4 px-4 font-bold text-gray-900">Attribute</th>
                         {comparisonProducts.map(product => (
                           <th key={product.id} className="text-center py-4 px-4">
-                            <div className="font-bold text-gray-900 mb-2">{product.name}</div>
+                            <div className="mb-3">
+                              <div className="relative w-24 h-24 mx-auto mb-2">
+                                <Image
+                                  src={product.image || '/placeholder.jpg'}
+                                  alt={product.name}
+                                  fill
+                                  className="object-cover rounded-lg"
+                                  priority
+                                />
+                              </div>
+                            </div>
+                            <div className="font-bold text-gray-900 mb-2 text-sm line-clamp-2">{product.name}</div>
                             <button
                               onClick={() => handleSelectProduct(product.id)}
                               className="text-xs px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition-all font-bold"
@@ -273,60 +285,77 @@ export default function ComparisonPage() {
             {sortedProducts.map(product => (
               <div
                 key={product.id}
-                className={`p-6 rounded-lg border-2 transition-all cursor-pointer ${
+                className={`rounded-lg border-2 transition-all cursor-pointer overflow-hidden ${
                   selectedProducts.includes(product.id)
                     ? 'bg-amber-50 border-amber-600 shadow-lg'
                     : 'bg-white border-gray-200 hover:border-amber-300'
                 }`}
                 onClick={() => handleSelectProduct(product.id)}
               >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg font-bold text-gray-900 flex-1">{product.name}</h3>
-                  {selectedProducts.includes(product.id) && <span className="text-2xl">✓</span>}
+                {/* Product Image */}
+                <div className="relative w-full h-48 bg-gray-100">
+                  <Image
+                    src={product.image || '/placeholder.jpg'}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                    priority={selectedProducts.includes(product.id)}
+                  />
+                  {selectedProducts.includes(product.id) && (
+                    <div className="absolute top-2 right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                      ✓
+                    </div>
+                  )}
                 </div>
 
-                <div className="space-y-2 text-sm mb-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Price:</span>
-                    <span className="font-bold text-amber-600">${product.price.toFixed(2)}</span>
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-lg font-bold text-gray-900 flex-1">{product.name}</h3>
                   </div>
+
+                  <div className="space-y-2 text-sm mb-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">Price:</span>
+                      <span className="font-bold text-amber-600">${product.price.toFixed(2)}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">Rating:</span>
+                      <span className="font-bold">
+                        <span className="text-amber-500">⭐</span> {product.rating}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">Reviews:</span>
+                      <span className="font-bold text-gray-700">{product.reviews}</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <p className="text-xs text-gray-600 line-clamp-3">{product.description}</p>
+                  </div>
+
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Rating:</span>
-                    <span className="font-bold">
-                      <span className="text-amber-500">⭐</span> {product.rating}
+                    <span
+                      className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
+                        product.inStock ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                      }`}
+                    >
+                      {product.inStock ? 'In Stock' : 'Out'}
                     </span>
+                    <button
+                      className={`px-4 py-1 rounded-lg font-bold text-sm transition-all ${
+                        selectedProducts.includes(product.id)
+                          ? 'bg-red-600 text-white hover:bg-red-700'
+                          : 'bg-amber-600 text-white hover:bg-amber-700'
+                      }`}
+                      onClick={e => {
+                        e.stopPropagation()
+                        handleSelectProduct(product.id)
+                      }}
+                    >
+                      {selectedProducts.includes(product.id) ? 'Remove' : 'Add'}
+                    </button>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Origin:</span>
-                    <span className="font-bold">{product.origin}</span>
-                  </div>
-                </div>
-
-                <div className="mb-4">
-                  <p className="text-xs text-gray-600 line-clamp-2">{product.description}</p>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
-                      product.inStock ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-                    }`}
-                  >
-                    {product.inStock ? 'In Stock' : 'Out'}
-                  </span>
-                  <button
-                    className={`px-4 py-1 rounded-lg font-bold text-sm transition-all ${
-                      selectedProducts.includes(product.id)
-                        ? 'bg-red-600 text-white hover:bg-red-700'
-                        : 'bg-amber-600 text-white hover:bg-amber-700'
-                    }`}
-                    onClick={e => {
-                      e.stopPropagation()
-                      handleSelectProduct(product.id)
-                    }}
-                  >
-                    {selectedProducts.includes(product.id) ? 'Remove' : 'Add'}
-                  </button>
                 </div>
               </div>
             ))}
@@ -340,22 +369,32 @@ export default function ComparisonPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">⭐ Top Rated</h2>
             <div className="space-y-3">
               {topRated.map(product => (
-                <div key={product.id} className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold text-gray-900">{product.name}</h3>
-                    <span className="text-amber-500">⭐ {product.rating}</span>
+                <div key={product.id} className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all flex gap-4">
+                  <div className="relative w-20 h-20 flex-shrink-0">
+                    <Image
+                      src={product.image || '/placeholder.jpg'}
+                      alt={product.name}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
                   </div>
-                  <p className="text-sm text-gray-600 mb-3">{product.description}</p>
-                  <button
-                    onClick={() => handleSelectProduct(product.id)}
-                    className={`px-4 py-2 rounded-lg font-bold text-sm transition-all ${
-                      selectedProducts.includes(product.id)
-                        ? 'bg-red-600 text-white'
-                        : 'bg-amber-600 text-white hover:bg-amber-700'
-                    }`}
-                  >
-                    {selectedProducts.includes(product.id) ? 'Remove from Comparison' : 'Add to Comparison'}
-                  </button>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="font-bold text-gray-900 line-clamp-1">{product.name}</h3>
+                      <span className="text-amber-500 whitespace-nowrap">⭐ {product.rating}</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
+                    <button
+                      onClick={() => handleSelectProduct(product.id)}
+                      className={`px-4 py-2 rounded-lg font-bold text-sm transition-all ${
+                        selectedProducts.includes(product.id)
+                          ? 'bg-red-600 text-white'
+                          : 'bg-amber-600 text-white hover:bg-amber-700'
+                      }`}
+                    >
+                      {selectedProducts.includes(product.id) ? 'Remove' : 'Add to Comparison'}
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -366,22 +405,32 @@ export default function ComparisonPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">💰 Best Value</h2>
             <div className="space-y-3">
               {bestValue.map(product => (
-                <div key={product.id} className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold text-gray-900">{product.name}</h3>
-                    <span className="text-green-600 font-bold">${product.price.toFixed(2)}</span>
+                <div key={product.id} className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all flex gap-4">
+                  <div className="relative w-20 h-20 flex-shrink-0">
+                    <Image
+                      src={product.image || '/placeholder.jpg'}
+                      alt={product.name}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
                   </div>
-                  <p className="text-sm text-gray-600 mb-3">{product.description}</p>
-                  <button
-                    onClick={() => handleSelectProduct(product.id)}
-                    className={`px-4 py-2 rounded-lg font-bold text-sm transition-all ${
-                      selectedProducts.includes(product.id)
-                        ? 'bg-red-600 text-white'
-                        : 'bg-green-600 text-white hover:bg-green-700'
-                    }`}
-                  >
-                    {selectedProducts.includes(product.id) ? 'Remove from Comparison' : 'Add to Comparison'}
-                  </button>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="font-bold text-gray-900 line-clamp-1">{product.name}</h3>
+                      <span className="text-green-600 font-bold whitespace-nowrap">${product.price.toFixed(2)}</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
+                    <button
+                      onClick={() => handleSelectProduct(product.id)}
+                      className={`px-4 py-2 rounded-lg font-bold text-sm transition-all ${
+                        selectedProducts.includes(product.id)
+                          ? 'bg-red-600 text-white'
+                          : 'bg-green-600 text-white hover:bg-green-700'
+                      }`}
+                    >
+                      {selectedProducts.includes(product.id) ? 'Remove' : 'Add to Comparison'}
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
