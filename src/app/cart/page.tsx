@@ -4,7 +4,7 @@ import PageLayout from "@/components/PageLayout"
 import { useCart } from "@/lib/cart"
 import { PAYMENT_METHODS } from "@/config/payments"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function CartPage() {
   const { items, total, updateQuantity, removeFromCart, clearCart } = useCart()
@@ -15,6 +15,11 @@ export default function CartPage() {
   const [orderNumber, setOrderNumber] = useState("")
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [deliveryGuarantee, setDeliveryGuarantee] = useState(true)
+
+  // Scroll to top when checkout step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [checkoutStep])
 
   const MINIMUM_ORDER = 120
   const subtotal = total
