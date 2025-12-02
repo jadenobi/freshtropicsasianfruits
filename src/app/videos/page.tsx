@@ -188,27 +188,6 @@ export default function VideosPage() {
               </div>
             </div>
           )}
-
-          {/* Featured Section */}
-          <div>
-            <h3 className="text-2xl font-black text-white mb-6">🔥 Most Viewed</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {getFeaturedVideos(4).map((video) => (
-                <button
-                  key={video.id}
-                  onClick={() => setSelectedVideo(video)}
-                  className="group p-4 rounded-lg bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:border-emerald-400/50 transition-all"
-                >
-                  <div className="text-3xl mb-2">{video.thumbnail}</div>
-                  <p className="font-bold text-white text-sm line-clamp-2 mb-2">{video.title}</p>
-                  <div className="flex justify-between text-xs text-white/50">
-                    <span>{formatViewCount(video.views)}</span>
-                    <span>❤️ {formatViewCount(video.likes)}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </PageLayout>
