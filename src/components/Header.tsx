@@ -94,9 +94,6 @@ export default function Header(){
                 <Link href="/seasonal" className="block px-4 py-3 text-amber-50 font-semibold text-sm hover:bg-emerald-600 transition-all duration-200 border-l-4 border-transparent hover:border-amber-300">
                   🌍 Seasonal
                 </Link>
-                <Link href="/social" className="block px-4 py-3 text-amber-50 font-semibold text-sm hover:bg-emerald-600 transition-all duration-200 border-l-4 border-transparent hover:border-amber-300">
-                  📱 Social
-                </Link>
                 <Link href="/app" className="block px-4 py-3 text-amber-50 font-semibold text-sm hover:bg-emerald-600 transition-all duration-200 border-l-4 border-transparent hover:border-amber-300">
                   📱 Mobile App
                 </Link>
@@ -193,25 +190,11 @@ export default function Header(){
             🍎 Compare
           </Link>
           <Link 
-            href="/social" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
-            onClick={closeMobileMenu}
-          >
-            📱 Social
-          </Link>
-          <Link 
             href="/about" 
             className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
             onClick={closeMobileMenu}
           >
             ℹ️ About
-          </Link>
-          <Link 
-            href="/social" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
-            onClick={closeMobileMenu}
-          >
-            📱 Social
           </Link>
           <Link 
             href="/subscribe" 
