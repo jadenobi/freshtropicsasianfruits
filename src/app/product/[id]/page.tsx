@@ -7,6 +7,8 @@ import { FRUITS } from '@/lib/data'
 import { useCart } from '@/context/CartContext'
 import ProductRatingForm from '@/components/ProductRatingForm'
 import CustomerReviews from '@/components/CustomerReviews'
+import RelatedProducts from '@/components/RelatedProducts'
+import NutritionalDisplay from '@/components/NutritionalDisplay'
 import WishlistButton from '@/components/WishlistButton'
 import InventoryAlert from '@/components/InventoryAlert'
 import SubscribeAndSave from '@/components/SubscribeAndSave'
@@ -249,6 +251,23 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
           <div className="text-gray-400 text-sm mt-4">Press ESC or click X to close</div>
         </div>
       )}
+
+      {/* Nutritional Information Section */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <NutritionalDisplay productName={product.name} nutrition={product.nutrition} />
+      </div>
+
+      {/* Customer Reviews Section */}
+      <div className="bg-gray-50 py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CustomerReviews productId={id} />
+        </div>
+      </div>
+
+      {/* Related Products Section */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <RelatedProducts currentProductId={id} category={product.category} />
+      </div>
     </PageLayout>
   )
 }

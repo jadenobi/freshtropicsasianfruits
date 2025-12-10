@@ -1,4 +1,15 @@
 // Product Types
+export interface Nutrition {
+  calories?: number;
+  protein?: number;
+  carbs?: number;
+  fiber?: number;
+  vitaminC?: number;
+  potassium?: number;
+  antioxidants?: string[];
+  benefits?: string[];
+}
+
 export interface Fruit {
   id: string;
   name: string;
@@ -13,6 +24,7 @@ export interface Fruit {
   inStock: boolean;
   inventory?: number;
   quantity?: number;
+  nutrition?: Nutrition; // Nutritional information
 }
 
 // Cart Types
