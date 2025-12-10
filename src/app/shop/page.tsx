@@ -205,7 +205,8 @@ function ShopContent() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search fruits..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white text-base"
+                style={{ fontSize: '16px' }}
               />
             </div>
 
@@ -381,9 +382,9 @@ function ShopContent() {
               </select>
             </div>
 
-            {/* Products Grid */}
+            {/* Products Grid - Mobile Optimized */}
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 {filteredProducts.map(p => (
                   <ProductCard key={p.id} product={p} />
                 ))}
