@@ -2,6 +2,8 @@
 
 import PageLayout from "@/components/PageLayout"
 import FreeShippingBanner from "@/components/FreeShippingBanner"
+import CheckoutForm from "@/components/CheckoutForm"
+import OrderSummary from "@/components/OrderSummary"
 import { useCart } from "@/lib/cart"
 import { PAYMENT_METHODS } from "@/config/payments"
 import Link from "next/link"
