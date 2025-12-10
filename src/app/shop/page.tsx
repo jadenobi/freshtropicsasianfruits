@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { useCart } from '@/lib/cart'
 import PageLayout from '@/components/PageLayout'
 import FreeShippingBanner from '@/components/FreeShippingBanner'
+import LoyaltyRewardsPanel from '@/components/LoyaltyRewardsPanel'
 import ProductCard from '@/components/ProductCard'
 import { FRUITS } from '@/lib/data'
 
@@ -334,6 +335,11 @@ function ShopContent() {
             >
               Clear All Filters
             </button>
+
+            {/* Loyalty Rewards Panel */}
+            <div className="mt-8">
+              <LoyaltyRewardsPanel />
+            </div>
           </div>
 
           {/* Products Section */}

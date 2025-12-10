@@ -1,5 +1,6 @@
 ﻿import ProductCard from "@/components/ProductCard"
 import PageLayout from "@/components/PageLayout"
+import FlashSaleBanner from "@/components/FlashSaleBanner"
 import { FRUITS } from "@/lib/data"
 import Link from "next/link"
 import NewsletterSignup from "@/components/NewsletterSignup"
@@ -79,6 +80,7 @@ const FAQS = [
 export default function Home() {
   return (
     <PageLayout>
+      <FlashSaleBanner />
       <section className="min-h-screen bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white flex items-center justify-center relative overflow-hidden py-12 md:py-0">
         {/* 3D Background Effect with Animated Gradient Orbs */}
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-900 via-emerald-800 to-emerald-700 opacity-60"></div>
