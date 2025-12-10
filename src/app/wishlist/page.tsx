@@ -4,30 +4,28 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import PageLayout from '@/components/PageLayout'
 import ProductCard from '@/components/ProductCard'
+import { useWishlist } from '@/lib/wishlist'
+import { useCart } from '@/lib/cart'
 import { FRUITS } from '@/lib/data'
 
 export default function WishlistPage() {
-  const [wishlistIds, setWishlistIds] = useState<string[]>([])
+  const { wishlist, removeFromWishlist, wishlistCount } = useWishlist()
+  const { addToCart } = useCart()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-    const saved = JSON.parse(localStorage.getItem('wishlist') || '[]')
-    setWishlistIds(saved)
   }, [])
 
-  const wishlistProducts = FRUITS.filter(p => wishlistIds.includes(p.id.toString()))
+  const wishlistProducts = FRUITS.filter(p => wishlist.includes(p.id.toString()))
 
   const handleRemove = (productId: string) => {
-    const updated = wishlistIds.filter(id => id !== productId)
-    setWishlistIds(updated)
-    localStorage.setItem('wishlist', JSON.stringify(updated))
+    removeFromWishlist(productId)
   }
 
   const handleClearWishlist = () => {
     if (confirm('Are you sure you want to clear your entire wishlist?')) {
-      setWishlistIds([])
-      localStorage.setItem('wishlist', '[]')
+      wishlist.forEach(id => removeFromWishlist(id))
     }
   }
 
