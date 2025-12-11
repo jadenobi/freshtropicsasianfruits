@@ -14,7 +14,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
-  swcMinify: true,
 }
 
 module.exports = nextConfig
