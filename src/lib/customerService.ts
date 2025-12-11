@@ -4,8 +4,13 @@ import { supabase } from './supabase'
 // Get or create customer
 export async function createOrGetCustomer(email: string, name: string): Promise<Customer> {
   try {
+    // Return null if supabase not initialized
+    if (!supabase) {
+      return null
+    }
+
     // Check if customer exists
-    let { data: customer, error: fetchError } = await supabase
+    let { data: customer, error: fetchError } = await (supabase as any)
       .from('customers')
       .select('*')
       .eq('email', email)
@@ -17,7 +22,7 @@ export async function createOrGetCustomer(email: string, name: string): Promise<
 
     // If doesn't exist, create
     if (!customer) {
-      const { data: newCustomer, error: insertError } = await supabase
+      const { data: newCustomer, error: insertError } = await (supabase as any)
         .from('customers')
         .insert([{ email, name }])
         .select()
@@ -45,7 +50,8 @@ export async function createOrGetCustomer(email: string, name: string): Promise<
 
 export async function getCustomer(email: string): Promise<Customer | null> {
   try {
-    const { data: customer, error } = await supabase
+    if (!supabase) return null
+    const { data: customer, error } = await (supabase as any)
       .from('customers')
       .select('*')
       .eq('email', email)

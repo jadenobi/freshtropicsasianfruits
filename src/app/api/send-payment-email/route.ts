@@ -23,38 +23,42 @@ export async function POST(request: NextRequest) {
     }
 
     // Save customer to Supabase
-    const { error: customerError } = await supabase
-      .from('customers')
-      .upsert({
-        email: body.customerEmail,
-        name: body.customerName,
-        updated_at: new Date().toISOString()
-      }, {
-        onConflict: 'email'
-      })
-    
-    if (customerError) {
-      console.error("Customer save error:", customerError)
+    if (supabase) {
+      const { error: customerError } = await (supabase as any)
+        .from('customers')
+        .upsert({
+          email: body.customerEmail,
+          name: body.customerName,
+          updated_at: new Date().toISOString()
+        }, {
+          onConflict: 'email'
+        })
+      
+      if (customerError) {
+        console.error("Customer save error:", customerError)
+      }
     }
 
     // Save order to Supabase
-    const { error: orderError } = await supabase
-      .from('orders')
-      .insert({
-        order_id: body.orderId,
-        customer_email: body.customerEmail,
-        items: body.items,
-        subtotal: body.subtotal,
-        shipping: body.shipping,
-        tax: body.tax,
-        total: body.total,
-        status: 'pending',
-        payment_method: body.paymentMethodId,
-        created_at: new Date().toISOString()
-      })
+    if (supabase) {
+      const { error: orderError } = await (supabase as any)
+        .from('orders')
+        .insert({
+          order_id: body.orderId,
+          customer_email: body.customerEmail,
+          items: body.items,
+          subtotal: body.subtotal,
+          shipping: body.shipping,
+          tax: body.tax,
+          total: body.total,
+          status: 'pending',
+          payment_method: body.paymentMethodId,
+          created_at: new Date().toISOString()
+        })
 
-    if (orderError) {
-      console.error("Order save error:", orderError)
+      if (orderError) {
+        console.error("Order save error:", orderError)
+      }
     }
 
     // Send the payment email to customer
