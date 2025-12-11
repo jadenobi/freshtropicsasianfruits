@@ -10,8 +10,8 @@ export const measureCoreWebVitals = () => {
       try {
         const lcpObserver = new PerformanceObserver((entryList) => {
           const entries = entryList.getEntries()
-          const lastEntry = entries[entries.length - 1]
-          console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime)
+          const lastEntry = entries[entries.length - 1] as any
+          console.log('LCP:', lastEntry?.renderTime || lastEntry?.loadTime)
         })
         lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] })
 

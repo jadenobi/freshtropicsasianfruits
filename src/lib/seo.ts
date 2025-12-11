@@ -45,7 +45,7 @@ export const getProductMetadata = (product: Fruit): Metadata => {
       'premium fruits',
     ],
     openGraph: {
-      type: 'product',
+      type: 'website',
       url: url,
       title: product.name,
       description: product.description?.substring(0, 160) || 'Premium fresh fruit',
