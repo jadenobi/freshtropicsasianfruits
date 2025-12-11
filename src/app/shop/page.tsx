@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 import { useCart } from '@/lib/cart'
 import PageLayout from '@/components/PageLayout'
 import FreeShippingBanner from '@/components/FreeShippingBanner'
@@ -192,6 +193,63 @@ function ShopContent() {
           >
             ☰ Filters
           </button>
+        </div>
+
+        {/* Collection Tabs - Prominent Display */}
+        <div className="mb-8 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-lg p-4 border-2 border-emerald-200">
+          <p className="text-sm font-semibold text-emerald-700 mb-3">Browse Collections:</p>
+          <div className="flex flex-wrap gap-2">
+            <Link 
+              href="/shop" 
+              className={`px-4 py-2 rounded-lg font-medium transition-all text-sm sm:text-base ${
+                !collectionParam 
+                  ? 'bg-emerald-600 text-white shadow-md' 
+                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              All Products
+            </Link>
+            <Link 
+              href="/shop?collection=bestsellers" 
+              className={`px-4 py-2 rounded-lg font-medium transition-all text-sm sm:text-base ${
+                collectionParam === 'bestsellers' 
+                  ? 'bg-orange-500 text-white shadow-md' 
+                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              🏆 Best Sellers
+            </Link>
+            <Link 
+              href="/shop?collection=toprated" 
+              className={`px-4 py-2 rounded-lg font-medium transition-all text-sm sm:text-base ${
+                collectionParam === 'toprated' 
+                  ? 'bg-yellow-500 text-white shadow-md' 
+                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              ⭐ Top Rated
+            </Link>
+            <Link 
+              href="/shop?collection=new" 
+              className={`px-4 py-2 rounded-lg font-medium transition-all text-sm sm:text-base ${
+                collectionParam === 'new' 
+                  ? 'bg-green-500 text-white shadow-md' 
+                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              ✨ New Arrivals
+            </Link>
+            <Link 
+              href="/shop?collection=sale" 
+              className={`px-4 py-2 rounded-lg font-medium transition-all text-sm sm:text-base ${
+                collectionParam === 'sale' 
+                  ? 'bg-pink-500 text-white shadow-md' 
+                  : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              🔥 On Sale
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
