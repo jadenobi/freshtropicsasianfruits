@@ -2,7 +2,7 @@ import { Customer, Order } from '@/types'
 import { supabase } from './supabase'
 
 // Get or create customer
-export async function createOrGetCustomer(email: string, name: string): Promise<Customer> {
+export async function createOrGetCustomer(email: string, name: string): Promise<Customer | null> {
   try {
     // Return null if supabase not initialized
     if (!supabase) {
@@ -78,7 +78,7 @@ export async function getCustomer(email: string): Promise<Customer | null> {
 
 export async function addOrder(email: string, order: Order): Promise<void> {
   try {
-    await supabase
+    await (supabase as any)
       .from('orders')
       .insert([
         {
@@ -101,7 +101,7 @@ export async function addOrder(email: string, order: Order): Promise<void> {
 
 export async function getOrders(email: string): Promise<Order[]> {
   try {
-    const { data: orders, error } = await supabase
+    const { data: orders, error } = await (supabase as any)
       .from('orders')
       .select('*')
       .eq('customer_email', email)
@@ -129,7 +129,7 @@ export async function getOrders(email: string): Promise<Order[]> {
 
 export async function addToWishlist(email: string, productId: string): Promise<void> {
   try {
-    await supabase
+    await (supabase as any)
       .from('wishlist')
       .insert([{ customer_email: email, product_id: productId }])
   } catch (error) {
@@ -139,7 +139,7 @@ export async function addToWishlist(email: string, productId: string): Promise<v
 
 export async function removeFromWishlist(email: string, productId: string): Promise<void> {
   try {
-    await supabase
+    await (supabase as any)
       .from('wishlist')
       .delete()
       .eq('customer_email', email)
@@ -151,7 +151,7 @@ export async function removeFromWishlist(email: string, productId: string): Prom
 
 export async function getWishlist(email: string): Promise<string[]> {
   try {
-    const { data: items, error } = await supabase
+    const { data: items, error } = await (supabase as any)
       .from('wishlist')
       .select('product_id')
       .eq('customer_email', email)
@@ -169,7 +169,7 @@ export async function updateCustomerProfile(
   updates: Partial<Customer>
 ): Promise<void> {
   try {
-    await supabase
+    await (supabase as any)
       .from('customers')
       .update({
         name: updates.name,

@@ -139,9 +139,12 @@ export default function Header(){
       </div>
 
       {/* Mobile Navigation Menu - Optimized for touch */}
-      <div className={`lg:hidden fixed left-0 right-0 top-20 bottom-0 bg-gradient-to-b from-emerald-800 to-emerald-700 shadow-2xl border-b-2 border-amber-500 overflow-y-auto transition-all duration-300 ease-in-out ${
-        isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-      }`}>
+      <div
+        style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}
+        className={`lg:hidden fixed left-0 right-0 bottom-0 bg-gradient-to-b from-emerald-800 to-emerald-700 shadow-2xl border-b-2 border-amber-500 overflow-y-auto transition-all duration-300 ease-in-out z-50 ${
+          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
         <nav className="flex flex-col py-2 px-3 gap-1">
           <Link 
             href="/" 
@@ -261,9 +264,10 @@ export default function Header(){
 
       {/* Mobile Menu Backdrop */}
       {isMobileMenuOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 top-20"
+        <div
           onClick={closeMobileMenu}
+          style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}
+          className="lg:hidden fixed left-0 right-0 bottom-0 bg-black bg-opacity-50 z-40"
         ></div>
       )}
 
