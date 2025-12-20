@@ -111,23 +111,23 @@ export default function Header(){
           </nav>
 
           {/* Cart & Menu Buttons */}
-          <div className="flex items-center gap-2 lg:gap-4">
-            <Link href="/wishlist" className="hidden md:flex items-center gap-2 px-3 lg:px-4 py-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold rounded-lg transition-all text-xs lg:text-sm hover:shadow-lg" onClick={closeMobileMenu}>
+          <div className="flex items-center gap-1 sm:gap-2 lg:gap-4">
+            <Link href="/wishlist" className="hidden md:flex items-center gap-2 px-3 lg:px-4 py-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold rounded-lg transition-all text-xs lg:text-sm hover:shadow-lg h-10 min-w-10 justify-center lg:justify-start" onClick={closeMobileMenu}>
               <span className="text-lg">🤍</span>
               <span className="hidden lg:inline">Wishlist</span>
             </Link>
-            <Link href="/cart" className="flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold rounded-full shadow-lg hover:shadow-2xl hover:from-amber-300 hover:via-amber-200 hover:to-yellow-200 transition-all duration-300 group text-xs lg:text-sm" onClick={closeMobileMenu}>
-              <svg className="w-4 lg:w-5 h-4 lg:h-5 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+            <Link href="/cart" className="flex items-center justify-center lg:justify-start gap-2 lg:gap-3 px-3 sm:px-4 lg:px-6 py-2 lg:py-3 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold rounded-full shadow-lg hover:shadow-2xl hover:from-amber-300 hover:via-amber-200 hover:to-yellow-200 transition-all duration-300 group text-xs lg:text-sm h-10 sm:h-auto" onClick={closeMobileMenu}>
+              <svg className="w-4 lg:w-5 h-4 lg:h-5 fill-current group-hover:scale-110 transition-transform flex-shrink-0" viewBox="0 0 24 24">
                 <path d="M7 4V3c0-.6.4-1 1-1h8c.6 0 1 .4 1 1v1h4c.6 0 1 .4 1 1v2c0 .3-.1.5-.3.7L19 20c-.2 1.1-1.1 2-2.3 2H7.3c-1.2 0-2.1-.9-2.3-2L2.3 7.7C2.1 7.5 2 7.3 2 7V5c0-.6.4-1 1-1h4zm2 2h6V4H9v2zm8.2 15H6.8l1.5-11h11.4l-1.5 11z"/>
               </svg>
               <span className="font-black hidden sm:inline">CART</span>
               <CartCount />
             </Link>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Touch optimized */}
             <button 
               onClick={toggleMobileMenu}
-              className="lg:hidden flex flex-col gap-1.5 p-2 hover:bg-emerald-600 rounded-lg transition-all duration-300"
+              className="lg:hidden flex flex-col gap-1.5 p-2 hover:bg-emerald-600 rounded-lg transition-all duration-300 h-10 w-10 justify-center items-center"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               <span className={`w-6 h-0.5 bg-amber-100 rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
@@ -138,63 +138,66 @@ export default function Header(){
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <div className={`lg:hidden absolute left-0 right-0 top-20 bg-gradient-to-b from-emerald-800 to-emerald-700 shadow-2xl border-b-2 border-amber-500 overflow-hidden transition-all duration-300 ease-in-out origin-top ${
-        isMobileMenuOpen ? 'scale-y-100 opacity-100 visible' : 'scale-y-0 opacity-0 invisible'
-      }`}>
-        <nav className="flex flex-col py-4 px-6 gap-2">
+      {/* Mobile Navigation Menu - Optimized for touch */}
+      <div
+        style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}
+        className={`lg:hidden fixed left-0 right-0 bottom-0 bg-gradient-to-b from-emerald-800 to-emerald-700 shadow-2xl border-b-2 border-amber-500 overflow-y-auto transition-all duration-300 ease-in-out z-50 ${
+          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        <nav className="flex flex-col py-2 px-3 gap-1">
           <Link 
             href="/" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             🏠 Home
           </Link>
           <Link 
             href="/shop" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             🛒 Shop
           </Link>
           <Link 
             href="/shop?category=pinkglow" 
-            className="block px-4 py-3 text-pink-200 font-bold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-pink-300"
+            className="block px-4 py-4 text-pink-200 font-bold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-pink-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             🌸 Pink Glow Pineapple
           </Link>
           <Link 
             href="/build-box" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             📦 Build Your Own Box
           </Link>
           <Link 
             href="/blog" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             📰 Blog
           </Link>
           <Link 
             href="/comparison" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             🍎 Compare
           </Link>
           <Link 
             href="/about" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             ℹ️ About
           </Link>
           <Link 
             href="/subscribe" 
-            className="block px-4 py-3 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300"
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
             onClick={closeMobileMenu}
           >
             🔄 Subscribe & Save
@@ -261,11 +264,20 @@ export default function Header(){
 
       {/* Mobile Menu Backdrop */}
       {isMobileMenuOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 top-20"
+        <div
           onClick={closeMobileMenu}
+          style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}
+          className="lg:hidden fixed left-0 right-0 bottom-0 bg-black bg-opacity-50 z-40"
         ></div>
       )}
+
+      <style jsx>{`
+        .touch-target {
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+        }
+      `}</style>
     </header>
   )
 }
