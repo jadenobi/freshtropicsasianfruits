@@ -4,7 +4,6 @@ import FlashSaleBanner from "@/components/FlashSaleBanner"
 import { FRUITS } from "@/lib/data"
 import Link from "next/link"
 import NewsletterSignup from "@/components/NewsletterSignup"
-import PromoBanner from "@/components/PromoBanner"
 import TestimonialCarousel from "@/components/TestimonialCarousel"
 
 const FEATURED = FRUITS.slice(0, 4)
@@ -171,12 +170,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Promotional Banner */}
-      <section className="py-16 px-6 sm:px-8 lg:px-10 bg-gradient-to-r from-emerald-900 to-emerald-800 border-y-4 border-amber-400">
-        <div className="max-w-7xl mx-auto">
-          <PromoBanner variant="banner" />
-        </div>
-      </section>
+
 
       {/* Featured Collections Section */}
       <section className="py-20 bg-gradient-to-b from-emerald-900 via-emerald-800 to-emerald-700">
