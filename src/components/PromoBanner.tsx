@@ -8,6 +8,12 @@ interface PromoBannerProps {
 }
 
 export default function PromoBanner({ variant = 'top' }: PromoBannerProps) {
+  // Promotional banner disabled
+  return null
+}
+
+/*
+export function PromoBannerDisabled({ variant = 'top' }: PromoBannerProps) {
   const [isVisible, setIsVisible] = useState(true)
   const [isChristmasSeason, setIsChristmasSeason] = useState(true)
   const [timeUntilExpiry, setTimeUntilExpiry] = useState('')
@@ -141,3 +147,4 @@ export default function PromoBanner({ variant = 'top' }: PromoBannerProps) {
 
   return null
 }
+*/
