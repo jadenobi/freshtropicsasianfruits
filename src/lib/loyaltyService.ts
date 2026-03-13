@@ -13,7 +13,7 @@ export const LOYALTY_TIERS: Record<string, LoyaltyTier> = {
     name: 'Silver',
     pointsRequired: 500,
     discount: 0.05,
-    benefits: ['1.5 points per $1 spent', '5% discount on all orders', 'Free shipping on $50+', 'Birthday bonus points'],
+    benefits: ['1.5 points per $1 spent', '5% discount on all orders', 'Free shipping on $286+', 'Birthday bonus points'],
     icon: '🥈'
   },
   Gold: {

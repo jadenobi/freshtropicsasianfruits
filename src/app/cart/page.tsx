@@ -286,7 +286,7 @@ export default function CartPage() {
                         <input type="text" placeholder="ZIP" className="col-span-1 px-4 py-4 border-3 border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-gray-900 font-bold placeholder-gray-800 bg-white text-base" />
                       </div>
                       <div className="bg-emerald-50 p-4 rounded-lg border-2 border-emerald-300">
-                        <p className="text-sm font-bold text-emerald-900">✓ Free shipping on orders over $50</p>
+                        <p className="text-sm font-bold text-emerald-900">✓ Free shipping on orders over $286</p>
                       </div>
                     </div>
                     <div className="flex gap-4">

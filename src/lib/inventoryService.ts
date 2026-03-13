@@ -1,10 +1,11 @@
 import { FRUITS } from './data'
-import { supabase } from './supabase'
+import { getSupabaseClient } from './supabase'
 
 export async function initializeInventory(): Promise<void> {
   try {
-    if (!supabase) return
-    const { data: existing } = await (supabase as any)
+    const supabase = getSupabaseClient()
+    
+    const { data: existing } = await supabase
       .from('inventory')
       .select('product_id')
       .limit(1)
@@ -16,7 +17,7 @@ export async function initializeInventory(): Promise<void> {
       quantity: 50 + Math.floor(Math.random() * 200),
     }))
 
-    await (supabase as any)
+    await supabase
       .from('inventory')
       .insert(items)
   } catch (error) {
@@ -26,8 +27,9 @@ export async function initializeInventory(): Promise<void> {
 
 export async function getInventory(productId: string): Promise<number> {
   try {
-    if (!supabase) return 0
-    const { data: item, error } = await (supabase as any)
+    const supabase = getSupabaseClient()
+    
+    const { data: item, error } = await supabase
       .from('inventory')
       .select('quantity')
       .eq('product_id', productId)
@@ -43,8 +45,9 @@ export async function getInventory(productId: string): Promise<number> {
 
 export async function getAllInventory(): Promise<Record<string, number>> {
   try {
-    if (!supabase) return {}
-    const { data: items, error } = await (supabase as any)
+    const supabase = getSupabaseClient()
+    
+    const { data: items, error } = await supabase
       .from('inventory')
       .select('product_id, quantity')
 
@@ -63,11 +66,12 @@ export async function getAllInventory(): Promise<Record<string, number>> {
 
 export async function decreaseInventory(productId: string, quantity: number): Promise<boolean> {
   try {
-    if (!supabase) return false
+    const supabase = getSupabaseClient()
     const current = await getInventory(productId)
+    
     if (current < quantity) return false
 
-    await (supabase as any)
+    await supabase
       .from('inventory')
       .update({ quantity: current - quantity })
       .eq('product_id', productId)
@@ -81,9 +85,10 @@ export async function decreaseInventory(productId: string, quantity: number): Pr
 
 export async function increaseInventory(productId: string, quantity: number): Promise<void> {
   try {
-    if (!supabase) return
+    const supabase = getSupabaseClient()
     const current = await getInventory(productId)
-    await (supabase as any)
+    
+    await supabase
       .from('inventory')
       .update({ quantity: current + quantity })
       .eq('product_id', productId)
@@ -99,8 +104,9 @@ export async function isInStock(productId: string): Promise<boolean> {
 
 export async function getLowStockProducts(threshold: number = 10): Promise<string[]> {
   try {
-    if (!supabase) return []
-    const { data: items, error } = await (supabase as any)
+    const supabase = getSupabaseClient()
+    
+    const { data: items, error } = await supabase
       .from('inventory')
       .select('product_id')
       .gt('quantity', 0)
@@ -116,8 +122,9 @@ export async function getLowStockProducts(threshold: number = 10): Promise<strin
 
 export async function getOutOfStockProducts(): Promise<string[]> {
   try {
-    if (!supabase) return []
-    const { data: items, error } = await (supabase as any)
+    const supabase = getSupabaseClient()
+    
+    const { data: items, error } = await supabase
       .from('inventory')
       .select('product_id')
       .lte('quantity', 0)
@@ -128,4 +135,4 @@ export async function getOutOfStockProducts(): Promise<string[]> {
     console.error('Get out of stock error:', error)
     return []
   }
-}
+} 

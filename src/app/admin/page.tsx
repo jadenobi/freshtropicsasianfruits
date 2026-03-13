@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import PageLayout from '@/components/PageLayout'
 import {
   calculateAdminStats,
@@ -15,11 +16,25 @@ import {
   formatPercentage,
 } from '@/lib/adminService'
 
+// Admin password (store securely in env vars in production)
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'admin123'
+
 export default function AdminDashboard() {
+  const router = useRouter()
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [password, setPassword] = useState('')
   const [activeTab, setActiveTab] = useState<'overview' | 'orders' | 'products' | 'customers' | 'analytics'>('overview')
   const [searchTerm, setSearchTerm] = useState('')
 
-  // Compute analytics
+  // Check authentication on mount
+  useEffect(() => {
+    const adminAuth = localStorage.getItem('adminAuth')
+    if (adminAuth === 'true') {
+      setIsAuthenticated(true)
+    }
+  }, [])
+
+  // Compute analytics (must be called on every render, before conditional return)
   const stats = useMemo(() => calculateAdminStats(), [])
   const alerts = useMemo(() => getInventoryAlerts(), [])
   const salesMetrics = useMemo(() => getSalesMetrics(), [])
@@ -28,6 +43,45 @@ export default function AdminDashboard() {
   const customerInsights = useMemo(() => getCustomerInsights(), [])
   const revenueBreakdown = useMemo(() => getRevenueBreakdown(), [])
   const recentOrders = useMemo(() => getRecentOrders(10), [])
+
+  const handleLogin = () => {
+    if (password === ADMIN_PASSWORD) {
+      localStorage.setItem('adminAuth', 'true')
+      setIsAuthenticated(true)
+    } else {
+      alert('Invalid password')
+    }
+  }
+
+  // Show login page if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <PageLayout>
+        <div className="max-w-md mx-auto px-4 py-16 h-screen flex items-center justify-center">
+          <div className="bg-white rounded-xl shadow-2xl p-8 w-full">
+            <h1 className="text-3xl font-black text-gray-900 mb-2">🔐 Admin Access</h1>
+            <p className="text-gray-600 mb-6">Enter password to access admin dashboard</p>
+            
+            <input
+              type="password"
+              placeholder="Enter admin password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-amber-500 mb-4 text-base"
+            />
+            
+            <button
+              onClick={handleLogin}
+              className="w-full px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 font-bold transition-all"
+            >
+              🔓 Login
+            </button>
+          </div>
+        </div>
+      </PageLayout>
+    )
+  }
 
   const getStatusColor = (status: string) => {
     switch (status) {

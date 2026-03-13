@@ -9,8 +9,7 @@ export async function addReview(
   author: string
 ): Promise<Review> {
   try {
-    if (!supabase) throw new Error('Supabase not initialized')
-    const { data: review, error } = await (supabase as any)
+    const { data: review, error } = await supabase
       .from('reviews')
       .insert([
         {
@@ -44,8 +43,7 @@ export async function addReview(
 
 export async function getProductReviews(productId: string): Promise<Review[]> {
   try {
-    if (!supabase) return []
-    const { data: reviews, error } = await (supabase as any)
+    const { data: reviews, error } = await supabase
       .from('reviews')
       .select('*')
       .eq('product_id', productId)
@@ -71,8 +69,7 @@ export async function getProductReviews(productId: string): Promise<Review[]> {
 
 export async function markHelpful(reviewId: string): Promise<void> {
   try {
-    if (!supabase) return
-    const { data: review, error: fetchError } = await (supabase as any)
+    const { data: review, error: fetchError } = await supabase
       .from('reviews')
       .select('helpful')
       .eq('id', reviewId)
@@ -80,7 +77,7 @@ export async function markHelpful(reviewId: string): Promise<void> {
 
     if (fetchError) throw fetchError
 
-    await (supabase as any)
+    await supabase
       .from('reviews')
       .update({ helpful: (review?.helpful || 0) + 1 })
       .eq('id', reviewId)
