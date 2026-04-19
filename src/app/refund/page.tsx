@@ -29,7 +29,7 @@ export default function RefundPolicyPage() {
           <section>
             <h3 className="text-xl font-bold text-emerald-900 mb-3">How to Request a Refund</h3>
             <ol className="list-decimal list-inside space-y-3 ml-4 mt-3">
-              <li><span className="font-semibold">Contact Us:</span> Email hello@freshtropicsasianfruits.com or call (786) 758-4787 with your order number and reason for the refund</li>
+              <li><span className="font-semibold">Contact Us:</span> Email hello@freshtropicsasianfruits.com or call (305) 697-1193 with your order number and reason for the refund</li>
               <li><span className="font-semibold">Provide Photos:</span> If applicable, send photos of damaged or expired items</li>
               <li><span className="font-semibold">We Respond:</span> Our team will review your request within 24 hours</li>
               <li><span className="font-semibold">Choose Option:</span> Receive a replacement shipment or full refund</li>
@@ -87,7 +87,7 @@ export default function RefundPolicyPage() {
             <p className="mb-4">We're here to help! Our customer service team is available 24/7.</p>
             <div className="space-y-2">
               <p><span className="font-semibold">Email:</span> <a href="mailto:hello@freshtropicsasianfruits.com" className="text-emerald-600 hover:text-emerald-700">hello@freshtropicsasianfruits.com</a></p>
-              <p><span className="font-semibold">Phone:</span> <a href="tel:+17867584787" className="text-emerald-600 hover:text-emerald-700">(786) 758-4787</a></p>
+              <p><span className="font-semibold">Phone:</span> <a href="tel:+13056971193" className="text-emerald-600 hover:text-emerald-700">(305) 697-1193</a></p>
               <p><span className="font-semibold">Hours:</span> 24/7 support</p>
             </div>
           </section>

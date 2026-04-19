@@ -123,8 +123,8 @@ export default function FAQPage() {
             <a href="mailto:hello@freshtropicsasianfruits.com" className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 px-8 py-3 rounded-lg hover:shadow-2xl hover:shadow-amber-400/50 transition-all font-bold uppercase">
               Email Us
             </a>
-            <a href="tel:+17867584787" className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white px-8 py-3 rounded-lg hover:shadow-2xl hover:shadow-emerald-400/50 transition-all font-bold uppercase">
-              Call Us: (786) 758-4787
+            <a href="tel:+13056971193" className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white px-8 py-3 rounded-lg hover:shadow-2xl hover:shadow-emerald-400/50 transition-all font-bold uppercase">
+              Call Us: (305) 697-1193
             </a>
           </div>
         </div>

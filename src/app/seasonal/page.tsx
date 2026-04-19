@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import PageLayout from '@/components/PageLayout'
+import { Flower2, Sun, Leaf as FallLeaf, Snowflake, Globe } from 'lucide-react'
 import {
   getAllSeasonalBundles,
   getCurrentSeasonalOffers,
@@ -28,10 +29,10 @@ export default function SeasonalPage() {
   const selectedBundleData = useMemo(() => allBundles.find(b => b.id === selectedBundle), [allBundles, selectedBundle])
 
   const seasonInfo = {
-    spring: { color: 'pink', emoji: '🌸', gradient: 'from-pink-50 to-rose-50', accent: 'pink' },
-    summer: { color: 'yellow', emoji: '☀️', gradient: 'from-yellow-50 to-orange-50', accent: 'yellow' },
-    fall: { color: 'orange', emoji: '🍂', gradient: 'from-orange-50 to-amber-50', accent: 'orange' },
-    winter: { color: 'blue', emoji: '❄️', gradient: 'from-blue-50 to-cyan-50', accent: 'blue' },
+    spring: { color: 'pink', iconName: 'Flower2', gradient: 'from-pink-50 to-rose-50', accent: 'pink' },
+    summer: { color: 'yellow', iconName: 'Sun', gradient: 'from-yellow-50 to-orange-50', accent: 'yellow' },
+    fall: { color: 'orange', iconName: 'FallLeaf', gradient: 'from-orange-50 to-amber-50', accent: 'orange' },
+    winter: { color: 'blue', iconName: 'Snowflake', gradient: 'from-blue-50 to-cyan-50', accent: 'blue' },
   }
 
   return (
@@ -39,7 +40,10 @@ export default function SeasonalPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-black text-gray-900 mb-2">🌍 Seasonal Collections</h1>
+          <div className="flex items-center gap-3 mb-2">
+            <Globe size={40} className="text-emerald-600" />
+            <h1 className="text-4xl font-black text-gray-900">Seasonal Collections</h1>
+          </div>
           <p className="text-gray-600">Discover fresh fruits at their peak season with special bundles and offers</p>
         </div>
 
@@ -59,7 +63,15 @@ export default function SeasonalPage() {
           </div>
           <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-lg border-2 border-amber-200">
             <p className="text-sm font-bold text-amber-900 mb-2">Current Season</p>
-            <p className="text-3xl font-black text-amber-600">{seasonInfo[statistics.activeSeason].emoji}</p>
+            {(() => {
+              const iconMap: { [key: string]: React.ReactNode } = {
+                Flower2: <Flower2 size={36} className="text-pink-600" />,
+                Sun: <Sun size={36} className="text-yellow-600" />,
+                FallLeaf: <FallLeaf size={36} className="text-orange-600" />,
+                Snowflake: <Snowflake size={36} className="text-blue-600" />
+              }
+              return iconMap[seasonInfo[statistics.activeSeason].iconName]
+            })()}
           </div>
         </div>
 
@@ -87,19 +99,27 @@ export default function SeasonalPage() {
           <div className="space-y-8">
             {/* Season Selector */}
             <div className="flex flex-wrap gap-2 justify-center">
-              {(['spring', 'summer', 'fall', 'winter'] as const).map(season => (
+              {(['spring', 'summer', 'fall', 'winter'] as const).map(season => {
+                const iconMap: { [key: string]: React.ReactNode } = {
+                  Flower2: <Flower2 size={20} />,
+                  Sun: <Sun size={20} />,
+                  FallLeaf: <FallLeaf size={20} />,
+                  Snowflake: <Snowflake size={20} />
+                }
+                return (
                 <button
                   key={season}
                   onClick={() => setSelectedSeason(season)}
-                  className={`px-4 py-2 rounded-lg font-bold transition-all ${
+                  className={`px-4 py-2 rounded-lg font-bold transition-all flex items-center gap-2 ${
                     selectedSeason === season
                       ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-lg scale-105'
                       : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
                   }`}
                 >
-                  {seasonInfo[season].emoji} {season.charAt(0).toUpperCase() + season.slice(1)}
+                  {iconMap[seasonInfo[season].iconName]} {season.charAt(0).toUpperCase() + season.slice(1)}
                 </button>
-              ))}
+                )
+              })}
             </div>
 
             {/* Bundles Grid */}

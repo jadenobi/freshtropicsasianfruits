@@ -1,4 +1,4 @@
-import { FRUITS } from './data'
+import { FRUITS } from './products'
 import { getSupabaseClient } from './supabase'
 
 export async function initializeInventory(): Promise<void> {

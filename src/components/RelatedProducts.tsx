@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 
 interface RelatedProductsProps {
   currentProductId: string

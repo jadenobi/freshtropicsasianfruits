@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { Sparkles, Gift } from 'lucide-react'
 
 interface PromoBannerProps {
   variant?: 'top' | 'banner'
@@ -122,22 +123,22 @@ export function PromoBannerDisabled({ variant = 'top' }: PromoBannerProps) {
             </div>
           </div>
           
-          <p className="text-sm md:text-base text-yellow-200 font-bold mb-6 italic">
-            🌟 Premium Gift Boxes Only • Limited to Top Tier Products • Free Shipping Available
+          <p className="text-sm md:text-base text-yellow-200 font-bold mb-6 italic flex items-center justify-center gap-2">
+            <Sparkles size={20} /> Premium Gift Boxes Only • Limited to Top Tier Products • Free Shipping Available
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/shop?category=exotic"
-              className="bg-gradient-to-r from-yellow-300 to-yellow-200 text-emerald-900 font-black px-8 py-4 rounded-xl hover:shadow-2xl transition-all text-lg transform hover:scale-105 shadow-lg"
+              className="bg-gradient-to-r from-yellow-300 to-yellow-200 text-emerald-900 font-black px-8 py-4 rounded-xl hover:shadow-2xl transition-all text-lg transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
             >
-              ✨ SHOP PREMIUM GIFTS ✨
+              <Sparkles size={20} /> SHOP PREMIUM GIFTS <Sparkles size={20} />
             </Link>
             <Link
               href="/gift-finder"
-              className="bg-gradient-to-r from-red-600 to-emerald-600 hover:from-red-700 hover:to-emerald-700 text-white font-black px-8 py-4 rounded-xl transition-all text-lg border-3 border-yellow-300 transform hover:scale-105 shadow-lg"
+              className="bg-gradient-to-r from-red-600 to-emerald-600 hover:from-red-700 hover:to-emerald-700 text-white font-black px-8 py-4 rounded-xl transition-all text-lg border-3 border-yellow-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
             >
-              🎁 FIND THE PERFECT GIFT 🎁
+              <Gift size={20} /> FIND THE PERFECT GIFT <Gift size={20} />
             </Link>
           </div>
         </div>

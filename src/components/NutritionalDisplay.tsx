@@ -1,5 +1,7 @@
 'use client'
 
+import { CheckCircle2 } from 'lucide-react'
+
 interface NutritionInfo {
   calories?: number
   protein?: number
@@ -114,7 +116,7 @@ export default function NutritionalDisplay({ productName, nutrition }: Nutrition
           <ul className="space-y-2">
             {nutrition.benefits.map((benefit, idx) => (
               <li key={idx} className="flex gap-2 items-start">
-                <span className="text-lg">✓</span>
+                <CheckCircle2 size={18} className="text-green-600 flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-gray-700">{benefit}</span>
               </li>
             ))}

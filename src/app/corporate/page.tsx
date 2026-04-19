@@ -1,4 +1,5 @@
 import PageLayout from "@/components/PageLayout"
+import { Gift, Package, DollarSign, Building2, Heart, GraduationCap, Church, Home, Sparkles } from "lucide-react"
 
 export default function CorporatePage() {
   return (
@@ -12,17 +13,17 @@ export default function CorporatePage() {
         {/* Why Fresh Tropics */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200">
-            <p className="text-3xl mb-3">🎁</p>
+            <Gift size={40} className="text-emerald-600 mb-3" />
             <h3 className="font-bold text-emerald-900 mb-3">Memorable Gifting</h3>
             <p className="text-gray-700 text-sm">Make a lasting impression with premium, fresh fruit boxes that wow your clients and employees.</p>
           </div>
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200">
-            <p className="text-3xl mb-3">📦</p>
+            <Package size={40} className="text-emerald-600 mb-3" />
             <h3 className="font-bold text-emerald-900 mb-3">Customizable Solutions</h3>
             <p className="text-gray-700 text-sm">Choose fruit varieties, box sizes, and packaging to match your brand and budget.</p>
           </div>
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200">
-            <p className="text-3xl mb-3">💰</p>
+            <DollarSign size={40} className="text-emerald-600 mb-3" />
             <h3 className="font-bold text-emerald-900 mb-3">Bulk Discounts</h3>
             <p className="text-gray-700 text-sm">Special pricing on orders of 10+ boxes, plus flexible delivery scheduling.</p>
           </div>
@@ -33,21 +34,30 @@ export default function CorporatePage() {
           <h3 className="text-2xl font-bold text-emerald-900 mb-6">Perfect For</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { emoji: "🏢", title: "Corporate Events", desc: "Conferences, meetings, and networking events" },
-              { emoji: "🏥", title: "Healthcare Facilities", desc: "Wellness initiatives and patient appreciation" },
-              { emoji: "🎓", title: "Educational Programs", desc: "School events and student wellness programs" },
-              { emoji: "💒", title: "Weddings & Celebrations", desc: "Add fresh fruit to any special occasion" },
-              { emoji: "🏠", title: "Moving & Welcome Gifts", desc: "Delight new team members or neighbors" },
-              { emoji: "🎉", title: "Trade Shows & Exhibitions", desc: "Stand out with premium giveaways" }
-            ].map((useCase, idx) => (
+              { iconName: "Building2", title: "Corporate Events", desc: "Conferences, meetings, and networking events" },
+              { iconName: "Heart", title: "Healthcare Facilities", desc: "Wellness initiatives and patient appreciation" },
+              { iconName: "GraduationCap", title: "Educational Programs", desc: "School events and student wellness programs" },
+              { iconName: "Church", title: "Weddings & Celebrations", desc: "Add fresh fruit to any special occasion" },
+              { iconName: "Home", title: "Moving & Welcome Gifts", desc: "Delight new team members or neighbors" },
+              { iconName: "Sparkles", title: "Trade Shows & Exhibitions", desc: "Stand out with premium giveaways" }
+            ].map((useCase, idx) => {
+              const iconMap: { [key: string]: React.ReactNode } = {
+                Building2: <Building2 size={32} className="text-emerald-600" />,
+                Heart: <Heart size={32} className="text-emerald-600" />,
+                GraduationCap: <GraduationCap size={32} className="text-emerald-600" />,
+                Church: <Church size={32} className="text-emerald-600" />,
+                Home: <Home size={32} className="text-emerald-600" />,
+                Sparkles: <Sparkles size={32} className="text-emerald-600" />
+              }
+              return (
               <div key={idx} className="flex gap-4">
-                <span className="text-3xl">{useCase.emoji}</span>
+                {iconMap[useCase.iconName]}
                 <div>
                   <h4 className="font-bold text-emerald-900 mb-1">{useCase.title}</h4>
                   <p className="text-gray-600 text-sm">{useCase.desc}</p>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
 
@@ -85,10 +95,10 @@ export default function CorporatePage() {
               Email Corporate Sales
             </a>
             <a 
-              href="tel:+17867584787" 
+              href="tel:+13056971193" 
               className="bg-emerald-500 text-white px-8 py-3 rounded-lg hover:bg-emerald-400 transition-colors font-semibold"
             >
-              Call: (786) 758-4787
+              Call: (305) 697-1193
             </a>
           </div>
           <p className="text-emerald-100 text-sm mt-6">Available Monday-Friday, 9am-6pm EST</p>

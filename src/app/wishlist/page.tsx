@@ -6,7 +6,7 @@ import PageLayout from '@/components/PageLayout'
 import ProductCard from '@/components/ProductCard'
 import { useWishlist } from '@/lib/wishlist'
 import { useCart } from '@/lib/cart'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 
 export default function WishlistPage() {
   const { wishlist, removeFromWishlist, wishlistCount } = useWishlist()

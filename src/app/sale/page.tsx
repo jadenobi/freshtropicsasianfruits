@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
 import ProductCard from '@/components/ProductCard'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 import Link from 'next/link'
 
 export default function SalePage(){

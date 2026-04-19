@@ -2,7 +2,7 @@
 
 ## Overview
 
-Golden Orchard uses a **secure email-based payment system** where customers select their preferred payment method and receive secure payment instructions via email instead of direct online payment processing.
+Fresh Tropics uses a **secure email-based payment system** where customers select their preferred payment method and receive secure payment instructions via email instead of direct online payment processing.
 
 ### Benefits
 - 🔒 **Secure**: Payment details sent only to verified customer email
@@ -176,7 +176,7 @@ console.log(result) // { success: true }
 
 ```
 ┌─────────────────────────────────────┐
-│  🍎 Golden Orchard (Gradient)       │
+│  🍎 Fresh Tropics (Gradient)       │
 │  Premium Fresh Fruits Delivered     │
 └─────────────────────────────────────┘
 │                                     │
@@ -226,7 +226,7 @@ console.log(result) // { success: true }
 - **Link**: https://checkout.stripe.com/pay
 - **Security**: PCI DSS compliant
 - **Processing Time**: Instant
-- **Merchant**: Golden Orchard Stripe account
+- **Merchant**: Fresh Tropics Stripe account
 
 ### 🅿️ PayPal
 - **Email**: paypal@goldenorchard.com
@@ -405,3 +405,4 @@ For issues or questions:
 - **Email**: support@goldenorchard.com
 - **Documentation**: See `PAYMENT_SYSTEM_README.md`
 - **Issues**: Check `.github/SYSTEM_OVERVIEW.txt`
+

@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import PageLayout from '@/components/PageLayout'
 import { generate3DProductVisual } from '@/lib/premiumOptimization'
+import { Globe, Zap, Smartphone, Palette } from 'lucide-react'
 
 export default function Premium3DExperiencePage() {
   const [selectedProduct, setSelectedProduct] = useState(0)
@@ -280,20 +281,28 @@ export default function Premium3DExperiencePage() {
           {/* Feature Highlights */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { icon: '🌐', title: '360° Interactive', desc: 'Rotate, zoom, and inspect every angle' },
-              { icon: '⚡', title: 'Instant Load', desc: 'Sub-100ms rendering with WebGL' },
-              { icon: '📱', title: 'Mobile Ready', desc: 'Touch gestures on all devices' },
-              { icon: '🎨', title: 'Studio Lighting', desc: '4 professional lighting modes' },
-            ].map((feature, idx) => (
+              { iconName: 'Globe', title: '360° Interactive', desc: 'Rotate, zoom, and inspect every angle' },
+              { iconName: 'Zap', title: 'Instant Load', desc: 'Sub-100ms rendering with WebGL' },
+              { iconName: 'Smartphone', title: 'Mobile Ready', desc: 'Touch gestures on all devices' },
+              { iconName: 'Palette', title: 'Studio Lighting', desc: '4 professional lighting modes' },
+            ].map((feature, idx) => {
+              const iconMap: { [key: string]: React.ReactNode } = {
+                Globe: <Globe size={32} className="text-emerald-400 mx-auto mb-2" />,
+                Zap: <Zap size={32} className="text-emerald-400 mx-auto mb-2" />,
+                Smartphone: <Smartphone size={32} className="text-emerald-400 mx-auto mb-2" />,
+                Palette: <Palette size={32} className="text-emerald-400 mx-auto mb-2" />
+              }
+              return (
               <div
                 key={idx}
                 className="p-6 rounded-lg bg-white/5 border border-white/10 hover:border-emerald-400/50 hover:bg-emerald-400/5 transition-all text-center"
               >
-                <div className="text-4xl mb-3">{feature.icon}</div>
+                {iconMap[feature.iconName]}
                 <p className="font-bold text-white mb-2">{feature.title}</p>
                 <p className="text-sm text-white/60">{feature.desc}</p>
               </div>
-            ))}
+            )
+            })}
           </div>
         </div>
       </div>

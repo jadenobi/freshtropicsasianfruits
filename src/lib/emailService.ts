@@ -12,6 +12,16 @@ export interface OrderData {
   paymentMethodId: string
 }
 
+export interface VerificationData {
+  orderId: string
+  transactionId: string
+  customerName: string
+  customerEmail: string
+  paymentMethod: string
+  amount: number
+  notes?: string
+}
+
 const paymentInstructions: Record<string, string> = {
   stripe: "Pay securely using Credit Card at: https://checkout.stripe.com/pay\nMerchant: Fresh Tropics Asian Fruits\nAmount: $[TOTAL]",
   paypal: "Send payment to: freshtropicsasianfruits@gmail.com\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]\nNote: Include order number in payment notes",
@@ -329,6 +339,96 @@ export async function sendPaymentEmail(order: OrderData): Promise<boolean> {
     return true
   } catch (error) {
     console.error("Email service error:", error)
+    return false
+  }
+}
+
+/**
+ * Send payment verification notification to the business email.
+ * This is triggered when a customer submits their payment details (Transaction ID)
+ * on the website after paying via email-based methods (Zelle, Venmo, etc.).
+ */
+export async function sendPaymentVerificationEmail(data: VerificationData): Promise<boolean> {
+  try {
+    const businessHtmlTemplate = `
+      <!DOCTYPE html>
+      <html>
+        <head><meta charset="utf-8"></head>
+        <body style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; color: #333;">
+          <div style="background: #10b981; color: white; padding: 30px; border-radius: 8px 8px 0 0;">
+            <h1 style="margin: 0; font-size: 24px;">✅ Payment Verification Received</h1>
+            <p style="margin: 8px 0 0 0; font-size: 14px;">Order #${data.orderId}</p>
+          </div>
+
+          <div style="background: #f9fafb; padding: 30px; border: 1px solid #e5e7eb;">
+            <h2 style="color: #065f46; margin-top: 0;">Payment Details Submitted by Customer</h2>
+
+            <div style="background: white; border: 2px solid #10b981; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+              <table style="width: 100%;">
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold; width: 40%;">Order ID:</td>
+                  <td style="padding: 8px 0;">#${data.orderId}</td>
+                </tr>
+                <tr style="background: #f3f4f6;">
+                  <td style="padding: 8px 0; font-weight: bold;">Transaction ID:</td>
+                  <td style="padding: 8px 0; font-weight: bold; color: #065f46;">${data.transactionId}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Customer:</td>
+                  <td style="padding: 8px 0;">${data.customerName} (${data.customerEmail})</td>
+                </tr>
+                <tr style="background: #f3f4f6;">
+                  <td style="padding: 8px 0; font-weight: bold;">Payment Method:</td>
+                  <td style="padding: 8px 0;">${data.paymentMethod}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: bold;">Amount Paid:</td>
+                  <td style="padding: 8px 0; font-weight: bold;">$${data.amount.toFixed(2)}</td>
+                </tr>
+                ${data.notes ? `
+                <tr style="background: #f3f4f6;">
+                  <td style="padding: 8px 0; font-weight: bold;">Notes:</td>
+                  <td style="padding: 8px 0;">${data.notes}</td>
+                </tr>
+                ` : ''}
+              </table>
+            </div>
+
+            <div style="background: #ecfdf5; border-left: 4px solid #10b981; padding: 16px; margin-top: 20px;">
+              <p style="margin: 0; color: #065f46; font-weight: bold;">Next Step:</p>
+              <p style="margin: 5px 0 0 0; color: #065f46; font-size: 14px;">Verify this transaction in your payment app (Zelle/Venmo/etc.) and process the order.</p>
+            </div>
+          </div>
+
+          <div style="background: #334155; color: white; padding: 20px; border-radius: 0 0 8px 8px; text-align: center; font-size: 11px;">
+            <p style="margin: 0;">Fresh Tropics Asian Fruits - Payment Verification System</p>
+          </div>
+        </body>
+      </html>
+    `
+
+    if (process.env.RESEND_API_KEY) {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.RESEND_API_KEY}`
+        },
+        body: JSON.stringify({
+          from: "onboarding@resend.dev",
+          to: "freshtropicsasianfruits@gmail.com",
+          subject: `✅ Payment Verification: Order #${data.orderId} - ${data.transactionId}`,
+          html: businessHtmlTemplate,
+          replyTo: data.customerEmail
+        })
+      })
+      return res.ok
+    }
+
+    console.log("📧 Payment verification email (simulated):", data)
+    return true
+  } catch (error) {
+    console.error("Verification email service error:", error)
     return false
   }
 }

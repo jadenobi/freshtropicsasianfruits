@@ -1,5 +1,5 @@
 ╔════════════════════════════════════════════════════════════════════════════╗
-║                     🌳 GOLDEN ORCHARD PAYMENT SYSTEM                       ║
+║                     🌳 Fresh Tropics PAYMENT SYSTEM                       ║
 ║                   EMAIL-BASED SECURE CHECKOUT SYSTEM                       ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
@@ -376,3 +376,4 @@ Time to Live: 30 minutes ⚡
                     🌳 Let's deliver some fresh fruit! 🍎
 
 ═══════════════════════════════════════════════════════════════════════════
+

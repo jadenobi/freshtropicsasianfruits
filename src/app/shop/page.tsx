@@ -8,7 +8,7 @@ import PageLayout from '@/components/PageLayout'
 import FreeShippingBanner from '@/components/FreeShippingBanner'
 import LoyaltyRewardsPanel from '@/components/LoyaltyRewardsPanel'
 import ProductCard from '@/components/ProductCard'
-import { FRUITS } from '@/lib/data'
+import { ProductService } from '@/lib/productService'
 
 function ShopContent() {
   const searchParams = useSearchParams()
@@ -79,7 +79,7 @@ function ShopContent() {
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
-    let products = FRUITS
+    let products = ProductService.getAllProducts()
 
     // Category filter
     if (selectedCategory !== 'all') {
@@ -166,7 +166,7 @@ function ShopContent() {
     return products
   }, [selectedCategory, searchQuery, priceRange, minRating, sortBy, collectionParam, selectedTags, selectedNutrition, selectedColor])
 
-  const maxPrice = Math.max(...FRUITS.map(p => p.price))
+  const maxPrice = Math.max(...ProductService.getAllProducts().map(p => p.price))
 
   return (
     <div className="bg-white">

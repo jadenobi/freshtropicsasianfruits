@@ -72,9 +72,9 @@ export async function sendOrderConfirmationEmail(order: OrderData): Promise<{ su
     const emailHtml = generateOrderConfirmationEmail(order)
     
     const response = await resend.emails.send({
-      from: 'orders@goldenliveorchard.com',
+      from: 'orders@freshtropicsasianfruits.com',
       to: order.customerEmail,
-      subject: `Order Confirmed: ${order.orderNumber} - Golden Orchard`,
+      subject: `Order Confirmed: ${order.orderNumber} - Fresh Tropics`,
       html: emailHtml,
     })
 
@@ -107,8 +107,8 @@ export async function sendOrderConfirmationEmail(order: OrderData): Promise<{ su
     
     const msg = {
       to: order.customerEmail,
-      from: 'orders@goldenliveorchard.com',
-      subject: `Order Confirmed: ${order.orderNumber} - Golden Orchard`,
+      from: 'orders@freshtropicsasianfruits.com',
+      subject: `Order Confirmed: ${order.orderNumber} - Fresh Tropics`,
       html: emailHtml,
     }
 
@@ -144,9 +144,9 @@ export async function sendOrderConfirmationEmail(order: OrderData): Promise<{ su
     const emailHtml = generateOrderConfirmationEmail(order)
     
     const info = await transporter.sendMail({
-      from: 'orders@goldenliveorchard.com',
+      from: 'orders@freshtropicsasianfruits.com',
       to: order.customerEmail,
-      subject: `Order Confirmed: ${order.orderNumber} - Golden Orchard`,
+      subject: `Order Confirmed: ${order.orderNumber} - Fresh Tropics`,
       html: emailHtml,
     })
 
@@ -340,4 +340,5 @@ vercel
 **Got it working?** 🎉
 
 That's awesome! You now have a professional, secure payment system handling customer orders with beautiful emails. Time to celebrate! 🌳✨
+
 

@@ -186,7 +186,7 @@ Edit `src/lib/data.ts` and add new fruit objects to the `FRUITS` array following
 
 ## 🛒 Cart Persistence
 
-The cart is automatically saved to localStorage under the key `golden-orchard-cart`. Users' carts persist across browser sessions.
+The cart is automatically saved to localStorage under the key `fresh-tropics-cart`. Users' carts persist across browser sessions.
 
 ## 📱 Responsive Breakpoints
 
@@ -214,3 +214,4 @@ For other deployment options, see [Next.js Deployment Docs](https://nextjs.org/d
 ## 📄 License
 
 This project is open source and available under the MIT License.
+

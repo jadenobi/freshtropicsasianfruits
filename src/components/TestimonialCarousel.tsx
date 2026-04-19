@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Star } from 'lucide-react'
 
 interface Testimonial {
   author: string
@@ -58,9 +59,11 @@ export default function TestimonialCarousel({
         {current.rating && (
           <div className="flex gap-1 mb-4">
             {[...Array(5)].map((_, i) => (
-              <span key={i} className={i < Math.floor(current.rating!) ? 'text-2xl' : 'text-2xl opacity-30'}>
-                ⭐
-              </span>
+              <Star
+                key={i}
+                size={24}
+                className={i < Math.floor(current.rating!) ? 'fill-yellow-400 text-yellow-400' : 'text-yellow-200'}
+              />
             ))}
           </div>
         )}

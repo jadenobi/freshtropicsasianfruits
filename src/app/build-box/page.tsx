@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 import { useCart } from '@/context/CartContext'
 
 interface BoxItem {

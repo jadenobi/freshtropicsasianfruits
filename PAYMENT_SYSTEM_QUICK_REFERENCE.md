@@ -84,7 +84,7 @@ Response: { success: true, message, orderId }
 
 ## Email Features
 
-✅ Beautiful HTML template with Golden Orchard branding
+✅ Beautiful HTML template with Fresh Tropics branding
 ✅ Order confirmation and itemized list
 ✅ Payment-specific instructions per method
 ✅ Order summary with totals
@@ -127,3 +127,4 @@ All documentation in:
 
 Build passes, dev server running, all features implemented.
 Just add your email provider API key and test!
+

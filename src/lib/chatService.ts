@@ -13,7 +13,7 @@ const FAQ_KNOWLEDGE_BASE: Record<string, string> = {
   'subscription': 'Subscribe & Save offers 10% off recurring orders. Choose weekly, bi-weekly, or monthly delivery. Cancel anytime.',
   'seasonal': 'Seasonal fruit availability changes throughout the year. Check our Seasonal Collections page for current offerings and limited-time boxes.',
   'track': 'Order tracking information is sent to your email. You can also track orders from your account dashboard.',
-  'contact': 'You can reach our team via email (support@freshtropics.com), phone (1-800-FRESH-01), or this chat. We\'re available Monday-Friday, 9am-6pm EST.',
+  'contact': 'You can reach our team via email (support@freshtropicsasianfruits.com), phone ((305) 697-1193), or this chat. We\'re available Monday-Friday, 9am-6pm EST.',
   'hours': 'Our customer service team is available Monday-Friday, 9am-6pm EST, and Saturday 10am-4pm EST.',
   'loyalty': 'Our loyalty program rewards you with points on every purchase. Earn discounts, free shipping, and VIP perks at Bronze, Silver, Gold, and Platinum tiers.',
   'refer': 'Refer a friend and earn 50 points! They\'ll get 100 bonus points on their first purchase. Share your code: REFG2K8X9P',

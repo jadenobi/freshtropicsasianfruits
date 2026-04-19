@@ -50,11 +50,11 @@ export default function ContactPage(){
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-sm p-6 rounded-lg border-2 border-amber-400/30">
                   <p className="text-sm text-amber-200 mb-1">📞 Phone</p>
-                  <p className="text-lg font-bold text-amber-50">1-800-TROPICS</p>
+                  <p className="text-lg font-bold text-amber-50">(305) 697-1193</p>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-sm p-6 rounded-lg border-2 border-amber-400/30">
                   <p className="text-sm text-amber-200 mb-1">📧 Email</p>
-                  <p className="text-lg font-bold text-amber-50">support@freshtropics.com</p>
+                  <p className="text-lg font-bold text-amber-50">support@freshtropicsasianfruits.com</p>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-sm p-6 rounded-lg border-2 border-amber-400/30">
                   <p className="text-sm text-amber-200 mb-1">🕐 Business Hours</p>

@@ -36,7 +36,7 @@ export default function SocialPage() {
 
   const ShareButtons = ({ productName = 'Fresh Tropics Fruits' }) => (
     <div className="flex flex-wrap gap-2">
-      {getShareButtons(productName, 'https://freshtropics.com').map((btn, idx) => (
+      {getShareButtons(productName, 'https://freshtropicsasianfruits.com').map((btn, idx) => (
         <a
           key={idx}
           href={btn.url}

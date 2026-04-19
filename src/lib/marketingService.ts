@@ -12,7 +12,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
       <p>We're thrilled to have you join our community of fruit lovers!</p>
       <p>As a special welcome gift, enjoy <strong>20% OFF</strong> your first order with code: <code style="background: #f0f0f0; padding: 5px 10px;">WELCOME20</code></p>
       <p>Fresh, exotic fruits delivered right to your door. Shop now!</p>
-      <a href="https://freshtropics.com/shop" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Now</a>
+      <a href="https://freshtropicsasianfruits.com/shop" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Now</a>
     </div>`,
     templateType: 'welcome',
     createdAt: new Date().toISOString(),
@@ -32,7 +32,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
         <li><strong>Coconut:</strong> Best served chilled for maximum freshness</li>
       </ul>
       <p>Read our full guide for maximum freshness and flavor!</p>
-      <a href="https://freshtropics.com/storage-guide" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Read Full Guide</a>
+      <a href="https://freshtropicsasianfruits.com/storage-guide" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Read Full Guide</a>
     </div>`,
     templateType: 'welcome',
     createdAt: new Date().toISOString(),
@@ -53,7 +53,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
         <li><strong>Platinum:</strong> 3x points multiplier, 15% discount</li>
       </ul>
       <p>Start earning today and unlock exclusive tier benefits!</p>
-      <a href="https://freshtropics.com/rewards" style="background: #f59e0b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Join Now</a>
+      <a href="https://freshtropicsasianfruits.com/rewards" style="background: #f59e0b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Join Now</a>
     </div>`,
     templateType: 'welcome',
     createdAt: new Date().toISOString(),
@@ -69,7 +69,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
       <p>We noticed you left fresh fruit in your cart. Here's a gentle reminder:</p>
       <p>Your items are still available, but fresh stock can go quickly!</p>
       <p><strong>Limited Time:</strong> Get 10% off orders over $30 with code: <code style="background: #f0f0f0; padding: 5px 10px;">FRESH10</code></p>
-      <a href="https://freshtropics.com/cart" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Complete Your Order</a>
+      <a href="https://freshtropicsasianfruits.com/cart" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Complete Your Order</a>
     </div>`,
     templateType: 'abandoned-cart',
     createdAt: new Date().toISOString(),
@@ -86,7 +86,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
       <p style="font-size: 24px; color: #10b981; font-weight: bold;">15% OFF</p>
       <p>Code: <code style="background: #f0f0f0; padding: 5px 10px;">LASTCHANCE15</code></p>
       <p><strong>⚠️ Expires in 24 hours</strong></p>
-      <a href="https://freshtropics.com/cart" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Complete Order Now</a>
+      <a href="https://freshtropicsasianfruits.com/cart" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Complete Order Now</a>
     </div>`,
     templateType: 'abandoned-cart',
     createdAt: new Date().toISOString(),
@@ -103,7 +103,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
       <p><strong>Order #[ORDER_ID]</strong></p>
       <p><strong>Estimated Delivery:</strong> 2-3 business days</p>
       <p>Track your order status anytime by clicking the link below.</p>
-      <a href="https://freshtropics.com/account/orders" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Track Order</a>
+      <a href="https://freshtropicsasianfruits.com/account/orders" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Track Order</a>
     </div>`,
     templateType: 'post-purchase',
     createdAt: new Date().toISOString(),
@@ -118,7 +118,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
       <h1>We'd Love Your Feedback! 🌟</h1>
       <p>How did you enjoy your Fresh Tropics order?</p>
       <p>Your honest review helps other fruit lovers discover amazing products and earns you <strong>50 Loyalty Points!</strong></p>
-      <a href="https://freshtropics.com/reviews" style="background: #f59e0b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Leave a Review</a>
+      <a href="https://freshtropicsasianfruits.com/reviews" style="background: #f59e0b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Leave a Review</a>
     </div>`,
     templateType: 'post-purchase',
     createdAt: new Date().toISOString(),
@@ -139,7 +139,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
         <li>🥥 Young Coconuts - Fresh delivery</li>
       </ul>
       <p><strong>⏰ Sale ends Sunday at midnight</strong></p>
-      <a href="https://freshtropics.com/sale" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Flash Sale</a>
+      <a href="https://freshtropicsasianfruits.com/sale" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Flash Sale</a>
     </div>`,
     templateType: 'promotional',
     createdAt: new Date().toISOString(),
@@ -159,7 +159,7 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
         <li>🍓 Strawberries - Spring favorites</li>
       </ul>
       <p><strong>Spring Bundle Special:</strong> Save 15% on seasonal bundles with code <code style="background: #f0f0f0; padding: 5px 10px;">SPRING15</code></p>
-      <a href="https://freshtropics.com/seasonal" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Spring Collection</a>
+      <a href="https://freshtropicsasianfruits.com/seasonal" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Spring Collection</a>
     </div>`,
     templateType: 'seasonal',
     createdAt: new Date().toISOString(),

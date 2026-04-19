@@ -1,22 +1,23 @@
-﻿import ProductCard from "@/components/ProductCard"
+import ProductCard from "@/components/ProductCard"
 import PageLayout from "@/components/PageLayout"
 import FlashSaleBanner from "@/components/FlashSaleBanner"
-import { FRUITS } from "@/lib/data"
+import { ProductService } from "@/lib/productService"
 import Link from "next/link"
 import NewsletterSignup from "@/components/NewsletterSignup"
 import TestimonialCarousel from "@/components/TestimonialCarousel"
+import { Leaf, Truck, Leaf as LeafAlt, CheckCircle, Trophy, Heart } from "lucide-react"
 
-const FEATURED = FRUITS.slice(0, 4)
-const TOP_RATED = FRUITS.sort((a, b) => b.rating - a.rating).slice(0, 3)
-const POPULAR_BOXES = FRUITS.slice(0, 8)
+const FEATURED = ProductService.getFeaturedProducts(4)
+const TOP_RATED = [...ProductService.getAllProducts()].sort((a, b) => b.rating - a.rating).slice(0, 3)
+const POPULAR_BOXES = ProductService.getFeaturedProducts(8)
 
 const WHY_US = [
-  { icon: "🌿", title: "Farm Fresh", description: "Harvested fresh" },
-  { icon: "🚚", title: "Fast Delivery", description: "Same-day delivery" },
-  { icon: "⭐", title: "Sustainable", description: "Eco-friendly" },
-  { icon: "✓", title: "Quality Guaranteed", description: "Perfection" },
-  { icon: "🏆", title: "Premium Selection", description: "Best orchards" },
-  { icon: "💚", title: "Health First", description: "No pesticides" }
+  { iconName: "Leaf", title: "Farm Fresh", description: "Harvested fresh" },
+  { iconName: "Truck", title: "Fast Delivery", description: "Same-day delivery" },
+  { iconName: "LeafAlt", title: "Sustainable", description: "Eco-friendly" },
+  { iconName: "CheckCircle", title: "Quality Guaranteed", description: "Perfection" },
+  { iconName: "Trophy", title: "Premium Selection", description: "Best orchards" },
+  { iconName: "Heart", title: "Health First", description: "No pesticides" }
 ]
 
 const TESTIMONIALS = [
@@ -403,8 +404,8 @@ export default function Home() {
             <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-100 mb-3">Still Have Questions?</h3>
             <p className="text-amber-50 mb-6">Our customer service team is available 24/7 to help!</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+17867584787" className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all">
-                📞 (786) 758-4787
+              <a href="tel:+13056971193" className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all">
+                📞 (305) 697-1193
               </a>
               <a href="mailto:hello@freshtropicsasianfruits.com" className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all">
                 ✉️ Email Us
@@ -429,13 +430,22 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {WHY_US.map((item, idx) => (
+            {WHY_US.map((item, idx) => {
+              const iconMap: { [key: string]: React.ReactNode } = {
+                Leaf: <Leaf size={48} className="text-amber-300 mb-4" />,
+                Truck: <Truck size={48} className="text-amber-300 mb-4" />,
+                LeafAlt: <LeafAlt size={48} className="text-amber-300 mb-4" />,
+                CheckCircle: <CheckCircle size={48} className="text-amber-300 mb-4" />,
+                Trophy: <Trophy size={48} className="text-amber-300 mb-4" />,
+                Heart: <Heart size={48} className="text-amber-300 mb-4" />
+              }
+              return (
               <div key={idx} className="p-8 bg-emerald-900/40 backdrop-blur-md border border-amber-400/30 rounded-2xl hover:border-amber-300/60 hover:shadow-xl transition-all duration-300 animate-scale-in" style={{animationDelay: `${0.1 * (idx + 1)}s`}}>
-                <div className="text-5xl mb-4">{item.icon}</div>
+                <div className="mb-4">{iconMap[item.iconName]}</div>
                 <h3 className="text-2xl font-bold text-amber-200 mb-2">{item.title}</h3>
                 <p className="text-amber-50">{item.description}</p>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>

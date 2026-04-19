@@ -1,8 +1,8 @@
-# 🌳 Golden Orchard Payment System Documentation
+# 🌳 Fresh Tropics Payment System Documentation
 
 ## Overview
 
-Golden Orchard features a **secure, email-based payment system** that protects customer payment information while supporting 7 popular payment methods.
+Fresh Tropics features a **secure, email-based payment system** that protects customer payment information while supporting 7 popular payment methods.
 
 **Key Philosophy:** Payment details are sent directly to customers via private email, never displayed publicly on the website.
 
@@ -104,7 +104,7 @@ Golden Orchard features a **secure, email-based payment system** that protects c
 - **Security:** Bank-level encryption
 
 **Customer Flow:**
-- Zelle email: support@goldenliveorchard.com
+- Zelle email: hello@freshtropicsasianfruits.com
 - Direct bank-to-bank transfer
 - Fastest option for US customers
 - Verification within minutes
@@ -190,7 +190,7 @@ export const PAYMENT_METHODS = {
 
 export const contactInfo = {
   phone: '+1 (555) 123-4567',
-  email: 'support@goldenliveorchard.com',
+  email: 'hello@freshtropicsasianfruits.com',
   paypal_email: '...',
   zelle_email: '...',
   address: '...',
@@ -237,7 +237,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendOrderConfirmationEmail(order: OrderData) {
   const response = await resend.emails.send({
-    from: 'orders@goldenliveorchard.com',
+    from: 'orders@freshtropicsasianfruits.com',
     to: order.customerEmail,
     subject: `Order Confirmed: ${order.orderNumber}`,
     html: generateOrderConfirmationEmail(order),
@@ -258,7 +258,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 export async function sendOrderConfirmationEmail(order: OrderData) {
   const msg = {
     to: order.customerEmail,
-    from: 'orders@goldenliveorchard.com',
+    from: 'orders@freshtropicsasianfruits.com',
     subject: `Order Confirmed: ${order.orderNumber}`,
     html: generateOrderConfirmationEmail(order),
   }
@@ -285,7 +285,7 @@ const transporter = nodemailer.createTransport({
 
 export async function sendOrderConfirmationEmail(order: OrderData) {
   return await transporter.sendMail({
-    from: 'orders@goldenliveorchard.com',
+    from: 'orders@freshtropicsasianfruits.com',
     to: order.customerEmail,
     subject: `Order Confirmed: ${order.orderNumber}`,
     html: generateOrderConfirmationEmail(order),
@@ -346,7 +346,7 @@ Visit `/email-preview` to see templates for all payment methods
 
 ### Payment Security
 - ✓ No payment processing on website
-- ✓ All payments go directly to Golden Orchard
+- ✓ All payments go directly to Fresh Tropics
 - ✓ Customer verification required
 - ✓ Transaction IDs tracked
 - ✓ Fraud detection tips included
@@ -398,7 +398,7 @@ Visit `/email-preview` to see templates for all payment methods
 ## 📞 Customer Support
 
 **Phone:** +1 (555) 123-4567
-**Email:** support@goldenliveorchard.com
+**Email:** hello@freshtropicsasianfruits.com
 **Hours:** 
 - Weekdays (Mon-Fri): 9 AM - 6 PM PST
 - Weekends (Sat-Sun): 10 AM - 4 PM PST
@@ -466,4 +466,5 @@ The payment system is fully implemented and ready for production:
 ---
 
 **Questions?** Review the payment system documentation at `/payment-system` or email support.
+
 

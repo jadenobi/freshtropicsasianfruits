@@ -1,12 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Apple, PalmtreeIcon as Palmtree, Crown, Flower2 } from 'lucide-react'
 
 interface LoyaltyReward {
   name: string
   pointsRequired: number
   description: string
-  emoji: string
+  iconName: string
   discount?: number
 }
 
@@ -15,28 +16,28 @@ const LOYALTY_REWARDS: LoyaltyReward[] = [
     name: 'Fruit Lover',
     pointsRequired: 100,
     description: '5% off next order',
-    emoji: '🍎',
+    iconName: 'Apple',
     discount: 5
   },
   {
     name: 'Tropical Enthusiast',
     pointsRequired: 250,
     description: '10% off + Free Shipping',
-    emoji: '🌴',
+    iconName: 'Palmtree',
     discount: 10
   },
   {
     name: 'Premium Member',
     pointsRequired: 500,
     description: '15% off + VIP Support',
-    emoji: '👑',
+    iconName: 'Crown',
     discount: 15
   },
   {
     name: 'Exotic Explorer',
     pointsRequired: 1000,
     description: '20% off + Exclusive Access',
-    emoji: '🌺',
+    iconName: 'Flower2',
     discount: 20
   }
 ]
@@ -82,9 +83,18 @@ export default function LoyaltyRewardsPanel() {
   return (
     <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border-3 border-amber-200 rounded-xl p-6 shadow-md">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-black text-gray-900">
-          {LOYALTY_REWARDS[currentTier].emoji} Loyalty Rewards
-        </h3>
+        <div className="flex items-center gap-2">
+          {(() => {
+            const iconMap: { [key: string]: React.ReactNode } = {
+              Apple: <Apple size={28} className="text-red-600" />,
+              Palmtree: <Palmtree size={28} className="text-green-600" />,
+              Crown: <Crown size={28} className="text-yellow-600" />,
+              Flower2: <Flower2 size={28} className="text-pink-600" />
+            }
+            return iconMap[LOYALTY_REWARDS[currentTier].iconName]
+          })()}
+          <h3 className="text-xl font-black text-gray-900">Loyalty Rewards</h3>
+        </div>
         <span className="text-3xl font-black text-amber-600">{points} pts</span>
       </div>
 

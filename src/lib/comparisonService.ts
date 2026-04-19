@@ -1,5 +1,5 @@
 import { ComparisonProduct, Fruit } from '@/types'
-import { FRUITS } from './data'
+import { FRUITS } from './products'
 
 // Convert Fruit to ComparisonProduct with default nutrition data
 function convertToComparisonProduct(fruit: Fruit): ComparisonProduct {

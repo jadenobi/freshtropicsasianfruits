@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import Link from "next/link"
 import NewsletterSignup from "./NewsletterSignup"
@@ -60,10 +60,10 @@ export default function Footer() {
               We are here for you 24/7 📞
             </p>
             <p className="text-gray-300 text-sm mb-4 font-semibold">
-              (786) 758-4787
+              (305) 697-1193
             </p>
             <p className="text-gray-300 text-sm mb-4">
-              Email: <a href="mailto:hello@tropicalfruitbox.com" className="text-emerald-300 hover:text-emerald-200">hello@tropicalfruitbox.com</a>
+              Email: <a href="mailto:hello@freshtropicsasianfruits.com" className="text-emerald-300 hover:text-emerald-200">hello@freshtropicsasianfruits.com</a>
             </p>
             <div className="border-t border-emerald-700 pt-4 mt-4">
               <p className="text-gray-300 text-sm font-semibold mb-2">Address:</p>

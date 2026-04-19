@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 import { useCart } from '@/context/CartContext'
 import ProductRatingForm from '@/components/ProductRatingForm'
 import CustomerReviews from '@/components/CustomerReviews'

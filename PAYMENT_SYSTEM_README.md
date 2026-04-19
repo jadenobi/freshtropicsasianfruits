@@ -1,4 +1,4 @@
-# 🌳 Golden Orchard - Email-Based Payment System
+# 🌳 Fresh Tropics - Email-Based Payment System
 
 > A **production-ready**, **secure**, **email-based payment system** for your e-commerce platform featuring 7 payment methods and professional order confirmation emails.
 
@@ -6,7 +6,7 @@
 
 ## 🎯 System Overview
 
-Golden Orchard implements a **revolutionary payment approach** where:
+Fresh Tropics implements a **revolutionary payment approach** where:
 
 - ✅ **Payment details are NEVER public** - Sent securely via email only
 - ✅ **7 Payment Methods** - Stripe, PayPal, Apple Pay, Venmo, Cash App, Zelle, Crypto
@@ -501,7 +501,7 @@ You now have a **world-class payment system** that will **build customer trust**
 
 ## 🍎 Let's Go!
 
-Your Golden Orchard is ready to serve customers.
+Your Fresh Tropics is ready to serve customers.
 
 **Time to deliver some fresh fruit!**
 
@@ -515,3 +515,4 @@ Your Golden Orchard is ready to serve customers.
 **Deploy Now** → 30 minutes to live ⚡
 
 ═══════════════════════════════════════════════════════════════════════════
+

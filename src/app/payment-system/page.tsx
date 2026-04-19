@@ -2,6 +2,7 @@
 
 import PageLayout from "@/components/PageLayout"
 import Link from "next/link"
+import { ShoppingCart, CreditCard, Mail, CheckCircle, Apple, Smartphone, DollarSign, Building2, Lock } from "lucide-react"
 
 export default function PaymentSystemPage() {
   return (
@@ -23,36 +24,43 @@ export default function PaymentSystemPage() {
               {[
                 {
                   step: "1",
-                  icon: "🛒",
+                  iconName: "ShoppingCart",
                   title: "Add to Cart",
                   desc: "Browse and add your favorite fresh fruits"
                 },
                 {
                   step: "2",
-                  icon: "💳",
+                  iconName: "CreditCard",
                   title: "Choose Method",
                   desc: "Select your preferred payment method"
                 },
                 {
                   step: "3",
-                  icon: "📧",
+                  iconName: "Mail",
                   title: "Receive Email",
                   desc: "Get secure payment details via email"
                 },
                 {
                   step: "4",
-                  icon: "✓",
+                  iconName: "CheckCircle",
                   title: "We Verify",
                   desc: "We confirm payment and ship your order"
                 },
-              ].map((item) => (
+              ].map((item) => {
+                const iconMap: { [key: string]: React.ReactNode } = {
+                  ShoppingCart: <ShoppingCart size={40} className="text-emerald-600" />,
+                  CreditCard: <CreditCard size={40} className="text-emerald-600" />,
+                  Mail: <Mail size={40} className="text-emerald-600" />,
+                  CheckCircle: <CheckCircle size={40} className="text-emerald-600" />
+                }
+                return (
                 <div key={item.step} className="bg-white rounded-xl shadow-lg p-8 text-center">
-                  <div className="text-5xl mb-4">{item.icon}</div>
+                  <div className="mb-4 flex justify-center">{iconMap[item.iconName]}</div>
                   <div className="text-3xl font-black text-emerald-600 mb-3">{item.step}</div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
                   <p className="text-gray-600">{item.desc}</p>
                 </div>
-              ))}
+              )})}
             </div>
           </section>
 
@@ -62,45 +70,53 @@ export default function PaymentSystemPage() {
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
-                  icon: "💳",
+                  iconName: "CreditCard",
                   name: "Credit Card (Stripe)",
                   desc: "Visa, MasterCard, American Express, Discover",
                   benefit: "Most secure, international support"
                 },
                 {
-                  icon: "🅿️",
+                  iconName: "Building2",
                   name: "PayPal",
                   desc: "Fast and familiar payment method",
                   benefit: "Buyer protection included"
                 },
                 {
-                  icon: "🍎",
+                  iconName: "Apple",
                   name: "Apple Pay",
                   desc: "One-tap payment on Apple devices",
                   benefit: "Fast, Face ID/Touch ID verified"
                 },
                 {
-                  icon: "📱",
+                  iconName: "Smartphone",
                   name: "Venmo",
                   desc: "Peer-to-peer payment via app",
                   benefit: "Instant, personal touch"
                 },
                 {
-                  icon: "💵",
+                  iconName: "DollarSign",
                   name: "Cash App",
                   desc: "Send money via Cash App tag",
                   benefit: "Easy, instant verification"
                 },
                 {
-                  icon: "🏦",
+                  iconName: "Building2",
                   name: "Zelle",
                   desc: "Direct bank transfer",
                   benefit: "Fastest option (1-3 minutes)"
                 },
-              ].map((method, idx) => (
+              ].map((method, idx) => {
+                const iconMap: { [key: string]: React.ReactNode } = {
+                  CreditCard: <CreditCard size={40} className="text-emerald-600" />,
+                  Building2: <Building2 size={40} className="text-emerald-600" />,
+                  Apple: <Apple size={40} className="text-emerald-600" />,
+                  Smartphone: <Smartphone size={40} className="text-emerald-600" />,
+                  DollarSign: <DollarSign size={40} className="text-emerald-600" />
+                }
+                return (
                 <div key={idx} className="bg-white rounded-xl shadow-lg p-8">
                   <div className="flex items-start gap-4">
-                    <div className="text-4xl">{method.icon}</div>
+                    {iconMap[method.iconName]}
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{method.name}</h3>
                       <p className="text-gray-600 mb-3">{method.desc}</p>
@@ -110,13 +126,17 @@ export default function PaymentSystemPage() {
                     </div>
                   </div>
                 </div>
-              ))}
+              )
+              })}
             </div>
           </section>
 
           {/* Security Features */}
           <section className="mb-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg p-12 border-2 border-blue-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">🔒 Security Features</h2>
+            <div className="flex items-center gap-3 mb-8">
+              <Lock size={36} className="text-blue-600" />
+              <h2 className="text-3xl font-bold text-gray-900">Security Features</h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
@@ -216,7 +236,7 @@ export default function PaymentSystemPage() {
                 },
                 {
                   q: "What if I don't receive the email?",
-                  a: "Check your spam/junk folder first. If you still don't see it, contact us immediately at support@goldenliveorchard.com or +1 (555) 123-4567."
+                  a: "Check your spam/junk folder first. If you still don't see it, contact us immediately at hello@freshtropicsasianfruits.com or +1 (555) 123-4567."
                 },
                 {
                   q: "Can I change my payment method after checkout?",

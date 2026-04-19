@@ -95,8 +95,8 @@ export default function PressPage() {
             <a href="mailto:press@freshtropicsasianfruits.com" className="bg-white text-emerald-600 px-8 py-3 rounded-lg hover:bg-emerald-50 transition-colors font-semibold">
               press@freshtropicsasianfruits.com
             </a>
-            <a href="tel:+17867584787" className="bg-emerald-500 text-white px-8 py-3 rounded-lg hover:bg-emerald-400 transition-colors font-semibold">
-              (786) 758-4787
+            <a href="tel:+13056971193" className="bg-emerald-500 text-white px-8 py-3 rounded-lg hover:bg-emerald-400 transition-colors font-semibold">
+              (305) 697-1193
             </a>
           </div>
         </div>

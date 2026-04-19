@@ -118,7 +118,7 @@ export default function CCPAOptOutPage() {
               <input 
                 type="tel" 
                 className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-emerald-500"
-                placeholder="(786) 758-4787"
+                placeholder="(305) 697-1193"
               />
             </div>
 
@@ -214,8 +214,8 @@ export default function CCPAOptOutPage() {
               </a>
             </p>
             <p>
-              <a href="tel:+17867584787" className="text-emerald-600 hover:text-emerald-700 font-semibold">
-                (786) 758-4787
+              <a href="tel:+13056971193" className="text-emerald-600 hover:text-emerald-700 font-semibold">
+                (305) 697-1193
               </a>
             </p>
             <p className="text-gray-600 text-sm">Available 24/7</p>

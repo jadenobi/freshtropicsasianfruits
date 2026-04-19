@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import PageLayout from "@/components/PageLayout"
 import FreeShippingBanner from "@/components/FreeShippingBanner"
@@ -97,60 +97,35 @@ export default function CartPage() {
               </div>
 
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
-                <p className="text-lg font-bold text-blue-900 mb-3">📧 Check Your Email</p>
+              <div className="bg-emerald-50 border-2 border-emerald-200 rounded-lg p-6 md:p-8 mb-8 text-left max-w-lg mx-auto shadow-sm">
+                <p className="text-xl font-bold text-emerald-900 mb-3 flex items-center">
+                  <span className="mr-2">📧</span> Check Your Email
+                </p>
                 <p className="text-gray-700 mb-2">We've sent detailed payment instructions to:</p>
-                <p className="font-mono text-lg text-blue-600 mb-4">{customerEmail}</p>
+                <p className="font-mono text-lg text-emerald-600 mb-4 bg-white px-3 py-2 rounded-md border border-emerald-100">{customerEmail}</p>
                 <p className="text-sm text-gray-600">The email includes:</p>
                 <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                  <li>✓ Payment method details</li>
+                  <li>✓ Secure payment details for Zelle/Venmo/etc.</li>
                   <li>✓ Order summary & total amount</li>
-                  <li>✓ Security & verification info</li>
-                  <li>✓ Tracking number once paid</li>
+                  <li>✓ Step-by-step verification info</li>
                 </ul>
               </div>
 
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6 mb-8">
-                <p className="text-sm text-yellow-800">
-                  <strong>⚠️ Important:</strong> Keep that email safe! It contains your payment details. Never share it with anyone.
+              <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-6 mb-8 max-w-lg mx-auto shadow-sm animate-pulse-subtle">
+                <p className="text-sm text-amber-800 font-bold mb-2">🚀 Pro Tip:</p>
+                <p className="text-xs text-amber-900 leading-relaxed">
+                  Once you've sent your payment, use our verification tool to speed up your order processing!
                 </p>
+                <Link 
+                  href={`/verify-payment?order=${orderId}&amount=${finalTotal}`}
+                  className="mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg transition-all inline-block shadow-md hover:shadow-amber-100"
+                >
+                  I've Paid - Verify Now
+                </Link>
               </div>
 
-              <div className="space-y-3">
-                <p className="text-gray-600 mb-6">What happens next?</p>
-                <div className="text-left space-y-3 bg-gray-50 p-6 rounded-lg mb-6">
-                  <div className="flex gap-3 items-start">
-                    <span className="text-2xl">1️⃣</span>
-                    <div>
-                      <p className="font-bold text-gray-900">Send Payment</p>
-                      <p className="text-sm text-gray-600">Follow the instructions in your email</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <span className="text-2xl">2️⃣</span>
-                    <div>
-                      <p className="font-bold text-gray-900">We Verify Payment</p>
-                      <p className="text-sm text-gray-600">Usually within 1-2 hours</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <span className="text-2xl">3️⃣</span>
-                    <div>
-                      <p className="font-bold text-gray-900">Order Ships</p>
-                      <p className="text-sm text-gray-600">Packed and shipped within 24 hours</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <span className="text-2xl">4️⃣</span>
-                    <div>
-                      <p className="font-bold text-gray-900">Delivery</p>
-                      <p className="text-sm text-gray-600">Fresh fruits arrive in 1-2 business days</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-4 justify-center">
-                <Link href="/" className="bg-emerald-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-emerald-700 transition-all">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/" className="bg-emerald-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-emerald-700 transition-all shadow-lg hover:shadow-emerald-100">
                   Back to Home
                 </Link>
                 <Link href="/shop" className="border-2 border-emerald-600 text-emerald-600 font-bold px-8 py-3 rounded-lg hover:bg-emerald-50 transition-all">

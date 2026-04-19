@@ -1,4 +1,4 @@
-# 🌳 Golden Orchard - Secure Payment System Implementation
+# 🌳 Fresh Tropics - Secure Payment System Implementation
 
 ## 🎉 Project Status: Email-Based Secure Payment System ✅ COMPLETE
 
@@ -256,7 +256,7 @@ contactInfo = {
 - ✓ 30-day payment window
 
 ### Payment Security
-- ✓ All payments go directly to Golden Orchard
+- ✓ All payments go directly to Fresh Tropics
 - ✓ No payment processing on website
 - ✓ Customer verification required
 - ✓ Transaction ID tracking
@@ -323,7 +323,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendOrderConfirmationEmail(order: OrderData) {
   const response = await resend.emails.send({
-    from: 'orders@goldenliveorchard.com',
+    from: 'orders@freshtropicsasianfruits.com',
     to: order.customerEmail,
     subject: `Order Confirmed: ${order.orderNumber}`,
     html: generateOrderConfirmationEmail(order),
@@ -497,7 +497,7 @@ Route (app)
 
 ### Customer Support
 - **Phone:** +1 (555) 123-4567
-- **Email:** support@goldenliveorchard.com
+- **Email:** hello@freshtropicsasianfruits.com
 - **Hours:** Mon-Fri 9-6 PST, Sat-Sun 10-4 PST
 
 ### Developer Support
@@ -535,7 +535,7 @@ Route (app)
 
 ## 💚 Thank You!
 
-Golden Orchard's premium payment system is designed to:
+Fresh Tropics's premium payment system is designed to:
 1. **Protect** customer payment information
 2. **Delight** with professional, clear communication
 3. **Simplify** the checkout process
@@ -543,4 +543,5 @@ Golden Orchard's premium payment system is designed to:
 5. **Build** trust through transparency
 
 **Let's deliver some fresh fruit! 🍎🍌🫐**
+
 

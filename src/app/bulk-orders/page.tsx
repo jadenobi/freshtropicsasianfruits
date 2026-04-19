@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import PageLayout from '@/components/PageLayout'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 
 interface BulkOrderItem {
   productId: string

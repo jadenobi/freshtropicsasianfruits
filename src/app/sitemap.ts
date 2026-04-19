@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://freshtropicsasianfruits.com'

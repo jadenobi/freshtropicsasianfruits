@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import PageLayout from '@/components/PageLayout'
+import { Film, Play, ChefHat, Snowflake, Star } from 'lucide-react'
 import { getVideosByCategory, getFeaturedVideos, getRelatedVideos, formatViewCount, getVideoEmbedUrl, type Video, type VideoCategory } from '@/lib/videoService'
 
 export default function VideosPage() {
@@ -9,12 +10,12 @@ export default function VideosPage() {
   const [activeCategory, setActiveCategory] = useState<VideoCategory>('product-demo')
   const [searchQuery, setSearchQuery] = useState('')
 
-  const categories: { id: VideoCategory; label: string; emoji: string }[] = [
-    { id: 'hero', label: 'Welcome', emoji: '🎬' },
-    { id: 'product-demo', label: 'Product Demos', emoji: '📹' },
-    { id: 'recipe', label: 'Recipes', emoji: '👨‍🍳' },
-    { id: 'storage-tips', label: 'Storage Tips', emoji: '❄️' },
-    { id: 'testimonial', label: 'Reviews', emoji: '⭐' },
+  const categories: { id: VideoCategory; label: string; iconName: string }[] = [
+    { id: 'hero', label: 'Welcome', iconName: 'Film' },
+    { id: 'product-demo', label: 'Product Demos', iconName: 'Play' },
+    { id: 'recipe', label: 'Recipes', iconName: 'ChefHat' },
+    { id: 'storage-tips', label: 'Storage Tips', iconName: 'Snowflake' },
+    { id: 'testimonial', label: 'Reviews', iconName: 'Star' },
   ]
 
   const videos = useMemo(() => getVideosByCategory(activeCategory), [activeCategory])
@@ -107,22 +108,31 @@ export default function VideosPage() {
           {/* Category Tabs */}
           <div className="mb-12">
             <div className="flex flex-wrap gap-3 mb-8">
-              {categories.map((cat) => (
+              {categories.map((cat) => {
+                const iconMap: { [key: string]: React.ReactNode } = {
+                  Film: <Film size={20} />,
+                  Play: <Play size={20} />,
+                  ChefHat: <ChefHat size={20} />,
+                  Snowflake: <Snowflake size={20} />,
+                  Star: <Star size={20} />
+                }
+                return (
                 <button
                   key={cat.id}
                   onClick={() => {
                     setActiveCategory(cat.id)
                     setSelectedVideo(null)
                   }}
-                  className={`px-6 py-3 rounded-lg font-bold transition-all ${
+                  className={`px-6 py-3 rounded-lg font-bold transition-all flex items-center gap-2 ${
                     activeCategory === cat.id
                       ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-black shadow-lg shadow-emerald-500/50'
                       : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
                   }`}
                 >
-                  {cat.emoji} {cat.label}
+                  {iconMap[cat.iconName]} {cat.label}
                 </button>
-              ))}
+                )
+              })}
             </div>
           </div>
 

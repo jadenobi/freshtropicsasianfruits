@@ -1,6 +1,6 @@
 import PageLayout from "@/components/PageLayout"
 import Link from "next/link"
-import { FRUITS } from "@/lib/data"
+import { FRUITS } from "@/lib/products"
 
 export default function OutOfSeasonPage() {
   const outOfSeasonFruits = [

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import PageLayout from '@/components/PageLayout'
 import { getOrders, getWishlist, removeFromWishlist } from '@/lib/customerService'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
 import Link from 'next/link'
 
 export default function AccountPage() {

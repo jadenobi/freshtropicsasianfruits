@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from 'react'
 import PageLayout from '@/components/PageLayout'
-import { FRUITS } from '@/lib/data'
+import { FRUITS } from '@/lib/products'
+import { Cake, Heart, Stethoscope, HandshakeIcon, Briefcase, Gift as GiftIcon, Leaf, PalmtreeIcon as Palmtree, Heart as HeartIcon, Candy, Sparkles, Crown } from 'lucide-react'
 
 interface GiftRecommendation {
   reason: string
@@ -11,12 +12,12 @@ interface GiftRecommendation {
 }
 
 const GIFT_OCCASIONS = [
-  { id: 'birthday', label: '🎂 Birthday', emoji: '🎈' },
-  { id: 'anniversary', label: '💕 Anniversary', emoji: '💐' },
-  { id: 'get-well', label: '🏥 Get Well', emoji: '🌺' },
-  { id: 'thank-you', label: '🙏 Thank You', emoji: '🌹' },
-  { id: 'corporate', label: '💼 Corporate', emoji: '📊' },
-  { id: 'holiday', label: '🎄 Holiday', emoji: '❄️' }
+  { id: 'birthday', label: 'Birthday', iconName: 'Cake' },
+  { id: 'anniversary', label: 'Anniversary', iconName: 'Heart' },
+  { id: 'get-well', label: 'Get Well', iconName: 'Stethoscope' },
+  { id: 'thank-you', label: 'Thank You', iconName: 'HandshakeIcon' },
+  { id: 'corporate', label: 'Corporate', iconName: 'Briefcase' },
+  { id: 'holiday', label: 'Holiday', iconName: 'GiftIcon' }
 ]
 
 export default function GiftRecommendationsPage() {
@@ -30,12 +31,12 @@ export default function GiftRecommendationsPage() {
   const [selectedProduct, setSelectedProduct] = useState<typeof FRUITS[0] | null>(null)
 
   const preferenceOptions = [
-    { id: 'organic', label: '🌿 Organic & Natural' },
-    { id: 'exotic', label: '🌴 Exotic & Rare' },
-    { id: 'healthy', label: '💪 Health-Focused' },
-    { id: 'sweet', label: '🍯 Sweet & Indulgent' },
-    { id: 'variety', label: '🎨 Variety Pack' },
-    { id: 'premium', label: '👑 Premium Quality' }
+    { id: 'organic', label: 'Organic & Natural', iconName: 'Leaf' },
+    { id: 'exotic', label: 'Exotic & Rare', iconName: 'Palmtree' },
+    { id: 'healthy', label: 'Health-Focused', iconName: 'HeartIcon' },
+    { id: 'sweet', label: 'Sweet & Indulgent', iconName: 'Candy' },
+    { id: 'variety', label: 'Variety Pack', iconName: 'Sparkles' },
+    { id: 'premium', label: 'Premium Quality', iconName: 'Crown' }
   ]
 
   const togglePreference = (pref: string) => {
@@ -176,10 +177,19 @@ export default function GiftRecommendationsPage() {
           {/* Step 2: Occasion */}
           {currentStep === 2 && (
             <div className="bg-white rounded-lg shadow-lg p-8 animate-fadeIn">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">🎉 What's the Occasion?</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">What's the Occasion?</h2>
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                {GIFT_OCCASIONS.map(occ => (
+                {GIFT_OCCASIONS.map(occ => {
+                  const iconMap: { [key: string]: React.ReactNode } = {
+                    Cake: <Cake size={32} />,
+                    Heart: <Heart size={32} />,
+                    Stethoscope: <Stethoscope size={32} />,
+                    HandshakeIcon: <HandshakeIcon size={32} />,
+                    Briefcase: <Briefcase size={32} />,
+                    GiftIcon: <GiftIcon size={32} />
+                  }
+                  return (
                   <button
                     key={occ.id}
                     onClick={() => setOccasion(occ.id)}
@@ -189,9 +199,11 @@ export default function GiftRecommendationsPage() {
                         : 'border-gray-300 bg-white text-gray-900'
                     }`}
                   >
-                    <div className="text-3xl mb-2">{occ.emoji}</div>
+                    <div className="mb-2 flex justify-center text-pink-600">{iconMap[occ.iconName]}</div>
                     <div className="text-sm">{occ.label}</div>
                   </button>
+                  )
+                })
                 ))}
               </div>
 
@@ -215,11 +227,20 @@ export default function GiftRecommendationsPage() {
           {/* Step 3: Preferences */}
           {currentStep === 3 && (
             <div className="bg-white rounded-lg shadow-lg p-8 animate-fadeIn">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">✨ Any Preferences?</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Any Preferences?</h2>
               <p className="text-gray-600 mb-6">(Optional - Select as many as you like)</p>
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                {preferenceOptions.map(pref => (
+                {preferenceOptions.map(pref => {
+                  const iconMap: { [key: string]: React.ReactNode } = {
+                    Leaf: <Leaf size={28} />,
+                    Palmtree: <Palmtree size={28} />,
+                    HeartIcon: <HeartIcon size={28} />,
+                    Candy: <Candy size={28} />,
+                    Sparkles: <Sparkles size={28} />,
+                    Crown: <Crown size={28} />
+                  }
+                  return (
                   <button
                     key={pref.id}
                     onClick={() => togglePreference(pref.id)}
@@ -229,10 +250,11 @@ export default function GiftRecommendationsPage() {
                         : 'border-gray-300 bg-white text-gray-900 hover:border-pink-300'
                     }`}
                   >
-                    <div className="text-2xl mb-1">{pref.label.split(' ')[0]}</div>
-                    <div className="text-xs">{pref.label.split(' ').slice(1).join(' ')}</div>
+                    <div className="mb-1 flex justify-center text-pink-600">{iconMap[pref.iconName]}</div>
+                    <div className="text-xs leading-tight">{pref.label}</div>
                   </button>
-                ))}
+                  )
+                })}
               </div>
 
               <div className="flex gap-4">
