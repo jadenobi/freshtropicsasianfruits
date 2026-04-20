@@ -12,12 +12,12 @@ interface GiftRecommendation {
 }
 
 const GIFT_OCCASIONS = [
-  { id: 'birthday', label: 'Birthday', iconName: 'Cake' },
-  { id: 'anniversary', label: 'Anniversary', iconName: 'Heart' },
-  { id: 'get-well', label: 'Get Well', iconName: 'Stethoscope' },
-  { id: 'thank-you', label: 'Thank You', iconName: 'HandshakeIcon' },
-  { id: 'corporate', label: 'Corporate', iconName: 'Briefcase' },
-  { id: 'holiday', label: 'Holiday', iconName: 'GiftIcon' }
+  { id: 'birthday', label: 'Birthday', iconName: 'Cake', emoji: '🎂' },
+  { id: 'anniversary', label: 'Anniversary', iconName: 'Heart', emoji: '🥂' },
+  { id: 'get-well', label: 'Get Well', iconName: 'Stethoscope', emoji: '🌡️' },
+  { id: 'thank-you', label: 'Thank You', iconName: 'HandshakeIcon', emoji: '🙏' },
+  { id: 'corporate', label: 'Corporate', iconName: 'Briefcase', emoji: '🤝' },
+  { id: 'holiday', label: 'Holiday', iconName: 'GiftIcon', emoji: '🎄' }
 ]
 
 export default function GiftRecommendationsPage() {
@@ -203,8 +203,7 @@ export default function GiftRecommendationsPage() {
                     <div className="text-sm">{occ.label}</div>
                   </button>
                   )
-                })
-                ))}
+                })}
               </div>
 
               <div className="flex gap-4">

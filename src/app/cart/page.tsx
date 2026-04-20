@@ -36,7 +36,7 @@ export default function CartPage() {
   const generateOrderNumber = () => {
     const timestamp = Date.now()
     const random = Math.floor(Math.random() * 10000)
-    return `GO-${timestamp}-${random}`.substring(0, 16)
+    return `FT-${timestamp}-${random}`.substring(0, 16)
   }
 
   const handleSubmitPayment = async () => {
@@ -96,7 +96,6 @@ export default function CartPage() {
                 <p className="text-lg font-bold text-gray-900 mb-2">Total Due: ${finalTotal.toFixed(2)}</p>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
               <div className="bg-emerald-50 border-2 border-emerald-200 rounded-lg p-6 md:p-8 mb-8 text-left max-w-lg mx-auto shadow-sm">
                 <p className="text-xl font-bold text-emerald-900 mb-3 flex items-center">
                   <span className="mr-2">📧</span> Check Your Email
@@ -117,7 +116,7 @@ export default function CartPage() {
                   Once you've sent your payment, use our verification tool to speed up your order processing!
                 </p>
                 <Link 
-                  href={`/verify-payment?order=${orderId}&amount=${finalTotal}`}
+                  href={`/verify-payment?order=${orderNumber}&amount=${finalTotal}`}
                   className="mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg transition-all inline-block shadow-md hover:shadow-amber-100"
                 >
                   I've Paid - Verify Now
