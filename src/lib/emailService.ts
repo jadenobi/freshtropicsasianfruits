@@ -140,7 +140,7 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
             Authorization: `Bearer ${process.env.RESEND_API_KEY}`
           },
           body: JSON.stringify({
-            from: "onboarding@resend.dev",
+            from: "hello@freshtropicsasianfruits.com",
             to: "freshtropicsasianfruits@gmail.com",
             subject: `🍎 NEW ORDER #${order.orderId} - $${order.total.toFixed(2)} - Business Confirmation`,
             html: businessHtmlTemplate,
@@ -313,11 +313,11 @@ export async function sendPaymentEmail(order: OrderData): Promise<boolean> {
             Authorization: `Bearer ${process.env.RESEND_API_KEY}`
           },
           body: JSON.stringify({
-            from: "freshtropicsasianfruits@gmail.com",
+            from: "hello@freshtropicsasianfruits.com",
             to: recipientEmail,
             subject: `🍎 Payment Instructions - Order #${order.orderId}`,
             html: htmlTemplate,
-            replyTo: "freshtropicsasianfruits@gmail.com"
+            replyTo: "hello@freshtropicsasianfruits.com"
           })
         })
         
@@ -415,7 +415,7 @@ export async function sendPaymentVerificationEmail(data: VerificationData): Prom
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`
         },
         body: JSON.stringify({
-          from: "onboarding@resend.dev",
+          from: "hello@freshtropicsasianfruits.com",
           to: "freshtropicsasianfruits@gmail.com",
           subject: `✅ Payment Verification: Order #${data.orderId} - ${data.transactionId}`,
           html: businessHtmlTemplate,
