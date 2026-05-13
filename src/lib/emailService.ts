@@ -23,7 +23,8 @@ export interface VerificationData {
 }
 
 const paymentInstructions: Record<string, string> = {
-  stripe: "Pay securely using Credit Card at: https://checkout.stripe.com/pay\nMerchant: Fresh Tropics Asian Fruits\nAmount: $[TOTAL]",
+  credit_card: "Pay securely via Credit Card link: https://checkout.stripe.com/pay\nMerchant: Fresh Tropics Asian Fruits\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]",
+  chime: "Send to Chime: freshtropicsasianfruits@chime.com\nAmount: $[TOTAL]\nMemo: Order [ORDER_ID]",
   paypal: "Send payment to: freshtropicsasianfruits@gmail.com\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]\nNote: Include order number in payment notes",
   apple_pay: "Recipient: Fresh Tropics Asian Fruits\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]",
   venmo: "Send to: @FreshTropicsAsianFruits\nAmount: $[TOTAL]\nMemo: Order [ORDER_ID]",
@@ -118,7 +119,38 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
 
             <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px; margin: 20px 0; border-radius: 4px;">
               <p style="margin: 0; color: #92400e; font-weight: bold;">⚠️ ACTION REQUIRED</p>
-              <p style="margin: 5px 0 0 0; color: #92400e; font-size: 14px;">Awaiting payment confirmation. Customer has been sent payment instructions.</p>
+              <p style="margin: 5px 0 0 0; color: #92400e; font-size: 14px;">Confirm availability and reply to the customer with payment details.</p>
+            </div>
+
+            <!-- Professional Response Template -->
+            <div style="background: white; border: 2px dashed #065f46; padding: 25px; border-radius: 8px; margin-top: 30px;">
+              <h3 style="margin: 0 0 15px 0; color: #065f46; font-size: 16px;">📋 PROFESSIONAL RESPONSE DRAFT (Copy & Paste)</h3>
+              <div style="background: #f9fafb; padding: 20px; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #374151; border: 1px solid #e5e7eb;">
+                <p style="margin: 0;">Hi ${order.customerName},</p>
+                <br/>
+                <p style="margin: 0;">Thank you for choosing <strong>Fresh Tropics Asian Fruits</strong>! 🍎</p>
+                <p style="margin: 10px 0;">We've received your order <strong>#${order.orderId}</strong> and have manually verified your items for the best quality and freshness.</p>
+                
+                <div style="background: white; padding: 15px; border-left: 4px solid #d97706; margin: 15px 0;">
+                  <p style="margin: 0; font-weight: bold; color: #065f46;">Order Summary:</p>
+                  <p style="margin: 5px 0;">Total Amount: <strong>$${order.total.toFixed(2)}</strong></p>
+                  <p style="margin: 5px 0;">Payment Method: <strong>${PAYMENT_METHODS.find(m => m.id === order.paymentMethodId)?.name || order.paymentMethodId}</strong></p>
+                </div>
+
+                <p style="margin: 0;">To finalize your order, please use the details below:</p>
+                <p style="margin: 10px 0; font-family: monospace; background: #fff; padding: 10px; border: 1px solid #ddd;">
+                  ${paymentInstructions[order.paymentMethodId]
+                    .replace("[TOTAL]", order.total.toFixed(2))
+                    .replace("[ORDER_ID]", order.orderId)}
+                </p>
+
+                <p style="margin: 10px 0;">Once payment is confirmed, yours fruits will be carefully packaged and shipped for delivery.</p>
+                <p style="margin: 10px 0;">If you have any questions, feel free to reply to this email or reach us on live chat!</p>
+                <br/>
+                <p style="margin: 0;">Best regards,</p>
+                <p style="margin: 5px 0; font-weight: bold; color: #065f46;">The Fresh Tropics Team 🍎🌴</p>
+              </div>
+              <p style="margin: 10px 0 0 0; font-size: 11px; color: #6b7280; text-align: center;">Tip: Copy the gray box above and paste it as your reply to the customer.</p>
             </div>
           </div>
 
@@ -140,8 +172,8 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
             Authorization: `Bearer ${process.env.RESEND_API_KEY}`
           },
           body: JSON.stringify({
-            from: "hello@freshtropicsasianfruits.com",
-            to: "freshtropicsasianfruits@gmail.com",
+            from: "onboarding@resend.dev",
+            to: process.env.NEXT_PUBLIC_PAYMENT_EMAIL || "freshtropicsasianfruits@gmail.com",
             subject: `🍎 NEW ORDER #${order.orderId} - $${order.total.toFixed(2)} - Business Confirmation`,
             html: businessHtmlTemplate,
             replyTo: order.customerEmail
@@ -313,11 +345,11 @@ export async function sendPaymentEmail(order: OrderData): Promise<boolean> {
             Authorization: `Bearer ${process.env.RESEND_API_KEY}`
           },
           body: JSON.stringify({
-            from: "hello@freshtropicsasianfruits.com",
+            from: "onboarding@resend.dev",
             to: recipientEmail,
             subject: `🍎 Payment Instructions - Order #${order.orderId}`,
             html: htmlTemplate,
-            replyTo: "hello@freshtropicsasianfruits.com"
+            replyTo: "freshtropicsasianfruits@gmail.com"
           })
         })
         
@@ -415,7 +447,7 @@ export async function sendPaymentVerificationEmail(data: VerificationData): Prom
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`
         },
         body: JSON.stringify({
-          from: "hello@freshtropicsasianfruits.com",
+          from: "onboarding@resend.dev",
           to: "freshtropicsasianfruits@gmail.com",
           subject: `✅ Payment Verification: Order #${data.orderId} - ${data.transactionId}`,
           html: businessHtmlTemplate,

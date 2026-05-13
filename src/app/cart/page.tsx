@@ -8,11 +8,12 @@ import { useCart } from "@/lib/cart"
 import { PAYMENT_METHODS } from "@/config/payments"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import PaymentIcon from "@/components/PaymentIcon"
 
 export default function CartPage() {
   const { items, total, updateQuantity, removeFromCart, clearCart } = useCart()
   const [checkoutStep, setCheckoutStep] = useState("review") // review, shipping, payment, confirm
-  const [selectedPayment, setSelectedPayment] = useState("stripe")
+  const [selectedPayment, setSelectedPayment] = useState("credit_card")
   const [customerEmail, setCustomerEmail] = useState("")
   const [customerName, setCustomerName] = useState("")
   const [orderNumber, setOrderNumber] = useState("")
@@ -96,17 +97,17 @@ export default function CartPage() {
                 <p className="text-lg font-bold text-gray-900 mb-2">Total Due: ${finalTotal.toFixed(2)}</p>
               </div>
 
-              <div className="bg-emerald-50 border-2 border-emerald-200 rounded-lg p-6 md:p-8 mb-8 text-left max-w-lg mx-auto shadow-sm">
-                <p className="text-xl font-bold text-emerald-900 mb-3 flex items-center">
-                  <span className="mr-2">📧</span> Check Your Email
+              <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-6 md:p-8 mb-8 text-left max-w-lg mx-auto shadow-sm">
+                <p className="text-xl font-bold text-amber-900 mb-3 flex items-center">
+                  <span className="mr-2">🔎</span> Order Under Review
                 </p>
-                <p className="text-gray-700 mb-2">We've sent detailed payment instructions to:</p>
-                <p className="font-mono text-lg text-emerald-600 mb-4 bg-white px-3 py-2 rounded-md border border-emerald-100">{customerEmail}</p>
-                <p className="text-sm text-gray-600">The email includes:</p>
+                <p className="text-gray-700 mb-2">Our team is manually reviewing your order for quality and security. We will contact you via email shortly with:</p>
+                <p className="font-mono text-lg text-amber-600 mb-4 bg-white px-3 py-2 rounded-md border border-amber-100">{customerEmail}</p>
+                <p className="text-sm text-gray-600">The next email will include:</p>
                 <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                  <li>✓ Secure payment details for Zelle/Venmo/etc.</li>
-                  <li>✓ Order summary & total amount</li>
-                  <li>✓ Step-by-step verification info</li>
+                  <li>✓ Official Order Confirmation</li>
+                  <li>✓ Personalized Payment Instructions</li>
+                  <li>✓ Estimated shipping timeline</li>
                 </ul>
               </div>
 
@@ -304,9 +305,14 @@ export default function CartPage() {
                               {selectedPayment === method.id && <div className="w-3 h-3 bg-emerald-600 rounded-full"></div>}
                             </div>
                             <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <span className="text-2xl">{method.icon}</span>
-                                <h3 className="font-bold text-lg text-gray-900">{method.name}</h3>
+                              <div className="flex items-center gap-3 mb-1">
+                                <div className="p-2 bg-gray-50 rounded-lg group-hover:bg-white transition-colors">
+                                  <PaymentIcon methodId={method.id} size={32} />
+                                </div>
+                                <div>
+                                  <h3 className="font-bold text-lg text-gray-900">{method.name}</h3>
+                                  <p className="text-xs text-gray-500 font-medium">{(method as any).description}</p>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -461,7 +467,7 @@ export default function CartPage() {
                   {checkoutStep === "payment" && (
                     <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-4 rounded-lg mb-6 border-2 border-emerald-200">
                       <p className="text-sm font-bold text-emerald-900 mb-2">📧 Next Step:</p>
-                      <p className="text-xs text-emerald-800">Check your email for secure payment details</p>
+                      <p className="text-xs text-emerald-800">Wait for our team to contact you with secure payment details</p>
                     </div>
                   )}
 

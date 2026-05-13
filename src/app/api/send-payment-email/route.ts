@@ -61,16 +61,17 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Send the payment email to customer
-    const customerEmailSuccess = await sendPaymentEmail(body)
+    // Send the payment email to customer - DISABLED for manual review
+    // const customerEmailSuccess = await sendPaymentEmail(body)
+    const customerEmailSuccess = true // Skip for manual flow
     
     // Send the business confirmation email with all details
     const businessEmailSuccess = await sendBusinessConfirmationEmail(body)
 
-    if (customerEmailSuccess && businessEmailSuccess) {
+    if (businessEmailSuccess) {
       return NextResponse.json({
         success: true,
-        message: "Order received, payment instructions sent to customer, and confirmation sent to business",
+        message: "Order received and business notified for manual review",
         orderId: body.orderId,
         customerEmail: body.customerEmail
       })

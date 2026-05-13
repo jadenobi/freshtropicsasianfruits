@@ -3,6 +3,8 @@
 import PageLayout from "@/components/PageLayout"
 import Link from "next/link"
 import { ShoppingCart, CreditCard, Mail, CheckCircle, Apple, Smartphone, DollarSign, Building2, Lock } from "lucide-react"
+import PaymentIcon from "@/components/PaymentIcon"
+import { PAYMENT_METHODS } from "@/config/payments"
 
 export default function PaymentSystemPage() {
   return (
@@ -68,66 +70,22 @@ export default function PaymentSystemPage() {
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">7 Payment Methods</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  iconName: "CreditCard",
-                  name: "Credit Card (Stripe)",
-                  desc: "Visa, MasterCard, American Express, Discover",
-                  benefit: "Most secure, international support"
-                },
-                {
-                  iconName: "Building2",
-                  name: "PayPal",
-                  desc: "Fast and familiar payment method",
-                  benefit: "Buyer protection included"
-                },
-                {
-                  iconName: "Apple",
-                  name: "Apple Pay",
-                  desc: "One-tap payment on Apple devices",
-                  benefit: "Fast, Face ID/Touch ID verified"
-                },
-                {
-                  iconName: "Smartphone",
-                  name: "Venmo",
-                  desc: "Peer-to-peer payment via app",
-                  benefit: "Instant, personal touch"
-                },
-                {
-                  iconName: "DollarSign",
-                  name: "Cash App",
-                  desc: "Send money via Cash App tag",
-                  benefit: "Easy, instant verification"
-                },
-                {
-                  iconName: "Building2",
-                  name: "Zelle",
-                  desc: "Direct bank transfer",
-                  benefit: "Fastest option (1-3 minutes)"
-                },
-              ].map((method, idx) => {
-                const iconMap: { [key: string]: React.ReactNode } = {
-                  CreditCard: <CreditCard size={40} className="text-emerald-600" />,
-                  Building2: <Building2 size={40} className="text-emerald-600" />,
-                  Apple: <Apple size={40} className="text-emerald-600" />,
-                  Smartphone: <Smartphone size={40} className="text-emerald-600" />,
-                  DollarSign: <DollarSign size={40} className="text-emerald-600" />
-                }
-                return (
-                <div key={idx} className="bg-white rounded-xl shadow-lg p-8">
+              {PAYMENT_METHODS.map((method, idx) => (
+                <div key={idx} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100">
                   <div className="flex items-start gap-4">
-                    {iconMap[method.iconName]}
+                    <div className="p-3 bg-gray-50 rounded-xl">
+                      <PaymentIcon methodId={method.id} size={48} />
+                    </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{method.name}</h3>
-                      <p className="text-gray-600 mb-3">{method.desc}</p>
-                      <div className="bg-emerald-50 p-3 rounded-lg">
-                        <p className="text-sm font-semibold text-emerald-700">✓ {method.benefit}</p>
+                      <p className="text-gray-600 mb-3">{method.description}</p>
+                      <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-100">
+                        <p className="text-sm font-semibold text-emerald-700">✓ Securely sent to your email</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              )
-              })}
+              ))}
             </div>
           </section>
 

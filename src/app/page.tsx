@@ -6,10 +6,22 @@ import Link from "next/link"
 import NewsletterSignup from "@/components/NewsletterSignup"
 import TestimonialCarousel from "@/components/TestimonialCarousel"
 import { Leaf, Truck, Leaf as LeafAlt, CheckCircle, Trophy, Heart } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'Fresh Tropics – Buy Asian Fruits Online | Tropical Fruit Delivery',
+  description: 'Buy fresh tropical and Asian fruits online with fast delivery. Premium lychee, dragon fruit, mango, durian & more. Farm-to-table quality guaranteed.',
+  openGraph: {
+    title: 'Fresh Tropics – Premium Asian & Tropical Fruits',
+    description: 'Buy fresh tropical and Asian fruits online with fast delivery',
+    url: 'https://freshtropicsasianfruits.com',
+    type: 'website',
+  },
+}
 
 const FEATURED = ProductService.getFeaturedProducts(4)
 const TOP_RATED = [...ProductService.getAllProducts()].sort((a, b) => b.rating - a.rating).slice(0, 3)
-const POPULAR_BOXES = ProductService.getFeaturedProducts(8)
+const POPULAR_BOXES = ProductService.getFeaturedProducts(4)
 
 const WHY_US = [
   { iconName: "Leaf", title: "Farm Fresh", description: "Harvested fresh" },

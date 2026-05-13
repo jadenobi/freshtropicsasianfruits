@@ -3,7 +3,7 @@
 import PageLayout from '@/components/PageLayout'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FRUITS } from '@/lib/products'
+import { ProductService } from '@/lib/productService'
 import { useCart } from '@/context/CartContext'
 import ProductRatingForm from '@/components/ProductRatingForm'
 import CustomerReviews from '@/components/CustomerReviews'
@@ -16,10 +16,18 @@ import { useState, use, useEffect } from 'react'
 
 export default function ProductPage({params}:{params:Promise<{id:string}>}){
   const {id} = use(params)
-  const product = FRUITS.find(f=> f.id === id)
+  const product = ProductService.getProductById(id)
   const { addToCart } = useCart()
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+  const [selectedSizeId, setSelectedSizeId] = useState<string | null>(null)
+
+  // Set default size on product load
+  useEffect(() => {
+    if (product?.sizes && product.sizes.length > 0) {
+      setSelectedSizeId(product.sizes[1].id) // Default to Regular size
+    }
+  }, [product?.id])
 
   // Handle ESC key to close lightbox
   useEffect(() => {
@@ -107,11 +115,49 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
 
             {/* Price */}
             <div className="mb-6">
-              <span className="text-4xl font-bold text-emerald-600">${product.price.toFixed(2)}</span>
-              {product.originalPrice && product.originalPrice > product.price && (
-                <span className="ml-3 text-xl text-gray-400 line-through">${product.originalPrice.toFixed(2)}</span>
+              {product.sizes && product.sizes.length > 0 && selectedSizeId ? (() => {
+                const selectedSize = product.sizes.find(s => s.id === selectedSizeId)
+                return (
+                  <>
+                    <span className="text-4xl font-bold text-emerald-600">${selectedSize?.price.toFixed(2)}</span>
+                    {selectedSize?.originalPrice && selectedSize.originalPrice > selectedSize.price && (
+                      <span className="ml-3 text-xl text-gray-400 line-through">${selectedSize.originalPrice.toFixed(2)}</span>
+                    )}
+                  </>
+                )
+              })() : (
+                <>
+                  <span className="text-4xl font-bold text-emerald-600">${product?.price.toFixed(2)}</span>
+                  {product?.originalPrice && product.originalPrice > product.price && (
+                    <span className="ml-3 text-xl text-gray-400 line-through">${product.originalPrice.toFixed(2)}</span>
+                  )}
+                </>
               )}
             </div>
+
+            {/* Size Selection */}
+            {product?.sizes && product.sizes.length > 0 && (
+              <div className="mb-8">
+                <label className="block text-sm font-semibold text-gray-700 mb-3">Select Size:</label>
+                <div className="grid grid-cols-3 gap-3">
+                  {product.sizes.map((size) => (
+                    <button
+                      key={size.id}
+                      onClick={() => setSelectedSizeId(size.id)}
+                      className={`py-3 px-4 rounded-lg border-2 font-semibold transition-all ${
+                        selectedSizeId === size.id
+                          ? 'border-emerald-600 bg-emerald-50 text-emerald-600'
+                          : 'border-gray-300 bg-white text-gray-700 hover:border-emerald-300'
+                      }`}
+                    >
+                      <div className="font-bold text-lg">{size.name}</div>
+                      <div className="text-sm text-gray-600">{size.weight}</div>
+                      <div className="text-emerald-600 font-semibold">${size.price.toFixed(2)}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Stock Status */}
             <div className="mb-6">
@@ -136,8 +182,14 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
             <div className="flex flex-col gap-3 mb-8">
               <div className="flex gap-3">
                 <button 
-                  onClick={()=> addToCart(product, 1)} 
-                  disabled={!product.inStock}
+                  onClick={() => {
+                    if (product?.sizes && selectedSizeId) {
+                      addToCart(product, 1, selectedSizeId)
+                    } else {
+                      addToCart(product, 1)
+                    }
+                  }}
+                  disabled={!product?.inStock}
                   className="flex-1 px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                 >
                   Add to Cart
@@ -147,7 +199,7 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
                 </button>
               </div>
               <div className="flex gap-3">
-                <WishlistButton productId={id} productName={product.name} />
+                <WishlistButton productId={id} productName={product?.name || ''} />
                 <Link 
                   href="/wishlist"
                   className="flex-1 px-6 py-3 border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-colors text-center"

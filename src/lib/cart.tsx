@@ -6,7 +6,7 @@ import type { CartItem, Fruit } from '@/types'
 type CartContextValue = {
   items: CartItem[]
   total: number
-  addToCart: (product: Fruit, quantity?: number) => void
+  addToCart: (product: Fruit, quantity?: number, selectedSizeId?: string) => void
   updateQuantity: (id: string, quantity: number) => void
   removeFromCart: (id: string) => void
   clearCart: () => void
@@ -31,11 +31,38 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     } catch (_) {}
   }, [items])
 
-  const addToCart = (product: Fruit, quantity = 1) => {
+  const addToCart = (product: Fruit, quantity = 1, selectedSizeId?: string) => {
     setItems(prev => {
-      const found = prev.find(i => i.id === product.id)
-      if (found) return prev.map(i => i.id === product.id ? { ...i, cartQuantity: (i.cartQuantity || 0) + quantity } : i)
-      const newItem: CartItem = { ...product, cartQuantity: quantity }
+      // Create a unique key that combines product ID and selected size
+      const cartKey = selectedSizeId ? `${product.id}--${selectedSizeId}` : product.id
+      
+      // Get the price based on selected size
+      let itemPrice = product.price
+      let selectedSize = undefined
+      
+      if (selectedSizeId && product.sizes) {
+        selectedSize = product.sizes.find(s => s.id === selectedSizeId)
+        if (selectedSize) {
+          itemPrice = selectedSize.price
+        }
+      }
+      
+      const found = prev.find(i => (i.selectedSizeId ? `${i.id}--${i.selectedSizeId}` : i.id) === cartKey)
+      
+      if (found) {
+        return prev.map(i => 
+          (i.selectedSizeId ? `${i.id}--${i.selectedSizeId}` : i.id) === cartKey 
+            ? { ...i, cartQuantity: (i.cartQuantity || 0) + quantity } 
+            : i
+        )
+      }
+      
+      const newItem: CartItem = { 
+        ...product, 
+        cartQuantity: quantity,
+        selectedSizeId: selectedSizeId,
+        price: itemPrice // Override price with selected size's price
+      }
       return [...prev, newItem]
     })
   }

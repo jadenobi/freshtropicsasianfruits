@@ -10,6 +10,14 @@ export interface Nutrition {
   benefits?: string[];
 }
 
+export interface ProductSize {
+  id: string;
+  name: string; // e.g., "Small", "Regular", "Large"
+  weight: string; // e.g., "5 lbs", "8 lbs", "10 lbs"
+  price: number;
+  originalPrice?: number;
+}
+
 export interface Fruit {
   id: string;
   name: string;
@@ -25,11 +33,13 @@ export interface Fruit {
   inventory?: number;
   quantity?: number;
   nutrition?: Nutrition; // Nutritional information
+  sizes?: ProductSize[]; // Available sizes with different prices
 }
 
 // Cart Types
 export interface CartItem extends Fruit {
   cartQuantity: number;
+  selectedSizeId?: string; // Selected size for the item
 }
 
 export interface Cart {

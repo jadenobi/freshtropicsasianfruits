@@ -1,12 +1,85 @@
 ﻿import { Fruit } from '@/types';
 
 export const FRUITS: Fruit[] = [
+
+  {
+    id: '4610823848024',
+    name: 'Fresh Lychee Fruit Box',
+    category: 'exotic',
+    price: 89,
+    originalPrice: 89,
+    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Lychees_3lbs_-v1_2.jpg?v=1762457558',
+    images: [
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Lychees_3lbs_-v1_2.jpg?v=1762457558',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-exotic-fruit-box-tropical-fruit-box-23351770415289.jpg?v=1762457568'
+    ],
+    description: 'Lychee Lovers, We Know What You\'re Thinking…Where can I find fresh lychee fruit near me?\nGood news: You don’t have to go far. In fact, we’ll bring it ',
+    rating: 4.9,
+    reviews: 125,
+    inStock: true
+  },
+  {
+    id: '4667411562584',
+    name: 'Mountain Soursop Box',
+    category: 'exotic',
+    price: 109,
+    originalPrice: 109,
+    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/mountain-soursop-box-tropical-fruit-box-15072024297560.jpg?v=1762457582',
+    images: [
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/mountain-soursop-box-tropical-fruit-box-15072024297560.jpg?v=1762457582',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-exotic-fruit-box-tropical-fruit-box-23351770415289.jpg?v=1762457568'
+    ],
+    description: 'Another victory for the Tropical Fruit Box team! We got a small batch of Mountain Soursop, those who enjoy the sciences call it Annona Montana, it\'s a',
+    rating: 4.9,
+    reviews: 244,
+    inStock: true
+  },
+  {
+    id: '4612343201880',
+    name: 'Star Apple | Caimito Box',
+    category: 'apples',
+    price: 109,
+    originalPrice: 109,
+    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Star_apple_3lbs_1_970468ac-4a0b-4e76-9551-4a780e6ddcd8.jpg?v=1759439074',
+    images: [
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Star_apple_3lbs_1_970468ac-4a0b-4e76-9551-4a780e6ddcd8.jpg?v=1759439074',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-exotic-fruit-box-tropical-fruit-box-23351770415289.jpg?v=1762457568'
+    ],
+    description: 'It\'s a thing, trust me. The Caimito, as we know it, also known as Star Apple, Caimito, Purple Star Apple, Abiaba, Pomme de Lait, Milk Fruit, and many ',
+    rating: 4.9,
+    reviews: 73,
+    inStock: true
+  },
+  {
+    id: '4699396178008',
+    name: 'Yellow Dragon Fruit Box',
+    category: 'exotic',
+    price: 69,
+    originalPrice: 69,
+    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/YellowDragon5lbs2.jpg?v=1762457592',
+    images: [
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/YellowDragon5lbs2.jpg?v=1762457592',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/gamboge-yellow-mangosteen-fruit-box-large-8-pounds-tropical-fruit-box-22879464259769.jpg?v=1762457808',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
+      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421'
+    ],
+    description: '\nDragon Fruit, also called Pitaya or Pitahaya is the fruit of a cactus originally from Mexico and Central America. People describe the flavor as a mix',
+    rating: 4.6,
+    reviews: 190,
+    inStock: true
+  },
   {
     id: '8100732698809',
     name: 'Unbeelieveably Thankful Honey Box – Florida Wildflower Edition',
     category: 'exotic',
     price: 39.99,
-    originalPrice: 39.99,
+    originalPrice: 45.99,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_111657.jpg?v=1762459671',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_111657.jpg?v=1762459671',
@@ -23,7 +96,7 @@ export const FRUITS: Fruit[] = [
     name: 'BEE MINE Florida Wildflower',
     category: 'exotic',
     price: 49,
-    originalPrice: 49,
+    originalPrice: 56.35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083124.jpg?v=1762459623',
@@ -40,7 +113,7 @@ export const FRUITS: Fruit[] = [
     name: 'BEE MINE Mango Habanero Honey',
     category: 'tropical',
     price: 49,
-    originalPrice: 49,
+    originalPrice: 56.35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Mango_Habenaro_3.jpg?v=1762459381',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/2ct_Mango_Habenaro_3.jpg?v=1762459381',
@@ -57,7 +130,7 @@ export const FRUITS: Fruit[] = [
     name: 'Happy Birthday Pinkglow® Pink Pineapple Gift Box',
     category: 'tropical',
     price: 39,
-    originalPrice: 39,
+    originalPrice: 44.85,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/HappyBirthday_PG2.jpg?v=1762459650',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/HappyBirthday_PG2.jpg?v=1762459650',
@@ -68,74 +141,6 @@ export const FRUITS: Fruit[] = [
     description: 'Happy Birthday Pinkglow® Pink Pineapple Gift Box\nCelebrate their special day with a burst of tropical sunshine!The Pinkglow® Pink Pineapple is a rare,',
     rating: 5,
     reviews: 236,
-    inStock: true
-  },
-  {
-    id: '8083148144825',
-    name: 'Sending You Sunshine Pinkglow® Pink Pineapple Gift Box',
-    category: 'tropical',
-    price: 39,
-    originalPrice: 39,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_100512.jpg?v=1762459650',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_100512.jpg?v=1762459650',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_083145.jpg?v=1762459642',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PinkGlowDM_Lifestyle_V1.jpg?v=1762459123'
-    ],
-    description: 'Sending You Sunshine Pinkglow® Pink Pineapple Gift Box\nBrighten someone’s day with a burst of tropical sunshine!The Pinkglow® Pink Pineapple is a rare',
-    rating: 4.6,
-    reviews: 342,
-    inStock: true
-  },
-  {
-    id: '8083147980985',
-    name: 'Congratulations Pinkglow® Pink Pineapple Gift Box',
-    category: 'tropical',
-    price: 39,
-    originalPrice: 39,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_102400.jpg?v=1762459649',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_102400.jpg?v=1762459649',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250524_105459.jpg?v=1762457858',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PinkGlowDM_Lifestyle_V1.jpg?v=1762459123'
-    ],
-    description: 'Congratulations Pinkglow® Pink Pineapple Gift Box\nWhen the moment calls for celebration, do it with something truly unforgettable — the Pinkglow® Pink',
-    rating: 4.6,
-    reviews: 180,
-    inStock: true
-  },
-  {
-    id: '8083147358393',
-    name: 'Happy Anniversary Pinkglow® Pink Pineapple Gift Box',
-    category: 'tropical',
-    price: 39,
-    originalPrice: 39,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_101240.jpg?v=1762459649',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_101240.jpg?v=1762459649',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Photoroom_20250426_100512.jpg?v=1762459650',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PinkGlowDM_Lifestyle_V1.jpg?v=1762459123'
-    ],
-    description: 'Happy Anniversary Pinkglow® Pink Pineapple Gift Box\nCelebrate your love story with something as rare and sweet as the bond you share — the Pinkglow® P',
-    rating: 5,
-    reviews: 182,
-    inStock: true
-  },
-  {
-    id: '8083146080441',
-    name: 'Happy Mothers Day Pinkglow® Pink Pineapple Gift Box',
-    category: 'tropical',
-    price: 39,
-    originalPrice: 39,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/MothersDay_PG1.jpg?v=1762459648'
-    ],
-    description: 'Happy Mother’s Day Pinkglow® Pink Pineapple Gift Box\nThis Mother’s Day, celebrate the most special woman in your life with a gift as rare and beautifu',
-    rating: 5,
-    reviews: 169,
     inStock: true
   },
   {
@@ -179,7 +184,7 @@ export const FRUITS: Fruit[] = [
     name: 'Tropi Dad Taste of the Tropics Gift Box',
     category: 'exotic',
     price: 129,
-    originalPrice: 129,
+    originalPrice: 148.35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Taste_of_the_tropics_w-Kumquat_Dad_3.jpg?v=1759439266',
@@ -197,7 +202,7 @@ export const FRUITS: Fruit[] = [
     name: 'Tropi Spring Mom Box 🌸🍍',
     category: 'exotic',
     price: 129,
-    originalPrice: 129,
+    originalPrice: 148.35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TropiSpringMOM3_07f3091b-bd05-4382-bf46-a082086bcd63.jpg?v=1759439265',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/TropiSpringMOM3_07f3091b-bd05-4382-bf46-a082086bcd63.jpg?v=1759439265',
@@ -215,7 +220,7 @@ export const FRUITS: Fruit[] = [
     name: 'Taste of the Tropics: Easter Edition',
     category: 'exotic',
     price: 99,
-    originalPrice: 99,
+    originalPrice: 113.85,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Easter_TasteoftheTropics_v3.jpg?v=1762459636',
@@ -232,7 +237,7 @@ export const FRUITS: Fruit[] = [
     name: 'Plantain Chips Spicy',
     category: 'exotic',
     price: 49,
-    originalPrice: 49,
+    originalPrice: 56.35,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Group_7509_3.png?v=1762459540',
@@ -249,7 +254,7 @@ export const FRUITS: Fruit[] = [
     name: 'Easter Collection Pinkglow® Pink Pineapple Gift Box',
     category: 'tropical',
     price: 39,
-    originalPrice: 39,
+    originalPrice: 44.85,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/EasterPine3.jpg?v=1762459601',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/EasterPine3.jpg?v=1762459601',
@@ -267,7 +272,7 @@ export const FRUITS: Fruit[] = [
     name: 'Plum Sugar',
     category: 'exotic',
     price: 59,
-    originalPrice: 59,
+    originalPrice: 67.85,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PlumSugar_3lbs-V3.png?v=1762459575',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/PlumSugar_3lbs-V3.png?v=1762459575',
@@ -284,7 +289,7 @@ export const FRUITS: Fruit[] = [
     name: 'Jaboticaba aka Brazilian Grapes',
     category: 'exotic',
     price: 99,
-    originalPrice: 99,
+    originalPrice: 113.85,
     image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Jaboticaba_3lbs_v1.png?v=1762459552',
     images: [
       'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Jaboticaba_3lbs_v1.png?v=1762459552',
@@ -1665,24 +1670,6 @@ export const FRUITS: Fruit[] = [
     inStock: true
   },
   {
-    id: '4699396178008',
-    name: 'Yellow Dragon Fruit Box',
-    category: 'exotic',
-    price: 69,
-    originalPrice: 69,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/YellowDragon5lbs2.jpg?v=1762457592',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/YellowDragon5lbs2.jpg?v=1762457592',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/gamboge-yellow-mangosteen-fruit-box-large-8-pounds-tropical-fruit-box-22879464259769.jpg?v=1762457808',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421'
-    ],
-    description: '\nDragon Fruit, also called Pitaya or Pitahaya is the fruit of a cactus originally from Mexico and Central America. People describe the flavor as a mix',
-    rating: 4.6,
-    reviews: 190,
-    inStock: true
-  },
-  {
     id: '7240688599225',
     name: 'Mixed Pink & White Guava Box',
     category: 'exotic',
@@ -2978,24 +2965,6 @@ export const FRUITS: Fruit[] = [
     inStock: true
   },
   {
-    id: '4667411562584',
-    name: 'Mountain Soursop Box',
-    category: 'exotic',
-    price: 109,
-    originalPrice: 109,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/mountain-soursop-box-tropical-fruit-box-15072024297560.jpg?v=1762457582',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/mountain-soursop-box-tropical-fruit-box-15072024297560.jpg?v=1762457582',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-exotic-fruit-box-tropical-fruit-box-23351770415289.jpg?v=1762457568'
-    ],
-    description: 'Another victory for the Tropical Fruit Box team! We got a small batch of Mountain Soursop, those who enjoy the sciences call it Annona Montana, it\'s a',
-    rating: 4.9,
-    reviews: 244,
-    inStock: true
-  },
-  {
     id: '4666542063704',
     name: 'Korean Melon Box',
     category: 'exotic',
@@ -3140,24 +3109,6 @@ export const FRUITS: Fruit[] = [
     inStock: true
   },
   {
-    id: '4612343201880',
-    name: 'Star Apple | Caimito Box',
-    category: 'apples',
-    price: 109,
-    originalPrice: 109,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Star_apple_3lbs_1_970468ac-4a0b-4e76-9551-4a780e6ddcd8.jpg?v=1759439074',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Star_apple_3lbs_1_970468ac-4a0b-4e76-9551-4a780e6ddcd8.jpg?v=1759439074',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-exotic-fruit-box-tropical-fruit-box-23351770415289.jpg?v=1762457568'
-    ],
-    description: 'It\'s a thing, trust me. The Caimito, as we know it, also known as Star Apple, Caimito, Purple Star Apple, Abiaba, Pomme de Lait, Milk Fruit, and many ',
-    rating: 4.9,
-    reviews: 73,
-    inStock: true
-  },
-  {
     id: '4611180986456',
     name: 'Purple Mangosteen Fruit Box',
     category: 'tropical',
@@ -3173,24 +3124,6 @@ export const FRUITS: Fruit[] = [
     description: 'Mangosteen near me? Yes! Exotic Fruit Lovers rejoice! We’ve got the crown jewel, the queen of all fruits, the elusive, seductive, and much revered pur',
     rating: 5,
     reviews: 272,
-    inStock: true
-  },
-  {
-    id: '4610823848024',
-    name: 'Fresh Lychee Fruit Box',
-    category: 'exotic',
-    price: 89,
-    originalPrice: 89,
-    image: 'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Lychees_3lbs_-v1_2.jpg?v=1762457558',
-    images: [
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/files/Lychees_3lbs_-v1_2.jpg?v=1762457558',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-roots-box-tropical-fruit-box-23351775559865.jpg?v=1762457513',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-tropical-fruit-box-tropical-fruit-box-23351774183609.jpg?v=1762457421',
-      'https://cdn.shopify.com/s/files/1/0054/9512/8152/products/create-your-own-exotic-fruit-box-tropical-fruit-box-23351770415289.jpg?v=1762457568'
-    ],
-    description: 'Lychee Lovers, We Know What You\'re Thinking…Where can I find fresh lychee fruit near me?\nGood news: You don’t have to go far. In fact, we’ll bring it ',
-    rating: 4.9,
-    reviews: 125,
     inStock: true
   },
   {
