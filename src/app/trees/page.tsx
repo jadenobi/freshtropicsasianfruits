@@ -1,14 +1,9 @@
+'use client'
+
 import PageLayout from "@/components/PageLayout"
 import ProductCard from "@/components/ProductCard"
 import { ProductService } from "@/lib/productService"
-import { Metadata } from "next"
-
 import { useState, useMemo } from 'react'
-
-export const metadata: Metadata = {
-  title: 'Fruit Trees – Grow Your Own Exotic Fruits',
-  description: 'Shop our premium collection of live fruit trees and berry bushes.',
-}
 
 export default function TreesPage() {
   const [sortBy, setSortBy] = useState('featured')
