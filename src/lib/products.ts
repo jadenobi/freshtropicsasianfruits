@@ -1,6 +1,290 @@
 ﻿import { Fruit } from '@/types';
 
 export const FRUITS: Fruit[] = [
+  {
+    id: 'fgt_1018',
+    name: 'Sweetheart Lychee Tree',
+    category: 'exotic',
+    price: 153.95,
+    originalPrice: 226.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Sweetheart-Lychee_1_ef319e2e-b719-4801-8e4e-f7b6c6c00ac9.jpg?v=1702306103',
+    description: 'Grow the sweetest Lychee variety right at home! The Sweetheart Lychee produces abundant heart-shaped fruit with huge chunks of sweet, juicy flesh.',
+    rating: 4.9,
+    reviews: 10,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 18.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 153.95, originalPrice: 226.95 }
+    ]
+  },
+  {
+    id: 'fgt_1001',
+    name: 'Tikal Pink Guava Tree',
+    category: 'tropical',
+    price: 34.95,
+    originalPrice: 44.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Tikal-Pink-Guava-Tree-3_5acd37c6-f6d5-4d3c-8768-33b732a6f509.jpg?v=1767142637',
+    description: 'Grow your own delicious and highly aromatic Tikal Pink Guava. This robust tree yields plenty of delicious, bright pink-fleshed fruit that is perfect for juices, jams, or eating fresh right off the tree.',
+    rating: 4.8,
+    reviews: 112,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 9.95 },
+      { id: 'sz_2', name: '2 lbs Box', weight: '2 lbs', price: 18.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 34.95, originalPrice: 44.95 }
+    ]
+  },
+  {
+    id: 'fgt_1002',
+    name: 'Honeycrisp™ Apple Tree',
+    category: 'apples',
+    price: 69.95,
+    originalPrice: 89.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Honeycrisp_Apple_4_FGT_0b010b3b-df69-4775-b7d6-5460bbd055aa.jpg?v=1698960745',
+    description: 'The Honeycrisp Apple Tree produces famously sweet, crisp, and juicy apples that store exceptionally well. Enjoy farm-fresh apples right from your own backyard.',
+    rating: 4.9,
+    reviews: 487,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 8.95 },
+      { id: 'sz_tree', name: 'Live Tree (Bare Root)', weight: '0', price: 69.95, originalPrice: 89.95 }
+    ]
+  },
+  {
+    id: 'fgt_1003',
+    name: 'Meyer Lemon Tree',
+    category: 'citrus',
+    price: 65.95,
+    originalPrice: 85.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/products/Meyer_Lemon_Tree_5_FGT_3da7495c-84c2-4ba3-a483-65fbbc8f5e8d.jpg?v=1630338493',
+    description: 'The Meyer Lemon Tree is famous for its sweeter, less acidic lemons. Its compact size makes it perfect for patios and indoor growing, yielding fruit year-round.',
+    rating: 4.8,
+    reviews: 1848,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 5.95 },
+      { id: 'sz_2', name: '2 lbs Box', weight: '2 lbs', price: 10.95 },
+      { id: 'sz_tree', name: 'Live Tree (Potted)', weight: '0', price: 65.95, originalPrice: 85.95 }
+    ]
+  },
+  {
+    id: 'fgt_1004',
+    name: 'Cold Hardy Avocado Tree',
+    category: 'exotic',
+    price: 119.95,
+    originalPrice: 149.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/products/Cold_Hardy_Avocado_1_FGT.jpg?v=1612444134',
+    description: 'Grow your own avocados even in cooler climates! This Cold Hardy Avocado Tree can tolerate temperatures dropping below freezing, delivering rich, buttery avocados.',
+    rating: 4.6,
+    reviews: 930,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 15.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 119.95, originalPrice: 149.95 }
+    ]
+  },
+  {
+    id: 'fgt_1005',
+    name: 'Chicago Hardy Fig Tree',
+    category: 'exotic',
+    price: 43.95,
+    originalPrice: 55.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Chicago_Hardy_Fig_2_BB_8e22fa96-7859-4aac-b057-cf7fdc0256ce.jpg?v=1739056481',
+    description: 'The Chicago Hardy Fig is one of the most cold-tolerant fig trees available. It bounces back from freezing winters to produce dozens of incredibly sweet, jammy figs each summer.',
+    rating: 4.8,
+    reviews: 804,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 12.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 43.95, originalPrice: 55.95 }
+    ]
+  },
+  {
+    id: 'fgt_1006',
+    name: 'Bing Cherry Tree',
+    category: 'berries',
+    price: 59.95,
+    originalPrice: 79.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Bing_Cherry_Tree_3_FGT_906292c2-4550-4fc3-b873-75cc1790f4e1.jpg?v=1707157141',
+    description: 'The Bing Cherry Tree produces America\'s favorite sweet cherry. Enjoy large, dark red, meaty cherries that are perfect for snacking and baking.',
+    rating: 4.7,
+    reviews: 419,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 59.95, originalPrice: 79.95 }
+    ]
+  },
+  {
+    id: 'fgt_1007',
+    name: 'Elberta Peach Tree',
+    category: 'tropical',
+    price: 59.95,
+    originalPrice: 69.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Elberta_Peach_Tree_2_4580c354-7535-4def-8e84-2756ced39367.jpg?v=1707157976',
+    description: 'The Elberta Peach is known as the world\'s most famous peach! This tree produces massive, juicy, sweet freestone peaches with a beautiful red blush.',
+    rating: 4.9,
+    reviews: 398,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 7.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 59.95, originalPrice: 69.95 }
+    ]
+  },
+  {
+    id: 'fgt_1008',
+    name: 'Sweetheart Blueberry Bush',
+    category: 'berries',
+    price: 25.95,
+    originalPrice: 35.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Sweetheart_blueberry_1_2f1f8412-a7e3-4d95-ae85-b371e72e7b3d.jpg?v=1712857621',
+    description: 'Why settle for one harvest when you can have two? The Sweetheart Blueberry Bush produces a heavy, early summer crop, and then blossoms again for a late summer harvest!',
+    rating: 4.8,
+    reviews: 271,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 14.95 },
+      { id: 'sz_bush', name: 'Live Bush', weight: '0', price: 25.95, originalPrice: 35.95 }
+    ]
+  },
+  {
+    id: 'fgt_1009',
+    name: 'Arbequina Olive Tree',
+    category: 'exotic',
+    price: 51.95,
+    originalPrice: 79.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/products/Arbequina_Olive_FGT.jpg?v=1624972327',
+    description: 'Enjoy delicious, home-grown olives anywhere in the country with the Arbequina Olive Tree. Popular for its high oil content and early fruiting habit.',
+    rating: 4.7,
+    reviews: 627,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 51.95, originalPrice: 79.95 }
+    ]
+  },
+  {
+    id: 'fgt_1010',
+    name: 'Burbank Plum Tree',
+    category: 'tropical',
+    price: 64.95,
+    originalPrice: 74.95,
+    image: 'https://cdn.shopify.com/s/files/1/0059/8835/2052/files/grow-zone-backsplash-map.svg?v=1718645094',
+    description: 'Producing large, purplish-red plums with amber flesh, the Burbank Plum Tree is a fantastic Japanese variety perfect for fresh eating or canning.',
+    rating: 4.6,
+    reviews: 145,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 9.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 64.95, originalPrice: 74.95 }
+    ]
+  },
+  {
+    id: 'fgt_1011',
+    name: 'Bartlett Pear Tree',
+    category: 'tropical',
+    price: 69.95,
+    originalPrice: 89.95,
+    image: 'https://cdn.shopify.com/s/files/1/0059/8835/2052/files/grow-zone-backsplash-map.svg?v=1718645094',
+    description: 'The Bartlett Pear is America\'s favorite pear, known for its smooth, buttery texture and sweet, juicy flavor. A vigorous and reliable producer.',
+    rating: 4.8,
+    reviews: 322,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 69.95, originalPrice: 89.95 }
+    ]
+  },
+  {
+    id: 'fgt_1012',
+    name: 'Paper Shell Pecan Tree',
+    category: 'exotic',
+    price: 79.95,
+    originalPrice: 99.95,
+    image: 'https://cdn.shopify.com/s/files/1/0059/8835/2052/files/grow-zone-backsplash-map.svg?v=1718645094',
+    description: 'Harvest large, sweet pecans that crack effortlessly! The Paper Shell Pecan Tree is a magnificent shade tree that also yields a bountiful harvest of buttery nuts.',
+    rating: 4.9,
+    reviews: 512,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Bag', weight: '1 lb', price: 16.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 79.95, originalPrice: 99.95 }
+    ]
+  },
+  {
+    id: 'fgt_1013',
+    name: 'Fuyu Persimmon Tree',
+    category: 'exotic',
+    price: 89.95,
+    originalPrice: 109.95,
+    image: 'https://cdn.shopify.com/s/files/1/0059/8835/2052/files/grow-zone-backsplash-map.svg?v=1718645094',
+    description: 'The Fuyu Persimmon is non-astringent, meaning you can eat it firm like an apple! It features gorgeous fall foliage and delicious, sweet fruit.',
+    rating: 4.8,
+    reviews: 215,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: '1 lb Box', weight: '1 lb', price: 11.95 },
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 89.95, originalPrice: 109.95 }
+    ]
+  },
+  {
+    id: 'fgt_1014',
+    name: 'Potted Rosemary Herb Plant',
+    category: 'fresh',
+    price: 19.95,
+    originalPrice: 24.95,
+    image: 'https://cdn.shopify.com/s/files/1/0059/8835/2052/files/grow-zone-backsplash-map.svg?v=1718645094',
+    description: 'Enjoy fresh, aromatic Rosemary right from your kitchen counter or garden. Extremely hardy, drought-tolerant, and versatile for cooking.',
+    rating: 4.7,
+    reviews: 188,
+    inStock: true,
+    sizes: [
+      { id: 'sz_1', name: 'Potted Plant', weight: '0', price: 19.95, originalPrice: 24.95 }
+    ]
+  },
+  {
+    id: 'fgt_1015',
+    name: 'Moorpark Apricot Tree',
+    category: 'tropical',
+    price: 69.95,
+    originalPrice: 89.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/files/Moorpark_Apricot_3_FGT_39031de9-ab56-4b4e-ba51-cc729aca430d.jpg?v=1707166539',
+    description: 'The Moorpark Apricot is a true legendary fruit. Boasting extra-large, sweet, and juicy apricots that are perfect for fresh eating or drying.',
+    rating: 4.6,
+    reviews: 134,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 69.95, originalPrice: 89.95 }
+    ]
+  },
+  {
+    id: 'fgt_1016',
+    name: 'Redgold Nectarine Tree',
+    category: 'tropical',
+    price: 74.95,
+    originalPrice: 94.95,
+    image: 'https://cdn.shopify.com/s/files/1/0059/8835/2052/files/grow-zone-backsplash-map.svg?v=1718645094',
+    description: 'The standard by which all nectarines are judged! The Redgold produces massive, sweet freestone fruit with glossy, red-blushed skin.',
+    rating: 4.9,
+    reviews: 201,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree', name: 'Live Tree', weight: '0', price: 74.95, originalPrice: 94.95 }
+    ]
+  },
+  {
+    id: 'fgt_1017',
+    name: 'Fruit Cocktail Tree',
+    category: 'exotic',
+    price: 189.95,
+    originalPrice: 219.95,
+    image: 'http://cdn.shopify.com/s/files/1/0059/8835/2052/products/Fruit_Cocktail_Tree_4.jpg?v=1641575124',
+    description: 'Can’t decide which fruit to grow? Grow up to 4 different fruits on one single tree! Normally featuring a combination of peaches, plums, apricots, and nectarines.',
+    rating: 4.4,
+    reviews: 326,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree', name: 'Live Tree (Grafted)', weight: '0', price: 189.95, originalPrice: 219.95 }
+    ]
+  }
+,
 
   {
     id: '4610823848024',
@@ -3575,6 +3859,457 @@ export const FRUITS: Fruit[] = [
     rating: 4.6,
     reviews: 192,
     inStock: true
+  }
+,
+  {
+    id: "fgt_mass_7790196719678",
+    name: "Blood Orange Tree",
+    category: 'exotic',
+    price: 56.95,
+    originalPrice: 56.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Moro_Blood_Orange_1_FGT_1fd66750-da79-4f0c-ad3f-80a1b5f01bfd.jpg?v=1762198039",
+    description: "Home-Grown Flavorful, Juicy Oranges Why Blood Orange Trees? Famous for their distinctive aftertaste, similar to raspberr...",
+    rating: 4.8,
+    reviews: 43,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 56.95, originalPrice: 56.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_6544684908606",
+    name: "Lutz Palm Tree Fertilizer Spikes",
+    category: 'exotic',
+    price: 22.95,
+    originalPrice: 22.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Palm_Spikes_600x600_876167b9-5c37-4e9d-a45d-63e15e6240b6.jpg?v=1762199119",
+    description: "Grow Healthier, Happier Palm Trees There's nothing like a palm tree to add a tropical touch to your home or landscape. A...",
+    rating: 4.8,
+    reviews: 17,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 22.95, originalPrice: 22.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_6890742743102",
+    name: "La Jolla Bougainvillea",
+    category: 'exotic',
+    price: 112.95,
+    originalPrice: 133.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/La-Jolla-Bougainvillea-FGT_600x600_e1375c00-6fde-46a5-8ec7-5a9a1f806e12.jpg?v=1762199644",
+    description: "Colorful, Tropical Evergreen Vine Why La Jolla Bougainvilleas? Bring the tropics of South Africa to your landscape with ...",
+    rating: 4.8,
+    reviews: 49,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 112.95, originalPrice: 133.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7954083643454",
+    name: "Red Candy Lingonberry Bush",
+    category: 'exotic',
+    price: 39.95,
+    originalPrice: 39.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/red-candy-lingonberry-3_f2277d70-20a4-41b6-9dca-74fe46c33e18.jpg?v=1763045393",
+    description: "Sweet Berries, Hardy Growth Discover the delightful Red Candy Lingonberry Bush, a compact evergreen shrub that brings ye...",
+    rating: 4.8,
+    reviews: 38,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 39.95, originalPrice: 39.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7781796249662",
+    name: "Allen Eureka Lemon Tree",
+    category: 'exotic',
+    price: 62.95,
+    originalPrice: 62.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Allen-Eureka-Lemon-Tree-2.jpg?v=1762276336",
+    description: "Flavorful, Fragrant Lemons Perfect for Homemade Sweets and Juices Enjoy a fragrant, tasty fruit with the Allen Eureka Le...",
+    rating: 4.8,
+    reviews: 39,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 62.95, originalPrice: 62.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7973433737278",
+    name: "Proven Winners® Celtic Pride® Siberian Cypress Shrub",
+    category: 'exotic',
+    price: 45.95,
+    originalPrice: 45.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Siberian-Cypress-1.jpg?v=1766592041",
+    description: "The perfect low-maintenance ground cover Celtic Pride® Siberian Cypress Shrub is an exceptional evergreen choice for any...",
+    rating: 4.8,
+    reviews: 39,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 45.95, originalPrice: 45.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_6825180004414",
+    name: "Cathedral Bells® Rose Shrub",
+    category: 'exotic',
+    price: 75.95,
+    originalPrice: 75.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Cathedral_Bells_Rose_Tree_FGT_600x600_ac8d615e-f996-4c86-aa4c-e06689243b14.jpg?v=1762199582",
+    description: "Lush Pink Blooms Add Beauty to Any Garden Why Cathedral Bells Rose Shrub? The large, old-fashioned blooms of the Cathedr...",
+    rating: 4.8,
+    reviews: 47,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 75.95, originalPrice: 75.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7731825573950",
+    name: "Proven Winners® Sting® Arborvitae",
+    category: 'exotic',
+    price: 31.95,
+    originalPrice: 50.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Sting-Arborvitae-3_11c5f9d2-bc4e-4953-b099-100089da3ff8.jpg?v=1762275648",
+    description: "Cold-Hardy Columnar Perfect for Adding Height to Smaller Spaces Add the Sting® Arborvitae to your yard for a unique tree...",
+    rating: 4.8,
+    reviews: 47,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 31.95, originalPrice: 50.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_1532747350068",
+    name: "August Beauty Gardenia Shrub",
+    category: 'exotic',
+    price: 28.95,
+    originalPrice: 32.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/August_Beauty_Gardenia_2_FGT.jpg?v=1762198023",
+    description: "August Beauty Blooms Up to 3 Months Why August Beauty Gardenia Shrubs? Fragrant pure white blossoms, nearly 2 to 3 inche...",
+    rating: 4.8,
+    reviews: 28,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 28.95, originalPrice: 32.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7995281014846",
+    name: "Southern Living® DownHome Harvest® Takes The Cake® Blueberry Shrub",
+    category: 'exotic',
+    price: 36.95,
+    originalPrice: 37.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Blueberry_Takes-the-Cake_1.jpg?v=1769472441",
+    description: "A fruitful addition with vibrant berries and striking flowers Southern Living Downhome Harvest® Takes the Cake® Blueberr...",
+    rating: 4.8,
+    reviews: 17,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 36.95, originalPrice: 37.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_1532741877812",
+    name: "Black Tartarian Cherry Tree",
+    category: 'exotic',
+    price: 45.95,
+    originalPrice: 56.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Black_Tartarian_Cherry_Tree_3_FGT_8d44b619-addc-43de-8dce-671d8817861b.jpg?v=1762197988",
+    description: "Delicious, Easy-to-Grow Cherries in 1 Year Why Black Tartarian Cherry Trees? There’s no need for trips to the grocery st...",
+    rating: 4.8,
+    reviews: 52,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 45.95, originalPrice: 56.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7466813685822",
+    name: "Yuzu Tree",
+    category: 'exotic',
+    price: 64.95,
+    originalPrice: 64.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Yuzu_Citrus_FGT_600x600_f4fe55aa-8325-4d58-8b4b-8490fdfe6633.jpg?v=1762272523",
+    description: "Cultivate Your Own Citrus Creations Originating in China and revered in Japan, the Yuzu Tree is celebrated for its aroma...",
+    rating: 4.8,
+    reviews: 40,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 64.95, originalPrice: 64.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_6897288347710",
+    name: "5-in-1 Peach Tree",
+    category: 'exotic',
+    price: 166.95,
+    originalPrice: 166.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Multi-fruit-peach_600x600_1bde10f6-0ebc-442c-a3d4-35c7cd83288d.jpg?v=1762199668",
+    description: "1 Peach Tree with 5 Varieties! Want to grow something extra sweet this summer? With the 5-in-1 Peach Tree, you get 5 pea...",
+    rating: 4.8,
+    reviews: 14,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 166.95, originalPrice: 166.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7580816769086",
+    name: "Tree Mate Jr. Slow Release Watering Ring",
+    category: 'exotic',
+    price: 25.95,
+    originalPrice: 27.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Tree_Gator_Jr_2.jpg?v=1762273031",
+    description: "Easy Drip Irrigation System The Slow Release Watering Ring is perfect for any plant lover looking to help their greenery...",
+    rating: 4.8,
+    reviews: 33,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 25.95, originalPrice: 27.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_6861065977918",
+    name: "TurboTurf™ Tall Fescue Grass Seed",
+    category: 'exotic',
+    price: 34.95,
+    originalPrice: 79.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/TurboTurf-TallFescue.jpg?v=1762199607",
+    description: "Maximum Efficiency, Optimal Performance Grass Seed Get the newest technology in lush, green, and healthy lawns with Turb...",
+    rating: 4.8,
+    reviews: 17,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 34.95, originalPrice: 79.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7534238040126",
+    name: "Bloem Ariana Self-Watering Planter in Living Green",
+    category: 'exotic',
+    price: 9.95,
+    originalPrice: 14.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Living-green-4_546cd6a1-27e0-4428-aaed-589f154e6de9.jpg?v=1762272867",
+    description: "Stylish and Functional Self-Watering Planter The Bloem Ariana Self-Watering Planter in Living Green is the perfect choic...",
+    rating: 4.8,
+    reviews: 23,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 9.95, originalPrice: 14.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7001100451902",
+    name: "Sparky Tecoma Plant",
+    category: 'exotic',
+    price: 94.95,
+    originalPrice: 134.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/sparky_tacoma_FGT_600x600_2ca9839d-1e71-4778-83be-beb016aea386.jpg?v=1762199921",
+    description: "Yellow Bell-Shaped Flowers for a Pollinator Paradise! Sparky Tecoma offers gorgeous clusters of yellow, bell-shaped flow...",
+    rating: 4.8,
+    reviews: 52,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 94.95, originalPrice: 134.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7966833672254",
+    name: "Nordmann Fir Tree",
+    category: 'exotic',
+    price: 114.95,
+    originalPrice: 114.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/nordman-fir-1_084ecf1c-674c-4872-b2d1-fec05682bd14.jpg?v=1765376581",
+    description: "A robust evergreen with a friendly touch The Nordmann Fir is a delightful addition to any yard, known for its lush, deep...",
+    rating: 4.8,
+    reviews: 5,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 114.95, originalPrice: 114.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7665014538302",
+    name: "Red Lime Tree",
+    category: 'exotic',
+    price: 80.95,
+    originalPrice: 80.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Red-Lime-TRee-1.jpg?v=1762269359",
+    description: "Juicy Red Limes on a Hardy, Low-Maintenance Tree The Red Lime Tree offers a juicy (and not too tart) lime in an exciting...",
+    rating: 4.8,
+    reviews: 8,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 80.95, originalPrice: 80.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_4737184170046",
+    name: "Thunderstruck™ Lavender Blast™ Crape Myrtle Tree",
+    category: 'exotic',
+    price: 104.95,
+    originalPrice: 104.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Thunderstruck_Lavender_Blast_600x600_81d57003-73b0-45d7-97c0-81ead196b77d.jpg?v=1762198891",
+    description: "Black, Glossy Foliage Plus Soft Lavender Blooms Why Thunderstruck™ Lavender Blast™ Crape Myrtle Trees? A profusion of so...",
+    rating: 4.8,
+    reviews: 17,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 104.95, originalPrice: 104.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_8032467025982",
+    name: "Winter Jewels® Onyx Odyssey Lenten Rose Plant",
+    category: 'exotic',
+    price: 36.95,
+    originalPrice: 36.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/onyx-odyssey-1_ef844c9e-d398-456f-aae5-58710913806e.jpg?v=1773276335",
+    description: "Striking nearly black blooms brighten winter gardens If you're looking to add a touch of drama to your winter landscape,...",
+    rating: 4.8,
+    reviews: 24,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 36.95, originalPrice: 36.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7805335994430",
+    name: "Black Diamond® Crystalline™ Crape Myrtle",
+    category: 'exotic',
+    price: 84.95,
+    originalPrice: 89.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/Crystalline-Crape-Myrtle-1.jpg?v=1762276628",
+    description: "Clusters of White Blooms Atop Near-Black Foliage The Black Diamond® Crystalline™ Multi Stem Crape Myrtle is known for it...",
+    rating: 4.8,
+    reviews: 7,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 84.95, originalPrice: 89.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_4805605654590",
+    name: "Burgundy Plum Tree",
+    category: 'exotic',
+    price: 70.95,
+    originalPrice: 70.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Burgundy_Plum_600x600_f7cf0abe-3bcb-4c0e-9426-b676d01e2e65.jpg?v=1762199045",
+    description: "Cold-Hardy Japanese Plum with Juicy Fruit + Small Pit Why Burgundy Plum Trees? Delivering a huge, healthy harvest of jui...",
+    rating: 4.8,
+    reviews: 27,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 70.95, originalPrice: 70.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_1532738863156",
+    name: "Kwanzan Cherry Tree",
+    category: 'exotic',
+    price: 45.95,
+    originalPrice: 50.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Kwanzan_Cherry_Tree_FGT_600x600_680ea91e-1d2e-41e1-b8b1-0cb76aa3d9e3.jpg?v=1762197969",
+    description: "Hardiest Cherry Blooms Welcome Spring Why Kwanzan Cherry Trees? The hardiest of the Cherry Tree family, the Kwanzan heig...",
+    rating: 4.8,
+    reviews: 36,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 45.95, originalPrice: 50.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7794018222142",
+    name: "Barbara Karst Bougainvillea Tree",
+    category: 'exotic',
+    price: 114.95,
+    originalPrice: 171.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Barbera_Karst_Bougainvillea_2_FGT.jpg?v=1762276553",
+    description: "Tropical-Inspired Color That Stands Out Turn Up the Heat with Bold, Brilliant Red Bring endless summer brilliance to you...",
+    rating: 4.8,
+    reviews: 8,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 114.95, originalPrice: 171.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_7033243041854",
+    name: "Nagami Kumquat Tree",
+    category: 'exotic',
+    price: 50.95,
+    originalPrice: 58.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Nagami_Kumquat_FGT_600x600_a77aefdf-821a-4a46-8225-74166becd91a.jpg?v=1762200031",
+    description: "A Juicy Patio Plant for Any Home Enjoy sweet, juicy kumquats from home with our Nagami Kumquat Tree! The Nagami is one o...",
+    rating: 4.8,
+    reviews: 45,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 50.95, originalPrice: 58.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_6899706298430",
+    name: "Goldsturm Black-Eyed Susan",
+    category: 'exotic',
+    price: 32.95,
+    originalPrice: 35.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Black_eyed_susan_FGT_600x600_5fc5fa90-ed69-40ca-80f8-1dc960e2fcde.jpg?v=1762199684",
+    description: "Golden-Yellow, Everblooming Perennial Why Goldsturm Black-Eyed Susans? 1999’s Perennial Plant of the Year, the Goldsturm...",
+    rating: 4.8,
+    reviews: 23,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 32.95, originalPrice: 35.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_8030000087102",
+    name: "Lutz Ultra Citrus Fertilizer Spikes",
+    category: 'exotic',
+    price: 21.95,
+    originalPrice: 21.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/files/lutz-spikes-5.jpg?v=1772728984",
+    description: "Easy Nutrition for Thriving Citrus Trees Give your citrus trees the targeted nutrition they need to thrive with Lutz Sup...",
+    rating: 4.8,
+    reviews: 41,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 21.95, originalPrice: 21.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_1532761538612",
+    name: "LSU Purple Fig Tree",
+    category: 'exotic',
+    price: 24.95,
+    originalPrice: 24.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/LSU_Fig_FGT_600x600_1806ea22-49e9-4d1f-9aea-a9cf0160fab0.jpg?v=1762198116",
+    description: "Easy, Container-Grown Harvests in 2 Years or Less Why LSU Purple Fig Trees? For a hardy tree that delivers super-sweet f...",
+    rating: 4.8,
+    reviews: 8,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 24.95, originalPrice: 24.95 }
+    ]
+  },
+  {
+    id: "fgt_mass_4800429948990",
+    name: "Francee Hosta Plant",
+    category: 'exotic',
+    price: 31.95,
+    originalPrice: 33.95,
+    image: "https://cdn.shopify.com/s/files/1/0059/8835/2052/products/Francee_Hosta_FGT_600x600_526358f6-69c0-4ed3-a166-d8b0de775fe0.jpg?v=1762199025",
+    description: "An Elegant Border Plant for Contemporary and Rustic Gardens Francee Hostas, otherwise known as the Francee Plantain Lily...",
+    rating: 4.8,
+    reviews: 26,
+    inStock: true,
+    sizes: [
+      { id: 'sz_tree1', name: 'Live Plant / Tree', weight: '0', price: 31.95, originalPrice: 33.95 }
+    ]
   }
 ];
 

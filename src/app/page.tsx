@@ -7,6 +7,7 @@ import NewsletterSignup from "@/components/NewsletterSignup"
 import TestimonialCarousel from "@/components/TestimonialCarousel"
 import { Leaf, Truck, Leaf as LeafAlt, CheckCircle, Trophy, Heart } from "lucide-react"
 import { Metadata } from "next"
+import type { Fruit } from "@/types"
 
 export const metadata: Metadata = {
   title: 'Fresh Tropics – Buy Asian Fruits Online | Tropical Fruit Delivery',
@@ -19,9 +20,20 @@ export const metadata: Metadata = {
   },
 }
 
-const FEATURED = ProductService.getFeaturedProducts(4)
-const TOP_RATED = [...ProductService.getAllProducts()].sort((a, b) => b.rating - a.rating).slice(0, 3)
-const POPULAR_BOXES = ProductService.getFeaturedProducts(4)
+const allProducts = ProductService.getAllProducts()
+
+// Helper filtering
+const FRUIT_TREES = allProducts.filter(p => p.sizes?.some(s => s.name?.includes('Tree') || s.name?.includes('Bush'))).slice(0, 4)
+const lycheeBox = allProducts.find(p => p.name.toLowerCase().includes('lychee'))
+const tropicalFruits = allProducts.filter(p => !FRUIT_TREES.includes(p) && p.id !== lycheeBox?.id && ['exotic', 'tropical', 'fresh'].includes(p.category))
+
+// Mixed section (Lychee at the top, followed by a mix of tropical and tree)
+const POPULAR_BOXES = ([lycheeBox, tropicalFruits[0], FRUIT_TREES[0], tropicalFruits[1]].filter(Boolean) as Fruit[]).slice(0, 4)
+
+// Dedicated tree section
+const TREES_SECTION = FRUIT_TREES.length >= 4 ? FRUIT_TREES : [...FRUIT_TREES, ...ProductService.getFeaturedProducts(4)].slice(0, 4)
+
+const TOP_RATED = [...allProducts].sort((a, b) => b.rating - a.rating).slice(0, 3)
 
 const WHY_US = [
   { iconName: "Leaf", title: "Farm Fresh", description: "Harvested fresh" },
@@ -161,16 +173,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured This Week Section */}
+      {/* Fruit Trees Section */}
       <section className="py-20 bg-gradient-to-b from-emerald-800 via-emerald-700 to-emerald-600 border-t-4 border-amber-400">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center mb-16 animate-fade-in">
-            <p className="text-amber-300 font-bold tracking-widest uppercase text-sm mb-2">Bestsellers</p>
-            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-100 mb-4">Featured This Week</h2>
+            <p className="text-amber-300 font-bold tracking-widest uppercase text-sm mb-2">Grow Your Own</p>
+            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-100 mb-4">Fruit Trees Collection</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {FEATURED.map((fruit) => (
+            {TREES_SECTION.map((fruit) => (
               <div key={fruit.id} className="relative group">
                 <div className="absolute -top-3 -right-3 z-10"><div className="bg-gradient-to-r from-amber-400 to-yellow-300 text-emerald-900 font-bold px-4 py-2 rounded-full shadow-lg text-xs">NEW</div></div>
                 <div className="absolute -inset-1 bg-gradient-to-br from-amber-400/20 to-yellow-300/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

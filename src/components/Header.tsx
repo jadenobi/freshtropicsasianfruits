@@ -54,6 +54,10 @@ export default function Header(){
               Shop
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
             </Link>
+            <Link href="/trees" className="relative px-3 py-2 text-amber-50 font-semibold text-xs uppercase tracking-wide hover:text-amber-200 transition-all duration-300 group">
+              Trees
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
+            </Link>
             <Link href="/comparison" className="relative px-3 py-2 text-amber-50 font-semibold text-xs uppercase tracking-wide hover:text-amber-200 transition-all duration-300 group">
               Compare
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-300 to-amber-100 group-hover:w-full transition-all duration-500"></span>
@@ -112,6 +116,13 @@ export default function Header(){
 
           {/* Cart & Menu Buttons */}
           <div className="flex items-center gap-1 sm:gap-2 lg:gap-4">
+            {/* Desktop Search Bar */}
+            <form action="/shop" method="GET" className="hidden lg:flex items-center bg-emerald-800/50 border border-emerald-600 rounded-full px-3 py-1 mr-2 focus-within:border-amber-400 focus-within:ring-1 focus-within:ring-amber-400 transition-all">
+              <input type="text" name="q" placeholder="Search..." className="bg-transparent text-amber-50 placeholder-emerald-400 outline-none text-sm w-24 xl:w-40 focus:w-48 transition-all" />
+              <button type="submit" className="text-emerald-400 hover:text-amber-300 ml-1">
+                🔍
+              </button>
+            </form>
             <Link href="/wishlist" className="hidden md:flex items-center gap-2 px-3 lg:px-4 py-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold rounded-lg transition-all text-xs lg:text-sm hover:shadow-lg h-10 min-w-10 justify-center lg:justify-start" onClick={closeMobileMenu}>
               <span className="text-lg">🤍</span>
               <span className="hidden lg:inline">Wishlist</span>
@@ -146,6 +157,13 @@ export default function Header(){
         }`}
       >
         <nav className="flex flex-col py-2 px-3 gap-1">
+          {/* Mobile Search Bar */}
+          <form action="/shop" method="GET" className="flex items-center bg-emerald-800/50 border border-emerald-600 rounded-full px-4 py-2 mx-4 my-2 focus-within:border-amber-400 transition-all">
+            <input type="text" name="q" placeholder="Search fruits..." className="bg-transparent text-amber-50 placeholder-emerald-400 outline-none text-sm flex-1" />
+            <button type="submit" className="text-emerald-400 hover:text-amber-300">
+              🔍
+            </button>
+          </form>
           <Link 
             href="/" 
             className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
@@ -159,6 +177,13 @@ export default function Header(){
             onClick={closeMobileMenu}
           >
             🛒 Shop
+          </Link>
+          <Link 
+            href="/trees" 
+            className="block px-4 py-4 text-amber-50 font-semibold uppercase tracking-wide hover:bg-emerald-600 rounded-lg transition-all duration-200 border-l-4 border-transparent hover:border-amber-300 text-sm touch-target"
+            onClick={closeMobileMenu}
+          >
+            🌳 Trees
           </Link>
           <Link 
             href="/shop?category=pinkglow" 

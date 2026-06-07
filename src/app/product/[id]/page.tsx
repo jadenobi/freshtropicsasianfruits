@@ -21,6 +21,16 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const [selectedSizeId, setSelectedSizeId] = useState<string | null>(null)
+  const [quantity, setQuantity] = useState(1)
+
+  const selectedSizeObj = product?.sizes?.find(s => s.id === selectedSizeId)
+  const isOneLb = selectedSizeObj?.name?.toLowerCase().includes('1 lb') || selectedSizeObj?.name?.toLowerCase().includes('1 pound')
+
+  useEffect(() => {
+    if (isOneLb && quantity < 2) {
+      setQuantity(2)
+    }
+  }, [isOneLb, quantity])
 
   // Set default size on product load
   useEffect(() => {
@@ -178,15 +188,41 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
               <p>{product.description}</p>
             </div>
 
+            {/* Quantity Selector */}
+            <div className="mb-6 flex space-x-4 items-center">
+              <label className="text-sm font-semibold text-gray-700">Quantity:</label>
+              <div className="flex items-center border border-gray-300 rounded overflow-hidden">
+                <button 
+                  onClick={() => setQuantity(Math.max(isOneLb ? 2 : 1, quantity - 1))}
+                  className="px-3 py-1 bg-gray-100 hover:bg-gray-200 font-bold"
+                >-</button>
+                <input 
+                  type="number" 
+                  value={quantity} 
+                  onChange={(e) => {
+                    const val = parseInt(e.target.value) || 1
+                    setQuantity(Math.max(isOneLb ? 2 : 1, val))
+                  }}
+                  className="w-12 text-center py-1 outline-none"
+                  min={isOneLb ? 2 : 1}
+                />
+                <button 
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="px-3 py-1 bg-gray-100 hover:bg-gray-200 font-bold"
+                >+</button>
+              </div>
+              {isOneLb && <span className="text-xs text-amber-600 font-semibold bg-amber-50 px-2 py-1 rounded">Min 2 required for 1 lb size</span>}
+            </div>
+
             {/* Add to Cart */}
             <div className="flex flex-col gap-3 mb-8">
               <div className="flex gap-3">
                 <button 
                   onClick={() => {
                     if (product?.sizes && selectedSizeId) {
-                      addToCart(product, 1, selectedSizeId)
+                      addToCart(product, quantity, selectedSizeId)
                     } else {
-                      addToCart(product, 1)
+                      addToCart(product, quantity)
                     }
                   }}
                   disabled={!product?.inStock}

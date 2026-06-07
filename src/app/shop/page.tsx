@@ -15,9 +15,10 @@ function ShopContent() {
   const { total } = useCart()
   const categoryParam = searchParams?.get('category') || 'all'
   const collectionParam = searchParams?.get('collection') || null
+  const qParam = searchParams?.get('q') || ''
   
   const [selectedCategory, setSelectedCategory] = useState(categoryParam)
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState(qParam)
   const [priceRange, setPriceRange] = useState([0, 200])
   const [minRating, setMinRating] = useState(0)
   const [sortBy, setSortBy] = useState('featured')
@@ -30,15 +31,31 @@ function ShopContent() {
     setSelectedCategory(categoryParam)
   }, [categoryParam])
 
-  // Get unique categories
-  const categories = [
-    { id: 'all', label: 'All Products' },
-    { id: 'pinkglow', label: '🌸 Pink Glow Pineapple', icon: '🍍' },
-    { id: 'exotic', label: 'Exotic' },
-    { id: 'tropical', label: 'Tropical' },
-    { id: 'berries', label: 'Berries' },
-    { id: 'citrus', label: 'Citrus' }
-  ]
+  useEffect(() => {
+    if (qParam) setSearchQuery(qParam)
+  }, [qParam])
+
+  // Dynamically generated categories
+  const categories = useMemo(() => {
+    const allProducts = ProductService.getAllProducts();
+    const uniqueCats = new Set<string>(allProducts.map(p => p.category as string));
+    const catArray = [{ id: 'all', label: 'All Products' }];
+    
+    // Add specific featured categories first
+    if (uniqueCats.has('pinkglow')) {
+      catArray.push({ id: 'pinkglow', label: '🌸 Pink Glow Pineapple' });
+      uniqueCats.delete('pinkglow');
+    }
+    
+    uniqueCats.forEach(c => {
+      if (c && c !== 'exotic') {
+        catArray.push({ id: c, label: c.charAt(0).toUpperCase() + c.slice(1) });
+      } else if (c === 'exotic') {
+        catArray.push({ id: c, label: 'Exotic & Trees' });
+      }
+    });
+    return catArray;
+  }, []);
 
   // Tag filters
   const availableTags = [
