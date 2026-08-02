@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: 'Fresh Tropics',
     images: [
       {
-        url: 'https://freshtropicsasianfruits.com/logo.svg',
+        url: 'https://freshtropicsasianfruits.com/custom-logo.png',
         width: 1200,
         height: 630,
         alt: 'Fresh Tropics Asian Fruits',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Fresh Tropics – Premium Asian & Tropical Fruits',
     description: 'Fresh, organic Asian & tropical fruits delivered to your door.',
-    images: ['https://freshtropicsasianfruits.com/logo.svg'],
+    images: ['https://freshtropicsasianfruits.com/custom-logo.png'],
   },
   appleWebApp: {
     capable: true,
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'Organization',
     name: 'Fresh Tropics',
     url: 'https://freshtropicsasianfruits.com',
-    logo: 'https://freshtropicsasianfruits.com/logo.svg',
+    logo: 'https://freshtropicsasianfruits.com/custom-logo.png',
     description: 'Premium Asian & tropical fruits delivered fresh to your door',
     sameAs: [
       'https://www.facebook.com/freshtropics',
@@ -111,8 +111,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Fresh Tropics" />
-        <link rel="apple-touch-icon" href="/logo.svg" />
-        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <link rel="apple-touch-icon" href="/custom-logo.png" />
+        <link rel="icon" type="image/svg+xml" href="/custom-logo.png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* JSON-LD Schema for Organization */}

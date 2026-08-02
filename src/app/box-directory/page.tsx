@@ -6,37 +6,37 @@ export default function BoxDirectoryPage() {
     {
       name: "All Boxes",
       link: "/shop",
-      emoji: "📦",
+      emoji: "",
       description: "Browse our complete collection of fresh tropical fruit boxes"
     },
     {
       name: "Build Your Own Box",
       link: "/shop",
-      emoji: "🎨",
+      emoji: "",
       description: "Create your custom fruit selection - choose what you want"
     },
     {
-      name: "🌸 Pink Glow Pineapple",
+      name: " Pink Glow Pineapple",
       link: "/shop?category=pinkglow",
-      emoji: "🌸",
+      emoji: "",
       description: "Exclusive Pink Glow Pineapple collection - premium luxury fruit"
     },
     {
       name: "Best Sellers",
       link: "/shop",
-      emoji: "🏆",
+      emoji: "",
       description: "Our most popular and loved fruit boxes"
     },
     {
       name: "Gift Boxes",
       link: "/shop",
-      emoji: "🎁",
+      emoji: "",
       description: "Perfect for gifting to friends and family"
     },
     {
       name: "New & On Sale",
       link: "/shop",
-      emoji: "🔥",
+      emoji: "",
       description: "Latest arrivals and special sale items"
     }
   ]
@@ -45,47 +45,47 @@ export default function BoxDirectoryPage() {
     {
       name: "Soursop | Guanabana",
       price: "from $119.00",
-      emoji: "🍃"
+      emoji: ""
     },
     {
       name: "Tropical Mango Box",
       price: "$88.00",
-      emoji: "🥭"
+      emoji: ""
     },
     {
       name: "Rambutan Box",
       price: "from $69.00",
-      emoji: "🧅"
+      emoji: ""
     },
     {
       name: "Taste the Tropics",
       price: "from $99.00",
-      emoji: "🍍"
+      emoji: ""
     },
     {
       name: "Purple Mangosteen",
       price: "from $119.00",
-      emoji: "💜"
+      emoji: ""
     },
     {
       name: "Longan / Dragon Eye",
       price: "from $79.00",
-      emoji: "👁️"
+      emoji: ""
     },
     {
       name: "Fuyu Persimmons",
       price: "from $59.00",
-      emoji: "🧡"
+      emoji: ""
     },
     {
       name: "Pink Pineapple Duo Box",
       price: "$89.00",
-      emoji: "🌸"
+      emoji: ""
     },
     {
       name: "Pomegranate Box",
       price: "$79.00",
-      emoji: "🍎"
+      emoji: ""
     }
   ]
 
@@ -199,7 +199,7 @@ export default function BoxDirectoryPage() {
         {/* Out of Season Notice */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 text-center">
           <p className="text-blue-900 mb-3">
-            <span className="font-bold">❓ Looking for an out-of-season fruit?</span>
+            <span className="font-bold"> Looking for an out-of-season fruit?</span>
           </p>
           <p className="text-blue-800 mb-4">
             We update our collection seasonally. Some fruits may be temporarily out of stock.

@@ -61,7 +61,7 @@ export default function InventoryAlert({ productId, productName }: InventoryAler
 
   return (
     <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-6">
-      <h3 className="text-lg font-bold text-orange-900 mb-2">🔔 Out of Stock</h3>
+      <h3 className="text-lg font-bold text-orange-900 mb-2"> Out of Stock</h3>
       <p className="text-orange-800 text-sm mb-4">
         Be the first to know when this item is back in stock! Enter your email below.
       </p>

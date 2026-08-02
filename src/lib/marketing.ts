@@ -107,7 +107,7 @@ export const useSocialSharing = () => {
   }
 
   const shareOnTwitter = (productName: string, productUrl: string) => {
-    const text = `Check out ${productName} from Fresh Tropics Asian Fruits! 🍎🌴`
+    const text = `Check out ${productName} from Fresh Tropics Asian Fruits! `
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(productUrl)}`
     window.open(url, 'twitter-share', 'width=600,height=400')
   }

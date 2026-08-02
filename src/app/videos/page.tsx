@@ -66,7 +66,7 @@ export default function VideosPage() {
               {/* Video Meta */}
               <div className="flex flex-wrap items-center gap-6 mb-6 pb-6 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                  <span className="text-2xl">{activeCategory === 'product-demo' ? '📹' : activeCategory === 'recipe' ? '👨‍🍳' : '⭐'}</span>
+                  <span className="text-2xl">{activeCategory === 'product-demo' ? '' : activeCategory === 'recipe' ? '‍' : ''}</span>
                   <div>
                     <p className="text-xs text-white/50">Creator</p>
                     <p className="font-bold text-white">{currentVideo.creator}</p>
@@ -85,7 +85,7 @@ export default function VideosPage() {
 
                 <div>
                   <p className="text-xs text-white/50">Likes</p>
-                  <p className="font-bold text-pink-400">❤️ {formatViewCount(currentVideo.likes)}</p>
+                  <p className="font-bold text-pink-400"> {formatViewCount(currentVideo.likes)}</p>
                 </div>
 
                 <div className="ml-auto">
@@ -163,7 +163,7 @@ export default function VideosPage() {
 
                   <div className="flex items-center justify-between text-xs text-white/60 mb-3">
                     <span>{formatViewCount(video.views)} views</span>
-                    <span>❤️ {formatViewCount(video.likes)}</span>
+                    <span> {formatViewCount(video.likes)}</span>
                   </div>
 
                   <p className="text-xs text-white/50 line-clamp-2">{video.creator}</p>
@@ -175,7 +175,7 @@ export default function VideosPage() {
           {/* Related Videos */}
           {relatedVideos.length > 0 && (
             <div className="mb-16">
-              <h3 className="text-2xl font-black text-white mb-6">🎬 Related Videos</h3>
+              <h3 className="text-2xl font-black text-white mb-6"> Related Videos</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedVideos.map((video) => (
                   <button

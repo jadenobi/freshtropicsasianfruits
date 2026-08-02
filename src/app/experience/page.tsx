@@ -18,7 +18,7 @@ export default function Premium3DExperiencePage() {
       name: 'Pink Glow Pineapple',
       category: 'Luxury Edition',
       price: 45.99,
-      emoji: '🍍',
+      emoji: '',
       description: 'The crown jewel of our collection. Hand-selected pink glow pineapples with unprecedented sweetness.',
       specs: {
         origin: 'Costa Rica, Exclusive Farm',
@@ -32,7 +32,7 @@ export default function Premium3DExperiencePage() {
       name: 'Dragon Fruit Ensemble',
       category: 'Premium Collection',
       price: 38.50,
-      emoji: '🐉',
+      emoji: '',
       description: 'Vibrant pink and white dragon fruit with creamy, delicate texture.',
       specs: {
         origin: 'Vietnam, Mountain Farms',
@@ -46,7 +46,7 @@ export default function Premium3DExperiencePage() {
       name: 'Ataulfo Mango Supreme',
       category: 'Luxury Selection',
       price: 52.00,
-      emoji: '🥭',
+      emoji: '',
       description: 'The world\'s finest mango variety, with golden, buttery flesh and complex flavor profile.',
       specs: {
         origin: 'Mexico, Heritage Orchards',
@@ -60,7 +60,7 @@ export default function Premium3DExperiencePage() {
       name: 'Tropical Paradise Box',
       category: 'Curated Collection',
       price: 67.99,
-      emoji: '🎁',
+      emoji: '',
       description: 'The ultimate luxury assortment: pineapple, mango, dragon fruit, and passion fruit.',
       specs: {
         origin: 'Multi-origin Selection',
@@ -76,22 +76,22 @@ export default function Premium3DExperiencePage() {
 
   const lightingPresets = {
     luxury: {
-      name: '✨ Luxury',
+      name: ' Luxury',
       description: 'Premium jewelry lighting with warm accents',
       colors: ['#FFD700', '#FFA500', '#FF69B4'],
     },
     natural: {
-      name: '☀️ Natural',
+      name: ' Natural',
       description: 'Soft natural sunlight with shadows',
       colors: ['#FFFFFF', '#F0E68C', '#FFE4B5'],
     },
     cinematic: {
-      name: '🎬 Cinematic',
+      name: ' Cinematic',
       description: 'Movie production lighting',
       colors: ['#00FFFF', '#FF1493', '#FFD700'],
     },
     studio: {
-      name: '📸 Studio',
+      name: ' Studio',
       description: 'Professional photography setup',
       colors: ['#FFFFFF', '#E6E6FA', '#F5F5DC'],
     },
@@ -133,7 +133,7 @@ export default function Premium3DExperiencePage() {
 
                 {/* Lighting Indicator */}
                 <div className="absolute top-4 right-4 text-xs font-bold text-emerald-400 bg-black/50 px-3 py-2 rounded-lg backdrop-blur">
-                  💡 {lightingPresets[lightingMode].name}
+                   {lightingPresets[lightingMode].name}
                 </div>
               </div>
 
@@ -141,7 +141,7 @@ export default function Premium3DExperiencePage() {
               <div className="mt-8 space-y-6">
                 {/* Rotation Controls */}
                 <div>
-                  <p className="text-sm font-bold text-white mb-4">🔄 Rotation Control</p>
+                  <p className="text-sm font-bold text-white mb-4"> Rotation Control</p>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs text-white/60 mb-2 block">X-Axis: {rotationX}°</label>
@@ -170,7 +170,7 @@ export default function Premium3DExperiencePage() {
 
                 {/* Zoom Control */}
                 <div>
-                  <label className="text-sm font-bold text-white mb-4 block">🔍 Zoom: {(scale * 100).toFixed(0)}%</label>
+                  <label className="text-sm font-bold text-white mb-4 block"> Zoom: {(scale * 100).toFixed(0)}%</label>
                   <input
                     type="range"
                     min="0.5"
@@ -184,7 +184,7 @@ export default function Premium3DExperiencePage() {
 
                 {/* Lighting Presets */}
                 <div>
-                  <p className="text-sm font-bold text-white mb-4">💡 Lighting Modes</p>
+                  <p className="text-sm font-bold text-white mb-4"> Lighting Modes</p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {(Object.keys(lightingPresets) as Array<'luxury' | 'natural' | 'cinematic' | 'studio'>).map(mode => (
                       <button
@@ -233,7 +233,7 @@ export default function Premium3DExperiencePage() {
                     Add to Cart
                   </button>
                   <button className="w-full px-6 py-3 bg-white/10 border border-white/30 text-white font-bold rounded-lg hover:bg-white/20 transition-all uppercase">
-                    Add to Wishlist ♥
+                    Add to Wishlist 
                   </button>
                 </div>
               </div>

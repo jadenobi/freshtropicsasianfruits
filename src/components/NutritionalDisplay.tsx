@@ -22,7 +22,7 @@ export default function NutritionalDisplay({ productName, nutrition }: Nutrition
   if (!nutrition) {
     return (
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-black text-gray-900 mb-3">🔬 Nutrition Information</h3>
+        <h3 className="font-black text-gray-900 mb-3"> Nutrition Information</h3>
         <p className="text-gray-600 text-sm">Detailed nutrition facts coming soon for {productName}</p>
       </div>
     )
@@ -30,7 +30,7 @@ export default function NutritionalDisplay({ productName, nutrition }: Nutrition
 
   return (
     <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border-3 border-blue-200 rounded-lg p-6 space-y-4">
-      <h3 className="font-black text-lg text-gray-900">🔬 Nutrition Information</h3>
+      <h3 className="font-black text-lg text-gray-900"> Nutrition Information</h3>
 
       {/* Per Serving Macros */}
       {(nutrition.calories || nutrition.protein || nutrition.carbs || nutrition.fiber) && (
@@ -77,14 +77,14 @@ export default function NutritionalDisplay({ productName, nutrition }: Nutrition
           <div className="space-y-2">
             {nutrition.vitaminC && (
               <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-700">🍊 Vitamin C</span>
+                <span className="text-sm text-gray-700"> Vitamin C</span>
                 <span className="font-black text-orange-600">{nutrition.vitaminC}% DV</span>
               </div>
             )}
             
             {nutrition.potassium && (
               <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-700">⚡ Potassium</span>
+                <span className="text-sm text-gray-700"> Potassium</span>
                 <span className="font-black text-yellow-600">{nutrition.potassium}% DV</span>
               </div>
             )}

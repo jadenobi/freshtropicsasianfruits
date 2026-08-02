@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { Smartphone, DollarSign, Landmark, CreditCard, Phone, CircleDollarSign } from "lucide-react"
 import NewsletterSignup from "./NewsletterSignup"
 
 export default function Footer() {
@@ -14,13 +15,13 @@ export default function Footer() {
             <h3 className="text-lg font-bold text-yellow-300 mb-6">About Fresh Tropics</h3>
             <ul className="space-y-3">
               <li><Link href="/about" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Our Story</Link></li>
-              <li><Link href="/reviews" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Reviews ❤️🍍🥑</Link></li>
+              <li><Link href="/reviews" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Reviews</Link></li>
               <li><Link href="/faq" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">FAQs</Link></li>
-              <li><Link href="/box-directory" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Box 📦 Directory</Link></li>
+              <li><Link href="/box-directory" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Box Directory</Link></li>
               <li><Link href="/out-of-season" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Out of Season</Link></li>
               <li><Link href="/blog" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Our Blog</Link></li>
-              <li><Link href="/press" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Press 🗞️</Link></li>
-              <li><Link href="/corporate" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Corporate Orders 💼</Link></li>
+              <li><Link href="/press" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Press</Link></li>
+              <li><Link href="/corporate" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Corporate Orders</Link></li>
               <li><Link href="/terms" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Terms of Service</Link></li>
               <li><Link href="/refund" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Refund Policy</Link></li>
               <li><Link href="/ccpa" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">CCPA Opt-Out</Link></li>
@@ -33,8 +34,8 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/account" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Access Your Account</Link></li>
               <li><Link href="/subscribe" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Subscribe & Save</Link></li>
-              <li><Link href="/rewards" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Rewards Program 💙</Link></li>
-              <li><Link href="/newsletter" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Newsletter Updates 📧</Link></li>
+              <li><Link href="/rewards" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Rewards Program</Link></li>
+              <li><Link href="/newsletter" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Newsletter Updates</Link></li>
               <li><Link href="/privacy" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Privacy Policy</Link></li>
               <li><Link href="/ccpa" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">CCPA Opt-Out</Link></li>
             </ul>
@@ -46,9 +47,9 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/shop" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">All Boxes</Link></li>
               <li><Link href="/shop" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Build Your Own Box</Link></li>
-              <li><Link href="/shop?category=pinkglow" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">🌸 Pink Glow Pineapple</Link></li>
+              <li><Link href="/shop?category=pinkglow" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Pink Glow Pineapple</Link></li>
               <li><Link href="/shop" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Best Sellers</Link></li>
-              <li><Link href="/shop" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Gift Boxes 🎁</Link></li>
+              <li><Link href="/shop" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">Gift Boxes</Link></li>
               <li><Link href="/sale" className="text-gray-300 hover:text-emerald-300 transition-colors text-sm">New & On Sale</Link></li>
             </ul>
           </div>
@@ -56,11 +57,11 @@ export default function Footer() {
           {/* Column 4: Contact & Info */}
           <div>
             <h3 className="text-lg font-bold text-yellow-300 mb-6">Best Customer Service</h3>
-            <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-              We are here for you 24/7 📞
+            <p className="text-gray-300 text-sm mb-4 leading-relaxed flex items-center gap-2">
+              We are here for you 24/7 <Phone size={14} className="text-emerald-300" />
             </p>
             <p className="text-gray-300 text-sm mb-4 font-semibold">
-              (305) 697-1193
+              (305) 290-2974
             </p>
             <p className="text-gray-300 text-sm mb-4">
               Email: <a href="mailto:hello@freshtropicsasianfruits.com" className="text-emerald-300 hover:text-emerald-200">hello@freshtropicsasianfruits.com</a>
@@ -95,34 +96,34 @@ export default function Footer() {
         <div className="mb-12 pb-12 border-b border-emerald-800">
           <p className="text-emerald-300 font-semibold text-sm mb-4 text-center">Accepted Payment Methods</p>
           <div className="flex flex-wrap justify-center gap-3">
-            {/* PayPal */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">🅿️</span>
+            {/* Gift Card */}
+            <div className="bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
+              <CreditCard className="text-white w-5 h-5" />
             </div>
             
             {/* Apple Pay */}
             <div className="bg-gradient-to-br from-black to-gray-800 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">🍎</span>
+              <Smartphone className="text-white w-5 h-5" />
             </div>
             
             {/* Venmo */}
             <div className="bg-gradient-to-br from-sky-400 to-blue-500 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">💙</span>
+              <Smartphone className="text-white w-5 h-5" />
             </div>
             
             {/* Cash App */}
             <div className="bg-gradient-to-br from-green-400 to-green-500 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">💵</span>
+              <DollarSign className="text-white w-5 h-5" />
             </div>
             
             {/* Zelle */}
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">🏦</span>
+              <Landmark className="text-white w-5 h-5" />
             </div>
             
             {/* Crypto */}
             <div className="bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg p-2 w-14 h-9 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xs">₿</span>
+              <CircleDollarSign className="text-white w-5 h-5" />
             </div>
           </div>
         </div>

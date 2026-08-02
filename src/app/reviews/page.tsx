@@ -103,7 +103,7 @@ export default function ReviewsPage() {
           <div className="flex justify-center items-center gap-2 mt-4">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-2xl">⭐</span>
+                <span key={i} className="text-2xl"></span>
               ))}
             </div>
             <p className="text-gray-700 font-semibold">4.9 average rating • {reviews.length.toLocaleString()} reviews</p>
@@ -148,11 +148,11 @@ export default function ReviewsPage() {
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-500"
                 >
-                  <option value={5}>⭐⭐⭐⭐⭐ Excellent (5 stars)</option>
-                  <option value={4}>⭐⭐⭐⭐ Very Good (4 stars)</option>
-                  <option value={3}>⭐⭐⭐ Good (3 stars)</option>
-                  <option value={2}>⭐⭐ Fair (2 stars)</option>
-                  <option value={1}>⭐ Poor (1 star)</option>
+                  <option value={5}> Excellent (5 stars)</option>
+                  <option value={4}> Very Good (4 stars)</option>
+                  <option value={3}> Good (3 stars)</option>
+                  <option value={2}> Fair (2 stars)</option>
+                  <option value={1}> Poor (1 star)</option>
                 </select>
               </div>
 
@@ -221,7 +221,7 @@ export default function ReviewsPage() {
                 </div>
                 <div className="flex gap-1">
                   {[...Array(review.rating)].map((_, i) => (
-                    <span key={i} className="text-lg">⭐</span>
+                    <span key={i} className="text-lg"></span>
                   ))}
                 </div>
               </div>

@@ -4,6 +4,7 @@ import { Fruit } from '@/types'
 import { useCart } from '@/lib/cart'
 import { useState } from 'react'
 import Link from 'next/link'
+import { Star } from 'lucide-react'
 import WishlistButton from './WishlistButton'
 
 export default function ProductCard({product}:{product:Fruit}){
@@ -34,6 +35,15 @@ export default function ProductCard({product}:{product:Fruit}){
           <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" onClick={(e) => e.preventDefault()}>
             <WishlistButton productId={product.id.toString()} variant="icon" />
           </div>
+
+          {/* New Arrival Badge in Top Left */}
+          {product.isNew && (
+            <div className="absolute top-2 left-2 z-10">
+              <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-black px-2 py-1 rounded shadow-md uppercase tracking-wider border border-white/20">
+                New Arrival
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="p-4 sm:p-5">
@@ -43,7 +53,7 @@ export default function ProductCard({product}:{product:Fruit}){
 
           {/* Rating */}
           <div className="flex items-center gap-1 mt-2">
-            <span className="text-amber-400 text-sm">★</span>
+            <Star className="text-amber-400 text-sm w-4 h-4 fill-current" />
             <span className="text-xs sm:text-sm font-semibold text-gray-700">{product.rating}</span>
             <span className="text-xs text-gray-500">({product.reviews})</span>
           </div>

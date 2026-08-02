@@ -87,9 +87,9 @@ export default function SeasonalPage() {
                   : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-emerald-300'
               }`}
             >
-              {tab === 'bundles' && '📦 Seasonal Bundles'}
-              {tab === 'calendar' && '📅 Fruit Calendar'}
-              {tab === 'offers' && '🎉 Featured Offers'}
+              {tab === 'bundles' && ' Seasonal Bundles'}
+              {tab === 'calendar' && ' Fruit Calendar'}
+              {tab === 'offers' && ' Featured Offers'}
             </button>
           ))}
         </div>
@@ -149,7 +149,7 @@ export default function SeasonalPage() {
                       {/* Bundle Price */}
                       <div className="mb-4">
                         <p className="text-gray-700 font-bold mb-2">
-                          💰 Bundle Price: <span className="text-emerald-600 text-xl">${bundle.bundlePrice.toFixed(2)}</span>
+                           Bundle Price: <span className="text-emerald-600 text-xl">${bundle.bundlePrice.toFixed(2)}</span>
                         </p>
                         <p className="text-sm text-gray-500">
                           Originally ${bundle.originalPrice.toFixed(2)} • Save ${savings.amount.toFixed(2)}
@@ -158,7 +158,7 @@ export default function SeasonalPage() {
 
                       {/* Products List */}
                       <div className="mb-4">
-                        <p className="font-bold text-gray-900 mb-2">📦 Included ({bundle.quantity} items):</p>
+                        <p className="font-bold text-gray-900 mb-2"> Included ({bundle.quantity} items):</p>
                         <div className="grid grid-cols-2 gap-2">
                           {bundle.products.map(product => (
                             <div key={product.id} className="bg-gray-50 p-2 rounded text-sm">
@@ -171,18 +171,18 @@ export default function SeasonalPage() {
 
                       {/* Best For */}
                       <p className="text-sm font-bold text-emerald-700 mb-4">
-                        ✨ Best for: {bundle.bestFor}
+                         Best for: {bundle.bestFor}
                       </p>
 
                       {/* Expanded Details */}
                       {selectedBundle === bundle.id && (
                         <div className="bg-gray-50 p-4 rounded-lg mb-4 border-l-4 border-emerald-600 space-y-3">
                           <div>
-                            <p className="font-bold text-gray-900">🏠 Storage Notes:</p>
+                            <p className="font-bold text-gray-900"> Storage Notes:</p>
                             <p className="text-sm text-gray-700">{bundle.storageNotes}</p>
                           </div>
                           <div>
-                            <p className="font-bold text-gray-900">🍳 Recipe Tips:</p>
+                            <p className="font-bold text-gray-900"> Recipe Tips:</p>
                             <p className="text-sm text-gray-700">{bundle.recipeTips}</p>
                           </div>
                         </div>
@@ -190,7 +190,7 @@ export default function SeasonalPage() {
 
                       {/* CTA Button */}
                       <button className="w-full px-4 py-2 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-lg font-bold hover:shadow-lg transition-all">
-                        🛒 Add to Cart - ${bundle.bundlePrice.toFixed(2)}
+                         Add to Cart - ${bundle.bundlePrice.toFixed(2)}
                       </button>
                     </div>
                   </div>
@@ -203,7 +203,7 @@ export default function SeasonalPage() {
         {/* Fruit Calendar Tab */}
         {activeTab === 'calendar' && seasonalCalendar && (
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">📅 Fruits In Season Now</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6"> Fruits In Season Now</h2>
 
             {/* Fruits In Season Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -216,14 +216,14 @@ export default function SeasonalPage() {
                   </div>
 
                   <div className="text-sm text-gray-700 space-y-2">
-                    <p className="font-bold">🏠 Storage:</p>
+                    <p className="font-bold"> Storage:</p>
                     <p className="text-xs">{getStorageTips(fruit.name, statistics.activeSeason)}</p>
 
-                    <p className="font-bold mt-2">🍳 Recipe Use:</p>
+                    <p className="font-bold mt-2"> Recipe Use:</p>
                     <p className="text-xs">{getRecipeHighlights(fruit.name, statistics.activeSeason)}</p>
 
                     <div className="flex items-center justify-between mt-2 text-xs">
-                      <span>⭐ {fruit.rating} ({fruit.reviews} reviews)</span>
+                      <span> {fruit.rating} ({fruit.reviews} reviews)</span>
                       <span className="font-bold text-emerald-600">In Stock</span>
                     </div>
                   </div>
@@ -238,7 +238,7 @@ export default function SeasonalPage() {
             {/* Storage & Recipe Tips */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-gradient-to-br from-yellow-50 to-amber-50 p-6 rounded-lg border-2 border-yellow-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">🏠 General Storage Tips</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4"> General Storage Tips</h3>
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li>• Keep most fruits at room temperature until ripe</li>
                   <li>• Refrigerate once they reach desired ripeness</li>
@@ -248,7 +248,7 @@ export default function SeasonalPage() {
               </div>
 
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg border-2 border-green-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">🍳 Recipe Ideas</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4"> Recipe Ideas</h3>
                 <ul className="space-y-2 text-sm text-gray-700">
                   <li>• Fresh smoothie bowls with seasonal fruits</li>
                   <li>• Grilled fruit skewers for BBQ season</li>
@@ -289,14 +289,14 @@ export default function SeasonalPage() {
                     )}
 
                     <div className="mb-4">
-                      <p className="text-sm font-bold text-gray-900">📅 Valid Period:</p>
+                      <p className="text-sm font-bold text-gray-900"> Valid Period:</p>
                       <p className="text-sm text-gray-700">
                         {new Date(offer.validFrom).toLocaleDateString()} - {new Date(offer.validUntil).toLocaleDateString()}
                       </p>
                     </div>
 
                     <button className="w-full px-4 py-3 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg font-bold hover:shadow-lg transition-all">
-                      🛒 Shop {offer.title.split('!')[0].trim()}
+                       Shop {offer.title.split('!')[0].trim()}
                     </button>
                   </div>
                 ))}
@@ -309,7 +309,7 @@ export default function SeasonalPage() {
 
             {/* Email Signup */}
             <div className="bg-gradient-to-r from-emerald-600 to-green-600 text-white p-8 rounded-lg shadow-lg text-center">
-              <h2 className="text-2xl font-black mb-4">🎁 Never Miss a Seasonal Deal</h2>
+              <h2 className="text-2xl font-black mb-4"> Never Miss a Seasonal Deal</h2>
               <p className="mb-6">Subscribe to get exclusive seasonal offers delivered to your inbox</p>
               <div className="flex flex-col md:flex-row gap-3 max-w-md mx-auto">
                 <input

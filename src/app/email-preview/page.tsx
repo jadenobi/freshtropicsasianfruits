@@ -17,11 +17,11 @@ const sampleOrder = {
   shipping: 5.00,
   tax: 4.996,
   total: 59.956,
-  paymentMethodId: "paypal",
+  paymentMethodId: "gift_card",
 }
 
 export default function EmailPreviewPage() {
-  const [selectedPayment, setSelectedPayment] = useState<string>("paypal")
+  const [selectedPayment, setSelectedPayment] = useState<string>("gift_card")
   const [showPreview, setShowPreview] = useState(false)
 
   return (
@@ -29,7 +29,7 @@ export default function EmailPreviewPage() {
       <div className="bg-gradient-to-br from-gray-50 to-white min-h-screen py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h1 className="text-4xl font-black text-gray-900 mb-4">📧 Payment Email Preview</h1>
+            <h1 className="text-4xl font-black text-gray-900 mb-4"> Payment Email Preview</h1>
             <p className="text-xl text-gray-600">See exactly what your customers receive after checkout</p>
           </div>
 
@@ -63,7 +63,7 @@ export default function EmailPreviewPage() {
             <div className="lg:col-span-3">
               {!showPreview ? (
                 <div className="bg-white rounded-xl shadow-lg p-12 text-center">
-                  <div className="text-6xl mb-6">📧</div>
+                  <div className="text-6xl mb-6"></div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Email Preview</h3>
                   <p className="text-gray-600 mb-8">Click a payment method on the left to see a sample payment instruction email</p>
                 </div>
@@ -75,7 +75,7 @@ export default function EmailPreviewPage() {
                   </div>
                   <div className="p-8 bg-gray-50 border-t border-gray-200">
                     <div className="max-w-2xl mx-auto bg-white rounded-lg border border-gray-200 p-6 text-sm text-gray-700">
-                      <p className="mb-4"><strong>Subject:</strong> 🍎 Payment Instructions - Order #{sampleOrder.orderId}</p>
+                      <p className="mb-4"><strong>Subject:</strong>  Payment Instructions - Order #{sampleOrder.orderId}</p>
                       <div className="border-t pt-4 mt-4">
                         <p className="mb-4">Hi {sampleOrder.customerName},</p>
                         <p className="mb-6">Thank you for your order! Your fresh tropical fruits are being prepared with care. Please complete your payment using the method below.</p>
@@ -112,12 +112,12 @@ export default function EmailPreviewPage() {
           {/* Features Highlight */}
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="text-4xl mb-4">🔒</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Secure & Private</h3>
               <p className="text-gray-600">Payment details sent securely via email. Never displayed publicly on the website.</p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="text-4xl mb-4">📋</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Clear Instructions</h3>
               <p className="text-gray-600">Each payment method includes specific, easy-to-follow payment instructions tailored to that method.</p>
             </div>
@@ -130,7 +130,7 @@ export default function EmailPreviewPage() {
 
           {/* Integration Info */}
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg p-8 mt-12 border-2 border-blue-200">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">🚀 Ready to Integrate Email Sending?</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4"> Ready to Integrate Email Sending?</h3>
             <p className="text-gray-700 mb-6">The email system is fully configured and ready. To send real emails, integrate with:</p>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg">

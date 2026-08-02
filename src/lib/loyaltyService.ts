@@ -7,28 +7,28 @@ export const LOYALTY_TIERS: Record<string, LoyaltyTier> = {
     pointsRequired: 0,
     discount: 0,
     benefits: ['1 point per $1 spent', 'Access to loyalty program'],
-    icon: '🥉'
+    icon: ''
   },
   Silver: {
     name: 'Silver',
     pointsRequired: 500,
     discount: 0.05,
     benefits: ['1.5 points per $1 spent', '5% discount on all orders', 'Free shipping on $286+', 'Birthday bonus points'],
-    icon: '🥈'
+    icon: ''
   },
   Gold: {
     name: 'Gold',
     pointsRequired: 1500,
     discount: 0.1,
     benefits: ['2 points per $1 spent', '10% discount on all orders', 'Free shipping on all orders', 'Birthday bonus points', 'Early access to sales'],
-    icon: '🥇'
+    icon: ''
   },
   Platinum: {
     name: 'Platinum',
     pointsRequired: 3000,
     discount: 0.15,
     benefits: ['3 points per $1 spent', '15% discount on all orders', 'Free expedited shipping', 'Birthday bonus (50 points)', 'VIP customer support', 'Exclusive products'],
-    icon: '💎'
+    icon: ''
   }
 }
 

@@ -2,14 +2,15 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { ProductService } from '@/lib/productService'
 
 interface Props {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const product = ProductService.getProductById(params.id)
+  const { id } = await params;
+  const product = ProductService.getProductById(id)
 
   if (!product) {
     return {

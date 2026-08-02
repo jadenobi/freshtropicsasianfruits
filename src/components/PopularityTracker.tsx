@@ -86,7 +86,7 @@ export default function PopularityTracker() {
 
   return (
     <div className="bg-gradient-to-br from-red-50 to-orange-50 border-3 border-red-200 rounded-lg p-6">
-      <h3 className="font-black text-lg text-gray-900 mb-4">🔥 Trending Now</h3>
+      <h3 className="font-black text-lg text-gray-900 mb-4"> Trending Now</h3>
       <ul className="space-y-2">
         {popular.map((product, idx) => (
           <li key={product.productId} className="flex items-center gap-3 p-2 rounded">
@@ -95,7 +95,7 @@ export default function PopularityTracker() {
               <p className="font-bold text-gray-900 text-sm">{product.productName}</p>
               <p className="text-xs text-gray-600">{product.viewCount} views</p>
             </div>
-            <span className="text-lg">👀</span>
+            <span className="text-lg"></span>
           </li>
         ))}
       </ul>

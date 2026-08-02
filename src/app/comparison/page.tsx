@@ -55,7 +55,7 @@ export default function ComparisonPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-black text-gray-900 mb-2">🍎 Product Comparison</h1>
+          <h1 className="text-4xl font-black text-gray-900 mb-2"> Product Comparison</h1>
           <p className="text-gray-600">Compare up to 5 fruits side-by-side</p>
         </div>
 
@@ -70,7 +70,7 @@ export default function ComparisonPage() {
                 onClick={handleDownloadPDF}
                 className="px-6 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 font-bold transition-all flex items-center gap-2"
               >
-                📥 Download PDF
+                 Download PDF
               </button>
             )}
           </div>
@@ -141,7 +141,7 @@ export default function ComparisonPage() {
                         <td className="py-4 px-4 font-bold text-gray-900">Rating</td>
                         {comparisonProducts.map(product => (
                           <td key={product.id} className="text-center py-4 px-4">
-                            <span className="text-amber-500">⭐</span> {product.rating} ({product.reviews})
+                            <span className="text-amber-500"></span> {product.rating} ({product.reviews})
                           </td>
                         ))}
                       </tr>
@@ -321,7 +321,7 @@ export default function ComparisonPage() {
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600">Rating:</span>
                       <span className="font-bold">
-                        <span className="text-amber-500">⭐</span> {product.rating}
+                        <span className="text-amber-500"></span> {product.rating}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
@@ -366,7 +366,7 @@ export default function ComparisonPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
           {/* Top Rated */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">⭐ Top Rated</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4"> Top Rated</h2>
             <div className="space-y-3">
               {topRated.map(product => (
                 <div key={product.id} className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all flex gap-4">
@@ -381,7 +381,7 @@ export default function ComparisonPage() {
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-2">
                       <h3 className="font-bold text-gray-900 line-clamp-1">{product.name}</h3>
-                      <span className="text-amber-500 whitespace-nowrap">⭐ {product.rating}</span>
+                      <span className="text-amber-500 whitespace-nowrap"> {product.rating}</span>
                     </div>
                     <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
                     <button
@@ -402,7 +402,7 @@ export default function ComparisonPage() {
 
           {/* Best Value */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">💰 Best Value</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4"> Best Value</h2>
             <div className="space-y-3">
               {bestValue.map(product => (
                 <div key={product.id} className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all flex gap-4">

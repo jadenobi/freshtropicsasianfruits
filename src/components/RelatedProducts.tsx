@@ -52,7 +52,7 @@ export default function RelatedProducts({ currentProductId, category, limit = 4 
                 </h3>
                 
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-amber-600 font-bold">⭐ {product.rating}</span>
+                  <span className="text-xs text-amber-600 font-bold"> {product.rating}</span>
                   <span className="text-xs text-gray-500">({product.reviews})</span>
                 </div>
                 

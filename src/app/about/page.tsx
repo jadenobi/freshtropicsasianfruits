@@ -63,19 +63,19 @@ export default function AboutPage(){
           {/* Values Section */}
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-md p-8 rounded-lg border-2 border-amber-400/30 hover:shadow-xl hover:shadow-amber-400/20 transition-all group">
-              <div className="text-5xl mb-4 group-hover:scale-125 transition-transform">🌱</div>
+              <div className="text-5xl mb-4 group-hover:scale-125 transition-transform"></div>
               <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-cyan-300 mb-3">35+ Years Heritage</h3>
               <p className="text-amber-50 leading-relaxed">Family expertise in sourcing authentic tropical produce directly from farms in Florida, the Caribbean, Central and South America.</p>
             </div>
 
             <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-md p-8 rounded-lg border-2 border-amber-400/30 hover:shadow-xl hover:shadow-amber-400/20 transition-all group">
-              <div className="text-5xl mb-4 group-hover:scale-125 transition-transform">🥭</div>
+              <div className="text-5xl mb-4 group-hover:scale-125 transition-transform"></div>
               <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-cyan-300 mb-3">Peak Freshness</h3>
               <p className="text-amber-50 leading-relaxed">Direct from trusted partner farms to your doorstep. Harvested at peak ripeness, shipped within 24 hours. "It doesn't get any fresher than this!"</p>
             </div>
 
             <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-md p-8 rounded-lg border-2 border-amber-400/30 hover:shadow-xl hover:shadow-amber-400/20 transition-all group">
-              <div className="text-5xl mb-4 group-hover:scale-125 transition-transform">❤️</div>
+              <div className="text-5xl mb-4 group-hover:scale-125 transition-transform"></div>
               <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-cyan-300 mb-3">Bringing Families Together</h3>
               <p className="text-amber-50 leading-relaxed">We celebrate the diversity and heritage of our multicultural family through authentic tropical fruits that nourish yours.</p>
             </div>
@@ -88,22 +88,22 @@ export default function AboutPage(){
             <h2 className="text-3xl font-bold mb-8 text-emerald-900">Our Diverse Heritage</h2>
             <div className="grid md:grid-cols-4 gap-6 mb-8">
               <div className="bg-white rounded-lg p-6 border-2 border-emerald-200">
-                <p className="text-2xl mb-2">🇨🇺</p>
+                <p className="text-2xl mb-2"></p>
                 <p className="font-bold text-emerald-900">Cuban-American</p>
                 <p className="text-sm text-gray-600">Founder & Family Heritage</p>
               </div>
               <div className="bg-white rounded-lg p-6 border-2 border-emerald-200">
-                <p className="text-2xl mb-2">🇨🇷</p>
+                <p className="text-2xl mb-2"></p>
                 <p className="font-bold text-emerald-900">Costa Rican</p>
                 <p className="text-sm text-gray-600">Spouse Heritage</p>
               </div>
               <div className="bg-white rounded-lg p-6 border-2 border-emerald-200">
-                <p className="text-2xl mb-2">🇸🇻</p>
+                <p className="text-2xl mb-2"></p>
                 <p className="font-bold text-emerald-900">Salvadoran</p>
                 <p className="text-sm text-gray-600">In-Law Heritage</p>
               </div>
               <div className="bg-white rounded-lg p-6 border-2 border-emerald-200">
-                <p className="text-2xl mb-2">🇳🇮</p>
+                <p className="text-2xl mb-2"></p>
                 <p className="font-bold text-emerald-900">Nicaraguan</p>
                 <p className="text-sm text-gray-600">In-Law Heritage</p>
               </div>

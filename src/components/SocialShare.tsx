@@ -25,7 +25,7 @@ export default function SocialShare({ productName, productUrl, imageUrl }: Socia
         className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition-all flex items-center gap-2"
         title="Share on Facebook"
       >
-        📘 Facebook
+         Facebook
       </button>
 
       <button
@@ -33,7 +33,7 @@ export default function SocialShare({ productName, productUrl, imageUrl }: Socia
         className="bg-blue-400 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-500 transition-all flex items-center gap-2"
         title="Share on Twitter"
       >
-        🐦 Twitter
+         Twitter
       </button>
 
       {imageUrl && (
@@ -42,7 +42,7 @@ export default function SocialShare({ productName, productUrl, imageUrl }: Socia
           className="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700 transition-all flex items-center gap-2"
           title="Share on Pinterest"
         >
-          📌 Pinterest
+           Pinterest
         </button>
       )}
 
@@ -55,7 +55,7 @@ export default function SocialShare({ productName, productUrl, imageUrl }: Socia
         }`}
         title="Copy link to clipboard"
       >
-        {copied ? '✓ Copied!' : '🔗 Copy Link'}
+        {copied ? '✓ Copied!' : ' Copy Link'}
       </button>
     </div>
   )

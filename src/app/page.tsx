@@ -5,7 +5,7 @@ import { ProductService } from "@/lib/productService"
 import Link from "next/link"
 import NewsletterSignup from "@/components/NewsletterSignup"
 import TestimonialCarousel from "@/components/TestimonialCarousel"
-import { Leaf, Truck, Leaf as LeafAlt, CheckCircle, Trophy, Heart } from "lucide-react"
+import { Leaf, Truck, Leaf as LeafAlt, CheckCircle, Trophy, Heart, Star, Sparkles, Flame, Gift, Palette, Package, Briefcase, Phone, Mail, Droplet } from "lucide-react"
 import { Metadata } from "next"
 import type { Fruit } from "@/types"
 
@@ -22,16 +22,15 @@ export const metadata: Metadata = {
 
 const allProducts = ProductService.getAllProducts()
 
-// Helper filtering
-const FRUIT_TREES = allProducts.filter(p => p.sizes?.some(s => s.name?.includes('Tree') || s.name?.includes('Bush'))).slice(0, 4)
-const lycheeBox = allProducts.find(p => p.name.toLowerCase().includes('lychee'))
-const tropicalFruits = allProducts.filter(p => !FRUIT_TREES.includes(p) && p.id !== lycheeBox?.id && ['exotic', 'tropical', 'fresh'].includes(p.category))
+// Helper filtering to completely separate hardware (Trees/Bushes) from standard Fruit Boxes
+const ALL_TREES = allProducts.filter(p => p.id.startsWith('fgt_') || p.name.includes('Tree') || p.name.includes('Bush') || p.sizes?.some(s => s.name?.includes('Tree') || s.name?.includes('Bush')))
+const STANDARD_FRUITS = allProducts.filter(p => !ALL_TREES.includes(p))
 
-// Mixed section (Lychee at the top, followed by a mix of tropical and tree)
-const POPULAR_BOXES = ([lycheeBox, tropicalFruits[0], FRUIT_TREES[0], tropicalFruits[1]].filter(Boolean) as Fruit[]).slice(0, 4)
+// Mixed section explicitly: 2 standard tropical fruit boxes, 2 fruit trees
+const POPULAR_BOXES = [...STANDARD_FRUITS.slice(0, 2), ...ALL_TREES.slice(0, 2)]
 
-// Dedicated tree section
-const TREES_SECTION = FRUIT_TREES.length >= 4 ? FRUIT_TREES : [...FRUIT_TREES, ...ProductService.getFeaturedProducts(4)].slice(0, 4)
+// Dedicated tree section limits to 8 top trees to naturally boost attention
+const TREES_SECTION = ALL_TREES.slice(0, 8)
 
 const TOP_RATED = [...allProducts].sort((a, b) => b.rating - a.rating).slice(0, 3)
 
@@ -146,35 +145,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular Fruit Boxes Section */}
+      {/* Fruit Trees Section (Shifted to top for high visibility) */}
       <section className="py-20 bg-gradient-to-b from-emerald-900 via-emerald-800 to-emerald-700 border-t-4 border-amber-400">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <p className="text-amber-300 font-bold tracking-widest uppercase text-sm mb-2">Featured Collection</p>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Popular Fruit Boxes</h2>
-            <p className="text-gray-600 text-lg">Hand-selected tropical fruits, fresh from our partner farms</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {POPULAR_BOXES.map((fruit) => (
-              <div key={fruit.id} className="relative group">
-                <div className="absolute -top-3 -right-3 z-10"><div className="bg-gradient-to-r from-amber-400 to-yellow-300 text-emerald-900 font-bold px-4 py-2 rounded-full shadow-lg text-xs">⭐ {fruit.rating}</div></div>
-                <div className="absolute -inset-1 bg-gradient-to-br from-amber-400/20 to-yellow-300/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative">
-                  <ProductCard product={fruit} />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-16 animate-fade-in" style={{animationDelay: "0.5s"}}>
-            <Link href="/shop" className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold px-10 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-block hover:from-emerald-700 hover:to-emerald-800">View All Boxes</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Fruit Trees Section */}
-      <section className="py-20 bg-gradient-to-b from-emerald-800 via-emerald-700 to-emerald-600 border-t-4 border-amber-400">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center mb-16 animate-fade-in">
             <p className="text-amber-300 font-bold tracking-widest uppercase text-sm mb-2">Grow Your Own</p>
@@ -192,6 +164,37 @@ export default function Home() {
               </div>
             ))}
           </div>
+          
+          <div className="text-center mt-12 animate-fade-in" style={{animationDelay: "0.5s"}}>
+            <Link href="/shop?collection=trees" className="bg-gradient-to-r from-amber-400 to-yellow-300 text-emerald-900 font-bold px-10 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-block hover:scale-105">View All Trees</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Fruit Boxes Section */}
+      <section className="py-20 bg-gradient-to-b from-emerald-800 via-emerald-700 to-emerald-600 border-t-4 border-amber-400">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <p className="text-amber-300 font-bold tracking-widest uppercase text-sm mb-2">Featured Collection</p>
+            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-100 mb-4">Popular Fruit Boxes</h2>
+            <p className="text-emerald-100 text-lg">Hand-selected tropical fruits, fresh from our partner farms</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {POPULAR_BOXES.map((fruit) => (
+              <div key={fruit.id} className="relative group">
+                <div className="absolute -top-3 -right-3 z-10"><div className="bg-gradient-to-r from-amber-400 to-yellow-300 text-emerald-900 font-bold px-4 py-2 rounded-full shadow-lg text-xs flex items-center gap-1"><Star size={12} className="fill-emerald-900" /> {fruit.rating}</div></div>
+                <div className="absolute -inset-1 bg-gradient-to-br from-amber-400/20 to-yellow-300/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <ProductCard product={fruit} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16 animate-fade-in" style={{animationDelay: "0.5s"}}>
+            <Link href="/shop" className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold px-10 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-block hover:from-emerald-700 hover:to-emerald-800">View All Boxes</Link>
+          </div>
         </div>
       </section>
 
@@ -202,42 +205,42 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-100 mb-12 text-center">Shop Collections</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <Link href="/shop?collection=bestsellers" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-orange-400 to-red-500 shadow-lg hover:shadow-2xl transition-all">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-12 w-full place-items-center">
+            <Link href="/shop?collection=bestsellers" className="block w-full max-w-sm md:max-w-none group relative overflow-hidden rounded-xl h-40 md:h-56 bg-gradient-to-br from-orange-400 to-red-500 shadow-lg hover:shadow-2xl transition-all mx-auto">
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
-              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
-                <p className="text-5xl mb-3">🏆</p>
-                <h3 className="text-3xl font-black mb-2">Best Sellers</h3>
-                <p className="text-sm text-orange-50">Most loved by customers</p>
+              <div className="relative z-10 h-full w-full flex flex-col items-center justify-center text-white p-4 text-center">
+                <Trophy size={36} className="md:w-12 md:h-12 mb-2 md:mb-3 text-orange-200 mx-auto" />
+                <h3 className="text-2xl md:text-3xl font-black mb-1 md:mb-2 text-center w-full">Best Sellers</h3>
+                <p className="text-xs md:text-sm text-orange-50 text-center w-full">Most loved by customers</p>
               </div>
             </Link>
 
-            <Link href="/shop?collection=toprated" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-yellow-400 to-yellow-500 shadow-lg hover:shadow-2xl transition-all">
+            <Link href="/shop?collection=toprated" className="block w-full max-w-sm md:max-w-none group relative overflow-hidden rounded-xl h-40 md:h-56 bg-gradient-to-br from-yellow-400 to-yellow-500 shadow-lg hover:shadow-2xl transition-all mx-auto">
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
-              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
-                <p className="text-5xl mb-3">⭐</p>
-                <h3 className="text-3xl font-black mb-2">Top Rated</h3>
-                <p className="text-sm text-yellow-50">Highest customer ratings</p>
+              <div className="relative z-10 h-full w-full flex flex-col items-center justify-center text-white p-4 text-center">
+                <Star size={36} className="md:w-12 md:h-12 mb-2 md:mb-3 text-yellow-200 fill-yellow-200 mx-auto" />
+                <h3 className="text-2xl md:text-3xl font-black mb-1 md:mb-2 text-center w-full">Top Rated</h3>
+                <p className="text-xs md:text-sm text-yellow-50 text-center w-full">Highest customer ratings</p>
               </div>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link href="/shop?collection=new" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg hover:shadow-2xl transition-all">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full place-items-center">
+            <Link href="/shop?collection=new" className="block w-full max-w-sm md:max-w-none group relative overflow-hidden rounded-xl h-40 md:h-56 bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg hover:shadow-2xl transition-all mx-auto">
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
-              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
-                <p className="text-5xl mb-3">✨</p>
-                <h3 className="text-3xl font-black mb-2">New Arrivals</h3>
-                <p className="text-sm text-green-50">Fresh additions</p>
+              <div className="relative z-10 h-full w-full flex flex-col items-center justify-center text-white p-4 text-center">
+                <Sparkles size={36} className="md:w-12 md:h-12 mb-2 md:mb-3 text-green-200 mx-auto" />
+                <h3 className="text-2xl md:text-3xl font-black mb-1 md:mb-2 text-center w-full">New Arrivals</h3>
+                <p className="text-xs md:text-sm text-green-50 text-center w-full">Fresh additions</p>
               </div>
             </Link>
 
-            <Link href="/shop?collection=sale" className="group relative overflow-hidden rounded-xl h-64 bg-gradient-to-br from-pink-400 to-rose-500 shadow-lg hover:shadow-2xl transition-all">
+            <Link href="/shop?collection=sale" className="block w-full max-w-sm md:max-w-none group relative overflow-hidden rounded-xl h-40 md:h-56 bg-gradient-to-br from-pink-400 to-rose-500 shadow-lg hover:shadow-2xl transition-all mx-auto">
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all"></div>
-              <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
-                <p className="text-5xl mb-3">🔥</p>
-                <h3 className="text-3xl font-black mb-2">On Sale</h3>
-                <p className="text-sm text-pink-50">Limited time offers</p>
+              <div className="relative z-10 h-full w-full flex flex-col items-center justify-center text-white p-4 text-center">
+                <Flame size={36} className="md:w-12 md:h-12 mb-2 md:mb-3 text-pink-200 fill-pink-200 mx-auto" />
+                <h3 className="text-2xl md:text-3xl font-black mb-1 md:mb-2 text-center w-full">On Sale</h3>
+                <p className="text-xs md:text-sm text-pink-50 text-center w-full">Limited time offers</p>
               </div>
             </Link>
           </div>
@@ -263,14 +266,14 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <span className="text-4xl">🚚</span>
+                  <Truck size={36} className="text-emerald-900" />
                   <div>
                     <h3 className="font-bold text-emerald-900 text-lg mb-2">Optimized Shipping</h3>
                     <p className="text-gray-600">We ship Monday-Thursday and your order arrives within one week to ensure peak freshness.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <span className="text-4xl">💚</span>
+                  <Heart size={36} className="text-emerald-900 fill-emerald-900" />
                   <div>
                     <h3 className="font-bold text-emerald-900 text-lg mb-2">Customer for Life</h3>
                     <p className="text-gray-600">We're not satisfied until you are. We want you to be our customer for life!</p>
@@ -282,7 +285,7 @@ export default function Home() {
             </div>
 
             <div className="bg-emerald-900/40 backdrop-blur-md rounded-2xl p-6 md:p-12 text-center border border-amber-400/30">
-              <div className="text-6xl md:text-8xl mb-4 md:mb-6">🍍</div>
+              <div className="flex justify-center mb-4 md:mb-6"><Droplet size={64} className="text-amber-300" /></div>
               <h3 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-100 mb-3 md:mb-4">Fresh From Farm</h3>
               <p className="text-sm md:text-base text-amber-50 font-semibold mb-6 md:mb-8">Delivered straight to your doorstep within 7 days of harvest</p>
               <div className="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center mb-6 md:mb-8">
@@ -309,21 +312,21 @@ export default function Home() {
               <p className="text-base md:text-xl text-emerald-50 mb-6 md:mb-8">Yes, we'll accommodate your special request with fancy and elaborate requirements. Contact our team and let us make it happen for you.</p>
               <div className="space-y-4 mb-8">
                 <div className="flex gap-3 items-start">
-                  <span className="text-2xl">🎁</span>
+                  <Gift size={24} className="text-emerald-100" />
                   <div>
                     <p className="font-semibold">Bulk Discounts</p>
                     <p className="text-sm text-emerald-100">10% off 10+ boxes, 15% off 25+</p>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
-                  <span className="text-2xl">🎨</span>
+                  <Palette size={24} className="text-emerald-100" />
                   <div>
                     <p className="font-semibold">Custom Packaging</p>
                     <p className="text-sm text-emerald-100">Personalized branding available</p>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
-                  <span className="text-2xl">📦</span>
+                  <Package size={24} className="text-emerald-100" />
                   <div>
                     <p className="font-semibold">Flexible Delivery</p>
                     <p className="text-sm text-emerald-100">Schedule delivery for any date</p>
@@ -333,17 +336,18 @@ export default function Home() {
               <Link href="/corporate" className="inline-block bg-white text-emerald-600 font-bold px-8 py-3 rounded-lg hover:bg-emerald-50 transition-colors">Start Your Corporate Order</Link>
             </div>
 
-            <div className="bg-white bg-opacity-10 backdrop-blur rounded-2xl p-12 border border-white border-opacity-20">
-              <div className="text-7xl text-center mb-6">💼</div>
-              <h3 className="text-3xl font-black text-center mb-6">Perfect For</h3>
-              <ul className="space-y-3 text-emerald-50">
-                <li className="flex gap-2 items-center"><span>✓</span> Corporate Events</li>
-                <li className="flex gap-2 items-center"><span>✓</span> Employee Gifts</li>
-                <li className="flex gap-2 items-center"><span>✓</span> Client Appreciation</li>
-                <li className="flex gap-2 items-center"><span>✓</span> Trade Shows</li>
-                <li className="flex gap-2 items-center"><span>✓</span> Team Building</li>
-                <li className="flex gap-2 items-center"><span>✓</span> Company Wellness</li>
-              </ul>
+            <div className="relative h-64 md:h-full min-h-[350px] rounded-2xl overflow-hidden shadow-2xl transform transition-transform hover:scale-105 duration-500">
+              <img src="/products/water12.jpeg" alt="Corporate Fruit Gifts" className="absolute inset-0 w-full h-full object-cover object-center" />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/60 to-transparent"></div>
+              <div className="relative z-10 w-full h-full flex flex-col justify-end p-8 text-white">
+                <h3 className="text-3xl font-black mb-4">Perfect For:</h3>
+                <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-emerald-50 text-sm md:text-base font-semibold">
+                  <span className="flex items-center gap-2">✓ Corporate Events</span>
+                  <span className="flex items-center gap-2">✓ Employee Gifts</span>
+                  <span className="flex items-center gap-2">✓ Client Appreciation</span>
+                  <span className="flex items-center gap-2">✓ Trade Shows</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -353,11 +357,11 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-emerald-700 via-emerald-600 to-emerald-700">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-100 mb-4">Tropi ❤️</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-100 mb-4">Tropi </h2>
             <div className="flex justify-center items-center gap-3 mb-6 flex-wrap">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-2xl">⭐</span>
+                  <span key={i} className="text-2xl text-amber-400"><Star size={24} className="fill-amber-400" /></span>
                 ))}
               </div>
               <p className="text-xl font-bold text-amber-300">Excellent 4.9 average</p>
@@ -370,7 +374,7 @@ export default function Home() {
               <div key={idx} className="bg-emerald-900/40 backdrop-blur-md rounded-lg p-6 border border-amber-400/30 hover:border-amber-300/60 transition-all">
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-lg">⭐</span>
+                    <span key={i} className="text-lg text-amber-400"><Star size={16} className="fill-amber-400" /></span>
                   ))}
                 </div>
                 <p className="text-amber-50 mb-4 leading-relaxed italic">"{testimonial.text}"</p>
@@ -427,14 +431,17 @@ export default function Home() {
           <div className="bg-emerald-900/40 backdrop-blur-md border border-amber-400/30 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-100 mb-3">Still Have Questions?</h3>
             <p className="text-amber-50 mb-6">Our customer service team is available 24/7 to help!</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+13056971193" className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all">
-                📞 (305) 697-1193
+              <a href="tel:+13052902974" className="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all">
+                <Phone size={18} /> (305) 290-2974
               </a>
-              <a href="mailto:hello@freshtropicsasianfruits.com" className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all">
-                ✉️ Email Us
-              </a>
-            </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="mailto:hello@freshtropicsasianfruits.com" className="flex items-center justify-center gap-2 bg-white text-emerald-700 font-bold px-6 py-3 rounded-lg hover:shadow-lg hover:bg-emerald-50 transition-all">
+                  <Mail size={18} /> hello@freshtropics...
+                </a>
+                <a href="mailto:support@freshtropicsasianfruits.com" className="flex items-center justify-center gap-2 bg-transparent border-2 border-amber-300 text-amber-300 font-bold px-6 py-3 rounded-lg hover:bg-amber-300 hover:text-emerald-900 transition-all">
+                  <Mail size={18} /> support@freshtropics...
+                </a>
+              </div>
           </div>
         </div>
       </section>
@@ -485,7 +492,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {TOP_RATED.map((fruit) => (
               <div key={fruit.id} className="relative group">
-                <div className="absolute -top-3 -right-3 z-10"><div className="bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-lg text-xs">🏆 Top Rated</div></div>
+                <div className="absolute -top-3 -right-3 z-10"><div className="bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-lg text-xs flex items-center gap-1"><Trophy size={14} /> Top Rated</div></div>
                 <div className="absolute -inset-1 bg-gradient-to-br from-amber-400/20 to-yellow-300/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative">
                   <ProductCard product={fruit} />

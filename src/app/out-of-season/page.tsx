@@ -169,7 +169,7 @@ export default function OutOfSeasonPage() {
 
         {/* Available Now */}
         <div className="bg-white border-2 border-emerald-300 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-bold text-emerald-900 mb-4">What's Available Now? 🍍</h3>
+          <h3 className="text-2xl font-bold text-emerald-900 mb-4">What's Available Now? </h3>
           <p className="text-gray-700 mb-6">
             Browse our current collection of fresh, in-season fruits available for delivery.
           </p>

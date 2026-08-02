@@ -6,7 +6,7 @@ export default function OfflinePage() {
       <div className="max-w-md w-full text-center">
         {/* Icon */}
         <div className="text-8xl mb-6 animate-bounce">
-          📡
+          
         </div>
 
         {/* Title */}
@@ -22,22 +22,22 @@ export default function OfflinePage() {
         {/* Features */}
         <div className="space-y-3 mb-8 p-6 rounded-lg bg-white/5 border border-white/10">
           <div className="flex items-center gap-3 text-white/80">
-            <span className="text-2xl">✅</span>
+            <span className="text-2xl"></span>
             <span>Browse previously viewed pages</span>
           </div>
           <div className="flex items-center gap-3 text-white/80">
-            <span className="text-2xl">✅</span>
+            <span className="text-2xl"></span>
             <span>View saved products and carts</span>
           </div>
           <div className="flex items-center gap-3 text-white/80">
-            <span className="text-2xl">✅</span>
+            <span className="text-2xl"></span>
             <span>Access your loyalty rewards info</span>
           </div>
         </div>
 
         {/* Tips */}
         <div className="p-6 rounded-lg bg-emerald-500/10 border border-emerald-400/30 mb-8">
-          <p className="text-sm font-bold text-emerald-300 mb-3">💡 Pro Tips</p>
+          <p className="text-sm font-bold text-emerald-300 mb-3"> Pro Tips</p>
           <ul className="text-sm text-white/70 space-y-2 text-left">
             <li>• Check your WiFi or mobile connection</li>
             <li>• Reload the page when back online</li>

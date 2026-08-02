@@ -70,7 +70,7 @@ export default function SubscribeAndSave({ productId, productName, productPrice 
   return (
     <div className="bg-gradient-to-br from-emerald-50 to-green-50 border-2 border-emerald-200 rounded-2xl p-8">
       <div className="flex items-start gap-3 mb-6">
-        <span className="text-4xl">💚</span>
+        <span className="text-4xl"></span>
         <div>
           <h3 className="text-2xl font-black text-emerald-900">Subscribe & Save</h3>
           <p className="text-emerald-700 text-sm">Save up to 20% with recurring deliveries</p>
@@ -122,7 +122,7 @@ export default function SubscribeAndSave({ productId, productName, productPrice 
             <span className="text-2xl font-black text-emerald-600">${discountedPrice.toFixed(2)}</span>
           </div>
           <div className="flex justify-between pt-2 border-t border-green-200">
-            <span className="text-green-600 font-bold">💚 You save:</span>
+            <span className="text-green-600 font-bold"> You save:</span>
             <span className="text-lg font-black text-green-600">${savings.toFixed(2)} per {option.frequency.toLowerCase()}</span>
           </div>
         </div>

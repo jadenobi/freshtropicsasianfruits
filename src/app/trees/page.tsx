@@ -44,10 +44,10 @@ export default function TreesPage() {
       {/* Stats micro-section */}
       <section className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 py-6 text-emerald-900 shadow-inner">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 text-center font-black">
-          <div>🌱 Easy to Grow</div>
-          <div>🏡 Perfect for Patios</div>
-          <div>🚚 Safe Live Shipping</div>
-          <div className="hidden lg:block">💚 Lifetime Support</div>
+          <div> Easy to Grow</div>
+          <div> Perfect for Patios</div>
+          <div> Safe Live Shipping</div>
+          <div className="hidden lg:block"> Lifetime Support</div>
         </div>
       </section>
 

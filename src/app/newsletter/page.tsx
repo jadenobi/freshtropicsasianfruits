@@ -43,17 +43,17 @@ export default function NewsletterPage() {
         {/* Newsletter Benefits */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200 text-center">
-            <p className="text-3xl mb-3">🎁</p>
+            <p className="text-3xl mb-3"></p>
             <h3 className="font-bold text-emerald-900 mb-2">20% Off Welcome</h3>
             <p className="text-gray-700 text-sm">Get 20% off your first order after signing up</p>
           </div>
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200 text-center">
-            <p className="text-3xl mb-3">📖</p>
+            <p className="text-3xl mb-3"></p>
             <h3 className="font-bold text-emerald-900 mb-2">Exclusive Recipes</h3>
             <p className="text-gray-700 text-sm">Weekly recipes from our chefs using fresh seasonal fruit</p>
           </div>
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200 text-center">
-            <p className="text-3xl mb-3">🌾</p>
+            <p className="text-3xl mb-3"></p>
             <h3 className="font-bold text-emerald-900 mb-2">Farm Stories</h3>
             <p className="text-gray-700 text-sm">Learn about our farming partners and fruit sourcing</p>
           </div>
@@ -113,16 +113,16 @@ export default function NewsletterPage() {
           <h3 className="text-2xl font-bold text-emerald-900 mb-6">Newsletter Frequency</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
-              <h4 className="font-bold text-emerald-900 mb-2">Weekly Digest 📧</h4>
+              <h4 className="font-bold text-emerald-900 mb-2">Weekly Digest </h4>
               <p className="text-gray-700 text-sm mb-4">Every Monday morning with the week's recipes and tips</p>
               <p className="text-gray-600 text-xs">Most popular option</p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
-              <h4 className="font-bold text-emerald-900 mb-2">Bi-Weekly 📧</h4>
+              <h4 className="font-bold text-emerald-900 mb-2">Bi-Weekly </h4>
               <p className="text-gray-700 text-sm mb-4">Every other week - enough to stay updated without the inbox noise</p>
             </div>
             <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
-              <h4 className="font-bold text-emerald-900 mb-2">Monthly Roundup 📧</h4>
+              <h4 className="font-bold text-emerald-900 mb-2">Monthly Roundup </h4>
               <p className="text-gray-700 text-sm mb-4">Once a month - just the highlights and special offers</p>
             </div>
           </div>

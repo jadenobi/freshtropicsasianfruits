@@ -91,14 +91,14 @@ function generateLuxuryOffers() {
       name: 'VIP Platinum Experience',
       description: 'Curated luxury fruits with white-glove delivery',
       discount: 25,
-      badge: '👑 PLATINUM EXCLUSIVE',
+      badge: ' PLATINUM EXCLUSIVE',
     },
     {
       id: 'vip-2',
       name: 'Concierge Personal Selection',
       description: 'AI-matched selections prepared by specialists',
       discount: 20,
-      badge: '✨ CONCIERGE ONLY',
+      badge: ' CONCIERGE ONLY',
     },
   ]
 }
@@ -126,16 +126,16 @@ export function calculatePerformanceMetrics(): PerformanceMetrics {
     interactionToNextPaint: 85,
     overallScore: 95,
     optimization: [
-      '✅ Image optimization: WebP + AVIF formats',
-      '✅ Code splitting: 280KB → 45KB initial JS',
-      '✅ Lazy loading: Images load on-demand',
-      '✅ CSS optimization: Critical CSS inline',
-      '✅ Font optimization: WOFF2 + system fonts',
-      '✅ CDN caching: 1-hour static assets',
-      '✅ Brotli compression: 60% reduction',
-      '✅ Service Worker: Offline capability',
-      '✅ Component memoization: Zero re-renders',
-      '✅ Database indexing: <50ms queries',
+      ' Image optimization: WebP + AVIF formats',
+      ' Code splitting: 280KB → 45KB initial JS',
+      ' Lazy loading: Images load on-demand',
+      ' CSS optimization: Critical CSS inline',
+      ' Font optimization: WOFF2 + system fonts',
+      ' CDN caching: 1-hour static assets',
+      ' Brotli compression: 60% reduction',
+      ' Service Worker: Offline capability',
+      ' Component memoization: Zero re-renders',
+      ' Database indexing: <50ms queries',
     ],
   }
 }
@@ -194,12 +194,12 @@ interface TrustSignal {
 
 export function getTrustSignals(): TrustSignal[] {
   return [
-    { icon: '🔒', text: '256-bit Encryption', description: 'Bank-level security for all transactions' },
+    { icon: '', text: '256-bit Encryption', description: 'Bank-level security for all transactions' },
     { icon: '✓', text: '100% Authentic', description: 'Certified organic & fair-trade fruits' },
-    { icon: '🚚', text: 'Guaranteed Fresh', description: '48-hour delivery guarantee' },
-    { icon: '💰', text: 'Money-Back', description: '30-day satisfaction guarantee' },
-    { icon: '⭐', text: '4.9/5 Rating', description: 'Trusted by 50,000+ customers' },
-    { icon: '🌱', text: 'Eco-Conscious', description: 'Sustainable sourcing & packaging' },
+    { icon: '', text: 'Guaranteed Fresh', description: '48-hour delivery guarantee' },
+    { icon: '', text: 'Money-Back', description: '30-day satisfaction guarantee' },
+    { icon: '', text: '4.9/5 Rating', description: 'Trusted by 50,000+ customers' },
+    { icon: '', text: 'Eco-Conscious', description: 'Sustainable sourcing & packaging' },
   ]
 }
 
@@ -216,9 +216,9 @@ interface CheckoutStep {
 
 export function getLuxuryCheckoutFlow(): CheckoutStep[] {
   return [
-    { id: 1, name: 'Selection', icon: '🎯', description: 'Choose your curated collection' },
-    { id: 2, name: 'Personalization', icon: '✨', description: 'Add gift message & special requests' },
-    { id: 3, name: 'Logistics', icon: '🚚', description: 'Schedule premium delivery' },
+    { id: 1, name: 'Selection', icon: '', description: 'Choose your curated collection' },
+    { id: 2, name: 'Personalization', icon: '', description: 'Add gift message & special requests' },
+    { id: 3, name: 'Logistics', icon: '', description: 'Schedule premium delivery' },
     { id: 4, name: 'Confirmation', icon: '✓', description: 'Secure payment & order confirmation' },
   ]
 }

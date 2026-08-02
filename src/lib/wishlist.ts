@@ -52,8 +52,8 @@ export const useWishlist = () => {
 export const useWishlistNotifications = () => {
   const sendWishlistAlert = (productName: string, type: 'added' | 'removed') => {
     const message = type === 'added' 
-      ? `✨ Added "${productName}" to your wishlist!`
-      : `❌ Removed "${productName}" from your wishlist`
+      ? ` Added "${productName}" to your wishlist!`
+      : ` Removed "${productName}" from your wishlist`
     
     // Could integrate with toast notifications here
     console.log(message)

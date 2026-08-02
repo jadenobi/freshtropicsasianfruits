@@ -6,11 +6,11 @@ const MOCK_UGC: UserGeneratedContent[] = [
     id: '1',
     userId: 'user-1',
     userName: 'Sarah Chen',
-    userAvatar: '👩‍🦰',
+    userAvatar: '‍',
     productId: '1',
     productName: 'Pink Glow Pineapple',
     imageUrl: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd93b93?w=500',
-    caption: 'Obsessed with this pink pineapple! So sweet and juicy 🍍💕',
+    caption: 'Obsessed with this pink pineapple! So sweet and juicy ',
     likes: 342,
     comments: 28,
     rating: 5,
@@ -22,11 +22,11 @@ const MOCK_UGC: UserGeneratedContent[] = [
     id: '2',
     userId: 'user-2',
     userName: 'Marcus Johnson',
-    userAvatar: '👨‍💼',
+    userAvatar: '‍',
     productId: '2',
     productName: 'Mango',
     imageUrl: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd93b93?w=500',
-    caption: 'Fresh mango delivery arrived! Perfect quality 🥭',
+    caption: 'Fresh mango delivery arrived! Perfect quality ',
     likes: 289,
     comments: 15,
     rating: 5,
@@ -38,11 +38,11 @@ const MOCK_UGC: UserGeneratedContent[] = [
     id: '3',
     userId: 'user-3',
     userName: 'Emma Wilson',
-    userAvatar: '👩‍🎨',
+    userAvatar: '‍',
     productId: '4',
     productName: 'Dragon Fruit',
     imageUrl: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd93b93?w=500',
-    caption: 'Dragon fruit smoothie bowl! 🐉✨ #healthyeating',
+    caption: 'Dragon fruit smoothie bowl!  #healthyeating',
     likes: 456,
     comments: 42,
     rating: 5,
@@ -54,11 +54,11 @@ const MOCK_UGC: UserGeneratedContent[] = [
     id: '4',
     userId: 'user-4',
     userName: 'David Brown',
-    userAvatar: '👨‍🍳',
+    userAvatar: '‍',
     productId: '1',
     productName: 'Pink Glow Pineapple',
     imageUrl: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd93b93?w=500',
-    caption: 'Making tropical sorbet with Fresh Tropics 🍨',
+    caption: 'Making tropical sorbet with Fresh Tropics ',
     likes: 523,
     comments: 67,
     rating: 5,
@@ -70,11 +70,11 @@ const MOCK_UGC: UserGeneratedContent[] = [
     id: '5',
     userId: 'user-5',
     userName: 'Lisa Chen',
-    userAvatar: '👩‍⚕️',
+    userAvatar: '‍',
     productId: '6',
     productName: 'Passion Fruit',
     imageUrl: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd93b93?w=500',
-    caption: 'Passion fruit nutrition facts! High in vitamin C 🍊',
+    caption: 'Passion fruit nutrition facts! High in vitamin C ',
     likes: 278,
     comments: 34,
     rating: 5,
@@ -110,7 +110,7 @@ export function getVerifiedUGC(): UserGeneratedContent[] {
 
 // Generate share URLs
 export function generateShareURL(platform: string, productName: string, productUrl: string): string {
-  const text = `Check out Fresh Tropics ${productName}! 🍎 Premium quality Asian fruits delivered fresh.`
+  const text = `Check out Fresh Tropics ${productName}!  Premium quality Asian fruits delivered fresh.`
   const encodedText = encodeURIComponent(text)
   const encodedUrl = encodeURIComponent(productUrl)
 
@@ -135,7 +135,7 @@ export function getShareButtons(productName: string, productUrl: string) {
   return [
     {
       name: 'Facebook',
-      icon: '👍',
+      icon: '',
       color: '#1877F2',
       url: generateShareURL('facebook', productName, productUrl),
     },
@@ -147,13 +147,13 @@ export function getShareButtons(productName: string, productUrl: string) {
     },
     {
       name: 'WhatsApp',
-      icon: '💬',
+      icon: '',
       color: '#25D366',
       url: generateShareURL('whatsapp', productName, productUrl),
     },
     {
       name: 'LinkedIn',
-      icon: '🔗',
+      icon: '',
       color: '#0077B5',
       url: generateShareURL('linkedin', productName, productUrl),
     },
@@ -167,19 +167,19 @@ export function handleSocialLogin(provider: 'google' | 'facebook' | 'apple') {
     google: {
       email: 'user@gmail.com',
       name: 'Google User',
-      avatar: '👤',
+      avatar: '',
       provider: 'google',
     },
     facebook: {
       email: 'user@facebook.com',
       name: 'Facebook User',
-      avatar: '👤',
+      avatar: '',
       provider: 'facebook',
     },
     apple: {
       email: 'user@icloud.com',
       name: 'Apple User',
-      avatar: '👤',
+      avatar: '',
       provider: 'apple',
     },
   }

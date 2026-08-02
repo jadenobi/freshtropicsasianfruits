@@ -12,12 +12,12 @@ interface GiftRecommendation {
 }
 
 const GIFT_OCCASIONS = [
-  { id: 'birthday', label: 'Birthday', iconName: 'Cake', emoji: '🎂' },
-  { id: 'anniversary', label: 'Anniversary', iconName: 'Heart', emoji: '🥂' },
-  { id: 'get-well', label: 'Get Well', iconName: 'Stethoscope', emoji: '🌡️' },
-  { id: 'thank-you', label: 'Thank You', iconName: 'HandshakeIcon', emoji: '🙏' },
-  { id: 'corporate', label: 'Corporate', iconName: 'Briefcase', emoji: '🤝' },
-  { id: 'holiday', label: 'Holiday', iconName: 'GiftIcon', emoji: '🎄' }
+  { id: 'birthday', label: 'Birthday', iconName: 'Cake', emoji: '' },
+  { id: 'anniversary', label: 'Anniversary', iconName: 'Heart', emoji: '' },
+  { id: 'get-well', label: 'Get Well', iconName: 'Stethoscope', emoji: '' },
+  { id: 'thank-you', label: 'Thank You', iconName: 'HandshakeIcon', emoji: '' },
+  { id: 'corporate', label: 'Corporate', iconName: 'Briefcase', emoji: '' },
+  { id: 'holiday', label: 'Holiday', iconName: 'GiftIcon', emoji: '' }
 ]
 
 export default function GiftRecommendationsPage() {
@@ -100,7 +100,7 @@ export default function GiftRecommendationsPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-black text-pink-900 mb-4">🎁 Smart Gift Finder</h1>
+            <h1 className="text-4xl font-black text-pink-900 mb-4"> Smart Gift Finder</h1>
             <p className="text-lg text-gray-600">
               Discover the perfect fruit gift for any occasion and budget
             </p>
@@ -121,7 +121,7 @@ export default function GiftRecommendationsPage() {
           {/* Step 1: Budget */}
           {currentStep === 1 && (
             <div className="bg-white rounded-lg shadow-lg p-8 animate-fadeIn">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">💰 What's Your Budget?</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> What's Your Budget?</h2>
               
               <div className="space-y-6">
                 <div>
@@ -267,7 +267,7 @@ export default function GiftRecommendationsPage() {
                   onClick={generateRecommendations}
                   className="flex-1 py-3 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700 transition-all"
                 >
-                  ✨ Get Recommendations →
+                   Get Recommendations →
                 </button>
               </div>
             </div>
@@ -300,7 +300,7 @@ export default function GiftRecommendationsPage() {
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <div className="text-5xl">🍎</div>
+                            <div className="text-5xl"></div>
                           )}
                         </div>
                         
@@ -313,7 +313,7 @@ export default function GiftRecommendationsPage() {
                             </div>
                             <p className="text-sm text-gray-600 mb-2">{rec.reason}</p>
                             <div className="flex items-center gap-2">
-                              <span className="text-amber-400 text-sm">⭐ {rec.product.rating}</span>
+                              <span className="text-amber-400 text-sm"> {rec.product.rating}</span>
                               <span className="text-gray-500 text-sm">({rec.product.reviews} reviews)</span>
                             </div>
                           </div>
@@ -338,7 +338,7 @@ export default function GiftRecommendationsPage() {
                 </div>
               ) : (
                 <div className="bg-white rounded-lg shadow-lg p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">🎀 Customize Your Gift</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6"> Customize Your Gift</h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div className="aspect-square bg-gradient-to-br from-pink-100 to-orange-100 rounded-lg flex items-center justify-center overflow-hidden">
@@ -349,7 +349,7 @@ export default function GiftRecommendationsPage() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="text-8xl">🍎</div>
+                        <div className="text-8xl"></div>
                       )}
                     </div>
 
@@ -359,7 +359,7 @@ export default function GiftRecommendationsPage() {
                       
                       <div className="bg-amber-50 p-4 rounded-lg mb-6">
                         <div className="flex gap-2 mb-2">
-                          <span className="text-xl">⭐ {selectedProduct.rating}</span>
+                          <span className="text-xl"> {selectedProduct.rating}</span>
                           <span className="text-gray-600">({selectedProduct.reviews} reviews)</span>
                         </div>
                         <p className="text-gray-700">{selectedProduct.description}</p>
@@ -395,7 +395,7 @@ export default function GiftRecommendationsPage() {
                           }}
                           className="w-full py-3 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700 transition-all text-lg"
                         >
-                          🛒 Add to Cart
+                           Add to Cart
                         </button>
                       </div>
                     </div>

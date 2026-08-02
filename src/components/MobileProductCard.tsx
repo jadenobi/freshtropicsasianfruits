@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useCart } from '@/lib/cart'
 import { useWishlist } from '@/lib/wishlist'
 import { Fruit } from '@/types'
+import { Star, Heart } from 'lucide-react'
 
 interface MobileProductCardProps {
   product: Fruit
@@ -32,6 +33,15 @@ export default function MobileProductCard({ product }: MobileProductCardProps) {
             <span className="bg-red-600 text-white px-4 py-2 rounded-lg font-bold text-sm">Out of Stock</span>
           </div>
         )}
+
+        {/* New Arrival Badge inside the Image Block */}
+        {product.isNew && (
+          <div className="absolute top-2 left-2 z-10">
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] sm:text-xs font-black px-2 py-1 rounded shadow-md uppercase tracking-wider border border-white/20">
+              New Arrival
+            </span>
+          </div>
+        )}
       </Link>
 
       {/* Content Container */}
@@ -48,7 +58,7 @@ export default function MobileProductCard({ product }: MobileProductCardProps) {
 
         {/* Rating */}
         <div className="flex items-center gap-1 mt-2 mb-3">
-          <span className="text-yellow-500">⭐</span>
+          <Star className="text-yellow-500 w-4 h-4 fill-current" />
           <span className="font-bold text-xs sm:text-sm text-gray-800">{product.rating}</span>
           <span className="text-xs text-gray-500">({product.reviews})</span>
         </div>
@@ -78,7 +88,7 @@ export default function MobileProductCard({ product }: MobileProductCardProps) {
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
-            {inWishlist ? '❤️' : '🤍'}
+            {inWishlist ? <Heart className="w-5 h-5 fill-red-600" /> : <Heart className="w-5 h-5 text-gray-600" />}
           </button>
         </div>
       </div>

@@ -15,3 +15,9 @@ export function getSupabaseClient() {
   }
   return createClient(supabaseUrl, supabaseAnonKey)
 }
+
+// Admin client for server-side operations (uses service role key)
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+export const supabaseAdmin = supabaseUrl && supabaseServiceKey
+  ? createClient(supabaseUrl, supabaseServiceKey)
+  : null

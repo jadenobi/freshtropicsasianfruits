@@ -106,7 +106,7 @@ export default function BuildYourOwnBox() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-black text-emerald-900 mb-4">🎁 Build Your Own Box</h1>
+          <h1 className="text-5xl font-black text-emerald-900 mb-4"> Build Your Own Box</h1>
           <p className="text-lg text-gray-600">Create the perfect tropical fruit box with your favorite selections</p>
         </div>
 
@@ -130,7 +130,7 @@ export default function BuildYourOwnBox() {
                         : 'border-gray-200 hover:border-emerald-400'
                     }`}
                   >
-                    <div className="text-3xl mb-2">{box.capacity === 3 ? '📦' : box.capacity === 6 ? '📫' : '📦📦'}</div>
+                    <div className="text-3xl mb-2">{box.capacity === 3 ? '' : box.capacity === 6 ? '' : ''}</div>
                     <p className="text-lg">{box.name}</p>
                     <p className="text-sm text-gray-600">{box.capacity} items max</p>
                     {box.basePrice > 0 && <p className="text-emerald-600 font-black">+${box.basePrice}</p>}
@@ -260,7 +260,7 @@ export default function BuildYourOwnBox() {
                 disabled={selectedItems.length === 0}
                 className="w-full bg-white text-emerald-600 font-black py-3 rounded-lg hover:bg-gray-50 disabled:bg-gray-300 disabled:text-gray-500 transition-all"
               >
-                {selectedItems.length > 0 ? '🛒 Add to Cart' : 'Select fruits to continue'}
+                {selectedItems.length > 0 ? ' Add to Cart' : 'Select fruits to continue'}
               </button>
 
               <Link
@@ -273,7 +273,7 @@ export default function BuildYourOwnBox() {
 
             {/* Info Box */}
             <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-6">
-              <p className="text-sm font-semibold text-amber-900 mb-3">💡 Tips:</p>
+              <p className="text-sm font-semibold text-amber-900 mb-3"> Tips:</p>
               <ul className="text-xs text-amber-800 space-y-2">
                 <li>✓ Mix and match any fruits</li>
                 <li>✓ Adjust quantities easily</li>

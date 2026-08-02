@@ -21,7 +21,7 @@ export interface ProductSize {
 export interface Fruit {
   id: string;
   name: string;
-  category: 'fresh' | 'organic' | 'exotic' | 'seasonal' | 'tropical' | 'berries' | 'apples' | 'citrus';
+  category: 'fresh' | 'organic' | 'exotic' | 'seasonal' | 'tropical' | 'berries' | 'apples' | 'citrus' | 'evergreen' | 'shrubs' | 'flowering' | 'shade' | 'perennials' | 'indoor' | 'supplies' | 'trees';
   price: number;
   originalPrice?: number;
   image: string;
@@ -34,6 +34,7 @@ export interface Fruit {
   quantity?: number;
   nutrition?: Nutrition; // Nutritional information
   sizes?: ProductSize[]; // Available sizes with different prices
+  isNew?: boolean; // Flag to indicate if a product is newly added
 }
 
 // Cart Types

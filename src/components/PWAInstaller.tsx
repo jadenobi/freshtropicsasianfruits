@@ -71,7 +71,7 @@ export default function PWAInstaller() {
       <div className="bg-gradient-to-br from-emerald-900 to-emerald-800 border-2 border-emerald-400 rounded-xl shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-emerald-500 to-cyan-500 px-6 py-4 flex items-center gap-3">
-          <span className="text-3xl">🚀</span>
+          <span className="text-3xl"></span>
           <div>
             <h3 className="font-black text-black text-lg">Install App</h3>
             <p className="text-sm text-black/70">Get Fresh Tropics on your device</p>
@@ -132,7 +132,7 @@ export default function PWAInstaller() {
           {!isOnline && (
             <div className="p-3 rounded-lg bg-red-500/20 border border-red-400/30">
               <p className="text-xs text-red-300 font-bold">
-                📡 You're currently offline. Install the app to browse while offline!
+                 You're currently offline. Install the app to browse while offline!
               </p>
             </div>
           )}

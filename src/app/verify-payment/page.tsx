@@ -199,7 +199,7 @@ function VerifyPaymentContent() {
                 <option>Zelle</option>
                 <option>Venmo</option>
                 <option>CashApp</option>
-                <option>PayPal</option>
+                <option>Gift Card</option>
                 <option>Apple Pay</option>
                 <option>Crypto</option>
               </select>

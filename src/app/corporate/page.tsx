@@ -95,10 +95,10 @@ export default function CorporatePage() {
               Email Corporate Sales
             </a>
             <a 
-              href="tel:+13056971193" 
+              href="tel:+13052902974" 
               className="bg-emerald-500 text-white px-8 py-3 rounded-lg hover:bg-emerald-400 transition-colors font-semibold"
             >
-              Call: (305) 697-1193
+              Call: (305) 290-2974
             </a>
           </div>
           <p className="text-emerald-100 text-sm mt-6">Available Monday-Friday, 9am-6pm EST</p>

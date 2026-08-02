@@ -32,9 +32,9 @@ export default function PaymentSystemPage() {
                 },
                 {
                   step: "2",
-                  iconName: "CreditCard",
+                  iconName: "Building2",
                   title: "Choose Method",
-                  desc: "Select your preferred payment method"
+                  desc: "Select Bank Transfer or alternative"
                 },
                 {
                   step: "3",
@@ -51,7 +51,7 @@ export default function PaymentSystemPage() {
               ].map((item) => {
                 const iconMap: { [key: string]: React.ReactNode } = {
                   ShoppingCart: <ShoppingCart size={40} className="text-emerald-600" />,
-                  CreditCard: <CreditCard size={40} className="text-emerald-600" />,
+                  Building2: <Building2 size={40} className="text-emerald-600" />,
                   Mail: <Mail size={40} className="text-emerald-600" />,
                   CheckCircle: <CheckCircle size={40} className="text-emerald-600" />
                 }
@@ -151,7 +151,7 @@ export default function PaymentSystemPage() {
 
           {/* Email Preview */}
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">📧 What You'll Receive</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"><Mail className="text-emerald-600" size={32} /> What You'll Receive</h2>
             <div className="bg-white rounded-xl shadow-lg p-12 border-2 border-emerald-200">
               <p className="text-lg text-gray-700 mb-6">Your order confirmation email includes:</p>
               <div className="grid md:grid-cols-2 gap-8">

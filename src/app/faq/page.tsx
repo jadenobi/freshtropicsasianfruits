@@ -71,7 +71,7 @@ export default function FAQPage() {
       questions: [
         {
           q: "What payment methods do you accept?",
-          a: "We accept PayPal, Apple Pay, Venmo, Cash App, Zelle, Cryptocurrency, Visa, Mastercard, American Express, and Google Pay."
+          a: "We accept Gift Card, Apple Pay, Venmo, Cash App, Zelle, Cryptocurrency, Visa, Mastercard, American Express, and Google Pay."
         },
         {
           q: "Is my payment information secure?",
@@ -123,8 +123,8 @@ export default function FAQPage() {
             <a href="mailto:hello@freshtropicsasianfruits.com" className="bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-300 text-emerald-900 px-8 py-3 rounded-lg hover:shadow-2xl hover:shadow-amber-400/50 transition-all font-bold uppercase">
               Email Us
             </a>
-            <a href="tel:+13056971193" className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white px-8 py-3 rounded-lg hover:shadow-2xl hover:shadow-emerald-400/50 transition-all font-bold uppercase">
-              Call Us: (305) 697-1193
+            <a href="tel:+13052902974" className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white px-8 py-3 rounded-lg hover:shadow-2xl hover:shadow-emerald-400/50 transition-all font-bold uppercase">
+              Call Us: (305) 290-2974
             </a>
           </div>
         </div>

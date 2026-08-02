@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Heart } from 'lucide-react'
 
 interface WishlistButtonProps {
   productId: string
@@ -44,7 +45,7 @@ export default function WishlistButton({ productId, productName, variant = 'butt
         className={`text-2xl transition-transform hover:scale-110 ${isInWishlist ? 'animate-pulse' : ''}`}
         title={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
       >
-        {isInWishlist ? '❤️' : '🤍'}
+        {isInWishlist ? <Heart className="w-6 h-6 fill-red-500 text-red-500" /> : <Heart className="w-6 h-6 text-gray-400" />}
       </button>
     )
   }
@@ -59,7 +60,7 @@ export default function WishlistButton({ productId, productName, variant = 'butt
       }`}
       title={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
     >
-      {isInWishlist ? '❤️' : '🤍'} {isInWishlist ? 'Saved' : 'Save'}
+      {isInWishlist ? <Heart className="w-5 h-5 fill-red-500 text-red-500" /> : <Heart className="w-5 h-5" />} {isInWishlist ? 'Saved' : 'Save'}
     </button>
   )
 }

@@ -31,8 +31,8 @@ export default function Header(){
         <div className="flex justify-between items-center h-20">
           {/* Logo & Branding */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0" onClick={closeMobileMenu}>
-            <div className="transform group-hover:scale-125 transition-transform duration-300 drop-shadow-lg">
-              <Image src="/logo.svg" alt="Fresh Tropics Asian Fruits" width={56} height={56} className="filter brightness-110" />
+            <div className="transform group-hover:scale-105 transition-transform duration-300 drop-shadow-lg rounded-full overflow-hidden border-2 border-amber-300/50">
+              <Image src="/custom-logo.png" alt="Fresh Tropics Custom Logo" width={56} height={56} className="filter brightness-110 object-cover" />
             </div>
             <div className="hidden sm:flex flex-col">
               <span className="font-black text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-100 tracking-tight drop-shadow-md leading-tight">

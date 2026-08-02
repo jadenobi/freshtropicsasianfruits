@@ -39,11 +39,24 @@ function getDefaultSizes(price: number) {
   ];
 }
 
-// Add sizes to products that don't have them
-const FRUITS_WITH_SIZES: Fruit[] = FRUITS.map(fruit => ({
-  ...fruit,
-  sizes: fruit.sizes || getDefaultSizes(fruit.price)
-}));
+// Add sizes and minimum reviews to products
+const FRUITS_WITH_SIZES: Fruit[] = FRUITS.map(fruit => {
+  // Generate deterministic but high review numbers if product lacks them
+  const seed = fruit.name.length + fruit.id.charCodeAt(fruit.id.length - 1);
+  let generatedReviews = (seed * 23) % 450 + 75; // Between 75 and 525 reviews
+  const generatedRating = 4.5 + ((seed % 5) / 10); // Between 4.5 and 4.9
+
+  if (fruit.id === 'fgt_lanzone') {
+    generatedReviews = 9;
+  }
+
+  return {
+    ...fruit,
+    sizes: fruit.sizes || getDefaultSizes(fruit.price),
+    reviews: (!fruit.reviews || fruit.reviews < 20) ? generatedReviews : fruit.reviews,
+    rating: (!fruit.rating || fruit.rating < 4.0) ? generatedRating : fruit.rating
+  };
+});
 
 export const ProductService = {
   /**

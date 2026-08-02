@@ -50,7 +50,7 @@ export default function RewardsPage() {
       <div className="bg-gradient-to-b from-amber-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-black text-amber-900 mb-4">🎁 Loyalty & Rewards</h1>
+            <h1 className="text-4xl font-black text-amber-900 mb-4"> Loyalty & Rewards</h1>
             <p className="text-lg text-gray-600">Earn points on every purchase and unlock exclusive benefits</p>
           </div>
 
@@ -130,10 +130,10 @@ export default function RewardsPage() {
                     : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-amber-300'
                 }`}
               >
-                {tab === 'overview' && '📊 Overview'}
-                {tab === 'redeem' && '💰 Redeem'}
-                {tab === 'history' && '📜 History'}
-                {tab === 'referral' && '👥 Refer'}
+                {tab === 'overview' && ' Overview'}
+                {tab === 'redeem' && ' Redeem'}
+                {tab === 'history' && ' History'}
+                {tab === 'referral' && ' Refer'}
               </button>
             ))}
           </div>
@@ -144,10 +144,10 @@ export default function RewardsPage() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">How It Works</h2>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                   {[
-                    { icon: '🛒', title: '1. Shop', desc: 'Make purchases' },
-                    { icon: '📈', title: '2. Earn', desc: 'Accumulate points' },
-                    { icon: '⬆️', title: '3. Unlock', desc: 'Reach new tiers' },
-                    { icon: '🎉', title: '4. Enjoy', desc: 'Redeem rewards' }
+                    { icon: '', title: '1. Shop', desc: 'Make purchases' },
+                    { icon: '', title: '2. Earn', desc: 'Accumulate points' },
+                    { icon: '', title: '3. Unlock', desc: 'Reach new tiers' },
+                    { icon: '', title: '4. Enjoy', desc: 'Redeem rewards' }
                   ].map((step, idx) => (
                     <div key={idx} className="text-center">
                       <div className="text-4xl mb-3">{step.icon}</div>
@@ -228,7 +228,7 @@ export default function RewardsPage() {
                     <div key={tx.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
                       <div className="flex items-start gap-4 flex-1">
                         <div className="text-2xl">
-                          {{purchase: '🛒', referral: '👥', birthday: '🎂', bonus: '⭐', redemption: '💰'}[tx.type]}
+                          {{purchase: '', referral: '', birthday: '', bonus: '', redemption: ''}[tx.type]}
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-900">{tx.description}</h3>
@@ -263,9 +263,9 @@ export default function RewardsPage() {
                   <div className="bg-green-50 p-6 rounded-lg border-2 border-green-200">
                     <h3 className="text-lg font-bold text-green-900 mb-4">How It Works</h3>
                     <div className="space-y-2 text-sm text-gray-700">
-                      <p>1️⃣ Share your code with friends</p>
-                      <p>2️⃣ They enter code at signup</p>
-                      <p>3️⃣ You get 50 pts, they get 100 pts</p>
+                      <p>1⃣ Share your code with friends</p>
+                      <p>2⃣ They enter code at signup</p>
+                      <p>3⃣ You get 50 pts, they get 100 pts</p>
                     </div>
                   </div>
                 </div>

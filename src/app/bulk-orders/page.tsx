@@ -145,7 +145,7 @@ Contact us for final confirmation: sales@freshtropic.com
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-black text-emerald-900 mb-4">📦 Bulk Order Center</h1>
+            <h1 className="text-4xl font-black text-emerald-900 mb-4"> Bulk Order Center</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Special pricing for wholesale, corporate, and large quantity orders. Get volume discounts starting at 10 units!
             </p>
@@ -174,7 +174,7 @@ Contact us for final confirmation: sales@freshtropic.com
             {/* Product Selection */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">📊 Select Products</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6"> Select Products</h2>
                 
                 <div className="space-y-3 max-h-96 overflow-y-auto">
                   {FRUITS.slice(0, 30).map(product => (
@@ -199,7 +199,7 @@ Contact us for final confirmation: sales@freshtropic.com
 
               {/* Contact Information */}
               <div className="bg-white rounded-lg shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">👥 Contact Information</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6"> Contact Information</h2>
                 
                 <div className="space-y-4">
                   <div>
@@ -263,7 +263,7 @@ Contact us for final confirmation: sales@freshtropic.com
             {/* Order Summary */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg shadow-lg p-6 sticky top-24">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">💰 Order Summary</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6"> Order Summary</h2>
 
                 {selectedProducts.length === 0 ? (
                   <div className="text-center py-8">
@@ -368,13 +368,13 @@ Contact us for final confirmation: sales@freshtropic.com
                         onClick={generateQuote}
                         className="w-full px-4 py-3 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-700 transition-all shadow-lg"
                       >
-                        📥 Download Quote
+                         Download Quote
                       </button>
                       <button
                         onClick={() => setShowQuoteForm(!showQuoteForm)}
                         className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-all"
                       >
-                        ✉️ Send Request
+                         Send Request
                       </button>
                     </div>
                   </div>
@@ -386,17 +386,17 @@ Contact us for final confirmation: sales@freshtropic.com
           {/* Info Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <div className="bg-white rounded-lg p-6 shadow-lg">
-              <div className="text-3xl mb-3">🚚</div>
+              <div className="text-3xl mb-3"></div>
               <h3 className="font-bold text-lg text-gray-900 mb-2">Free Shipping</h3>
               <p className="text-gray-600 text-sm">Orders over 50 units ship free. Standard delivery 3-5 business days.</p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-lg">
-              <div className="text-3xl mb-3">💼</div>
+              <div className="text-3xl mb-3"></div>
               <h3 className="font-bold text-lg text-gray-900 mb-2">Wholesale Support</h3>
               <p className="text-gray-600 text-sm">Dedicated account manager for orders over 100 units. Custom packaging available.</p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-lg">
-              <div className="text-3xl mb-3">📞</div>
+              <div className="text-3xl mb-3"></div>
               <h3 className="font-bold text-lg text-gray-900 mb-2">Personal Service</h3>
               <p className="text-gray-600 text-sm">Questions? Contact sales@freshtropic.com or call 1-800-FRUITS-1 for quotes.</p>
             </div>

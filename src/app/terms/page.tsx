@@ -77,7 +77,7 @@ export default function TermsPage() {
             <h3 className="text-xl font-bold text-emerald-900 mb-3">Questions?</h3>
             <p>If you have any questions about these Terms of Service, please contact us at:</p>
             <p className="font-semibold text-emerald-700 mt-2">hello@freshtropicsasianfruits.com</p>
-            <p className="font-semibold text-emerald-700">(305) 697-1193</p>
+            <p className="font-semibold text-emerald-700">(305) 290-2974</p>
           </section>
         </div>
       </div>

@@ -57,7 +57,7 @@ export default function OrderSummary({
         <div className="flex justify-between text-gray-700 font-semibold">
           <span>Shipping</span>
           <span className={shipping === 0 ? 'text-green-600 font-black' : ''}>
-            {shipping === 0 ? '🎉 FREE' : `$${shipping.toFixed(2)}`}
+            {shipping === 0 ? ' FREE' : `$${shipping.toFixed(2)}`}
           </span>
         </div>
 

@@ -14,11 +14,11 @@ export default function PaymentIcon({ methodId, className = "", size = 24 }: Pay
           <path d="M13.4 9.1c0-.7.6-1.1 1.6-1.1 1.1 0 2.3.4 3.3.9l.6-3.3c-1.1-.5-2.6-.9-4.1-.9-3.9 0-6.4 2.1-6.4 5.6 0 3.8 5.2 3.1 5.2 4.7 0 .8-.8 1.2-1.9 1.2-1.3 0-2.8-.5-3.8-1.2l-.7 3.3c1.3.7 3 1.2 4.6 1.2 4 0 6.7-2 6.7-5.6 0-4-5.1-3.3-5.1-4.8z" fill="#635BFF"/>
         </svg>
       )
-    case "paypal":
+    case "gift_card":
       return (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-          <path d="M4.6 3.1L3 13.8c-.1.7.5 1.3 1.2 1.3h2.6l.8-5h3.4c3.3 0 5.4-1.6 5.9-4.8.3-2.1-.2-3.6-1.4-4.5C14.3 0 12.3 0 9.8 0H5.8C5.1 0 4.7.5 4.6 3.1z" fill="#253B80"/>
-          <path d="M17.1 5.3c-.5 3.2-2.6 4.8-5.9 4.8H7.8l-.8 5h2.1l-.9 6.2c-.1.4.3.6.6.3l3-4.5h2.4c3.3 0 5.4-1.6 5.9-4.8.4-2.4-.2-4.4-3-6.1-.1-.3 0-.6 0-.9z" fill="#179BD7"/>
+          <rect width="24" height="24" rx="5" fill="#FE4164"/>
+          <path d="M12 6c-2-2-5-1-5 2 0 1.5 2.5 3.5 5 4.5 2.5-1 5-3 5-4.5 0-3-3-4-5-2z" fill="white"/>
         </svg>
       )
     case "apple_pay":
@@ -55,13 +55,11 @@ export default function PaymentIcon({ methodId, className = "", size = 24 }: Pay
           <path d="M15 12h2" stroke="white" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       )
-    case "credit_card":
+    case "bank_account":
       return (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-          <rect x="2" y="5" width="20" height="14" rx="2" fill="#1e293b"/>
-          <rect x="2" y="8" width="20" height="3" fill="#475569"/>
-          <rect x="5" y="14" width="3" height="2" rx="0.5" fill="#94a3b8"/>
-          <rect x="9" y="14" width="5" height="2" rx="0.5" fill="#94a3b8"/>
+          <rect width="24" height="24" rx="5" fill="#1e293b"/>
+          <path d="M4 10v7h2v-7H4zm6 0v7h2v-7h-2zm-8 9v2h20v-2H2zm14-9v7h2v-7h-2zm-6-5.5L2 9h20l-10-4.5z" fill="white"/>
         </svg>
       )
     case "crypto":

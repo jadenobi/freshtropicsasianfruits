@@ -22,21 +22,21 @@ export default function SalePage(){
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Hero Section */}
           <div className="mb-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg p-8 text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">🎉 New & On Sale!</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4"> New & On Sale!</h1>
             <p className="text-lg text-red-50 mb-6">
               Discover our latest arrivals and exclusive deals on premium tropical fruits. Limited time offers!
             </p>
             <div className="flex flex-wrap gap-4">
             <div className="bg-white bg-opacity-20 rounded-lg px-6 py-3">
-              <p className="font-bold text-sm">✨ NEW ARRIVALS</p>
+              <p className="font-bold text-sm"> NEW ARRIVALS</p>
               <p className="text-2xl">{FRUITS.length}</p>
             </div>
             <div className="bg-white bg-opacity-20 rounded-lg px-6 py-3">
-              <p className="font-bold text-sm">🔥 ON SALE</p>
+              <p className="font-bold text-sm"> ON SALE</p>
               <p className="text-2xl">{onSaleProducts.length}</p>
             </div>
             <div className="bg-white bg-opacity-20 rounded-lg px-6 py-3">
-              <p className="font-bold text-sm">💰 TOTAL ITEMS</p>
+              <p className="font-bold text-sm"> TOTAL ITEMS</p>
               <p className="text-2xl">{displayProducts.length}</p>
             </div>
             </div>
@@ -45,17 +45,17 @@ export default function SalePage(){
           {/* Sale Info Banner */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6 text-center">
-              <p className="text-3xl mb-2">🏷️</p>
+              <p className="text-3xl mb-2"></p>
               <h3 className="font-bold text-red-900 mb-2">Hot Deals</h3>
               <p className="text-sm text-red-800">Limited time offers on select premium fruits</p>
             </div>
             <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6 text-center">
-              <p className="text-3xl mb-2">✨</p>
+              <p className="text-3xl mb-2"></p>
               <h3 className="font-bold text-yellow-900 mb-2">Fresh Arrivals</h3>
               <p className="text-sm text-yellow-800">Newest tropical fruits just arrived at Fresh Tropics</p>
             </div>
             <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 text-center">
-              <p className="text-3xl mb-2">⭐</p>
+              <p className="text-3xl mb-2"></p>
               <h3 className="font-bold text-green-900 mb-2">Best Value</h3>
               <p className="text-sm text-green-800">Premium quality at unbeatable prices</p>
             </div>
@@ -94,7 +94,7 @@ export default function SalePage(){
                   {FRUITS.indexOf(p) < 20 && !(p.originalPrice && p.originalPrice > p.price) && (
                     <div className="absolute top-3 left-3 z-10">
                       <div className="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                        NEW ✨
+                        NEW 
                       </div>
                     </div>
                   )}

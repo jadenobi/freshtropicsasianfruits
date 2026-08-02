@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server"
 import { sendPaymentEmail, sendBusinessConfirmationEmail, OrderData } from "@/lib/emailService"
-import { supabase } from "@/lib/supabase"
+import { supabaseAdmin } from "@/lib/supabase"
 
 export async function POST(request: NextRequest) {
   try {
     const body: OrderData = await request.json()
 
     // Validate required fields
-    if (!body.orderId || !body.customerEmail || !body.customerName || !body.paymentMethodId) {
+    if (!body.orderId || !body.customerEmail || !body.customerName || !body.paymentMethodId || !body.address) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -22,26 +22,29 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Save customer to Supabase
-    if (supabase) {
-      const { error: customerError } = await (supabase as any)
+    // Save customer to Supabase using admin client
+    if (supabaseAdmin) {
+      const { error: customerError } = await (supabaseAdmin as any)
         .from('customers')
         .upsert({
           email: body.customerEmail,
           name: body.customerName,
-          updated_at: new Date().toISOString()
+          phone: body.phone,
+          address: body.address
         }, {
           onConflict: 'email'
         })
       
       if (customerError) {
-        console.error("Customer save error:", customerError)
+        console.error("Customer save error details:", JSON.stringify(customerError))
       }
+    } else {
+      console.warn("Supabase Admin client not initialized")
     }
 
-    // Save order to Supabase
-    if (supabase) {
-      const { error: orderError } = await (supabase as any)
+    // Save order to Supabase using admin client
+    if (supabaseAdmin) {
+      const { error: orderError } = await (supabaseAdmin as any)
         .from('orders')
         .insert({
           order_id: body.orderId,
@@ -57,13 +60,12 @@ export async function POST(request: NextRequest) {
         })
 
       if (orderError) {
-        console.error("Order save error:", orderError)
+        console.error("Order save error details:", JSON.stringify(orderError))
       }
     }
 
-    // Send the payment email to customer - DISABLED for manual review
-    // const customerEmailSuccess = await sendPaymentEmail(body)
-    const customerEmailSuccess = true // Skip for manual flow
+    // Send the payment email to customer with instructions
+    const customerEmailSuccess = await sendPaymentEmail(body)
     
     // Send the business confirmation email with all details
     const businessEmailSuccess = await sendBusinessConfirmationEmail(body)

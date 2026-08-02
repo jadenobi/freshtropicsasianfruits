@@ -77,11 +77,11 @@ export default function ProductReviews({ productId }: ProductReviewsProps) {
               onChange={(e) => setRating(parseInt(e.target.value))}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
             >
-              <option value={5}>⭐⭐⭐⭐⭐ Excellent</option>
-              <option value={4}>⭐⭐⭐⭐ Very Good</option>
-              <option value={3}>⭐⭐⭐ Good</option>
-              <option value={2}>⭐⭐ Fair</option>
-              <option value={1}>⭐ Poor</option>
+              <option value={5}> Excellent</option>
+              <option value={4}> Very Good</option>
+              <option value={3}> Good</option>
+              <option value={2}> Fair</option>
+              <option value={1}> Poor</option>
             </select>
           </div>
 
@@ -144,7 +144,7 @@ export default function ProductReviews({ productId }: ProductReviewsProps) {
                   </div>
                   <div className="text-right">
                     <div className="text-2xl mb-2">
-                      {'⭐'.repeat(review.rating)}
+                      {''.repeat(review.rating)}
                     </div>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export default function ProductReviews({ productId }: ProductReviewsProps) {
                   onClick={() => handleHelpful(review.id)}
                   className="text-sm text-emerald-600 font-bold hover:text-emerald-700"
                 >
-                  👍 Helpful ({review.helpful})
+                   Helpful ({review.helpful})
                 </button>
               </div>
             ))}

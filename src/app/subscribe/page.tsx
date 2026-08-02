@@ -17,17 +17,17 @@ export default function SubscribePage() {
         {/* Benefits */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200">
-            <p className="text-3xl mb-3">💰</p>
+            <p className="text-3xl mb-3"></p>
             <h3 className="font-bold text-emerald-900 mb-3">Save 10-15%</h3>
             <p className="text-gray-700 text-sm">Every subscription box includes an automatic discount. The more you subscribe, the more you save!</p>
           </div>
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200">
-            <p className="text-3xl mb-3">🚚</p>
+            <p className="text-3xl mb-3"></p>
             <h3 className="font-bold text-emerald-900 mb-3">Free Shipping</h3>
             <p className="text-gray-700 text-sm">Never pay shipping fees again. All subscription boxes include FREE delivery to your door.</p>
           </div>
           <div className="bg-gradient-to-br from-emerald-50 to-yellow-50 p-6 rounded-lg border border-emerald-200">
-            <p className="text-3xl mb-3">🎯</p>
+            <p className="text-3xl mb-3"></p>
             <h3 className="font-bold text-emerald-900 mb-3">Never Skip</h3>
             <p className="text-gray-700 text-sm">Going on vacation? Pause your subscription anytime. No penalties, no fees. Restart whenever you want.</p>
           </div>

@@ -14,14 +14,14 @@ interface FlashSale {
 const ACTIVE_FLASH_SALES: FlashSale[] = [
   {
     id: 'tropical-tuesday',
-    name: '🌴 Tropical Tuesday Flash Sale',
+    name: ' Tropical Tuesday Flash Sale',
     discount: 25,
     endsAt: new Date('2025-12-16 23:59:59'),
     products: ['tropical']
   },
   {
     id: 'berry-bonanza',
-    name: '🫐 Berry Bonanza - 20% Off',
+    name: ' Berry Bonanza - 20% Off',
     discount: 20,
     endsAt: new Date('2025-12-15 23:59:59'),
     products: ['berries']
@@ -91,7 +91,7 @@ export default function FlashSaleBanner() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
           <div className="text-center sm:text-left flex-1">
             <p className="text-white font-black text-lg sm:text-xl animate-pulse">
-              ⚡ {currentSale.name} ⚡
+               {currentSale.name} 
             </p>
             <p className="text-red-100 text-sm font-semibold">
               Save {currentSale.discount}% on selected items

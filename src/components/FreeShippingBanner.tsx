@@ -23,7 +23,7 @@ export default function FreeShippingBanner({
         {isFreeShipping ? (
           <div className="text-center">
             <p className="text-white font-black text-lg animate-pulse">
-              🎉 FREE SHIPPING! Your order qualifies for free shipping!
+               FREE SHIPPING! Your order qualifies for free shipping!
             </p>
           </div>
         ) : (

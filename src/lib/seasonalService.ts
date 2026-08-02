@@ -8,7 +8,7 @@ const SEASONAL_BUNDLES: SeasonalBundle[] = [
     season: 'spring',
     description: 'Refresh your palate with vibrant spring fruits full of natural energy',
     image: '/products/spring-bundle.jpg',
-    icon: '🌸',
+    icon: '',
     products: [
       { id: '1', name: 'Dragon Fruit', category: 'exotic', price: 8.99, image: '/products/dragon-fruit.jpg', description: 'Sweet pink dragon fruit', rating: 4.8, reviews: 245, inStock: true },
       { id: '2', name: 'Mango', category: 'tropical', price: 5.99, image: '/products/mango.jpg', description: 'Golden sweet mango', rating: 4.9, reviews: 312, inStock: true },
@@ -32,7 +32,7 @@ const SEASONAL_BUNDLES: SeasonalBundle[] = [
     season: 'summer',
     description: 'Beat the heat with juicy tropical fruits perfect for summer',
     image: '/products/summer-bundle.jpg',
-    icon: '☀️',
+    icon: '',
     products: [
       { id: '4', name: 'Pineapple', category: 'tropical', price: 6.99, image: '/products/pineapple.jpg', description: 'Juicy golden pineapple', rating: 4.8, reviews: 278, inStock: true },
       { id: '5', name: 'Coconut', category: 'tropical', price: 4.99, image: '/products/coconut.jpg', description: 'Fresh young coconut', rating: 4.6, reviews: 201, inStock: true },
@@ -57,7 +57,7 @@ const SEASONAL_BUNDLES: SeasonalBundle[] = [
     season: 'fall',
     description: 'Celebrate fall with warm, rich flavors and golden harvest fruits',
     image: '/products/fall-bundle.jpg',
-    icon: '🍂',
+    icon: '',
     products: [
       { id: '8', name: 'Apple', category: 'apples', price: 4.99, image: '/products/apple.jpg', description: 'Crisp red apple', rating: 4.7, reviews: 234, inStock: true },
       { id: '9', name: 'Pear', category: 'seasonal', price: 5.49, image: '/products/pear.jpg', description: 'Sweet golden pear', rating: 4.6, reviews: 189, inStock: true },
@@ -82,7 +82,7 @@ const SEASONAL_BUNDLES: SeasonalBundle[] = [
     season: 'winter',
     description: 'Boost immunity with citrus fruits rich in Vitamin C',
     image: '/products/winter-bundle.jpg',
-    icon: '❄️',
+    icon: '',
     products: [
       { id: '12', name: 'Orange', category: 'citrus', price: 5.99, image: '/products/orange.jpg', description: 'Juicy sweet orange', rating: 4.8, reviews: 290, inStock: true },
       { id: '13', name: 'Lemon', category: 'citrus', price: 2.99, image: '/products/lemon.jpg', description: 'Tangy fresh lemon', rating: 4.6, reviews: 178, inStock: true },
@@ -107,7 +107,7 @@ const SEASONAL_BUNDLES: SeasonalBundle[] = [
 const SEASONAL_OFFERS: SeasonalOffer[] = [
   {
     id: 'offer-spring-1',
-    title: '🌸 Spring into Savings! 15% OFF Spring Bundles',
+    title: ' Spring into Savings! 15% OFF Spring Bundles',
     season: 'spring',
     description: 'Limited time offer on our Spring Fresh Start bundle',
     discountPercent: 15,
@@ -120,7 +120,7 @@ const SEASONAL_OFFERS: SeasonalOffer[] = [
   },
   {
     id: 'offer-summer-1',
-    title: '☀️ Summer Sizzle Sale! 20% OFF Tropical Bundles',
+    title: ' Summer Sizzle Sale! 20% OFF Tropical Bundles',
     season: 'summer',
     description: 'Beat the heat with our hottest summer deals',
     discountPercent: 20,
@@ -133,7 +133,7 @@ const SEASONAL_OFFERS: SeasonalOffer[] = [
   },
   {
     id: 'offer-fall-1',
-    title: '🍂 Harvest Special! 18% OFF Fall Bundles',
+    title: ' Harvest Special! 18% OFF Fall Bundles',
     season: 'fall',
     description: 'Celebrate the harvest season with fantastic savings',
     discountPercent: 18,
@@ -146,7 +146,7 @@ const SEASONAL_OFFERS: SeasonalOffer[] = [
   },
   {
     id: 'offer-winter-1',
-    title: '❄️ Winter Wellness! 12% OFF Immunity Bundles',
+    title: ' Winter Wellness! 12% OFF Immunity Bundles',
     season: 'winter',
     description: 'Stay healthy all winter with our immunity-boosting bundles',
     discountPercent: 12,

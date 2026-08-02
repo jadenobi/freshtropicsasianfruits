@@ -19,90 +19,90 @@ interface BlogPost {
 const BLOG_POSTS: BlogPost[] = [
   {
     id: 'dragon-fruit-benefits',
-    title: '🐉 Dragon Fruit: Superfood Benefits & How to Eat It',
+    title: ' Dragon Fruit: Superfood Benefits & How to Eat It',
     excerpt: 'Discover the amazing health benefits of dragon fruit and learn the best techniques for cutting and enjoying this exotic beauty.',
     category: 'Nutrition',
     date: '2025-11-15',
     readTime: 5,
     featured: true,
-    image: '🐉',
+    image: '',
     author: 'Sarah Chen'
   },
   {
     id: 'mango-recipes',
-    title: '🥭 5 Delicious Mango Recipes to Try Today',
+    title: ' 5 Delicious Mango Recipes to Try Today',
     excerpt: 'From smoothie bowls to salsa, explore our favorite mango-inspired recipes that will elevate your cooking game.',
     category: 'Recipes',
     date: '2025-11-10',
     readTime: 7,
     featured: true,
-    image: '🥭',
+    image: '',
     author: 'Chef Marcus'
   },
   {
     id: 'pineapple-guide',
-    title: '🍍 The Complete Guide to Selecting Perfect Pineapples',
+    title: ' The Complete Guide to Selecting Perfect Pineapples',
     excerpt: 'Learn how to pick the ripest pineapples and store them properly for maximum sweetness and shelf life.',
     category: 'Tips',
     date: '2025-11-05',
     readTime: 4,
     featured: true,
-    image: '🍍',
+    image: '',
     author: 'James Rodriguez'
   },
   {
     id: 'tropical-smoothie-bowls',
-    title: '🍲 Tropical Smoothie Bowls: 3 Easy Recipes',
+    title: ' Tropical Smoothie Bowls: 3 Easy Recipes',
     excerpt: 'Create Instagram-worthy smoothie bowls using our fresh tropical fruits. Perfect for breakfast or healthy snacks.',
     category: 'Recipes',
     date: '2025-10-28',
     readTime: 6,
     featured: false,
-    image: '🍲',
+    image: '',
     author: 'Nina Kumar'
   },
   {
     id: 'passion-fruit-health',
-    title: '💛 Passion Fruit: Antioxidant Powerhouse',
+    title: ' Passion Fruit: Antioxidant Powerhouse',
     excerpt: 'Explore the incredible health benefits of passion fruit and why nutritionists recommend it daily.',
     category: 'Nutrition',
     date: '2025-10-20',
     readTime: 5,
     featured: false,
-    image: '💛',
+    image: '',
     author: 'Dr. Lisa Chen'
   },
   {
     id: 'guava-tropical-guide',
-    title: '🟩 Guava 101: Everything You Need to Know',
+    title: ' Guava 101: Everything You Need to Know',
     excerpt: 'A complete guide to this often-overlooked tropical fruit including nutrition, taste profile, and best uses.',
     category: 'Tips',
     date: '2025-10-15',
     readTime: 6,
     featured: false,
-    image: '🟩',
+    image: '',
     author: 'Carlos Miguel'
   },
   {
     id: 'litchi-season',
-    title: '❤️ Litchi Season: A Tropical Delicacy',
+    title: ' Litchi Season: A Tropical Delicacy',
     excerpt: 'Learn about the seasonal nature of lychees and why they\'re a must-try during peak season.',
     category: 'Seasonal',
     date: '2025-10-10',
     readTime: 4,
     featured: false,
-    image: '❤️',
+    image: '',
     author: 'Wei Zhang'
   },
   {
     id: 'fruit-preservation',
-    title: '🏺 Preserving Fresh Fruits: Jam & Compote Recipes',
+    title: ' Preserving Fresh Fruits: Jam & Compote Recipes',
     excerpt: 'Extend your fresh fruit experience with our easy recipes for jams, compotes, and syrups.',
     category: 'Recipes',
     date: '2025-10-05',
     readTime: 8,
     featured: false,
-    image: '🏺',
+    image: '',
     author: 'Grandma Rosa'
   }
 ]
@@ -131,7 +131,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-black text-emerald-900 mb-4">🌴 Tropical Fruit Blog</h1>
+            <h1 className="text-5xl font-black text-emerald-900 mb-4"> Tropical Fruit Blog</h1>
             <p className="text-lg text-gray-600 mb-8">Tips, recipes, nutrition guides, and seasonal recommendations</p>
           </div>
 
@@ -147,7 +147,7 @@ export default function BlogPage() {
                   placeholder="Search articles..."
                   className="w-full px-6 py-4 rounded-xl border-2 border-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-600 text-lg"
                 />
-                <span className="absolute right-6 top-4 text-2xl">🔍</span>
+                <span className="absolute right-6 top-4 text-2xl"></span>
               </div>
             </div>
 
@@ -163,7 +163,7 @@ export default function BlogPage() {
                       : 'bg-white border-2 border-emerald-200 text-gray-700 hover:border-emerald-600'
                   }`}
                 >
-                  {cat === 'all' ? '📚 All Posts' : cat}
+                  {cat === 'all' ? ' All Posts' : cat}
                 </button>
               ))}
             </div>
@@ -172,7 +172,7 @@ export default function BlogPage() {
           {/* Featured Posts Section */}
           {selectedCategory === 'all' && (
             <div className="mb-16">
-              <h2 className="text-3xl font-black text-emerald-900 mb-8">⭐ Featured</h2>
+              <h2 className="text-3xl font-black text-emerald-900 mb-8"> Featured</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {featuredPosts.map(post => (
                   <Link
@@ -208,7 +208,7 @@ export default function BlogPage() {
           {/* All Posts */}
           <div>
             <h2 className="text-3xl font-black text-emerald-900 mb-8">
-              {selectedCategory === 'all' ? '📖 All Articles' : `📖 ${selectedCategory}`}
+              {selectedCategory === 'all' ? ' All Articles' : ` ${selectedCategory}`}
             </h2>
             {recentPosts.length > 0 ? (
               <div className="space-y-6">
@@ -249,7 +249,7 @@ export default function BlogPage() {
 
           {/* Newsletter CTA */}
           <div className="mt-16 bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl p-12 text-white text-center">
-            <h3 className="text-3xl font-black mb-4">📧 Get Fresh Content Weekly</h3>
+            <h3 className="text-3xl font-black mb-4"> Get Fresh Content Weekly</h3>
             <p className="text-lg mb-6 opacity-90">Subscribe to our newsletter for exclusive recipes and tips</p>
             <Link
               href="/"

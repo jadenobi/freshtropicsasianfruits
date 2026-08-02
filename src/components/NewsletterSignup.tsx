@@ -56,7 +56,7 @@ export default function NewsletterSignup({ variant = 'default', placeholder = 'E
   if (variant === 'footer') {
     return (
       <div className="w-full">
-        <h3 className="text-lg font-black text-white mb-4">📧 Newsletter</h3>
+        <h3 className="text-lg font-black text-white mb-4"> Newsletter</h3>
         <p className="text-amber-50 text-sm mb-4">Get exclusive offers and fresh fruit updates delivered to your inbox</p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <div className="flex gap-2">
@@ -89,7 +89,7 @@ export default function NewsletterSignup({ variant = 'default', placeholder = 'E
   if (variant === 'banner') {
     return (
       <div className="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 rounded-2xl shadow-xl p-8 text-center">
-        <h2 className="text-3xl font-black text-emerald-900 mb-3">🍌 Join Our Newsletter 🥭</h2>
+        <h2 className="text-3xl font-black text-emerald-900 mb-3"> Join Our Newsletter </h2>
         <p className="text-emerald-800 font-semibold mb-6 text-lg">Get exclusive tropical fruit deals, recipes, and updates straight to your inbox!</p>
         
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">

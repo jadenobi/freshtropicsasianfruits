@@ -20,7 +20,7 @@ export default function ProductVideoGallery({ productId, productName }: ProductV
 
   return (
     <div className="w-full bg-gradient-to-b from-white/5 to-white/0 rounded-xl border border-white/10 p-8">
-      <h3 className="text-2xl font-black text-white mb-6">📹 {productName} Videos</h3>
+      <h3 className="text-2xl font-black text-white mb-6"> {productName} Videos</h3>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Video Player */}
@@ -39,10 +39,10 @@ export default function ProductVideoGallery({ productId, productName }: ProductV
             <h4 className="text-xl font-bold text-white mb-2">{currentVideo.title}</h4>
             <p className="text-sm text-white/70 mb-3">{currentVideo.description}</p>
             <div className="flex items-center gap-4 text-sm text-white/60">
-              <span>👤 {currentVideo.creator}</span>
-              <span>⏱️ {currentVideo.duration}</span>
-              <span>👁️ {formatViewCount(currentVideo.views)} views</span>
-              <span>❤️ {formatViewCount(currentVideo.likes)}</span>
+              <span> {currentVideo.creator}</span>
+              <span> {currentVideo.duration}</span>
+              <span> {formatViewCount(currentVideo.views)} views</span>
+              <span> {formatViewCount(currentVideo.likes)}</span>
             </div>
           </div>
         </div>

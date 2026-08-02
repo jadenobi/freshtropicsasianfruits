@@ -49,19 +49,19 @@ export default function ContactPage(){
               <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-100 mb-6">Other Ways to Reach Us</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-sm p-6 rounded-lg border-2 border-amber-400/30">
-                  <p className="text-sm text-amber-200 mb-1">📞 Phone</p>
-                  <p className="text-lg font-bold text-amber-50">(305) 697-1193</p>
+                  <p className="text-sm text-amber-200 mb-1"> Phone</p>
+                  <p className="text-lg font-bold text-amber-50">(305) 290-2974</p>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-sm p-6 rounded-lg border-2 border-amber-400/30">
-                  <p className="text-sm text-amber-200 mb-1">📧 Email</p>
+                  <p className="text-sm text-amber-200 mb-1"> Email</p>
                   <p className="text-lg font-bold text-amber-50">support@freshtropicsasianfruits.com</p>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-sm p-6 rounded-lg border-2 border-amber-400/30">
-                  <p className="text-sm text-amber-200 mb-1">🕐 Business Hours</p>
+                  <p className="text-sm text-amber-200 mb-1"> Business Hours</p>
                   <p className="text-lg font-bold text-amber-50">Mon-Fri 9AM-6PM EST</p>
                 </div>
                 <div className="bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 backdrop-blur-sm p-6 rounded-lg border-2 border-amber-400/30">
-                  <p className="text-sm text-amber-200 mb-1">📍 Address</p>
+                  <p className="text-sm text-amber-200 mb-1"> Address</p>
                   <p className="text-lg font-bold text-amber-50">Miami, Florida, USA</p>
                 </div>
               </div>

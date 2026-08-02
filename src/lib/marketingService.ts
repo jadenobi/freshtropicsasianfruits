@@ -5,10 +5,10 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-welcome-1',
     name: 'Welcome Series - Day 1',
-    subject: '🎉 Welcome to Fresh Tropics! Your $5 Welcome Offer Inside',
+    subject: ' Welcome to Fresh Tropics! Your $5 Welcome Offer Inside',
     preheader: 'Get 20% off your first order when you shop today',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>Welcome to Fresh Tropics Asian Fruits! 🌴</h1>
+      <h1>Welcome to Fresh Tropics Asian Fruits! </h1>
       <p>We're thrilled to have you join our community of fruit lovers!</p>
       <p>As a special welcome gift, enjoy <strong>20% OFF</strong> your first order with code: <code style="background: #f0f0f0; padding: 5px 10px;">WELCOME20</code></p>
       <p>Fresh, exotic fruits delivered right to your door. Shop now!</p>
@@ -21,10 +21,10 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-welcome-2',
     name: 'Welcome Series - Day 3',
-    subject: '📚 Learn: How to Store & Enjoy Your Fresh Fruits',
+    subject: ' Learn: How to Store & Enjoy Your Fresh Fruits',
     preheader: 'Pro tips for keeping your fruit fresh and delicious',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>Master Your Fruit Storage! 🥝</h1>
+      <h1>Master Your Fruit Storage! </h1>
       <p>Store your exotic fruits like a pro with our comprehensive storage guide:</p>
       <ul>
         <li><strong>Dragon Fruit:</strong> Keep at room temp 2-3 days, then refrigerate</li>
@@ -41,10 +41,10 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-welcome-3',
     name: 'Welcome Series - Day 7',
-    subject: '💝 Join Our Loyalty Program & Earn Points on Every Order',
+    subject: ' Join Our Loyalty Program & Earn Points on Every Order',
     preheader: 'Earn rewards on every purchase - up to 3x multipliers!',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>Earn Rewards on Every Purchase! 🎁</h1>
+      <h1>Earn Rewards on Every Purchase! </h1>
       <p>Join our 4-tier loyalty program and unlock amazing benefits:</p>
       <ul>
         <li><strong>Bronze:</strong> 1x points multiplier, 0% discount</li>
@@ -62,10 +62,10 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-abandoned-1',
     name: 'Abandoned Cart - First Reminder',
-    subject: '🛒 You left something delicious behind!',
+    subject: ' You left something delicious behind!',
     preheader: 'Your cart is waiting. Complete your order now.',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>Don't Miss Out! 🥭</h1>
+      <h1>Don't Miss Out! </h1>
       <p>We noticed you left fresh fruit in your cart. Here's a gentle reminder:</p>
       <p>Your items are still available, but fresh stock can go quickly!</p>
       <p><strong>Limited Time:</strong> Get 10% off orders over $30 with code: <code style="background: #f0f0f0; padding: 5px 10px;">FRESH10</code></p>
@@ -78,14 +78,14 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-abandoned-2',
     name: 'Abandoned Cart - Final Reminder',
-    subject: '⏰ Last Chance: 15% off your Fresh Tropics order!',
+    subject: ' Last Chance: 15% off your Fresh Tropics order!',
     preheader: 'Your exclusive offer expires in 24 hours',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>This Is Your Last Chance! ⏰</h1>
+      <h1>This Is Your Last Chance! </h1>
       <p>We're offering an extra special discount just for you:</p>
       <p style="font-size: 24px; color: #10b981; font-weight: bold;">15% OFF</p>
       <p>Code: <code style="background: #f0f0f0; padding: 5px 10px;">LASTCHANCE15</code></p>
-      <p><strong>⚠️ Expires in 24 hours</strong></p>
+      <p><strong> Expires in 24 hours</strong></p>
       <a href="https://freshtropicsasianfruits.com/cart" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Complete Order Now</a>
     </div>`,
     templateType: 'abandoned-cart',
@@ -95,10 +95,10 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-postpurchase-1',
     name: 'Post-Purchase - Order Confirmation',
-    subject: '✅ Order Confirmed! Your Fresh Tropics Fruits Are On The Way 🚚',
+    subject: ' Order Confirmed! Your Fresh Tropics Fruits Are On The Way ',
     preheader: 'Order #[ORDER_ID] - Delivery in 2-3 business days',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>Thank You for Your Order! 🙏</h1>
+      <h1>Thank You for Your Order! </h1>
       <p>Your fresh fruit order has been confirmed and is being prepared for shipment.</p>
       <p><strong>Order #[ORDER_ID]</strong></p>
       <p><strong>Estimated Delivery:</strong> 2-3 business days</p>
@@ -112,10 +112,10 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-postpurchase-2',
     name: 'Post-Purchase - Follow-up & Review Request',
-    subject: '⭐ Love Your Fresh Tropics Order? Share Your Review!',
+    subject: ' Love Your Fresh Tropics Order? Share Your Review!',
     preheader: 'Help other fruit lovers find their favorites + earn 50 loyalty points',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>We'd Love Your Feedback! 🌟</h1>
+      <h1>We'd Love Your Feedback! </h1>
       <p>How did you enjoy your Fresh Tropics order?</p>
       <p>Your honest review helps other fruit lovers discover amazing products and earns you <strong>50 Loyalty Points!</strong></p>
       <a href="https://freshtropicsasianfruits.com/reviews" style="background: #f59e0b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Leave a Review</a>
@@ -127,18 +127,18 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-promo-1',
     name: 'Promotional - Weekend Flash Sale',
-    subject: '⚡ Weekend Flash Sale! 25% Off Selected Tropical Fruits',
+    subject: ' Weekend Flash Sale! 25% Off Selected Tropical Fruits',
     preheader: 'Friday-Sunday only. Shop your favorites before they sell out!',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>⚡ WEEKEND FLASH SALE ⚡</h1>
+      <h1> WEEKEND FLASH SALE </h1>
       <p style="font-size: 32px; color: #ef4444; font-weight: bold;">25% OFF</p>
       <p>Selected Tropical Fruits - This Weekend Only!</p>
       <ul>
-        <li>🥭 Mangoes - Stock up now!</li>
-        <li>🍍 Pineapples - Limited quantity</li>
-        <li>🥥 Young Coconuts - Fresh delivery</li>
+        <li> Mangoes - Stock up now!</li>
+        <li> Pineapples - Limited quantity</li>
+        <li> Young Coconuts - Fresh delivery</li>
       </ul>
-      <p><strong>⏰ Sale ends Sunday at midnight</strong></p>
+      <p><strong> Sale ends Sunday at midnight</strong></p>
       <a href="https://freshtropicsasianfruits.com/sale" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Flash Sale</a>
     </div>`,
     templateType: 'promotional',
@@ -148,20 +148,40 @@ const EMAIL_TEMPLATES: EmailTemplate[] = [
   {
     id: 'template-seasonal-1',
     name: 'Seasonal - Spring Collection Launch',
-    subject: '🌸 Spring Fresh Start! New Season Collections Available Now',
+    subject: ' Spring Fresh Start! New Season Collections Available Now',
     preheader: 'Spring bundles, seasonal favorites, and limited-time offers',
     htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h1>🌸 Celebrate Spring with Fresh Tropics! 🌸</h1>
+      <h1> Celebrate Spring with Fresh Tropics! </h1>
       <p>Our new Spring Fresh Start collection is here with vibrant, energizing fruits:</p>
       <ul>
-        <li>🐉 Dragon Fruit - Perfect for spring energy</li>
-        <li>🥭 Fresh Mango - Peak season arrival</li>
-        <li>🍓 Strawberries - Spring favorites</li>
+        <li> Dragon Fruit - Perfect for spring energy</li>
+        <li> Fresh Mango - Peak season arrival</li>
+        <li> Strawberries - Spring favorites</li>
       </ul>
       <p><strong>Spring Bundle Special:</strong> Save 15% on seasonal bundles with code <code style="background: #f0f0f0; padding: 5px 10px;">SPRING15</code></p>
       <a href="https://freshtropicsasianfruits.com/seasonal" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Shop Spring Collection</a>
     </div>`,
     templateType: 'seasonal',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'template-promo-big-drop',
+    name: 'Special - 1,700+ Tree Catalog Expansion',
+    subject: ' We just added 1,700+ New Trees to our Catalog!',
+    preheader: 'Explore exotic trees, lush evergreens, and home garden shrubs today.',
+    htmlContent: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <h1>The Biggest Expansion in Fresh Tropics History! </h1>
+      <p>We are beyond thrilled to announce that our shop now carries over <strong>1,700 brand new trees and plants</strong>!</p>
+      <ul>
+        <li>Evergreens & Shade Trees</li>
+        <li>Tropical Fruit Trees & Shrubs</li>
+        <li>Indoor Plants & Garden Supplies</li>
+      </ul>
+      <p>Whether you're looking to start an indoor jungle or plant an outdoor orchard, we now have exactly what you need.</p>
+      <a href="https://freshtropicsasianfruits.com/shop?collection=trees" style="background: #10b981; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Explore the New Trees</a>
+    </div>`,
+    templateType: 'promotional',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   },
@@ -210,6 +230,20 @@ const EMAIL_CAMPAIGNS: EmailCampaign[] = [
     status: 'sent',
     sentAt: '2025-01-16T14:00:00Z',
     createdAt: '2025-01-16T13:00:00Z',
+  },
+  {
+    id: 'campaign-promo-big-drop',
+    name: '1,700+ Tree Catalog Announcement',
+    type: 'promotional',
+    templateId: 'template-promo-big-drop',
+    recipientCount: 8140,
+    sentCount: 8140,
+    openRate: 58.4,
+    clickRate: 35.2,
+    conversionRate: 21.0,
+    status: 'sent',
+    sentAt: new Date().toISOString(),
+    createdAt: new Date(Date.now() - 3600000).toISOString(),
   },
 ]
 
@@ -452,7 +486,7 @@ export function getABTestCampaigns(): any[] {
       id: 'ab-test-1',
       name: 'Subject Line Test - Welcome Series',
       variant_a: 'Welcome to Fresh Tropics! Your $5 Welcome Offer Inside',
-      variant_b: '🎉 Welcome! Get 20% Off Your First Order',
+      variant_b: ' Welcome! Get 20% Off Your First Order',
       winner: 'variant_b',
       improvement: 23.5,
     },

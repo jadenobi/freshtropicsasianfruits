@@ -43,7 +43,7 @@ export default function InventoryStatus({ productId }: InventoryStatusProps) {
   if (!inStockStatus) {
     return (
       <div className="bg-red-100 text-red-700 px-4 py-2 rounded-lg font-bold text-center">
-        ❌ Out of Stock
+         Out of Stock
       </div>
     )
   }
@@ -51,7 +51,7 @@ export default function InventoryStatus({ productId }: InventoryStatusProps) {
   if (isLowStock) {
     return (
       <div className="bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-bold text-center">
-        ⚠️ Only {inventory} left in stock!
+         Only {inventory} left in stock!
       </div>
     )
   }

@@ -28,7 +28,7 @@ export default function ReferralProgram() {
 
   return (
     <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border-3 border-amber-200 rounded-xl p-8 shadow-md">
-      <h2 className="text-3xl font-black text-gray-900 mb-2">🎉 Refer & Earn</h2>
+      <h2 className="text-3xl font-black text-gray-900 mb-2"> Refer & Earn</h2>
       <p className="text-gray-600 mb-6">Share Fresh Tropics with friends and earn rewards!</p>
 
       <div className="space-y-6">
@@ -78,7 +78,7 @@ export default function ReferralProgram() {
           onClick={handleShare}
           className="w-full bg-gradient-to-r from-amber-600 to-yellow-500 text-white font-black py-4 rounded-lg hover:shadow-lg transition-all text-lg"
         >
-          📤 Share with Friends
+           Share with Friends
         </button>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { Leaf, Sun, Crown, Star, Activity, Zap, Heart, Trees, Palette, Circle } from 'lucide-react'
 import { useCart } from '@/lib/cart'
 import PageLayout from '@/components/PageLayout'
 import FreeShippingBanner from '@/components/FreeShippingBanner'
@@ -26,6 +27,7 @@ function ShopContent() {
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [selectedNutrition, setSelectedNutrition] = useState<string[]>([])
   const [selectedColor, setSelectedColor] = useState<string>('all')
+  const [selectedPlantTypes, setSelectedPlantTypes] = useState<string[]>([])
 
   useEffect(() => {
     setSelectedCategory(categoryParam)
@@ -43,7 +45,7 @@ function ShopContent() {
     
     // Add specific featured categories first
     if (uniqueCats.has('pinkglow')) {
-      catArray.push({ id: 'pinkglow', label: '🌸 Pink Glow Pineapple' });
+      catArray.push({ id: 'pinkglow', label: 'Pink Glow Pineapple' });
       uniqueCats.delete('pinkglow');
     }
     
@@ -59,28 +61,28 @@ function ShopContent() {
 
   // Tag filters
   const availableTags = [
-    { id: 'organic', label: '🌿 Organic', color: 'bg-green-100 text-green-800' },
-    { id: 'seasonal', label: '🌞 Seasonal', color: 'bg-amber-100 text-amber-800' },
-    { id: 'premium', label: '👑 Premium', color: 'bg-purple-100 text-purple-800' },
-    { id: 'bestseller', label: '⭐ Bestseller', color: 'bg-blue-100 text-blue-800' }
+    { id: 'organic', label: 'Organic', icon: <Leaf size={16} className="inline mr-2" />, color: 'bg-green-100 text-green-800' },
+    { id: 'seasonal', label: 'Seasonal', icon: <Sun size={16} className="inline mr-2" />, color: 'bg-amber-100 text-amber-800' },
+    { id: 'premium', label: 'Premium', icon: <Crown size={16} className="inline mr-2" />, color: 'bg-purple-100 text-purple-800' },
+    { id: 'bestseller', label: 'Bestseller', icon: <Star size={16} className="inline mr-2" />, color: 'bg-blue-100 text-blue-800' }
   ]
 
   // Nutrition benefits
   const nutritionFilters = [
-    { id: 'vitamin-c', label: '🔬 High Vitamin C', benefit: 'Immune Support' },
-    { id: 'antioxidants', label: '⚡ Antioxidants', benefit: 'Anti-aging' },
-    { id: 'fiber', label: '🌾 High Fiber', benefit: 'Digestive Health' },
-    { id: 'potassium', label: '💪 Potassium', benefit: 'Heart Health' }
+    { id: 'vitamin-c', label: 'High Vitamin C', icon: <Activity size={16} className="inline mr-2" />, benefit: 'Immune Support' },
+    { id: 'antioxidants', label: 'Antioxidants', icon: <Zap size={16} className="inline mr-2" />, benefit: 'Anti-aging' },
+    { id: 'fiber', label: 'High Fiber', icon: <Trees size={16} className="inline mr-2" />, benefit: 'Digestive Health' },
+    { id: 'potassium', label: 'Potassium', icon: <Heart size={16} className="inline mr-2" />, benefit: 'Heart Health' }
   ]
 
   // Color-based filtering
   const colorFilters = [
-    { id: 'all', label: 'All Colors', emoji: '🎨' },
-    { id: 'red', label: 'Red/Pink', emoji: '🔴' },
-    { id: 'yellow', label: 'Yellow/Golden', emoji: '🟡' },
-    { id: 'green', label: 'Green', emoji: '🟢' },
-    { id: 'orange', label: 'Orange', emoji: '🟠' },
-    { id: 'purple', label: 'Purple', emoji: '🟣' }
+    { id: 'all', label: 'All Colors', icon: <Palette size={16} className="inline mr-2 text-gray-500" /> },
+    { id: 'red', label: 'Red/Pink', icon: <Circle size={16} fill="currentColor" className="inline mr-2 text-red-500" /> },
+    { id: 'yellow', label: 'Yellow/Golden', icon: <Circle size={16} fill="currentColor" className="inline mr-2 text-yellow-500" /> },
+    { id: 'green', label: 'Green', icon: <Circle size={16} fill="currentColor" className="inline mr-2 text-green-500" /> },
+    { id: 'orange', label: 'Orange', icon: <Circle size={16} fill="currentColor" className="inline mr-2 text-orange-500" /> },
+    { id: 'purple', label: 'Purple', icon: <Circle size={16} fill="currentColor" className="inline mr-2 text-purple-500" /> }
   ]
 
   // Product color mapping (example - could be extended in data.ts)
@@ -169,6 +171,18 @@ function ShopContent() {
       products = products.filter(p => getProductColor(p.name) === selectedColor)
     }
 
+    // Plant Class filter for Trees/Shrubs
+    if (selectedPlantTypes.length > 0) {
+      products = products.filter(p => {
+        return selectedPlantTypes.some(pt => {
+          if (pt === 'trees') {
+            return p.category !== 'fresh' && p.category !== 'organic' && p.category !== 'exotic' && p.category !== 'berries' && p.category !== 'apples' && p.category !== 'citrus';
+          }
+          return p.category === pt;
+        });
+      });
+    }
+
     // Sorting
     if (sortBy === 'price-low') {
       products = [...products].sort((a, b) => a.price - b.price)
@@ -181,7 +195,7 @@ function ShopContent() {
     }
 
     return products
-  }, [selectedCategory, searchQuery, priceRange, minRating, sortBy, collectionParam, selectedTags, selectedNutrition, selectedColor])
+  }, [selectedCategory, searchQuery, priceRange, minRating, sortBy, collectionParam, selectedTags, selectedNutrition, selectedColor, selectedPlantTypes])
 
   const maxPrice = Math.max(...ProductService.getAllProducts().map(p => p.price))
 
@@ -192,11 +206,11 @@ function ShopContent() {
         <div className="flex justify-between items-start mb-8">
           <div>
             <h1 className="text-3xl font-bold mb-2 text-black">
-              {collectionParam === 'bestsellers' ? '🏆 Best Sellers' :
-               collectionParam === 'new' ? '✨ New Arrivals' :
-               collectionParam === 'sale' ? '🔥 On Sale' :
-               collectionParam === 'toprated' ? '⭐ Top Rated' :
-               selectedCategory === 'pinkglow' ? '🌸 Pink Pineapple Collection' : 'Shop Our Fruits'}
+              {collectionParam === 'bestsellers' ? ' Best Sellers' :
+               collectionParam === 'new' ? ' New Arrivals' :
+               collectionParam === 'sale' ? ' On Sale' :
+               collectionParam === 'toprated' ? ' Top Rated' :
+               selectedCategory === 'pinkglow' ? ' Pink Pineapple Collection' : 'Shop Our Fruits'}
             </h1>
             <p className="text-gray-600">
               Showing <span className="font-bold text-emerald-600">{filteredProducts.length}</span> product{filteredProducts.length !== 1 ? 's' : ''}
@@ -208,7 +222,7 @@ function ShopContent() {
             onClick={() => setShowFilters(!showFilters)}
             className="md:hidden px-4 py-2 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700"
           >
-            ☰ Filters
+             Filters
           </button>
         </div>
 
@@ -234,7 +248,7 @@ function ShopContent() {
                   : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
               }`}
             >
-              🏆 Best Sellers
+               Best Sellers
             </Link>
             <Link 
               href="/shop?collection=toprated" 
@@ -244,7 +258,7 @@ function ShopContent() {
                   : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
               }`}
             >
-              ⭐ Top Rated
+               Top Rated
             </Link>
             <Link 
               href="/shop?collection=new" 
@@ -254,7 +268,7 @@ function ShopContent() {
                   : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
               }`}
             >
-              ✨ New Arrivals
+               New Arrivals
             </Link>
             <Link 
               href="/shop?collection=sale" 
@@ -264,7 +278,7 @@ function ShopContent() {
                   : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
               }`}
             >
-              🔥 On Sale
+               On Sale
             </Link>
           </div>
         </div>
@@ -312,6 +326,36 @@ function ShopContent() {
               </div>
             </div>
 
+            {/* Plant Class Multi-Select */}
+            <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+              <label className="block text-sm font-black text-emerald-900 mb-3 flex items-center"><Trees size={18} className="mr-2" /> Plant Class (New!)</label>
+              <div className="space-y-2 max-h-48 overflow-y-auto">
+                {[
+                  { id: 'trees', label: 'All Trees & Plants' },
+                  { id: 'evergreen', label: 'Evergreen Trees' },
+                  { id: 'shrubs', label: 'Shrubs & Bushes' },
+                  { id: 'flowering', label: 'Flowering Trees' },
+                  { id: 'shade', label: 'Shade Trees' },
+                  { id: 'tropical', label: 'Tropical Plants' },
+                  { id: 'perennials', label: 'Perennials' },
+                  { id: 'indoor', label: 'Indoor Plants' },
+                  { id: 'supplies', label: 'Garden Supplies' }
+                ].map(pt => (
+                  <label key={pt.id} className="flex items-center space-x-2 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={selectedPlantTypes.includes(pt.id)}
+                      onChange={() => setSelectedPlantTypes(prev => 
+                        prev.includes(pt.id) ? prev.filter(t => t !== pt.id) : [...prev, pt.id]
+                      )}
+                      className="rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500 bg-white shadow-sm"
+                    />
+                    <span className="text-sm text-emerald-900 font-medium group-hover:text-emerald-700 transition-colors">{pt.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
             {/* Minimum Rating */}
             <div>
               <label className="block text-sm font-bold text-gray-900 mb-3">Minimum Rating</label>
@@ -326,7 +370,7 @@ function ShopContent() {
                         : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                     }`}
                   >
-                    {rating === 0 ? 'All Ratings' : `${rating}+ ⭐`}
+                    {rating === 0 ? 'All Ratings' : `${rating}+ `}
                   </button>
                 ))}
               </div>
@@ -334,7 +378,7 @@ function ShopContent() {
 
             {/* Color Filter */}
             <div>
-              <label className="block text-sm font-bold text-gray-900 mb-3">🎨 Color</label>
+              <label className="block text-sm font-bold text-gray-900 mb-3">Color Profile</label>
               <div className="space-y-2">
                 {colorFilters.map(color => (
                   <button
@@ -346,7 +390,7 @@ function ShopContent() {
                         : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                     }`}
                   >
-                    {color.emoji} {color.label}
+                    {color.icon} {color.label}
                   </button>
                 ))}
               </div>
@@ -354,7 +398,7 @@ function ShopContent() {
 
             {/* Tag Filters */}
             <div>
-              <label className="block text-sm font-bold text-gray-900 mb-3">✨ Tags</label>
+              <label className="block text-sm font-bold text-gray-900 mb-3">Curated Tags</label>
               <div className="space-y-2">
                 {availableTags.map(tag => (
                   <button
@@ -368,7 +412,7 @@ function ShopContent() {
                         : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                     }`}
                   >
-                    {tag.label}
+                    {tag.icon} {tag.label}
                   </button>
                 ))}
               </div>
@@ -376,7 +420,7 @@ function ShopContent() {
 
             {/* Nutrition Filter */}
             <div>
-              <label className="block text-sm font-bold text-gray-900 mb-3">💚 Nutrition Benefits</label>
+              <label className="block text-sm font-bold text-gray-900 mb-3">Nutrition Benefits</label>
               <div className="space-y-2">
                 {nutritionFilters.map(nut => (
                   <button
@@ -390,8 +434,8 @@ function ShopContent() {
                         : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                     }`}
                   >
-                    <div className="font-semibold">{nut.label}</div>
-                    <div className="text-xs opacity-75 font-normal">{nut.benefit}</div>
+                    <div className="font-semibold">{nut.icon} {nut.label}</div>
+                    <div className="text-xs opacity-75 font-normal ml-6">{nut.benefit}</div>
                   </button>
                 ))}
               </div>
@@ -406,6 +450,7 @@ function ShopContent() {
                 setSelectedTags([])
                 setSelectedNutrition([])
                 setSelectedColor('all')
+                setSelectedPlantTypes([])
               }}
               className="w-full px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-all"
             >
@@ -422,16 +467,16 @@ function ShopContent() {
           <div className="md:col-span-3 space-y-6">
             {/* Category Tabs */}
             {!collectionParam && (
-              <div className="overflow-x-auto">
-                <div className="flex gap-2 pb-2">
+              <div className="w-full mb-4">
+                <div className="flex flex-wrap gap-2 pb-2">
                   {categories.map(cat => (
                     <button
                       key={cat.id}
                       onClick={() => setSelectedCategory(cat.id)}
-                      className={`px-3 py-2 rounded-lg whitespace-nowrap text-sm font-medium transition-all ${
+                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex-grow sm:flex-grow-0 text-center ${
                         selectedCategory === cat.id
                           ? 'bg-emerald-600 text-white shadow-lg'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                          : 'bg-gray-200 text-gray-800 border border-gray-300 hover:bg-gray-300'
                       }`}
                     >
                       {cat.label}

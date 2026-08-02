@@ -36,7 +36,7 @@ export default function PremiumHomePage() {
       category: 'Luxury',
       price: 45.99,
       rating: 4.9,
-      badge: '✨ LIMITED EDITION',
+      badge: ' LIMITED EDITION',
       image: '/products/pink-glow.jpg',
     },
     {
@@ -44,7 +44,7 @@ export default function PremiumHomePage() {
       category: 'Premium',
       price: 34.99,
       rating: 4.8,
-      badge: '🌟 BESTSELLER',
+      badge: ' BESTSELLER',
       image: '/products/dragon-trio.jpg',
     },
     {
@@ -52,7 +52,7 @@ export default function PremiumHomePage() {
       category: 'Luxury',
       price: 52.50,
       rating: 5.0,
-      badge: '👑 PLATINUM CHOICE',
+      badge: ' PLATINUM CHOICE',
       image: '/products/mango-concierge.jpg',
     },
     {
@@ -60,7 +60,7 @@ export default function PremiumHomePage() {
       category: 'Premium',
       price: 38.75,
       rating: 4.7,
-      badge: '🎁 SEASONAL SPECIAL',
+      badge: ' SEASONAL SPECIAL',
       image: '/products/exotic-paradise.jpg',
     },
   ]
@@ -102,13 +102,13 @@ export default function PremiumHomePage() {
 
           <div className="flex items-center gap-4">
             <button className="w-10 h-10 rounded-full bg-amber-400/20 hover:bg-amber-400/40 transition-all flex items-center justify-center text-amber-100 hover:text-amber-200">
-              🔍
+              
             </button>
             <Link
               href="/cart"
               className="w-10 h-10 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 hover:shadow-lg hover:scale-110 transition-all flex items-center justify-center font-bold text-emerald-900"
             >
-              🛒
+              
             </Link>
           </div>
         </div>
@@ -145,9 +145,9 @@ export default function PremiumHomePage() {
           {/* Value Propositions - Minimal Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
             {[
-              { icon: '✨', text: 'Hand-selected luxury fruits' },
-              { icon: '⚡', text: '48-hour fresh delivery' },
-              { icon: '🎯', text: 'AI-curated for you' },
+              { icon: '', text: 'Hand-selected luxury fruits' },
+              { icon: '', text: '48-hour fresh delivery' },
+              { icon: '', text: 'AI-curated for you' },
             ].map((item, idx) => (
               <div
                 key={idx}
@@ -208,7 +208,7 @@ export default function PremiumHomePage() {
 
                 {/* Image Placeholder - 3D Effect */}
                 <div className="relative h-64 mb-6 rounded-lg bg-gradient-to-br from-amber-400/20 to-yellow-300/20 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                  <div className="text-6xl animate-pulse">{['🍍', '🐉', '🥭', '🎁'][idx % 4]}</div>
+                  <div className="text-6xl animate-pulse">{['', '', '', ''][idx % 4]}</div>
                 </div>
 
                 {/* Product Info */}
@@ -218,7 +218,7 @@ export default function PremiumHomePage() {
                 {/* Rating & Price */}
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xl font-black text-amber-300">${product.price}</span>
-                  <span className="text-sm font-bold">⭐ {product.rating}</span>
+                  <span className="text-sm font-bold"> {product.rating}</span>
                 </div>
 
                 {/* CTA */}

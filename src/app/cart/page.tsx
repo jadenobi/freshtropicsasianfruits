@@ -13,10 +13,13 @@ import PaymentIcon from "@/components/PaymentIcon"
 export default function CartPage() {
   const { items, total, updateQuantity, removeFromCart, clearCart } = useCart()
   const [checkoutStep, setCheckoutStep] = useState("review") // review, shipping, payment, confirm
-  const [selectedPayment, setSelectedPayment] = useState("credit_card")
-  const [customerEmail, setCustomerEmail] = useState("")
-  const [customerName, setCustomerName] = useState("")
+  const [selectedPayment, setSelectedPayment] = useState("bank_account")
+  const [customerAddress, setCustomerAddress] = useState<any>(null)
   const [orderNumber, setOrderNumber] = useState("")
+  const [confirmedTotal, setConfirmedTotal] = useState(0)
+
+  const customerName = customerAddress?.fullName || ""
+  const customerEmail = customerAddress?.email || ""
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [deliveryGuarantee, setDeliveryGuarantee] = useState(true)
 
@@ -41,10 +44,14 @@ export default function CartPage() {
   }
 
   const handleSubmitPayment = async () => {
-    if (!customerName || !customerEmail) {
-      alert("Please fill in your name and email")
+    if (!customerAddress) {
+      alert("Please fill in your shipping information")
+      setCheckoutStep("shipping")
       return
     }
+
+    const { fullName: customerName, email: customerEmail, phone, street, apartment, city, state, zipCode, country } = customerAddress
+    const addressStr = `${street}${apartment ? ` ${apartment}` : ''}, ${city}, ${state} ${zipCode}, ${country}`
 
     const newOrderNumber = generateOrderNumber()
     
@@ -57,6 +64,8 @@ export default function CartPage() {
           orderId: newOrderNumber,
           customerEmail,
           customerName,
+          phone,
+          address: addressStr,
           items: items.map(i => ({ name: i.name, quantity: i.cartQuantity, price: i.price })),
           subtotal,
           shipping,
@@ -71,6 +80,7 @@ export default function CartPage() {
       }
 
       setOrderNumber(newOrderNumber)
+      setConfirmedTotal(finalTotal) // snapshot total before cart clears
       setShowConfirmation(true)
       
       // Clear cart after confirmation
@@ -94,16 +104,14 @@ export default function CartPage() {
               <div className="bg-emerald-50 p-6 rounded-lg mb-6 border-2 border-emerald-200">
                 <p className="text-2xl font-black text-emerald-600 mb-2">Order #{orderNumber}</p>
                 <p className="text-gray-700 mb-4">Thank you for your order, {customerName}!</p>
-                <p className="text-lg font-bold text-gray-900 mb-2">Total Due: ${finalTotal.toFixed(2)}</p>
+                <p className="text-lg font-bold text-gray-900 mb-2">Total Due: ${confirmedTotal.toFixed(2)}</p>
               </div>
 
               <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-6 md:p-8 mb-8 text-left max-w-lg mx-auto shadow-sm">
                 <p className="text-xl font-bold text-amber-900 mb-3 flex items-center">
-                  <span className="mr-2">🔎</span> Order Under Review
+                  <span className="mr-2"></span> Order Under Review
                 </p>
-                <p className="text-gray-700 mb-2">Our team is manually reviewing your order for quality and security. We will contact you via email shortly with:</p>
-                <p className="font-mono text-lg text-amber-600 mb-4 bg-white px-3 py-2 rounded-md border border-amber-100">{customerEmail}</p>
-                <p className="text-sm text-gray-600">The next email will include:</p>
+                <p className="text-gray-700 mb-2">Our team is manually reviewing your order for quality and security. Here's what happens next:</p>
                 <ul className="text-sm text-gray-600 mt-2 space-y-1">
                   <li>✓ Official Order Confirmation</li>
                   <li>✓ Personalized Payment Instructions</li>
@@ -112,12 +120,12 @@ export default function CartPage() {
               </div>
 
               <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-6 mb-8 max-w-lg mx-auto shadow-sm animate-pulse-subtle">
-                <p className="text-sm text-amber-800 font-bold mb-2">🚀 Pro Tip:</p>
+                <p className="text-sm text-amber-800 font-bold mb-2"> Pro Tip:</p>
                 <p className="text-xs text-amber-900 leading-relaxed">
                   Once you've sent your payment, use our verification tool to speed up your order processing!
                 </p>
                 <Link 
-                  href={`/verify-payment?order=${orderNumber}&amount=${finalTotal}`}
+                  href={`/verify-payment?order=${orderNumber}&amount=${confirmedTotal}`}
                   className="mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg transition-all inline-block shadow-md hover:shadow-amber-100"
                 >
                   I've Paid - Verify Now
@@ -152,7 +160,7 @@ export default function CartPage() {
 
           {items.length === 0 ? (
             <div className="text-center py-16">
-              <div className="text-5xl md:text-6xl mb-4">🛒</div>
+              <div className="text-5xl md:text-6xl mb-4"></div>
               <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
               <Link href="/shop" className="bg-emerald-600 text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-emerald-700 transition-all inline-block text-sm md:text-base">
                 Start Shopping
@@ -186,7 +194,7 @@ export default function CartPage() {
                     
                     {belowMinimum && (
                       <div className="bg-red-50 border-2 border-red-300 rounded-lg p-4 mb-6">
-                        <p className="text-red-800 font-bold mb-2">⚠️ Minimum Order Not Met</p>
+                        <p className="text-red-800 font-bold mb-2"> Minimum Order Not Met</p>
                         <p className="text-red-700">Add ${(MINIMUM_ORDER - subtotal).toFixed(2)} more to your cart to reach the minimum order of ${MINIMUM_ORDER}</p>
                       </div>
                     )}
@@ -249,33 +257,20 @@ export default function CartPage() {
                 {checkoutStep === "shipping" && (
                   <div className="bg-white rounded-xl shadow-lg p-8 space-y-6">
                     <h2 className="text-2xl font-bold text-gray-900 mb-6">Shipping Information</h2>
-                    <div className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="First Name" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="px-4 py-4 border-3 border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-gray-900 font-bold placeholder-gray-800 bg-white text-base" />
-                        <input type="text" placeholder="Last Name" className="px-4 py-4 border-3 border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-gray-900 font-bold placeholder-gray-800 bg-white text-base" />
-                      </div>
-                      <input type="email" placeholder="Email Address" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="w-full px-4 py-4 border-3 border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-gray-900 font-bold placeholder-gray-800 bg-white text-base" />
-                      <input type="text" placeholder="Street Address" className="w-full px-4 py-4 border-3 border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-gray-900 font-bold placeholder-gray-800 bg-white text-base" />
-                      <div className="grid grid-cols-3 gap-4">
-                        <input type="text" placeholder="City" className="col-span-2 px-4 py-4 border-3 border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-gray-900 font-bold placeholder-gray-800 bg-white text-base" />
-                        <input type="text" placeholder="ZIP" className="col-span-1 px-4 py-4 border-3 border-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-700 text-gray-900 font-bold placeholder-gray-800 bg-white text-base" />
-                      </div>
-                      <div className="bg-emerald-50 p-4 rounded-lg border-2 border-emerald-300">
-                        <p className="text-sm font-bold text-emerald-900">✓ Free shipping on orders over $286</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4">
+
+                    <CheckoutForm 
+                      onSubmit={(address) => {
+                        setCustomerAddress(address)
+                        setCheckoutStep("payment")
+                      }} 
+                    />
+
+                    <div className="flex gap-4 mt-6">
                       <button 
                         onClick={() => setCheckoutStep("review")}
                         className="flex-1 border-2 border-gray-300 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-50 transition-all"
                       >
                         ← Back
-                      </button>
-                      <button 
-                        onClick={() => setCheckoutStep("payment")}
-                        className="flex-1 bg-emerald-600 text-white font-bold py-3 rounded-lg hover:bg-emerald-700 transition-all"
-                      >
-                        Continue to Payment →
                       </button>
                     </div>
                   </div>
@@ -322,7 +317,7 @@ export default function CartPage() {
 
                     <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
                       <p className="text-sm text-blue-800">
-                        <strong>🔒 Secure & Private:</strong> Your payment details are sent only to you via email. Never shared publicly.
+                        <strong> Secure & Private:</strong> Your payment details are sent only to you via email. Never shared publicly.
                       </p>
                     </div>
 
@@ -408,8 +403,8 @@ export default function CartPage() {
                       </button>
                       <button 
                         onClick={() => {
-                          if (!customerName || !customerEmail) {
-                            alert("Please fill in your name and email first")
+                          if (!customerAddress) {
+                            alert("Please fill in your shipping information first")
                             setCheckoutStep("shipping")
                             return
                           }
@@ -466,7 +461,7 @@ export default function CartPage() {
 
                   {checkoutStep === "payment" && (
                     <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-4 rounded-lg mb-6 border-2 border-emerald-200">
-                      <p className="text-sm font-bold text-emerald-900 mb-2">📧 Next Step:</p>
+                      <p className="text-sm font-bold text-emerald-900 mb-2"> Next Step:</p>
                       <p className="text-xs text-emerald-800">Wait for our team to contact you with secure payment details</p>
                     </div>
                   )}

@@ -45,7 +45,7 @@ export default function WishlistPage() {
 
           {wishlistProducts.length === 0 ? (
             <div className="text-center py-20 bg-white rounded-2xl shadow-lg border-2 border-emerald-100">
-              <p className="text-5xl mb-4">🤍</p>
+              <p className="text-5xl mb-4"></p>
               <h2 className="text-3xl font-bold text-emerald-900 mb-4">Your wishlist is empty</h2>
               <p className="text-gray-600 mb-8 text-lg">Start adding products to save them for later</p>
               <Link
@@ -66,7 +66,7 @@ export default function WishlistPage() {
                       onClick={() => handleRemove(product.id.toString())}
                       className="mt-3 w-full bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 px-4 py-2 rounded-lg font-bold transition-all border border-red-200 hover:border-red-300"
                     >
-                      ❌ Remove from Wishlist
+                       Remove from Wishlist
                     </button>
                   </div>
                 ))}
@@ -90,22 +90,22 @@ export default function WishlistPage() {
 
               {/* Summary */}
               <div className="mt-12 bg-white rounded-2xl shadow-lg p-8 border-2 border-emerald-100">
-                <h3 className="text-2xl font-bold text-emerald-900 mb-4">💡 Wishlist Tips</h3>
+                <h3 className="text-2xl font-bold text-emerald-900 mb-4"> Wishlist Tips</h3>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-3">
-                    <span className="text-2xl">📌</span>
+                    <span className="text-2xl"></span>
                     <span>Your wishlist is saved locally on this device</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-2xl">🔄</span>
+                    <span className="text-2xl"></span>
                     <span>Items will remain saved even if you close the browser</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-2xl">🛒</span>
+                    <span className="text-2xl"></span>
                     <span>Click any product to add it to your cart</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-2xl">💚</span>
+                    <span className="text-2xl"></span>
                     <span>Click the heart icon to remove items from your wishlist</span>
                   </li>
                 </ul>

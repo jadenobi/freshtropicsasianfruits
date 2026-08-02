@@ -49,13 +49,18 @@ self.addEventListener('fetch', (event) => {
   const { request } = event
   const url = new URL(request.url)
 
+  // Ignore non-http(s) schemas such as ws:// or chrome-extension://, and HMR requests
+  if (!url.protocol.startsWith('http') || url.pathname.includes('/_next/webpack-hmr')) {
+    return
+  }
+
   // API requests - network first with cache fallback
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          const cache = caches.open(API_CACHE)
-          cache.then((c) => c.put(request, response.clone()))
+          const responseToCache = response.clone()
+          caches.open(API_CACHE).then((c) => c.put(request, responseToCache))
           return response
         })
         .catch(() => {
@@ -91,8 +96,8 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          const cache = caches.open(RUNTIME_CACHE)
-          cache.then((c) => c.put(request, response.clone()))
+          const responseToCache = response.clone()
+          caches.open(RUNTIME_CACHE).then((c) => c.put(request, responseToCache))
           return response
         })
         .catch(() => {
@@ -111,8 +116,8 @@ self.addEventListener('fetch', (event) => {
       if (response) return response
 
       return fetch(request).then((networkResponse) => {
-        const cache = caches.open(RUNTIME_CACHE)
-        cache.then((c) => c.put(request, networkResponse.clone()))
+        const responseToCache = networkResponse.clone()
+        caches.open(RUNTIME_CACHE).then((c) => c.put(request, responseToCache))
         return networkResponse
       }).catch(() => {
         return new Response('Offline', { status: 503 })

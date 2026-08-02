@@ -35,7 +35,9 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
   // Set default size on product load
   useEffect(() => {
     if (product?.sizes && product.sizes.length > 0) {
-      setSelectedSizeId(product.sizes[1].id) // Default to Regular size
+      // Default to Regular size if it exists, otherwise fallback to the first available size
+      const regularSize = product.sizes.find(s => s.name?.includes('Regular') || s.id === 'size-regular');
+      setSelectedSizeId(regularSize ? regularSize.id : product.sizes[0].id);
     }
   }, [product?.id])
 
@@ -117,7 +119,7 @@ export default function ProductPage({params}:{params:Promise<{id:string}>}){
             <div className="flex items-center gap-2 mb-4">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-lg">⭐</span>
+                  <span key={i} className="text-lg"></span>
                 ))}
               </div>
               <span className="text-sm text-gray-600">({product.reviews} reviews) {product.rating}/5</span>

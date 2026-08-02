@@ -68,9 +68,9 @@ export default function SocialPage() {
         </div>
         <p className="text-sm text-gray-700 mb-3">{post.caption}</p>
         <div className="flex items-center gap-4 mb-3 text-sm text-gray-600">
-          <span>❤️ {post.likes}</span>
-          <span>💬 {post.comments}</span>
-          <span>⭐ {post.rating}/5</span>
+          <span> {post.likes}</span>
+          <span> {post.comments}</span>
+          <span> {post.rating}/5</span>
         </div>
         <button
           onClick={() => handleLike(post.id)}
@@ -80,7 +80,7 @@ export default function SocialPage() {
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           }`}
         >
-          {likedPosts.has(post.id) ? '❤️ Liked' : '🤍 Like'}
+          {likedPosts.has(post.id) ? ' Liked' : ' Like'}
         </button>
       </div>
     </div>
@@ -91,7 +91,7 @@ export default function SocialPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-black text-gray-900 mb-2">🌍 Social Community</h1>
+          <h1 className="text-4xl font-black text-gray-900 mb-2"> Social Community</h1>
           <p className="text-gray-600">Connect with us on social media and share your Fresh Tropics moments</p>
         </div>
 
@@ -131,10 +131,10 @@ export default function SocialPage() {
                   : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-amber-300'
               }`}
             >
-              {tab === 'feed' && '📱 Social Feed'}
-              {tab === 'instagram' && '📸 Instagram'}
-              {tab === 'tiktok' && '🎬 TikTok'}
-              {tab === 'ugc' && '🎨 User Gallery'}
+              {tab === 'feed' && ' Social Feed'}
+              {tab === 'instagram' && ' Instagram'}
+              {tab === 'tiktok' && ' TikTok'}
+              {tab === 'ugc' && ' User Gallery'}
             </button>
           ))}
         </div>
@@ -144,19 +144,19 @@ export default function SocialPage() {
           <div className="space-y-8">
             {/* Share Section */}
             <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-8 rounded-lg border-2 border-amber-200">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">📢 Share Fresh Tropics</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4"> Share Fresh Tropics</h2>
               <p className="text-gray-700 mb-4">Love Fresh Tropics? Share with your friends on social media!</p>
               <ShareButtons />
             </div>
 
             {/* Social Login Section */}
             <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">🔐 Connect with Social Login</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4"> Connect with Social Login</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
-                  { name: 'Google', icon: '🔍', color: '#4285F4' },
-                  { name: 'Facebook', icon: '👍', color: '#1877F2' },
-                  { name: 'Apple', icon: '🍎', color: '#000000' },
+                  { name: 'Google', icon: '', color: '#4285F4' },
+                  { name: 'Facebook', icon: '', color: '#1877F2' },
+                  { name: 'Apple', icon: '', color: '#000000' },
                 ].map(provider => (
                   <button
                     key={provider.name}
@@ -171,7 +171,7 @@ export default function SocialPage() {
 
             {/* Trending Posts */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">🔥 Trending Posts</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> Trending Posts</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {trendingUGC.map(post => (
                   <PostCard key={post.id} post={post} />
@@ -184,7 +184,7 @@ export default function SocialPage() {
         {/* Instagram Tab */}
         {activeTab === 'instagram' && (
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">📸 Instagram Feed</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6"> Instagram Feed</h2>
             <p className="text-gray-600 mb-6">Follow us @freshtropics for daily fresh fruit updates</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {instagramFeed.map(post => (
@@ -207,7 +207,7 @@ export default function SocialPage() {
         {/* TikTok Tab */}
         {activeTab === 'tiktok' && (
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">🎬 TikTok Videos</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6"> TikTok Videos</h2>
             <p className="text-gray-600 mb-6">Check out our viral fruit videos and recipes</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {tiktokFeed.map(post => (
@@ -230,9 +230,9 @@ export default function SocialPage() {
         {/* UGC Gallery Tab */}
         {activeTab === 'ugc' && (
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">🎨 User Gallery</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6"> User Gallery</h2>
             <div className="bg-amber-50 p-6 rounded-lg border-2 border-amber-200 mb-6">
-              <p className="text-gray-900 font-bold mb-2">📤 Share Your Fresh Tropics Moment</p>
+              <p className="text-gray-900 font-bold mb-2"> Share Your Fresh Tropics Moment</p>
               <p className="text-gray-700 text-sm mb-4">Tag #FreshTropics on Instagram or TikTok for a chance to be featured!</p>
               <button className="px-6 py-2 bg-amber-600 text-white rounded-lg font-bold hover:bg-amber-700 transition-all">
                 Upload Photo
@@ -249,17 +249,17 @@ export default function SocialPage() {
 
         {/* CTA Section */}
         <div className="mt-12 bg-gradient-to-r from-emerald-600 to-green-600 text-white p-8 rounded-lg shadow-lg text-center">
-          <h2 className="text-2xl font-black mb-4">🌱 Join Our Community</h2>
+          <h2 className="text-2xl font-black mb-4"> Join Our Community</h2>
           <p className="mb-6">Follow Fresh Tropics on all social platforms for exclusive deals and fresh fruit tips</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="https://instagram.com/freshtropics" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white text-emerald-600 rounded-lg font-bold hover:shadow-lg transition-all">
-              📸 Instagram
+               Instagram
             </a>
             <a href="https://tiktok.com/@freshtropics" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white text-black rounded-lg font-bold hover:shadow-lg transition-all">
-              🎬 TikTok
+               TikTok
             </a>
             <a href="https://facebook.com/freshtropics" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white text-blue-600 rounded-lg font-bold hover:shadow-lg transition-all">
-              👍 Facebook
+               Facebook
             </a>
             <a href="https://twitter.com/freshtropics" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white text-black rounded-lg font-bold hover:shadow-lg transition-all">
               𝕏 Twitter

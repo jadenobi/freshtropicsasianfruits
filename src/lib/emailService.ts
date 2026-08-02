@@ -1,9 +1,11 @@
-import { PAYMENT_METHODS } from "@/config/payments"
+import { PAYMENT_METHODS, PAYMENT_INSTRUCTIONS } from "@/config/payments"
 
 export interface OrderData {
   orderId: string
   customerEmail: string
   customerName: string
+  phone?: string
+  address?: string
   items: Array<{ name: string; quantity: number; price: number }>
   subtotal: number
   shipping: number
@@ -22,16 +24,7 @@ export interface VerificationData {
   notes?: string
 }
 
-const paymentInstructions: Record<string, string> = {
-  credit_card: "Pay securely via Credit Card link: https://checkout.stripe.com/pay\nMerchant: Fresh Tropics Asian Fruits\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]",
-  chime: "Send to Chime: freshtropicsasianfruits@chime.com\nAmount: $[TOTAL]\nMemo: Order [ORDER_ID]",
-  paypal: "Send payment to: freshtropicsasianfruits@gmail.com\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]\nNote: Include order number in payment notes",
-  apple_pay: "Recipient: Fresh Tropics Asian Fruits\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]",
-  venmo: "Send to: @FreshTropicsAsianFruits\nAmount: $[TOTAL]\nMemo: Order [ORDER_ID]",
-  cashapp: "Send to: $FreshTropicsAsianFruits\nAmount: $[TOTAL]\nNote: Order [ORDER_ID]",
-  zelle: "Send to email: freshtropicsasianfruits@gmail.com\nAmount: $[TOTAL]\nReference: Order [ORDER_ID]",
-  crypto: "Bitcoin Address: [ADD YOUR BTC ADDRESS]\nEthereum: [ADD YOUR ETH ADDRESS]\nUSDC: [ADD YOUR USDC ADDRESS]\n\nNote: Include order number in transaction memo"
-}
+
 
 // Send business confirmation email with all order details
 export async function sendBusinessConfirmationEmail(order: OrderData): Promise<boolean> {
@@ -42,13 +35,13 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
         <head><meta charset="utf-8"></head>
         <body style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; color: #333;">
           <div style="background: linear-gradient(135deg, #065f46 0%, #d97706 100%); color: white; padding: 30px; border-radius: 8px 8px 0 0;">
-            <h1 style="margin: 0; font-size: 28px;">🍎 Fresh Tropics Asian Fruits</h1>
+            <h1 style="margin: 0; font-size: 28px;"> Fresh Tropics Asian Fruits</h1>
             <p style="margin: 8px 0 0 0; font-size: 14px;">NEW ORDER RECEIVED - SECURE RECORD</p>
             <p style="margin: 5px 0 0 0; font-size: 12px; color: #d1d5db;">Business Order Confirmation</p>
           </div>
 
           <div style="background: #f9fafb; padding: 30px;">
-            <h2 style="color: #065f46; margin-top: 0;">📋 ORDER DETAILS</h2>
+            <h2 style="color: #065f46; margin-top: 0;"> ORDER DETAILS</h2>
 
             <div style="background: white; border: 2px solid #065f46; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
               <h3 style="margin: 0 0 15px 0; color: #065f46; border-bottom: 2px solid #d97706; padding-bottom: 10px;">Order #${order.orderId}</h3>
@@ -73,7 +66,7 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
               </table>
             </div>
 
-            <h3 style="color: #065f46; margin-bottom: 15px;">🛍️ ITEMS ORDERED</h3>
+            <h3 style="color: #065f46; margin-bottom: 15px;"> ITEMS ORDERED</h3>
             <table style="width: 100%; border-collapse: collapse; background: white; margin-bottom: 20px;">
               <thead style="background: #065f46; color: white;">
                 <tr>
@@ -95,7 +88,7 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
               </tbody>
             </table>
 
-            <h3 style="color: #065f46; margin-bottom: 15px;">💰 PRICING BREAKDOWN</h3>
+            <h3 style="color: #065f46; margin-bottom: 15px;"> PRICING BREAKDOWN</h3>
             <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
               <table style="width: 100%; margin-bottom: 10px;">
                 <tr>
@@ -118,17 +111,17 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
             </div>
 
             <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px; margin: 20px 0; border-radius: 4px;">
-              <p style="margin: 0; color: #92400e; font-weight: bold;">⚠️ ACTION REQUIRED</p>
+              <p style="margin: 0; color: #92400e; font-weight: bold;"> ACTION REQUIRED</p>
               <p style="margin: 5px 0 0 0; color: #92400e; font-size: 14px;">Confirm availability and reply to the customer with payment details.</p>
             </div>
 
             <!-- Professional Response Template -->
             <div style="background: white; border: 2px dashed #065f46; padding: 25px; border-radius: 8px; margin-top: 30px;">
-              <h3 style="margin: 0 0 15px 0; color: #065f46; font-size: 16px;">📋 PROFESSIONAL RESPONSE DRAFT (Copy & Paste)</h3>
+              <h3 style="margin: 0 0 15px 0; color: #065f46; font-size: 16px;"> PROFESSIONAL RESPONSE DRAFT (Copy & Paste)</h3>
               <div style="background: #f9fafb; padding: 20px; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #374151; border: 1px solid #e5e7eb;">
                 <p style="margin: 0;">Hi ${order.customerName},</p>
                 <br/>
-                <p style="margin: 0;">Thank you for choosing <strong>Fresh Tropics Asian Fruits</strong>! 🍎</p>
+                <p style="margin: 0;">Thank you for choosing <strong>Fresh Tropics Asian Fruits</strong>! </p>
                 <p style="margin: 10px 0;">We've received your order <strong>#${order.orderId}</strong> and have manually verified your items for the best quality and freshness.</p>
                 
                 <div style="background: white; padding: 15px; border-left: 4px solid #d97706; margin: 15px 0;">
@@ -139,23 +132,23 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
 
                 <p style="margin: 0;">To finalize your order, please use the details below:</p>
                 <p style="margin: 10px 0; font-family: monospace; background: #fff; padding: 10px; border: 1px solid #ddd;">
-                  ${paymentInstructions[order.paymentMethodId]
-                    .replace("[TOTAL]", order.total.toFixed(2))
-                    .replace("[ORDER_ID]", order.orderId)}
+                  ${PAYMENT_INSTRUCTIONS[order.paymentMethodId]
+                    ?.replace("[TOTAL]", order.total.toFixed(2))
+                    ?.replace("[ORDER_ID]", order.orderId) || "Payment method details will be provided shortly."}
                 </p>
 
                 <p style="margin: 10px 0;">Once payment is confirmed, yours fruits will be carefully packaged and shipped for delivery.</p>
                 <p style="margin: 10px 0;">If you have any questions, feel free to reply to this email or reach us on live chat!</p>
                 <br/>
                 <p style="margin: 0;">Best regards,</p>
-                <p style="margin: 5px 0; font-weight: bold; color: #065f46;">The Fresh Tropics Team 🍎🌴</p>
+                <p style="margin: 5px 0; font-weight: bold; color: #065f46;">The Fresh Tropics Team </p>
               </div>
               <p style="margin: 10px 0 0 0; font-size: 11px; color: #6b7280; text-align: center;">Tip: Copy the gray box above and paste it as your reply to the customer.</p>
             </div>
           </div>
 
           <div style="background: #065f46; color: white; padding: 20px; border-radius: 0 0 8px 8px; text-align: center; font-size: 12px;">
-            <p style="margin: 0 0 10px 0;">🔒 SECURE BUSINESS RECORD</p>
+            <p style="margin: 0 0 10px 0;"> SECURE BUSINESS RECORD</p>
             <p style="margin: 0;">This email contains sensitive customer and order information.</p>
             <p style="margin: 5px 0 0 0; color: #d1d5db;">Fresh Tropics Asian Fruits - Order Management System</p>
           </div>
@@ -172,16 +165,16 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
             Authorization: `Bearer ${process.env.RESEND_API_KEY}`
           },
           body: JSON.stringify({
-            from: "onboarding@resend.dev",
-            to: process.env.NEXT_PUBLIC_PAYMENT_EMAIL || "freshtropicsasianfruits@gmail.com",
-            subject: `🍎 NEW ORDER #${order.orderId} - $${order.total.toFixed(2)} - Business Confirmation`,
+            from: "onboarding@resend.dev", // Use verified sandbox sender for business emails
+            to: process.env.NEXT_PUBLIC_PAYMENT_EMAIL || "support@freshtropicsasianfruits.com",
+            subject: ` NEW ORDER #${order.orderId} - $${order.total.toFixed(2)} - Business Confirmation`,
             html: businessHtmlTemplate,
             replyTo: order.customerEmail
           })
         })
         
         if (res.ok) {
-          console.log(`✅ Business confirmation email sent for order #${order.orderId}`)
+          console.log(` Business confirmation email sent for order #${order.orderId}`)
           return true
         }
         
@@ -192,7 +185,7 @@ export async function sendBusinessConfirmationEmail(order: OrderData): Promise<b
       }
     }
 
-    console.log(`📧 Business email would be sent for order #${order.orderId}`)
+    console.log(` Business email would be sent for order #${order.orderId}`)
     return true
   } catch (error) {
     console.error("Business email service error:", error)
@@ -205,126 +198,156 @@ export async function sendPaymentEmail(order: OrderData): Promise<boolean> {
     const method = PAYMENT_METHODS.find(m => m.id === order.paymentMethodId)
     if (!method) return false
 
-    const instructions = paymentInstructions[order.paymentMethodId]
-      .replace("[TOTAL]", order.total.toFixed(2))
-      .replace("[ORDER_ID]", order.orderId)
+    const instructions = PAYMENT_INSTRUCTIONS[order.paymentMethodId]
+      ?.replace("[TOTAL]", order.total.toFixed(2))
+      ?.replace("[ORDER_ID]", order.orderId) || "Payment method details will be provided shortly."
 
     const htmlTemplate = `
-      <!DOCTYPE html>
-      <html>
+      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Your Fresh Tropics Order</title>
+          <style type="text/css">
+            /* Technical Reliability: Email Client Resets */
+            body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+            table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+            img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+            table { border-collapse: collapse !important; }
+            body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #f6f9fc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+            a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+          </style>
         </head>
-        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f8fafc;">
-          <!-- Header -->
-          <div style="background: linear-gradient(135deg, #065f46 0%, #047857 100%); color: white; padding: 40px 30px; text-align: center;">
-            <div style="font-size: 40px; margin-bottom: 15px;">🍎</div>
-            <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -0.5px;">Fresh Tropics</h1>
-            <p style="margin: 8px 0 0 0; font-size: 15px; font-weight: 300; opacity: 0.95;">Premium Asian Tropical Fruits</p>
+        <body style="background-color: #f6f9fc; margin: 0 !important; padding: 0 !important;">
+          <!-- Preheader Text (Hidden in body, visible in inbox preview) -->
+          <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+            Your order #${order.orderId} from Fresh Tropics is ready for payment. Inside: Payment instructions and order summary...
           </div>
 
-          <!-- Main Content -->
-          <div style="background: white; padding: 40px 30px;">
-            <!-- Greeting -->
-            <p style="margin: 0 0 10px 0; font-size: 15px; color: #64748b;">Hi ${order.customerName},</p>
-            <h2 style="margin: 0 0 25px 0; font-size: 24px; color: #1e293b; font-weight: 700;">Thank You for Your Order! ✨</h2>
-            <p style="margin: 0 0 30px 0; font-size: 15px; color: #475569; line-height: 1.6;">We're delighted to have you as a customer. Your fresh tropical fruits are being prepared with care. Please complete your payment using one of the methods below.</p>
-
-            <!-- Order Summary Card -->
-            <div style="background: linear-gradient(135deg, #f0fdf4 0%, #f0fdfa 100%); border: 2px solid #065f46; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                <span style="font-size: 14px; color: #065f46; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Order Number</span>
-                <span style="font-size: 20px; font-weight: 700; color: #065f46; font-family: 'Courier New', monospace;">#${order.orderId}</span>
-              </div>
-              <div style="border-top: 1px solid rgba(6, 95, 70, 0.2); padding-top: 15px;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                  <span style="font-size: 14px; color: #64748b;">Order Total</span>
-                  <span style="font-size: 28px; font-weight: 700; color: #065f46;">$${order.total.toFixed(2)}</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Payment Method -->
-            <div style="margin-bottom: 30px;">
-              <h3 style="margin: 0 0 15px 0; font-size: 16px; color: #1e293b; font-weight: 600;">Payment Method</h3>
-              <div style="background: #f8fafc; border-left: 4px solid #d97706; border-radius: 8px; padding: 20px; margin-bottom: 15px;">
-                <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                  <span style="font-size: 24px; margin-right: 12px;">${method.icon}</span>
-                  <span style="font-size: 16px; font-weight: 600; color: #1e293b;">${method.name}</span>
-                </div>
-                <div style="background: white; border-radius: 6px; padding: 15px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8; color: #334155; white-space: pre-wrap; word-wrap: break-word; border: 1px solid #e2e8f0;">${instructions}</div>
-              </div>
-            </div>
-
-            <!-- Items Breakdown -->
-            <div style="margin-bottom: 30px;">
-              <h3 style="margin: 0 0 15px 0; font-size: 16px; color: #1e293b; font-weight: 600;">Order Details</h3>
-              <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px;">
-                <thead>
-                  <tr style="border-bottom: 2px solid #e2e8f0;">
-                    <th style="padding: 12px 0; text-align: left; font-size: 13px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Item</th>
-                    <th style="padding: 12px 0; text-align: center; font-size: 13px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Qty</th>
-                    <th style="padding: 12px 0; text-align: right; font-size: 13px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Price</th>
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <!-- BRAND IDENTITY: Header -->
+            <tr>
+              <td align="center" style="padding: 40px 10px 20px 10px; background-color: #f6f9fc;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                  <tr>
+                    <td align="center" valign="top">
+                      <h1 style="margin: 0; font-size: 28px; font-weight: 700; color: #065f46; letter-spacing: -0.5px;">Fresh Tropics</h1>
+                      <p style="margin: 5px 0 0 0; font-size: 14px; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Premium Asian Fruits</p>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  ${order.items.map((item, idx) => `
-                    <tr style="border-bottom: 1px solid #e2e8f0; background: ${idx % 2 === 0 ? '#f8fafc' : 'white'};">
-                      <td style="padding: 14px 0; font-size: 14px; color: #1e293b;">${item.name}</td>
-                      <td style="padding: 14px 0; text-align: center; font-size: 14px; color: #475569; font-weight: 500;">${item.quantity}</td>
-                      <td style="padding: 14px 0; text-align: right; font-size: 14px; color: #1e293b; font-weight: 600;">$${(item.price * item.quantity).toFixed(2)}</td>
-                    </tr>
-                  `).join("")}
-                </tbody>
-              </table>
+                </table>
+              </td>
+            </tr>
 
-              <!-- Pricing Summary -->
-              <div style="background: #f0fdf4; border-radius: 8px; padding: 20px;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #bbf7d0;">
-                  <span style="color: #475569; font-size: 14px;">Subtotal</span>
-                  <span style="color: #1e293b; font-weight: 600;">$${order.subtotal.toFixed(2)}</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #bbf7d0;">
-                  <span style="color: #475569; font-size: 14px;">Shipping</span>
-                  <span style="color: #1e293b; font-weight: 600;">$${order.shipping.toFixed(2)}</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid #065f46;">
-                  <span style="color: #475569; font-size: 14px;">Tax (10%)</span>
-                  <span style="color: #1e293b; font-weight: 600;">$${order.tax.toFixed(2)}</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                  <span style="color: #065f46; font-size: 15px; font-weight: 600; text-transform: uppercase;">Total</span>
-                  <span style="font-size: 26px; font-weight: 700; color: #065f46;">$${order.total.toFixed(2)}</span>
-                </div>
-              </div>
-            </div>
+            <!-- TEMPLATE DESIGN: Main Card -->
+            <tr>
+              <td align="center" style="padding: 0px 10px 0px 10px; background-color: #f6f9fc;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; border-top: 4px solid #065f46; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                  
+                  <!-- Greeting & Intro -->
+                  <tr>
+                    <td align="left" style="padding: 40px 40px 20px 40px;">
+                      <h2 style="margin: 0; font-size: 24px; font-weight: 700; color: #1e293b;">Thank you for your order.</h2>
+                      <p style="margin: 15px 0 0 0; font-size: 16px; line-height: 24px; color: #475569;">
+                        Hi ${order.customerName.split(' ')[0]},<br><br>
+                        We're thrilled to have you! We are currently preparing your fresh fruits for processing. Below, you'll find the details to complete your secure payment.
+                      </p>
+                    </td>
+                  </tr>
 
-            <!-- Action Reminder -->
-            <div style="background: #fef3c7; border-left: 4px solid #d97706; border-radius: 8px; padding: 18px; margin-bottom: 30px;">
-              <p style="margin: 0; color: #92400e; font-weight: 600; font-size: 14px;">⏰ Complete Payment Within 24 Hours</p>
-              <p style="margin: 8px 0 0 0; color: #92400e; font-size: 13px; line-height: 1.5;">Your order will be processed immediately upon payment confirmation to ensure the freshest delivery.</p>
-            </div>
+                  <!-- Alert Box (Payment Instructions) -->
+                  <tr>
+                    <td align="left" style="padding: 0px 40px 20px 40px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fafc; border-left: 4px solid #0ea5e9; border-radius: 0 4px 4px 0;">
+                        <tr>
+                          <td style="padding: 20px;">
+                            <h3 style="margin: 0 0 10px 0; font-size: 16px; font-weight: 600; color: #0f172a;">Complete your payment via ${method.name}</h3>
+                            <p style="margin: 0; font-size: 15px; line-height: 22px; color: #475569;">
+                              Our team will send an official email with your exact payment destination (account handle or address) very shortly to complete this order. Keep an eye on your inbox!
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <!-- Support Section -->
-            <div style="background: #f8fafc; border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 30px;">
-              <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 600; color: #1e293b;">Need Help?</p>
-              <p style="margin: 0; font-size: 13px; color: #64748b;">
-                Contact us at <span style="color: #d97706; font-weight: 600;">freshtropicsasianfruits@gmail.com</span>
-              </p>
-            </div>
-          </div>
+                  <!-- Order Summary Divider -->
+                  <tr>
+                    <td align="center" style="padding: 20px 40px 10px 40px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <td style="border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;">
+                            <h3 style="margin: 0; font-size: 14px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">Order Summary (#${order.orderId})</h3>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-          <!-- Footer -->
-          <div style="background: #065f46; color: white; padding: 30px; text-align: center;">
-            <p style="margin: 0 0 15px 0; font-size: 13px; font-weight: 600;">Fresh Tropics Asian Fruits</p>
-            <p style="margin: 0 0 15px 0; font-size: 12px; opacity: 0.8; line-height: 1.6;">
-              🌏 Premium Quality | 🚚 Fast Delivery | 🍎 100% Fresh
-            </p>
-            <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 15px; margin-top: 15px;">
-              <p style="margin: 0; font-size: 11px; opacity: 0.7;">🔒 Secure Transaction | This email contains your payment details. Please do not share.</p>
-            </div>
-          </div>
+                  <!-- Items Table -->
+                  <tr>
+                    <td align="left" style="padding: 10px 40px 20px 40px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        ${order.items.map((item) => `
+                          <tr>
+                            <td align="left" style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-size: 15px; color: #1e293b;">
+                              ${item.name} <span style="color: #94a3b8; font-size: 13px;">x${item.quantity}</span>
+                            </td>
+                            <td align="right" style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-size: 15px; color: #1e293b; font-weight: 500;">
+                              $${(item.price * item.quantity).toFixed(2)}
+                            </td>
+                          </tr>
+                        `).join("")}
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Totals Breakdown -->
+                  <tr>
+                    <td align="right" style="padding: 0px 40px 40px 40px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="250" align="right">
+                        <tr>
+                          <td align="left" style="padding: 8px 0; font-size: 14px; color: #64748b;">Subtotal</td>
+                          <td align="right" style="padding: 8px 0; font-size: 14px; color: #1e293b;">$${order.subtotal.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="padding: 8px 0; font-size: 14px; color: #64748b;">Shipping</td>
+                          <td align="right" style="padding: 8px 0; font-size: 14px; color: #1e293b;">$${order.shipping.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="padding: 8px 0; font-size: 14px; color: #64748b; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px;">Tax (10%)</td>
+                          <td align="right" style="padding: 8px 0; font-size: 14px; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px;">$${order.tax.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="padding: 15px 0 0 0; font-size: 16px; font-weight: 700; color: #0f172a;">Total</td>
+                          <td align="right" style="padding: 15px 0 0 0; font-size: 24px; font-weight: 700; color: #065f46;">$${order.total.toFixed(2)}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- TECHNICAL RELIABILITY: Clean Footer -->
+            <tr>
+              <td align="center" style="padding: 30px 10px 50px 10px; background-color: #f6f9fc;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                  <tr>
+                    <td align="center" style="font-size: 13px; line-height: 20px; color: #94a3b8;">
+                      <p style="margin: 0;">
+                        Questions? Reach out to <a href="mailto:support@freshtropicsasianfruits.com" style="color: #065f46; text-decoration: none; font-weight: 500;">support@freshtropicsasianfruits.com</a>
+                      </p>
+                      <p style="margin: 10px 0 0 0;">
+                        &copy; ${new Date().getFullYear()} Fresh Tropics. All rights reserved.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
         </body>
       </html>
     `
@@ -336,7 +359,7 @@ export async function sendPaymentEmail(order: OrderData): Promise<boolean> {
         // For production, this should be the customer email
         const recipientEmail = process.env.NODE_ENV === 'production' 
           ? order.customerEmail 
-          : 'freshtropicsasianfruits@gmail.com'
+          : 'support@freshtropicsasianfruits.com'
         
         const res = await fetch("https://api.resend.com/emails", {
           method: "POST",
@@ -345,16 +368,16 @@ export async function sendPaymentEmail(order: OrderData): Promise<boolean> {
             Authorization: `Bearer ${process.env.RESEND_API_KEY}`
           },
           body: JSON.stringify({
-            from: "onboarding@resend.dev",
+            from: "onboarding@resend.dev", // Use verified sandbox sender for customer emails during setup
             to: recipientEmail,
-            subject: `🍎 Payment Instructions - Order #${order.orderId}`,
+            subject: ` Payment Instructions - Order #${order.orderId}`,
             html: htmlTemplate,
-            replyTo: "freshtropicsasianfruits@gmail.com"
+            replyTo: "support@freshtropicsasianfruits.com"
           })
         })
         
         if (res.ok) {
-          console.log(`✅ Email sent successfully to: ${recipientEmail}`)
+          console.log(` Email sent successfully to: ${recipientEmail}`)
           return true
         }
         
@@ -366,7 +389,7 @@ export async function sendPaymentEmail(order: OrderData): Promise<boolean> {
     }
 
     // Fallback: log for development
-    console.log(`📧 Payment email would be sent to: ${order.customerEmail}`)
+    console.log(` Payment email would be sent to: ${order.customerEmail}`)
     console.log(`Order: #${order.orderId} | Amount: $${order.total.toFixed(2)} | Method: ${method.name}`)
     return true
   } catch (error) {
@@ -388,7 +411,7 @@ export async function sendPaymentVerificationEmail(data: VerificationData): Prom
         <head><meta charset="utf-8"></head>
         <body style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; color: #333;">
           <div style="background: #10b981; color: white; padding: 30px; border-radius: 8px 8px 0 0;">
-            <h1 style="margin: 0; font-size: 24px;">✅ Payment Verification Received</h1>
+            <h1 style="margin: 0; font-size: 24px;"> Payment Verification Received</h1>
             <p style="margin: 8px 0 0 0; font-size: 14px;">Order #${data.orderId}</p>
           </div>
 
@@ -448,8 +471,8 @@ export async function sendPaymentVerificationEmail(data: VerificationData): Prom
         },
         body: JSON.stringify({
           from: "onboarding@resend.dev",
-          to: "freshtropicsasianfruits@gmail.com",
-          subject: `✅ Payment Verification: Order #${data.orderId} - ${data.transactionId}`,
+          to: "support@freshtropicsasianfruits.com",
+          subject: ` Payment Verification: Order #${data.orderId} - ${data.transactionId}`,
           html: businessHtmlTemplate,
           replyTo: data.customerEmail
         })
@@ -457,7 +480,7 @@ export async function sendPaymentVerificationEmail(data: VerificationData): Prom
       return res.ok
     }
 
-    console.log("📧 Payment verification email (simulated):", data)
+    console.log(" Payment verification email (simulated):", data)
     return true
   } catch (error) {
     console.error("Verification email service error:", error)

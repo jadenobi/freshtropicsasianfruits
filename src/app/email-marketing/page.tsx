@@ -31,7 +31,7 @@ export default function EmailMarketingPage() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-black text-gray-900 mb-2">✉️ Email Marketing</h1>
+          <h1 className="text-4xl font-black text-gray-900 mb-2"> Email Marketing</h1>
           <p className="text-gray-600">Manage campaigns, templates, and subscriber lists</p>
         </div>
 
@@ -71,11 +71,11 @@ export default function EmailMarketingPage() {
                   : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-blue-300'
               }`}
             >
-              {tab === 'dashboard' && '📊 Dashboard'}
-              {tab === 'campaigns' && '📧 Campaigns'}
-              {tab === 'templates' && '📝 Templates'}
-              {tab === 'sequences' && '⏳ Sequences'}
-              {tab === 'subscribers' && '👥 Subscribers'}
+              {tab === 'dashboard' && ' Dashboard'}
+              {tab === 'campaigns' && ' Campaigns'}
+              {tab === 'templates' && ' Templates'}
+              {tab === 'sequences' && ' Sequences'}
+              {tab === 'subscribers' && ' Subscribers'}
             </button>
           ))}
         </div>
@@ -85,7 +85,7 @@ export default function EmailMarketingPage() {
           <div className="space-y-8">
             {/* Campaign Performance */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">📊 Campaign Performance</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> Campaign Performance</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {campaigns.map(campaign => (
                   <div key={campaign.id} className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-all">
@@ -125,7 +125,7 @@ export default function EmailMarketingPage() {
 
             {/* A/B Testing Results */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">🧪 A/B Test Results</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> A/B Test Results</h2>
               <div className="space-y-4">
                 {abTests.map(test => (
                   <div key={test.id} className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-2 border-purple-200">
@@ -151,7 +151,7 @@ export default function EmailMarketingPage() {
 
             {/* Email Sequence Status */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">⏳ Active Email Sequences</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> Active Email Sequences</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {sequences.map(sequence => (
                   <div key={sequence.id} className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-lg border-2 border-blue-200">
@@ -252,7 +252,7 @@ export default function EmailMarketingPage() {
           <div className="space-y-8">
             {/* Welcome Templates */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">🎉 Welcome Series Templates</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> Welcome Series Templates</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {welcomeTemplates.map(template => (
                   <div key={template.id} className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-lg p-4 border-2 border-emerald-200">
@@ -268,7 +268,7 @@ export default function EmailMarketingPage() {
 
             {/* Promotional Templates */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">📢 Promotional Templates</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> Promotional Templates</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {promotionalTemplates.map(template => (
                   <div key={template.id} className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-4 border-2 border-amber-200">
@@ -284,7 +284,7 @@ export default function EmailMarketingPage() {
 
             {/* Abandoned Cart Templates */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">🛒 Abandoned Cart Templates</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> Abandoned Cart Templates</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {abandonedCartTemplates.map(template => (
                   <div key={template.id} className="bg-gradient-to-br from-red-50 to-pink-50 rounded-lg p-4 border-2 border-red-200">
@@ -375,7 +375,7 @@ export default function EmailMarketingPage() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">📋 Recent Subscribers</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6"> Recent Subscribers</h2>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
